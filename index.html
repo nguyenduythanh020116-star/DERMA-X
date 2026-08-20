@@ -909,18 +909,18 @@
         name: "Lan Anh",
         age: 27,
         sex: "Nữ",
-        pregnancy: "none",
-        sunscreenHabit: "spf50",
+        pregnancy: "none", // 'none', 'pregnant', 'lactation', 'pre'
+        sunscreenHabit: "spf50", // 'spf50', 'spf30', 'none'
         medical: [],
-        medication: "none",
-        budget: "dermo"
+        medication: "none", // 'none', 'iso', 'doxy', 'spiro', 'corticoid'
+        budget: "dermo" // 'budget', 'mass', 'dermo', 'luxury'
       },
       skin: {
         sebum: "high", // 'low', 'normal', 'high'
-        sensitivity: "high",
-        barrier: "impaired",
-        acne: "mild",
-        pigment: "pih"
+        sensitivity: "high", // 'low', 'moderate', 'high'
+        barrier: "impaired", // 'intact', 'impaired'
+        acne: "mild", // 'none', 'mild', 'severe'
+        pigment: "pih" // 'low', 'pih', 'melasma'
       },
       env: {
         temp: 32,
@@ -942,6 +942,7 @@
       peptides: "Peptides & Yếu tố tăng trưởng",
       pha: "PHA (Gluconolactone 14%)",
       bha: "Salicylic Acid (BHA 2%)",
+      salicylic: "Salicylic Acid (BHA 2%)",
       glycolic: "Glycolic Acid (AHA 7-10%)",
       lactic: "Lactic Acid (AHA)",
       mandelic: "Mandelic Acid",
@@ -1150,7 +1151,6 @@
       calculateAndRenderAll();
     }
 
-    // Sửa triệt để hàm setSkinParam
     function setSkinParam(param, val) {
       appState.skin[param] = val;
       
@@ -1203,6 +1203,7 @@
       appState.patient.medication = document.getElementById('select-medication').value;
       document.getElementById('patient-summary-badge').innerText = `${appState.patient.name} (${appState.patient.age}t, ${appState.patient.sex})`;
       runSimulation();
+      calculateAndRenderAll();
     }
 
     function updateFreq(val) {
@@ -1211,6 +1212,7 @@
       runSimulation();
     }
 
+    // 🔴 PATCH 1: ĐỒNG BỘ TOÀN DIỆN MỌI HOẠT CHẤT TRONG DROPDOWN VỚI ENGINE TÍNH ĐIỂM
     function calculateClinicalScores(isSimulated = false) {
       let irritationRisk = 20;
       let barrierHealth = 75;
@@ -1266,37 +1268,76 @@
       activeList.forEach(act => {
         const freq = (isSimulated && act === appState.simulatedActive) ? appState.simulatedFreq : 3;
 
+        // 1. Retinoids
         if (['adapalene', 'tretinoin', 'retinol', 'retinal', 'tazarotene', 'trifarotene'].includes(act)) {
-          keratolyticCount++;
-          irritationRisk += freq * 3.5;
-          barrierHealth -= freq * 2.2;
+          keratolyticCount += 1;
+          const factor = act === 'tazarotene' ? 1.4 : (act === 'tretinoin' ? 1.2 : (act === 'adapalene' ? 0.9 : 1.0));
+          irritationRisk += freq * 3.5 * factor;
+          barrierHealth -= freq * 2.2 * factor;
           netBenefit += 15;
         }
-        if (['glycolic', 'bha', 'lactic', 'mandelic'].includes(act)) {
-          keratolyticCount++;
+        // 2. AHAs (Glycolic, Lactic, Mandelic)
+        else if (['glycolic', 'lactic', 'mandelic', 'aha'].includes(act)) {
+          keratolyticCount += 1;
           irritationRisk += freq * 3.8;
           barrierHealth -= freq * 2.8;
           pihRisk += freq * 2.0;
           netBenefit += 12;
         }
-        if (act === 'ceramide' || act === 'panthenol') {
-          irritationRisk = Math.max(10, irritationRisk - 16);
-          barrierHealth = Math.min(95, barrierHealth + 20);
-          pihRisk = Math.max(15, pihRisk - 8);
+        // 3. BHA / Salicylic Acid (ĐÃ ĐỒNG BỘ CẢ 'salicylic' VÀ 'bha')
+        else if (['salicylic', 'bha'].includes(act)) {
+          keratolyticCount += 1;
+          irritationRisk += freq * 2.8;
+          barrierHealth -= freq * 2.0;
+          netBenefit += 14;
+        }
+        // 4. PHA (Gluconolactone - ĐÃ BỔ SUNG)
+        else if (['pha', 'gluconolactone'].includes(act)) {
+          keratolyticCount += 0.4;
+          irritationRisk += freq * 0.9;
+          barrierHealth = Math.max(10, barrierHealth - freq * 0.6);
           netBenefit += 10;
         }
-        if (act === 'niacinamide' || act === 'centella') {
-          irritationRisk = Math.max(10, irritationRisk - 8);
-          barrierHealth = Math.min(95, barrierHealth + 10);
-          pihRisk = Math.max(15, pihRisk - 10);
-        }
-        if (act === 'azelaic') {
-          irritationRisk += 4;
-          pihRisk = Math.max(15, pihRisk - 18);
+        // 5. BPO (Benzoyl Peroxide - ĐÃ BỔ SUNG)
+        else if (['bpo', 'benzoyl'].includes(act)) {
+          keratolyticCount += 0.8;
+          irritationRisk += freq * 3.2;
+          barrierHealth -= freq * 2.2;
           netBenefit += 14;
+        }
+        // 6. Vitamin C / L-Ascorbic Acid (ĐÃ BỔ SUNG)
+        else if (['vitc', 'ascorbic'].includes(act)) {
+          irritationRisk += freq * (uv >= 8 ? 2.4 : 1.8);
+          pihRisk = Math.max(10, pihRisk - freq * 2.0);
+          netBenefit += 14;
+        }
+        // 7. Azelaic Acid
+        else if (['azelaic'].includes(act)) {
+          irritationRisk += freq * 0.9;
+          pihRisk = Math.max(10, pihRisk - freq * 2.5);
+          netBenefit += 14;
+        }
+        // 8. Tranexamic Acid / Thiamidol (ĐÃ BỔ SUNG)
+        else if (['tranexamic', 'thiamidol'].includes(act)) {
+          irritationRisk += freq * 0.5;
+          pihRisk = Math.max(10, pihRisk - freq * 3.0);
+          netBenefit += 15;
+        }
+        // 9. Ceramide / Panthenol
+        else if (['ceramide', 'panthenol'].includes(act)) {
+          irritationRisk = Math.max(5, irritationRisk - 16);
+          barrierHealth = Math.min(98, barrierHealth + 22);
+          netBenefit += 12;
+        }
+        // 10. Niacinamide / Centella / HA / Peptides
+        else if (['niacinamide', 'centella', 'hyaluronic', 'peptides'].includes(act)) {
+          irritationRisk = Math.max(5, irritationRisk - 8);
+          barrierHealth = Math.min(98, barrierHealth + 10);
+          pihRisk = Math.max(10, pihRisk - 10);
         }
       });
 
+      // Compounding penalty
       if (keratolyticCount >= 2) {
         irritationRisk += (keratolyticCount - 1) * 16;
         barrierHealth -= (keratolyticCount - 1) * 14;
@@ -1312,16 +1353,15 @@
       };
     }
 
-    // ĐÃ SỬA: Biện luận động hoàn toàn, KHÔNG tự bịa Retinol/Adapalene khi người dùng không dùng
+    // Biện luận động hoàn toàn dựa trên dữ liệu thực tế
     function generateDermatologicalRationale(before, after) {
       const active = appState.simulatedActive;
       const freq = appState.simulatedFreq;
       const uv = appState.env.uv;
       const skinName = getSkinTypeName();
 
-      // Kiểm tra thực tế xem ca này có đang dùng Retinoid hay không
       const currentRetinoids = appState.currentActives.filter(a => ['adapalene','tretinoin','retinol','retinal','tazarotene','trifarotene'].includes(a));
-      const currentAcids = appState.currentActives.filter(a => ['glycolic','lactic','bha','pha','mandelic'].includes(a));
+      const currentAcids = appState.currentActives.filter(a => ['glycolic','lactic','bha','salicylic','pha','mandelic'].includes(a));
       const hasRetinoid = currentRetinoids.length > 0;
       const hasAcid = currentAcids.length > 0;
 
@@ -1358,20 +1398,43 @@
             <li><em>Cơ sở lâm sàng:</em> Bằng chứng Level 1A (JAAD/Cochrane) chứng minh hiệu quả làm mờ thâm tương đương Hydroquinone 4% với độ an toàn cao.</li>
             <li><em>Cách dùng:</em> Bắt đầu 2 lần/tuần vào buổi sáng kết hợp kem chống nắng.</li>
           </ul>`;
+      } else if (active === 'salicylic' || active === 'bha') {
+        let warnContext = hasRetinoid ? `kết hợp với Retinoid (${currentRetinoids.map(a => ACTIVE_NAME_MAP[a] || a).join(', ')}) tạo áp lực bạt sừng cộng gộp` : `thâm nhập sâu vào bã nhờn nang lông`;
+        interactionText = `<strong>2. Tương tác dược lực sau can thiệp:</strong> <em>Salicylic Acid (BHA 2%)</em> hòa tan bã nhờn, phân giải vi nhân mụn ${warnContext}, điều chỉnh nguy cơ kích ứng lên <strong>${after.irritation}/100</strong> (+${after.irritation - before.irritation} điểm) và nâng chỉ số hiệu quả thuần lên <strong>${after.benefit}/100</strong>.`;
+        pearlsText = `<strong>3. Biện luận y khoa cho đề xuất:</strong>
+          <ul class="list-disc list-inside mt-1 space-y-1 text-[11px] text-brand-muted">
+            <li><em>Cơ sở lâm sàng:</em> BHA thâm nhập sâu vào phức hợp bã nhờn nang lông, giảm bít tắc theo hướng dẫn AAD 2016.</li>
+            <li><em>Cách phối hợp:</em> Nếu dùng chung với Retinoid, bắt buộc dùng xen kẽ ngày (không thoa cùng buổi tối).</li>
+          </ul>`;
+      } else if (active === 'bpo') {
+        interactionText = `<strong>2. Tương tác dược lực sau can thiệp:</strong> <em>Benzoyl Peroxide 2.5-5%</em> giải phóng oxy nguyên tử diệt khuẩn <em>C. acnes</em> không gây kháng thuốc, nâng hiệu quả kiểm soát mụn (+${after.benefit - before.benefit} điểm) nhưng có thể gây khô rát biểu bì nhẹ (nguy cơ kích ứng: <strong>${after.irritation}/100</strong>).`;
+        pearlsText = `<strong>3. Biện luận y khoa cho đề xuất:</strong>
+          <ul class="list-disc list-inside mt-1 space-y-1 text-[11px] text-brand-muted">
+            <li><em>Khuyến cáo phối hợp:</em> Thoa điểm nốt mụn viêm hoặc dùng dạng lưu ngắn tiếp xúc (Short-contact therapy 5-10 phút).</li>
+          </ul>`;
+      } else if (active === 'vitc') {
+        interactionText = `<strong>2. Tương tác dược lực sau can thiệp:</strong> <em>L-Ascorbic Acid 15%</em> chống oxy hóa quang học mạnh mẽ, trung hòa gốc tự do và ức chế melanin (nguy cơ thâm PIH giảm còn <strong>${after.pih}/100</strong>). Do pH acid thấp (~3.0-3.5), có thể gây châm chích nhẹ trong tuần đầu.`;
+        pearlsText = `<strong>3. Biện luận y khoa cho đề xuất:</strong>
+          <ul class="list-disc list-inside mt-1 space-y-1 text-[11px] text-brand-muted">
+            <li><em>Cách dùng:</em> Thoa buổi sáng trước kem chống nắng để tăng hiệu quả quang bảo vệ gấp 8 lần (Nghiên cứu Pinnell et al. 2001).</li>
+          </ul>`;
+      } else if (active === 'tranexamic') {
+        interactionText = `<strong>2. Tương tác dược lực sau can thiệp:</strong> <em>Tranexamic Acid 3-5%</em> ức chế hoạt hóa Plasminogen, giảm tương tác tế bào sừng - hắc tố, làm mờ nám má và thâm đỏ PIE/PIH mà không gây bào mòn lớp sừng (nguy cơ thâm giảm còn <strong>${after.pih}/100</strong>).`;
+        pearlsText = `<strong>3. Biện luận y khoa cho đề xuất:</strong>
+          <ul class="list-disc list-inside mt-1 space-y-1 text-[11px] text-brand-muted">
+            <li><em>Ưu điểm dung nạp:</em> Tương thích tuyệt vời trên da nhạy cảm, có thể kết hợp an toàn cùng Niacinamide và Retinoids.</li>
+          </ul>`;
+      } else if (active === 'pha') {
+        interactionText = `<strong>2. Tương tác dược lực sau can thiệp:</strong> <em>PHA (Gluconolactone 14%)</em> bạt sừng dịu nhẹ tầng mặt nhờ kích thước phân tử lớn, đồng thời đóng vai trò chất giữ ẩm hút nước (Humectant), tăng nhẹ hiệu quả điều trị (+${after.benefit - before.benefit} điểm) mà hầu như không gây tổn thương màng lipid.`;
+        pearlsText = `<strong>3. Biện luận y khoa cho đề xuất:</strong>
+          <ul class="list-disc list-inside mt-1 space-y-1 text-[11px] text-brand-muted">
+            <li><em>Chỉ định lý tưởng:</em> Thay thế AHA cho da nhạy cảm hoặc da đang trong giai đoạn phục hồi màng ẩm.</li>
+          </ul>`;
       } else if (active === 'none') {
         interactionText = `<strong>2. Trạng thái phác đồ hiện tại:</strong> Đang duy trì ổn định. Chưa ghi nhận biến thiên tải kích ứng mới.`;
         pearlsText = `<strong>3. Khuyến nghị duy trì:</strong> Tiếp tục theo dõi dung nạp lâm sàng và duy trì chống nắng nghiêm ngặt.`;
       } else {
-        // Biện luận chính xác theo hoạt chất thật sự có trong routine
-        let contextNote = "";
-        if (hasRetinoid) {
-          contextNote = `kết hợp cùng Retinoid đang dùng (${currentRetinoids.map(a => ACTIVE_NAME_MAP[a] || a).join(', ')}) tạo áp lực bạt sừng kép`;
-        } else if (hasAcid) {
-          contextNote = `kết hợp cùng Acid bạt sừng đang dùng (${currentAcids.map(a => ACTIVE_NAME_MAP[a] || a).join(', ')}) tạo áp lực bạt sừng cộng dồn`;
-        } else {
-          contextNote = `trên nền da có hàng rào biểu bì chưa ổn định`;
-        }
-
+        let contextNote = hasRetinoid ? `kết hợp cùng Retinoid đang dùng (${currentRetinoids.map(a => ACTIVE_NAME_MAP[a] || a).join(', ')}) tạo áp lực bạt sừng kép` : `trên nền da có hàng rào biểu bì chưa ổn định`;
         interactionText = `<strong>2. Tương tác dược lực sau can thiệp:</strong> Bổ sung <em>${ACTIVE_NAME_MAP[active] || active}</em> (${freq}x/tuần) ${contextNote}, làm tăng nguy cơ kích ứng lên <strong>${after.irritation}/100</strong> (+${after.irritation - before.irritation} điểm) dưới tia UV ${uv}.`;
         pearlsText = `<strong>3. Biện luận y khoa cho đề xuất can thiệp:</strong>
           <ul class="list-disc list-inside mt-1 space-y-1 text-[11px] text-brand-muted">
@@ -1404,26 +1467,26 @@
       const deltaPih = after.pih - before.pih;
       const deltaBen = after.benefit - before.benefit;
 
-      document.getElementById('sim-delta-irr').innerText = `(${deltaIrr >= 0 ? '+' : ''}${deltaIrr} ${deltaIrr > 0 ? '↑ Xấu' : '↓ Tốt'})`;
-      document.getElementById('sim-delta-bar').innerText = `(${deltaBar >= 0 ? '+' : ''}${deltaBar} ${deltaBar > 0 ? '↑ Tốt' : '↓ Xấu'})`;
-      document.getElementById('sim-delta-pih').innerText = `(${deltaPih >= 0 ? '+' : ''}${deltaPih} ${deltaPih > 0 ? '↑ Xấu' : '↓ Tốt'})`;
-      document.getElementById('sim-delta-ben').innerText = `(${deltaBen >= 0 ? '+' : ''}${deltaBen} ${deltaBen > 0 ? '↑ Tốt' : '↓ Xấu'})`;
+      document.getElementById('sim-delta-irr').innerText = `(${deltaIrr >= 0 ? '+' : ''}${deltaIrr} ${deltaIrr > 0 ? '↑ Xấu' : (deltaIrr < 0 ? '↓ Tốt' : '=')})`;
+      document.getElementById('sim-delta-bar').innerText = `(${deltaBar >= 0 ? '+' : ''}${deltaBar} ${deltaBar > 0 ? '↑ Tốt' : (deltaBar < 0 ? '↓ Xấu' : '=')})`;
+      document.getElementById('sim-delta-pih').innerText = `(${deltaPih >= 0 ? '+' : ''}${deltaPih} ${deltaPih > 0 ? '↑ Xấu' : (deltaPih < 0 ? '↓ Tốt' : '=')})`;
+      document.getElementById('sim-delta-ben').innerText = `(${deltaBen >= 0 ? '+' : ''}${deltaBen} ${deltaBen > 0 ? '↑ Tốt' : (deltaBen < 0 ? '↓ Xấu' : '=')})`;
 
       const resBox = document.getElementById('sim-result-box');
       const resTitle = document.getElementById('sim-result-title');
       const deltaBadge = document.getElementById('sim-delta-badge');
 
-      if (appState.simulatedActive === 'ceramide' || appState.simulatedActive === 'sunscreen_broad') {
+      if (['ceramide', 'sunscreen_broad', 'tranexamic', 'pha'].includes(appState.simulatedActive)) {
         resBox.className = 'p-3.5 rounded-xl bg-brand-secondary-light/80 border border-brand-secondary/40 space-y-3 transition-all';
-        resTitle.innerHTML = appState.simulatedActive === 'ceramide' ? '✓ Tương thích & Phục hồi màng ẩm vượt trội' : '☀️ Tối ưu hóa quang bảo vệ & Ngừa thâm PIH';
+        resTitle.innerHTML = appState.simulatedActive === 'ceramide' ? '✓ Tương thích & Phục hồi màng ẩm vượt trội' : (appState.simulatedActive === 'sunscreen_broad' ? '☀️ Tối ưu hóa quang bảo vệ & Ngừa thâm PIH' : '✓ Dung nạp êm dịu & Hỗ trợ điều trị an toàn');
         resTitle.className = 'text-xs font-bold text-brand-secondary flex items-center gap-1';
-        deltaBadge.innerHTML = `Lợi ích: Cải thiện an toàn`;
+        deltaBadge.innerHTML = `Lợi ích lâm sàng: +${deltaBen} điểm`;
         deltaBadge.className = 'text-[11px] font-semibold text-brand-secondary bg-white px-2 py-0.5 rounded-md border border-brand-secondary/30';
-      } else if (appState.simulatedActive === 'azelaic') {
+      } else if (['azelaic', 'vitc'].includes(appState.simulatedActive)) {
         resBox.className = 'p-3.5 rounded-xl bg-brand-primary-light/80 border border-brand-primary/40 space-y-3 transition-all';
         resTitle.innerHTML = '● Dung nạp mức độ khá (Kháng viêm & Mờ thâm)';
         resTitle.className = 'text-xs font-bold text-brand-accent flex items-center gap-1';
-        deltaBadge.innerHTML = `Nguy cơ kích ứng: +${deltaIrr} điểm`;
+        deltaBadge.innerHTML = `Hiệu quả mờ thâm: ${deltaPih} điểm`;
         deltaBadge.className = 'text-[11px] font-semibold text-brand-accent bg-white px-2 py-0.5 rounded-md border border-brand-primary/30';
       } else if (appState.simulatedActive === 'none') {
         resBox.className = 'p-3.5 rounded-xl bg-brand-bg border border-brand-border space-y-3 transition-all';
@@ -1484,7 +1547,6 @@
       switchTab('tab-home');
     }
 
-    // ĐÃ SỬA: Nếu không chọn hoạt chất thì không tự ép Adapalene vào phác đồ
     function renderDynamicRoutine() {
       const container = document.getElementById('routine-list-container');
       const view = appState.currentRoutineView;
@@ -1621,7 +1683,66 @@
       renderDynamicRoutine();
     }
 
-    // 🌟 CATEGORY-DIRECTED CLINICAL RECOMMENDATION ENGINE
+    // 🔴 PATCH 2 & 3: GATEKEEPER CHUẨN XÁC VỚI REGEX NỒNG ĐỘ & THUỐC TOÀN THÂN
+    function isContraindicated(p) {
+      const actives = (p.key_actives || '').toLowerCase();
+      const pName = (p.product_name || '').toLowerCase();
+      const cat = p.category || '';
+      const preg = appState.patient.pregnancy;
+      const med = appState.patient.medication;
+
+      // 1. Thai kỳ (Pregnant)
+      if (preg === 'pregnant') {
+        // Chống chỉ định tuyệt đối: Retinoids, Hydroquinone
+        if (actives.includes('tretinoin') || actives.includes('adapalene') || actives.includes('retinol') || 
+            actives.includes('retinal') || actives.includes('tazarotene') || actives.includes('trifarotene') || 
+            actives.includes('hydroquinone') || actives.includes('tri-luma')) {
+          return true;
+        }
+
+        // Regex phủ mọi ký tự Unicode (tiếng Việt, ngoặc đơn, v.v.):
+        if (actives.includes('salicylic') || actives.includes('bha')) {
+          const saMatch = actives.match(/(?:salicylic|bha)[^0-9%]*?([0-9]+(?:\.[0-9]+)?)\s*%/i);
+          if (saMatch) {
+            const conc = parseFloat(saMatch[1]);
+            // Chặn nếu nồng độ >= 2.0% hoặc là dạng lưu/peel mạnh (Mask & Exfoliant)
+            if (conc >= 2.0 || cat === 'Mask & Exfoliant') return true;
+          } else {
+            // NGUYÊN TẮC THẬN TRỌNG Y KHOA (Medical Precautionary Principle):
+            // Với BHA nồng độ UNKNOWN, chặn an toàn nếu là dạng lưu lại (Leave-on), chỉ cho phép nếu là Cleanser rửa trôi
+            if (cat !== 'Cleanser') {
+              return true;
+            }
+          }
+        }
+      }
+
+      // 2. Cho con bú (Lactation)
+      if (preg === 'lactation') {
+        if (actives.includes('tretinoin') || actives.includes('tazarotene') || actives.includes('hydroquinone')) {
+          return true;
+        }
+      }
+
+      // 3. Dự định mang thai (Pre-pregnancy)
+      if (preg === 'pre') {
+        if (actives.includes('tazarotene') || actives.includes('tretinoin') || actives.includes('trifarotene')) {
+          return true;
+        }
+      }
+
+      // 4. Thuốc toàn thân Isotretinoin (Medication === 'iso')
+      if (med === 'iso') {
+        if (actives.includes('tretinoin') || actives.includes('adapalene') || actives.includes('retinol') || 
+            actives.includes('retinal') || actives.includes('tazarotene') || actives.includes('glycolic') || 
+            actives.includes('salicylic') || cat === 'Mask & Exfoliant' || (p.irritation_risk || '').toLowerCase().includes('high')) {
+          return true;
+        }
+      }
+
+      return false;
+    }
+
     function isTargetProduct(p, targetKey) {
       const actives = (p.key_actives || '').toLowerCase();
       const pName = (p.product_name || '').toLowerCase();
@@ -1633,8 +1754,8 @@
       if (targetKey === 'glycolic' || targetKey === 'lactic') {
         return actives.includes('glycolic') || actives.includes('lactic') || actives.includes('aha') || pName.includes('glycolic') || pName.includes('aha');
       }
-      if (targetKey === 'salicylic') {
-        return actives.includes('salicylic') || actives.includes('bha') || pName.includes('bha');
+      if (targetKey === 'salicylic' || targetKey === 'bha') {
+        return actives.includes('salicylic') || actives.includes('bha') || pName.includes('bha') || pName.includes('salicylic');
       }
       if (targetKey === 'pha') {
         return actives.includes('gluconolactone') || actives.includes('pha') || pName.includes('pha');
@@ -1660,47 +1781,47 @@
       return false;
     }
 
+    // 🔴 PATCH 4: BỎ CHẶN CỨNG SÀN 50%, CHO PHÉP ĐIỂM CHUẨN XÁC TỪ 10% ĐẾN 99%
     function calculateBaseProductScore(p) {
-      let score = 60;
+      let score = 55;
       const actives = (p.key_actives || '').toLowerCase();
       const pName = (p.product_name || '').toLowerCase();
       const budget = appState.patient.budget;
       const priceMin = Number(p.price_min) || 0;
       const pTier = (p.price_tier || '').toLowerCase();
 
-      // Gatekeeper: Pregnancy
-      if (appState.patient.pregnancy === 'pregnant') {
-        if (actives.includes('tretinoin') || actives.includes('adapalene') || actives.includes('retinol') || 
-            actives.includes('tazarotene') || actives.includes('trifarotene') || actives.includes('hydroquinone') || 
-            (actives.includes('salicylic acid') && (p.category === 'Mask & Exfoliant' || actives.includes('2%')))) {
-          return -1;
-        }
+      // Gatekeeper check
+      if (isContraindicated(p)) {
+        return -1;
       }
 
       // Barrier & Sensitivity match
       const isLowIrr = (p.irritation_risk || '').toLowerCase().includes('low');
       const isHighBarrier = (p.barrier_support || '').toLowerCase().includes('high');
 
-      if (appState.skin.barrier === 'impaired' && isHighBarrier) score += 10;
+      if (appState.skin.barrier === 'impaired' && isHighBarrier) score += 12;
       if (isLowIrr) score += 8;
+      if ((p.irritation_risk || '').toLowerCase().includes('high')) score -= 22;
       if (appState.skin.sebum === 'high' && (pName.includes('oil control') || pName.includes('kiềm dầu') || actives.includes('zinc'))) {
         score += 6;
       }
 
       // Budget match
       if (budget === 'budget') {
-        if (priceMin <= 300000 || pTier.includes('drugstore') || pTier.includes('mass')) score += 16;
-        else if (priceMin > 800000) score -= 20;
+        if (priceMin <= 300000 || pTier.includes('drugstore') || pTier.includes('mass')) score += 18;
+        else if (priceMin > 1000000) score -= 25;
       } else if (budget === 'mass') {
-        if ((priceMin >= 150000 && priceMin <= 650000) || pTier.includes('drugstore') || pTier.includes('mass')) score += 16;
+        if ((priceMin >= 150000 && priceMin <= 650000) || pTier.includes('drugstore') || pTier.includes('mass')) score += 18;
+        else if (priceMin > 1500000) score -= 20;
       } else if (budget === 'dermo') {
-        if (pTier.includes('dermo') || pTier.includes('prescription') || (priceMin >= 300000 && priceMin <= 1500000)) score += 16;
+        if (pTier.includes('dermo') || pTier.includes('prescription') || (priceMin >= 300000 && priceMin <= 1500000)) score += 18;
       } else if (budget === 'luxury') {
-        if (pTier.includes('luxury') || pTier.includes('high-end') || priceMin >= 1200000) score += 16;
+        if (pTier.includes('luxury') || pTier.includes('high-end') || priceMin >= 1200000) score += 20;
+        else if (priceMin < 250000) score -= 15;
       }
 
       if (p.verified_source_tier === '1') score += 6;
-      return Math.min(99, Math.max(50, Math.round(score)));
+      return Math.min(99, Math.max(10, Math.round(score)));
     }
 
     function calculateAndRenderAll() {
@@ -1727,7 +1848,7 @@
         if (isTargetProduct(p, target)) {
           targetProducts.push({
             ...p,
-            matchScore: Math.min(99, baseScore + 20),
+            matchScore: Math.min(99, baseScore + 25),
             isPrimary: true
           });
         } else {
@@ -1742,7 +1863,6 @@
       targetProducts.sort((a, b) => b.matchScore - a.matchScore);
       companionProducts.sort((a, b) => b.matchScore - a.matchScore);
 
-      // Allocate Top 5
       let top5 = [];
       if (target !== 'none') {
         top5.push(...targetProducts.slice(0, 3));
@@ -1758,7 +1878,6 @@
       filterProducts(appState.selectedCategory);
     }
 
-    // ĐÃ SỬA: Định dạng giá sản phẩm gọn gàng, có nhãn mèo dễ thương
     function renderTop5Recommendations(top5) {
       const container = document.getElementById('top5-recommendation-container');
       if (!container) return;
@@ -1818,7 +1937,6 @@
               </div>
             </div>
 
-            <!-- Recommendation Rationale -->
             <div class="p-2 bg-brand-bg rounded-xl text-[11px] text-brand-text border border-brand-border/60 leading-relaxed">
               <strong class="text-brand-accent font-semibold flex items-center gap-1">
                 <span>Lý do khuyến cáo:</span>
@@ -1838,7 +1956,7 @@
 
       countBadge.innerText = `${list.length} Sản phẩm`;
       if (list.length === 0) {
-        container.innerHTML = `<div class="text-center py-8 text-xs text-brand-muted">Không tìm thấy sản phẩm phù hợp với bộ lọc.</div>`;
+        container.innerHTML = `<div class="text-center py-8 text-xs text-brand-muted">Không tìm thấy sản phẩm phù hợp với bộ lọc và điều kiện an toàn.</div>`;
         return;
       }
 
