@@ -1,0 +1,9 @@
+{
+  "name": "derma-x-v0.7-aesthetic-clinical",
+  "version": "0.7.0",
+  "description": "DERMA-X Aesthetic & Clinical Decision-Support Studio v0.7.0",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  }
+}
