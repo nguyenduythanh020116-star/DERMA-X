@@ -87,24 +87,53 @@
       font-weight: 600 !important;
       box-shadow: 0 1px 4px rgba(0,0,0,0.06);
     }
+    /* Cat Animation Keyframes */
+    @keyframes catBounce {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-4px) rotate(4deg); }
+    }
+    @keyframes catWiggle {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(-10deg); }
+      75% { transform: rotate(10deg); }
+    }
+    @keyframes catPaw {
+      0%, 100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.18); opacity: 1; }
+    }
+    .cat-animate-bounce {
+      display: inline-block;
+      animation: catBounce 2.5s infinite ease-in-out;
+    }
+    .cat-animate-wiggle {
+      display: inline-block;
+      animation: catWiggle 2s infinite ease-in-out;
+    }
+    .cat-animate-paw {
+      display: inline-block;
+      animation: catPaw 1.8s infinite ease-in-out;
+    }
   </style>
 </head>
 <body class="min-h-screen flex flex-col items-center justify-center p-0 sm:p-4 md:p-6 selection:bg-brand-primary-light selection:text-brand-accent">
 
-  <!-- Main App Shell Container -->
+  <!-- Main Container Wrapper -->
   <div class="w-full max-w-xl bg-brand-bg min-h-screen sm:min-h-[890px] sm:max-h-[940px] sm:rounded-[36px] shadow-2xl flex flex-col relative overflow-hidden border border-brand-border/60">
     
-    <!-- Top Header Bar -->
+    <!-- Top Header Bar with Cute Cat Brand -->
     <header class="bg-brand-surface/95 backdrop-blur-md sticky top-0 z-30 px-4 sm:px-5 pt-4 pb-3 border-b border-brand-border/70 flex items-center justify-between">
       <div class="flex items-center space-x-3">
-        <div class="w-10 h-10 rounded-full bg-brand-primary-light border border-brand-primary/40 flex items-center justify-center text-brand-accent font-bold text-sm shadow-sm">
-          <span>DX</span>
+        <div class="w-10 h-10 rounded-full bg-brand-primary-light border border-brand-primary/40 flex items-center justify-center text-brand-accent text-lg shadow-sm">
+          <span class="cat-animate-bounce">🐱</span>
         </div>
         <div>
           <div class="flex items-center space-x-1.5">
-            <h1 class="text-[15px] font-bold text-brand-text tracking-tight">DermaX Chuyên Khoa</h1>
+            <h1 class="text-[15px] font-bold text-brand-text tracking-tight flex items-center gap-1">
+              <span>DermaX Chuyên Khoa</span>
+              <span class="text-xs cat-animate-paw">🐾</span>
+            </h1>
             <span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-brand-secondary-light text-brand-secondary border border-brand-secondary/30">
-              Lâm sàng v0.7
+              v0.7.2
             </span>
           </div>
           <p id="top-patient-summary" class="text-[11px] text-brand-muted font-normal truncate max-w-[210px] sm:max-w-xs">
@@ -115,7 +144,8 @@
 
       <div class="flex items-center space-x-1.5">
         <button onclick="loadSampleClinicalCase()" title="Tải hồ sơ mẫu lâm sàng" class="px-2.5 py-1.5 rounded-xl bg-brand-primary-light hover:bg-brand-primary/30 transition flex items-center space-x-1 border border-brand-primary/30 text-xs text-brand-accent font-semibold">
-          <span>📋 Hồ sơ mẫu</span>
+          <span class="cat-animate-wiggle">📋</span>
+          <span>Hồ sơ mẫu</span>
         </button>
         <button onclick="openExportModal()" title="Xuất hồ sơ ca khám" class="p-2 rounded-xl bg-brand-bg hover:bg-brand-primary-light transition flex items-center justify-center border border-brand-border text-xs text-brand-text">
           <span>📄</span>
@@ -129,12 +159,15 @@
       <!-- ================= TAB 1: 1. ĐÁNH GIÁ DA (CLINICAL INTAKE & SIMULATION) ================= -->
       <section id="tab-eval" class="tab-pane fade-in space-y-3.5">
         
-        <!-- Header Banner of Step 1 -->
+        <!-- Header Banner of Step 1 with Cat Theme -->
         <div class="bg-brand-surface rounded-2xl p-4 shadow-card border border-brand-border/80 flex items-center justify-between">
           <div>
             <div class="flex items-center space-x-1.5">
               <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-brand-primary-light text-brand-accent">BƯỚC 1</span>
-              <h2 class="text-sm font-bold text-brand-text">Khám lâm sàng & Thiết lập phác đồ</h2>
+              <h2 class="text-sm font-bold text-brand-text flex items-center gap-1">
+                <span>Khám lâm sàng & Thiết lập phác đồ</span>
+                <span class="cat-animate-bounce">🐱</span>
+              </h2>
             </div>
             <p class="text-[11px] text-brand-muted mt-0.5">Thiết lập kiểu hình da, routine & mô phỏng mục tiêu điều trị</p>
           </div>
@@ -148,7 +181,10 @@
           <div class="p-3.5 bg-brand-bg/60 border-b border-brand-border/60 flex items-center justify-between cursor-pointer" onclick="toggleAccordion('acc-patient-body')">
             <div class="flex items-center space-x-2">
               <span class="w-6 h-6 rounded-lg bg-brand-primary-light text-brand-accent text-xs flex items-center justify-center font-bold">1</span>
-              <span class="text-xs font-bold text-brand-text">Thông tin bệnh nhân & Bối cảnh lâm sàng</span>
+              <span class="text-xs font-bold text-brand-text flex items-center gap-1">
+                <span>Thông tin bệnh nhân & Bối cảnh lâm sàng</span>
+                <span class="cat-animate-paw text-xs">🐾</span>
+              </span>
             </div>
             <span id="patient-summary-badge" class="text-[11px] text-brand-accent font-semibold">Lan Anh (27t, Nữ)</span>
           </div>
@@ -221,18 +257,22 @@
           </div>
         </div>
 
-        <!-- MODULE 2: KIỂU HÌNH DA & MÔI TRƯỜNG -->
+        <!-- MODULE 2: KIỂU HÌNH DA & MÔI TRƯỜNG (SỬA TRIỆT ĐỂ LỖI DA THƯỜNG / DA KHÔ & NÚT PIH) -->
         <div class="bg-brand-surface rounded-2xl shadow-card border border-brand-border/80 overflow-hidden">
           <div class="p-3.5 bg-brand-bg/60 border-b border-brand-border/60 flex items-center justify-between cursor-pointer" onclick="toggleAccordion('acc-skin-body')">
             <div class="flex items-center space-x-2">
               <span class="w-6 h-6 rounded-lg bg-brand-secondary-light text-brand-secondary text-xs flex items-center justify-center font-bold">2</span>
-              <span class="text-xs font-bold text-brand-text">Kiểu hình da đa trục & Môi trường thực tế</span>
+              <span class="text-xs font-bold text-brand-text flex items-center gap-1">
+                <span>Kiểu hình da đa trục & Môi trường thực tế</span>
+                <span class="cat-animate-bounce text-xs">🐱</span>
+              </span>
             </div>
             <span id="skin-summary-badge" class="text-[11px] text-brand-secondary font-semibold">Da dầu · Nhạy cảm · UV 9</span>
           </div>
 
           <div id="acc-skin-body" class="p-4 space-y-3 text-xs">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <!-- Sebum: SỬA LỖI ĐỂ DA THƯỜNG KHÔNG BỊ COI LÀ DA KHÔ -->
               <div>
                 <label class="block font-semibold mb-1 text-brand-muted">Tuyến bã nhờn (Sebum):</label>
                 <div class="grid grid-cols-3 gap-1 bg-brand-bg p-0.5 rounded-xl border border-brand-border text-center">
@@ -242,6 +282,7 @@
                 </div>
               </div>
 
+              <!-- Sensitivity -->
               <div>
                 <label class="block font-semibold mb-1 text-brand-muted">Mức độ nhạy cảm (Sensitivity):</label>
                 <div class="grid grid-cols-3 gap-1 bg-brand-bg p-0.5 rounded-xl border border-brand-border text-center">
@@ -251,6 +292,7 @@
                 </div>
               </div>
 
+              <!-- Barrier -->
               <div>
                 <label class="block font-semibold mb-1 text-brand-muted">Hàng rào bảo vệ (Skin Barrier):</label>
                 <div class="grid grid-cols-2 gap-1 bg-brand-bg p-0.5 rounded-xl border border-brand-border text-center">
@@ -259,6 +301,7 @@
                 </div>
               </div>
 
+              <!-- Acne -->
               <div>
                 <label class="block font-semibold mb-1 text-brand-muted">Mụn trứng cá (Acne Grade):</label>
                 <div class="grid grid-cols-3 gap-1 bg-brand-bg p-0.5 rounded-xl border border-brand-border text-center">
@@ -268,8 +311,9 @@
                 </div>
               </div>
 
+              <!-- PIH Sắc tố (ĐÃ SỬA CHÍNH XÁC ID VÀ SỰ KIỆN CLICK) -->
               <div class="sm:col-span-2">
-                <label class="block font-semibold mb-1 text-brand-muted">Khuynh hướng sắc tố (PIH / Nám):</label>
+                <label class="block font-semibold mb-1 text-brand-muted">Khuynh hướng sắc tố & Thâm mụn (PIH / Nám):</label>
                 <div class="grid grid-cols-3 gap-1 bg-brand-bg p-0.5 rounded-xl border border-brand-border text-center">
                   <button onclick="setSkinParam('pigment', 'low')" id="btn-pigment-low" class="btn-skin-pigment py-1.5 rounded-lg text-brand-muted">Bình thường</button>
                   <button onclick="setSkinParam('pigment', 'pih')" id="btn-pigment-pih" class="btn-skin-pigment py-1.5 rounded-lg seg-active text-brand-warning">Rất dễ thâm PIH</button>
@@ -278,6 +322,7 @@
               </div>
             </div>
 
+            <!-- Environment Sliders -->
             <div class="pt-2 border-t border-brand-border/60 grid grid-cols-3 gap-2 text-xs">
               <div>
                 <div class="flex justify-between font-medium mb-1">
@@ -309,7 +354,10 @@
           <div class="p-3.5 bg-brand-bg/60 border-b border-brand-border/60 flex items-center justify-between cursor-pointer" onclick="toggleAccordion('acc-actives-body')">
             <div class="flex items-center space-x-2">
               <span class="w-6 h-6 rounded-lg bg-brand-warning-light text-brand-warning text-xs flex items-center justify-center font-bold">3</span>
-              <span class="text-xs font-bold text-brand-text">Hoạt chất trong phác đồ đang dùng</span>
+              <span class="text-xs font-bold text-brand-text flex items-center gap-1">
+                <span>Hoạt chất trong phác đồ đang dùng</span>
+                <span class="cat-animate-paw text-xs">🐾</span>
+              </span>
             </div>
             <span id="active-count-badge" class="text-[11px] text-brand-accent font-semibold">Đã chọn (2)</span>
           </div>
@@ -352,11 +400,12 @@
           </div>
         </div>
 
-        <!-- MODULE 4: MÔ PHỎNG THÊM HOẠT CHẤT MỚI & BÁO CÁO BIỆN LUẬN DƯỢC LÝ -->
+        <!-- MODULE 4: MÔ PHỎNG THÊM HOẠT CHẤT MỚI & BÁO CÁO BIỆN LUẬN DƯỢC LÝ ĐỘNG -->
         <div class="bg-brand-surface rounded-2xl p-4 shadow-card border border-brand-border/80 space-y-3.5">
           <div class="flex items-center justify-between pb-2 border-b border-brand-border/60">
             <h3 class="text-xs font-bold uppercase tracking-wider text-brand-accent flex items-center gap-1.5">
               <span>🔮 4. Mô phỏng bổ sung hoạt chất & Biện luận dược lý</span>
+              <span class="cat-animate-bounce">🐱</span>
             </h3>
           </div>
 
@@ -401,7 +450,7 @@
               </span>
             </div>
 
-            <!-- 4 Metrics Grid with Explicit Guidance -->
+            <!-- 4 Metrics Grid -->
             <div class="grid grid-cols-2 gap-2 text-xs">
               <div class="p-2.5 bg-white/90 rounded-lg border border-brand-border/60">
                 <div class="text-[10px] text-brand-muted font-medium flex justify-between">
@@ -456,16 +505,11 @@
             <div id="sim-detailed-rationale" class="p-3 bg-white/90 rounded-xl border border-brand-border/70 text-[11.5px] space-y-2 text-brand-text leading-relaxed">
               <div class="font-bold text-brand-accent flex items-center gap-1">
                 <span>📑 Báo cáo biện luận cơ chế da liễu chuyên sâu:</span>
+                <span class="cat-animate-paw">🐾</span>
               </div>
-              <div id="sim-baseline-text">
-                <!-- Populated dynamically -->
-              </div>
-              <div id="sim-interaction-text">
-                <!-- Populated dynamically -->
-              </div>
-              <div id="sim-action-pearls">
-                <!-- Populated dynamically -->
-              </div>
+              <div id="sim-baseline-text"></div>
+              <div id="sim-interaction-text"></div>
+              <div id="sim-action-pearls"></div>
             </div>
           </div>
 
@@ -486,7 +530,10 @@
           <div class="flex items-center justify-between pb-2 border-b border-brand-border/50">
             <div class="flex items-center space-x-1.5">
               <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-brand-secondary-light text-brand-secondary">BƯỚC 2</span>
-              <h2 class="text-sm font-bold text-brand-text">Tổng quan lâm sàng & Đánh giá phác đồ</h2>
+              <h2 class="text-sm font-bold text-brand-text flex items-center gap-1">
+                <span>Tổng quan lâm sàng & Đánh giá phác đồ</span>
+                <span class="cat-animate-bounce text-xs">😸</span>
+              </h2>
             </div>
             <button onclick="switchTab('tab-eval')" class="text-[11px] font-semibold text-brand-accent hover:underline flex items-center gap-1">
               <span>✏️ Sửa thông số</span>
@@ -576,9 +623,7 @@
                 <strong class="font-semibold text-brand-accent">Môi trường thực tế:</strong> <span id="dash-env-text">32°C · Độ ẩm 78% · UV Index 9 (Rất cao)</span>.
               </div>
             </div>
-            <div id="dash-sunscreen-status-box" class="text-[11.5px] pl-6 text-brand-text">
-              <!-- Dynamically populated -->
-            </div>
+            <div id="dash-sunscreen-status-box" class="text-[11.5px] pl-6 text-brand-text"></div>
           </div>
         </div>
 
@@ -587,6 +632,7 @@
           <div class="flex items-center justify-between">
             <h3 class="text-[14px] font-bold text-brand-text flex items-center gap-1.5">
               <span>📋 Phác đồ chăm sóc tương ứng</span>
+              <span class="cat-animate-paw text-xs">🐾</span>
             </h3>
             
             <div class="bg-brand-bg p-0.5 rounded-xl border border-brand-border flex text-xs font-medium">
@@ -599,9 +645,7 @@
             </div>
           </div>
 
-          <div id="routine-list-container" class="space-y-2">
-            <!-- Populated dynamically via JS -->
-          </div>
+          <div id="routine-list-container" class="space-y-2"></div>
         </div>
 
         <!-- PRIMARY STEP TRANSITION CTA TO STEP 3 -->
@@ -612,7 +656,7 @@
 
       </section>
 
-      <!-- ================= TAB 3: 3. GỢI Ý SẢN PHẨM & TOP 5 KHUYẾN NGHỊ (ƯU TIÊN MỤC TIÊU ĐIỀU TRỊ) ================= -->
+      <!-- ================= TAB 3: 3. GỢI Ý SẢN PHẨM & TOP 5 KHUYẾN NGHỊ ================= -->
       <section id="tab-prod" class="tab-pane fade-in space-y-4 hidden">
         
         <!-- Header Banner of Step 3 -->
@@ -620,42 +664,46 @@
           <div class="flex items-center justify-between">
             <div class="flex items-center space-x-1.5">
               <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-brand-secondary-light text-brand-secondary">BƯỚC 3</span>
-              <h2 class="text-sm font-bold text-brand-text">Gợi ý sản phẩm chuẩn y khoa</h2>
+              <h2 class="text-sm font-bold text-brand-text flex items-center gap-1">
+                <span>Gợi ý sản phẩm chuẩn y khoa</span>
+                <span class="cat-animate-bounce text-xs">😻</span>
+              </h2>
             </div>
             <span id="product-count-badge" class="text-xs bg-brand-primary-light text-brand-accent px-2.5 py-0.5 rounded-full font-semibold border border-brand-primary/30">
               80 Sản phẩm
             </span>
           </div>
 
-          <!-- EXPLICIT CLINICAL CRITERIA EXPLANATION CARD -->
-          <div class="p-3 bg-brand-bg rounded-xl border border-brand-border/80 text-[11px] text-brand-text space-y-1.5">
+          <!-- Target Banner -->
+          <div class="p-3 bg-brand-bg rounded-xl border border-brand-border/80 text-[11px] text-brand-text space-y-1">
             <div class="font-bold text-brand-accent flex items-center gap-1">
               <span>🎯 Cơ chế ưu tiên sản phẩm theo mục tiêu:</span>
+              <span class="cat-animate-paw">🐾</span>
             </div>
-            <div class="text-[11px] text-brand-muted leading-relaxed" id="recommendation-target-banner">
-              Đang ưu tiên trực tiếp các sản phẩm thuộc nhóm <strong>Chống nắng (Quang bảo vệ)</strong> và hoạt chất đang dùng trong phác đồ.
-            </div>
+            <div class="text-[11px] text-brand-muted leading-relaxed" id="recommendation-target-banner"></div>
           </div>
         </div>
 
-        <!-- 🌟 TOP 5 KHUYẾN NGHỊ ƯU TIÊN VỚI GIẢI THÍCH CHUYÊN MÔN THEO ĐÚNG MỤC TIÊU -->
+        <!-- 🌟 TOP 5 KHUYẾN NGHỊ ƯU TIÊN VỚI TRÌNH BÀY GIÁ GỌN GÀNG KHÔNG TRÀN TAB -->
         <div class="bg-brand-surface rounded-2xl p-4 shadow-card border border-brand-primary/40 space-y-3">
           <div class="flex items-center justify-between">
             <h3 class="text-xs font-bold text-brand-accent uppercase tracking-wider flex items-center gap-1.5">
               <span>🌟 Top 5 Sản phẩm Khuyến Cáo Ưu Tiên</span>
+              <span class="cat-animate-wiggle">✨</span>
             </h3>
-            <span class="text-[10px] text-brand-secondary font-semibold bg-brand-secondary-light px-2 py-0.5 rounded-md border border-brand-secondary/30">Đã cá nhân hóa</span>
+            <span class="text-[10px] text-brand-secondary font-semibold bg-brand-secondary-light px-2 py-0.5 rounded-md border border-brand-secondary/30">Cá nhân hóa</span>
           </div>
 
-          <div id="top5-recommendation-container" class="space-y-3">
-            <!-- Dynamically populated via JS with targeted matching -->
-          </div>
+          <div id="top5-recommendation-container" class="space-y-3"></div>
         </div>
 
         <!-- FULL PRODUCT CATALOG WITH SEARCH & CATEGORY FILTER -->
         <div class="bg-brand-surface rounded-2xl p-4 shadow-card border border-brand-border/80 space-y-3">
           <div class="flex items-center justify-between">
-            <h3 class="text-xs font-bold text-brand-text uppercase tracking-wider">Danh mục 80 sản phẩm da liễu</h3>
+            <h3 class="text-xs font-bold text-brand-text uppercase tracking-wider flex items-center gap-1">
+              <span>Danh mục 80 sản phẩm da liễu</span>
+              <span class="text-xs">🐾</span>
+            </h3>
             <span class="text-[11px] text-brand-muted">Bộ lọc chuyên khoa</span>
           </div>
 
@@ -678,13 +726,12 @@
         </div>
 
         <!-- Product Cards List Container -->
-        <div id="product-card-container" class="space-y-2.5">
-          <!-- Dynamically populated via JS -->
-        </div>
+        <div id="product-card-container" class="space-y-2.5"></div>
 
         <!-- TRANSITION CTA TO STEP 4 -->
         <button onclick="switchTab('tab-know')" class="w-full bg-brand-bg hover:bg-brand-primary-light text-brand-accent font-semibold py-3 px-4 rounded-2xl text-xs border border-brand-border transition flex items-center justify-center space-x-2">
           <span>➔ Tra Cứu Từ Điển Hoạt Chất & Màng Lọc Quang Học (Bước 4)</span>
+          <span class="cat-animate-bounce">😽</span>
         </button>
 
       </section>
@@ -695,7 +742,10 @@
         <div class="bg-brand-surface rounded-2xl p-4 shadow-card border border-brand-border/80 space-y-1.5">
           <div class="flex items-center space-x-1.5">
             <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-brand-secondary-light text-brand-secondary">BƯỚC 4</span>
-            <h2 class="text-sm font-bold text-brand-text">Từ điển dược lý & Màng lọc quang học</h2>
+            <h2 class="text-sm font-bold text-brand-text flex items-center gap-1">
+              <span>Từ điển dược lý & Màng lọc quang học</span>
+              <span class="cat-animate-bounce">😽</span>
+            </h2>
           </div>
           <p class="text-[11px] text-brand-muted">
             Cơ chế tác động dược lý, nồng độ tiêu chuẩn lâm sàng, độ pH tối ưu và lưu ý tương kỵ.
@@ -704,7 +754,6 @@
 
         <!-- Ingredient Accordions List -->
         <div class="space-y-2.5">
-          <!-- Accordions -->
           <div class="bg-brand-surface rounded-2xl p-3.5 shadow-card border border-brand-border/80 cursor-pointer hover:border-brand-primary/60 transition" onclick="toggleAccordion('acc-sunscreen')">
             <div class="flex items-center justify-between">
               <div class="flex items-center space-x-2.5">
@@ -792,25 +841,25 @@
 
     </main>
 
-    <!-- Bottom Navigation Bar (4 Tab Cố Định) -->
+    <!-- Bottom Navigation Bar with Animated Cat Icons -->
     <nav class="bg-brand-surface/95 backdrop-blur-lg border-t border-brand-border/80 absolute bottom-0 left-0 right-0 z-30 px-2 py-2 flex items-center justify-around shadow-nav">
       <button onclick="switchTab('tab-eval')" id="nav-btn-eval" class="nav-btn flex flex-col items-center justify-center py-1 px-2.5 rounded-xl transition text-brand-accent">
-        <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+        <span class="text-base mb-0.5 cat-animate-bounce">🐱</span>
         <span class="text-[10px] font-semibold">1. Đánh giá da</span>
       </button>
 
       <button onclick="switchTab('tab-home')" id="nav-btn-home" class="nav-btn flex flex-col items-center justify-center py-1 px-2.5 rounded-xl transition text-brand-muted hover:text-brand-text">
-        <svg class="w-5 h-5 mb-0.5" fill="currentColor" viewBox="0 0 20 20"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
+        <span class="text-base mb-0.5 cat-animate-paw">😸</span>
         <span class="text-[10px] font-medium">2. Tổng quan</span>
       </button>
 
       <button onclick="switchTab('tab-prod')" id="nav-btn-prod" class="nav-btn flex flex-col items-center justify-center py-1 px-2.5 rounded-xl transition text-brand-muted hover:text-brand-text">
-        <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+        <span class="text-base mb-0.5 cat-animate-wiggle">😻</span>
         <span class="text-[10px] font-medium">3. Gợi ý SP</span>
       </button>
 
       <button onclick="switchTab('tab-know')" id="nav-btn-know" class="nav-btn flex flex-col items-center justify-center py-1 px-2.5 rounded-xl transition text-brand-muted hover:text-brand-text">
-        <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+        <span class="text-base mb-0.5 cat-animate-bounce">😽</span>
         <span class="text-[10px] font-medium">4. Tra cứu</span>
       </button>
     </nav>
@@ -819,7 +868,10 @@
     <div id="modal-export" class="hidden absolute inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
       <div class="bg-brand-surface rounded-3xl p-5 max-w-sm w-full shadow-2xl border border-brand-border space-y-3 max-h-[85vh] overflow-y-auto">
         <div class="flex items-center justify-between pb-2 border-b border-brand-border">
-          <h3 class="text-sm font-bold text-brand-text">Hồ sơ ca lâm sàng Da liễu</h3>
+          <h3 class="text-sm font-bold text-brand-text flex items-center gap-1">
+            <span>Hồ sơ ca lâm sàng Da liễu</span>
+            <span class="text-xs cat-animate-bounce">🐱</span>
+          </h3>
           <button onclick="toggleModal('modal-export')" class="text-brand-muted hover:text-brand-text text-sm">✕</button>
         </div>
         <textarea id="export-text-area" readonly class="w-full h-48 bg-brand-bg border border-brand-border rounded-xl p-3 text-[11px] font-mono text-brand-text focus:outline-none resize-none leading-relaxed"></textarea>
@@ -864,7 +916,7 @@
         budget: "dermo"
       },
       skin: {
-        sebum: "high",
+        sebum: "high", // 'low', 'normal', 'high'
         sensitivity: "high",
         barrier: "impaired",
         acne: "mild",
@@ -913,6 +965,28 @@
       sunscreen_broad: "Kem chống nắng phổ rộng Mexoryl 400 / Zinc Oxide"
     };
 
+    // Helper: Định dạng giá gọn gàng không tràn màn hình
+    function formatCompactPrice(p) {
+      const minP = Number(p.price_min) || 0;
+      const maxP = Number(p.price_max) || 0;
+      if (minP === 0 && p.price_raw) {
+        return p.price_raw.split('(')[0].trim();
+      }
+      if (minP === maxP || maxP === 0) {
+        return minP.toLocaleString('vi-VN') + ' đ';
+      }
+      return minP.toLocaleString('vi-VN') + ' - ' + maxP.toLocaleString('vi-VN') + ' đ';
+    }
+
+    // Helper: Ánh xạ chuẩn kiểu hình da không bị lỗi da thường thành da khô
+    function getSkinTypeName() {
+      const sebum = appState.skin.sebum;
+      const sens = appState.skin.sensitivity === 'high';
+      let name = sebum === 'high' ? 'Da dầu' : (sebum === 'low' ? 'Da khô' : 'Da thường');
+      if (sens) name += ' nhạy cảm';
+      return name;
+    }
+
     window.addEventListener('DOMContentLoaded', () => {
       syncUIFromState();
       calculateAndRenderAll();
@@ -959,7 +1033,7 @@
       appState.patient.medication = "none";
       appState.patient.budget = "dermo";
 
-      appState.skin.sebum = "normal";
+      appState.skin.sebum = "normal"; // Da thường
       appState.skin.sensitivity = "moderate";
       appState.skin.barrier = "intact";
       appState.skin.acne = "none";
@@ -1011,7 +1085,7 @@
       document.querySelectorAll('.nav-btn').forEach(btn => {
         btn.classList.remove('text-brand-accent');
         btn.classList.add('text-brand-muted');
-        const span = btn.querySelector('span');
+        const span = btn.querySelector('span:last-child');
         if (span) span.classList.replace('font-semibold', 'font-medium');
       });
 
@@ -1026,7 +1100,7 @@
       if (activeBtn) {
         activeBtn.classList.remove('text-brand-muted');
         activeBtn.classList.add('text-brand-accent');
-        const span = activeBtn.querySelector('span');
+        const span = activeBtn.querySelector('span:last-child');
         if (span) span.classList.replace('font-medium', 'font-semibold');
       }
 
@@ -1076,6 +1150,7 @@
       calculateAndRenderAll();
     }
 
+    // Sửa triệt để hàm setSkinParam
     function setSkinParam(param, val) {
       appState.skin[param] = val;
       
@@ -1093,7 +1168,8 @@
         }
       }
 
-      document.getElementById('skin-summary-badge').innerText = `${appState.skin.sebum === 'high' ? 'Da dầu' : 'Da khô'} · ${appState.skin.sensitivity === 'high' ? 'Nhạy cảm' : 'Bình thường'} · UV ${appState.env.uv}`;
+      const skinName = getSkinTypeName();
+      document.getElementById('skin-summary-badge').innerText = `${skinName} · UV ${appState.env.uv}`;
       runSimulation();
     }
 
@@ -1102,7 +1178,9 @@
       if (key === 'temp') document.getElementById('lbl-temp').innerText = `${val}°C`;
       if (key === 'humidity') document.getElementById('lbl-humidity').innerText = `${val}%`;
       if (key === 'uv') document.getElementById('lbl-uv').innerText = `UV ${val}`;
-      document.getElementById('skin-summary-badge').innerText = `${appState.skin.sebum === 'high' ? 'Da dầu' : 'Da khô'} · ${appState.skin.sensitivity === 'high' ? 'Nhạy cảm' : 'Bình thường'} · UV ${appState.env.uv}`;
+      
+      const skinName = getSkinTypeName();
+      document.getElementById('skin-summary-badge').innerText = `${skinName} · UV ${appState.env.uv}`;
       runSimulation();
     }
 
@@ -1234,47 +1312,72 @@
       };
     }
 
+    // ĐÃ SỬA: Biện luận động hoàn toàn, KHÔNG tự bịa Retinol/Adapalene khi người dùng không dùng
     function generateDermatologicalRationale(before, after) {
       const active = appState.simulatedActive;
       const freq = appState.simulatedFreq;
       const uv = appState.env.uv;
+      const skinName = getSkinTypeName();
 
-      let baselineText = `<strong>1. Cơ chế bệnh sinh nền da hiện tại (Baseline):</strong> Kiểu hình ${appState.skin.sebum === 'high' ? 'da dầu' : 'da khô'} ${appState.skin.sensitivity === 'high' ? 'nhạy cảm cao' : ''} với hàng rào biểu bì ${appState.skin.barrier === 'impaired' ? 'đang tổn thương' : 'ổn định'} (Điểm rào chắn: ${before.barrier}/100, Điểm kích ứng: ${before.irritation}/100). Hiện tượng mất nước qua biểu bì (TEWL) tăng khiến da dễ kích ứng khi dùng hoạt chất bạt sừng.`;
+      // Kiểm tra thực tế xem ca này có đang dùng Retinoid hay không
+      const currentRetinoids = appState.currentActives.filter(a => ['adapalene','tretinoin','retinol','retinal','tazarotene','trifarotene'].includes(a));
+      const currentAcids = appState.currentActives.filter(a => ['glycolic','lactic','bha','pha','mandelic'].includes(a));
+      const hasRetinoid = currentRetinoids.length > 0;
+      const hasAcid = currentAcids.length > 0;
+
+      let baselineActivesDesc = "";
+      if (appState.currentActives.length === 0) {
+        baselineActivesDesc = "Hiện tại bệnh nhân đang duy trì phác đồ dưỡng ẩm cơ bản, chưa dùng hoạt chất bạt sừng hay Retinoids.";
+      } else {
+        baselineActivesDesc = `Phác đồ hiện hành gồm: ${appState.currentActives.map(a => ACTIVE_NAME_MAP[a] || a).join(', ')}.`;
+      }
+
+      let baselineText = `<strong>1. Cơ chế bệnh sinh nền da hiện tại (Baseline):</strong> Kiểu hình <strong>${skinName}</strong> với hàng rào biểu bì ${appState.skin.barrier === 'impaired' ? 'đang suy giảm/tổn thương' : 'ổn định'} (Điểm hàng rào: ${before.barrier}/100, Điểm kích ứng: ${before.irritation}/100). ${baselineActivesDesc}`;
 
       let interactionText = "";
       let pearlsText = "";
 
       if (active === 'ceramide') {
-        interactionText = `<strong>2. Tương tác dược lực sau can thiệp:</strong> Bổ sung trực tiếp phức hợp lipid sinh lý <em>Ceramides 1,3,6-II : Cholesterol : Acid béo tự do</em> (tỷ lệ 3:1:1) giúp hàn gắn các phiến lipid gian bào (Corneodesmosome), hạ thấp điểm nguy cơ kích ứng xuống <strong>${after.irritation}/100</strong> (-15 điểm) và nâng cao sức khỏe hàng rào lên <strong>${after.barrier}/100</strong> (+14 điểm).`;
+        interactionText = `<strong>2. Tương tác dược lực sau can thiệp:</strong> Bổ sung phức hợp lipid sinh lý <em>Ceramides : Cholesterol : Acid béo</em> (3:1:1) giúp phục hồi các phiến lipid gian bào, hạ thấp điểm nguy cơ kích ứng xuống <strong>${after.irritation}/100</strong> (-15 điểm) và nâng cao sức khỏe hàng rào lên <strong>${after.barrier}/100</strong> (+14 điểm).`;
         pearlsText = `<strong>3. Biện luận y khoa cho đề xuất:</strong>
           <ul class="list-disc list-inside mt-1 space-y-1 text-[11px] text-brand-muted">
-            <li><em>Cơ sở sinh học:</em> Thử nghiệm lâm sàng (JID) chứng minh tỷ lệ lipid 3:1:1 đẩy nhanh tốc độ phục hồi biểu bì gấp 3 lần so với chất dưỡng ẩm đơn thuần.</li>
-            <li><em>Kỹ thuật thoa:</em> Dùng sau Niacinamide và thoa đệm lót trước Retinoids để giảm đỏ rát.</li>
+            <li><em>Cơ sở sinh học:</em> Tỷ lệ lipid sinh lý 3:1:1 đẩy nhanh tốc độ phục hồi biểu bì gấp 3 lần theo thử nghiệm lâm sàng (JID).</li>
+            <li><em>Cách dùng:</em> Dùng sau bước làm sạch/serum cấp nước để khóa ẩm và giảm đỏ rát.</li>
           </ul>`;
       } else if (active === 'sunscreen_broad') {
         interactionText = `<strong>2. Tương tác quang bảo vệ:</strong> Bổ sung màng lọc Mexoryl 400 và Kẽm Oxide hấp thu toàn diện dải sóng UVA cực dài (380-400nm) và UVB, giảm <strong>${before.pih - after.pih} điểm</strong> nguy cơ tăng sắc tố PIH (từ ${before.pih} xuống ${after.pih}/100) và nâng hiệu quả lâm sàng thuần lên <strong>${after.benefit}/100</strong>.`;
         pearlsText = `<strong>3. Biện luận y khoa cho đề xuất:</strong>
           <ul class="list-disc list-inside mt-1 space-y-1 text-[11px] text-brand-muted">
-            <li><em>Cơ sở quang học:</em> Tia UVA1 (380-400nm) chiếm 30% năng lượng mặt trời kích hoạt sắc tố dai dẳng (PPD) mà màng lọc cũ không che chắn được.</li>
-            <li><em>Liều lượng chuẩn:</em> Bắt buộc 2mg/cm² (khoảng 2 đốt ngón tay) thoa lại mỗi 2-3 giờ.</li>
+            <li><em>Cơ sở quang học:</em> Tia UVA1 (380-400nm) kích hoạt hắc tố dai dẳng (PPD) mà các màng lọc cũ bỏ sót.</li>
+            <li><em>Liều lượng chuẩn:</em> Bắt buộc thoa 2mg/cm² (khoảng 2 đốt ngón tay) thoa lại mỗi 2-3 giờ khi ra ngoài trời.</li>
           </ul>`;
       } else if (active === 'azelaic') {
-        interactionText = `<strong>2. Tương tác dược lực sau can thiệp:</strong> <em>Azelaic Acid 15-20%</em> ức chế cạnh tranh chọn lọc enzyme Tyrosinase ở các tế bào tăng sắc tố hoạt động quá mức và ức chế hóa ứng động bạch cầu trung tính. Điểm nguy cơ thâm PIH giảm còn <strong>${after.pih}/100</strong> mà không gây suy giảm màng lipid như AHA/BHA mạnh.`;
+        interactionText = `<strong>2. Tương tác dược lực sau can thiệp:</strong> <em>Azelaic Acid 15-20%</em> ức chế cạnh tranh men Tyrosinase ở các tế bào tăng sắc tố và diệt khuẩn C. acnes. Điểm nguy cơ thâm PIH giảm còn <strong>${after.pih}/100</strong> mà không làm mỏng màng lipid như AHA/BHA mạnh.`;
         pearlsText = `<strong>3. Biện luận y khoa cho đề xuất:</strong>
           <ul class="list-disc list-inside mt-1 space-y-1 text-[11px] text-brand-muted">
-            <li><em>Cơ sở lâm sàng:</em> Bằng chứng Level 1A (JAAD/Cochrane) chứng minh Azelaic 20% có hiệu quả mờ thâm nám tương đương Hydroquinone 4% nhưng an toàn dung nạp cao.</li>
-            <li><em>Cách dùng:</em> Bắt đầu 2 lần/tuần vào buổi sáng kết hợp chống nắng phổ rộng.</li>
+            <li><em>Cơ sở lâm sàng:</em> Bằng chứng Level 1A (JAAD/Cochrane) chứng minh hiệu quả làm mờ thâm tương đương Hydroquinone 4% với độ an toàn cao.</li>
+            <li><em>Cách dùng:</em> Bắt đầu 2 lần/tuần vào buổi sáng kết hợp kem chống nắng.</li>
           </ul>`;
       } else if (active === 'none') {
-        interactionText = `<strong>2. Trạng thái phác đồ hiện tại:</strong> Đang duy trì ổn định với các hoạt chất hiện hành (${appState.currentActives.map(a => ACTIVE_NAME_MAP[a] || a).join(', ')}). Chưa ghi nhận biến thiên tải kích ứng mới.`;
+        interactionText = `<strong>2. Trạng thái phác đồ hiện tại:</strong> Đang duy trì ổn định. Chưa ghi nhận biến thiên tải kích ứng mới.`;
         pearlsText = `<strong>3. Khuyến nghị duy trì:</strong> Tiếp tục theo dõi dung nạp lâm sàng và duy trì chống nắng nghiêm ngặt.`;
       } else {
-        interactionText = `<strong>2. Tương tác dược lực sau can thiệp:</strong> Bổ sung <em>${ACTIVE_NAME_MAP[active] || active}</em> (${freq}x/tuần) tạo áp lực bạt sừng cộng gộp với Retinoid đang dùng. Enzyme phân giải liên kết sừng hoạt động mạnh trên nền hàng rào tổn thương làm bùng phát phản ứng viêm ban đỏ (Erythema) và tăng nguy cơ kích ứng lên <strong>${after.irritation}/100</strong> (+${after.irritation - before.irritation} điểm) dưới tia UV ${uv}.`;
+        // Biện luận chính xác theo hoạt chất thật sự có trong routine
+        let contextNote = "";
+        if (hasRetinoid) {
+          contextNote = `kết hợp cùng Retinoid đang dùng (${currentRetinoids.map(a => ACTIVE_NAME_MAP[a] || a).join(', ')}) tạo áp lực bạt sừng kép`;
+        } else if (hasAcid) {
+          contextNote = `kết hợp cùng Acid bạt sừng đang dùng (${currentAcids.map(a => ACTIVE_NAME_MAP[a] || a).join(', ')}) tạo áp lực bạt sừng cộng dồn`;
+        } else {
+          contextNote = `trên nền da có hàng rào biểu bì chưa ổn định`;
+        }
+
+        interactionText = `<strong>2. Tương tác dược lực sau can thiệp:</strong> Bổ sung <em>${ACTIVE_NAME_MAP[active] || active}</em> (${freq}x/tuần) ${contextNote}, làm tăng nguy cơ kích ứng lên <strong>${after.irritation}/100</strong> (+${after.irritation - before.irritation} điểm) dưới tia UV ${uv}.`;
         pearlsText = `<strong>3. Biện luận y khoa cho đề xuất can thiệp:</strong>
           <ul class="list-disc list-inside mt-1 space-y-1 text-[11px] text-brand-muted">
-            <li><em>Tạm hoãn kết hợp cùng ngày:</em> Tránh bạt sừng kép gây mỏng lớp sừng theo khuyến cáo AAD (JAAD 2016).</li>
-            <li><em>Lịch xen kẽ (Alternate Days):</em> Dùng Retinoid vào tối thứ 2,4,6; hoạt chất bạt sừng (nếu cần) vào tối thứ 3,7; dành các tối còn lại phục hồi lipid.</li>
-            <li><em>Kỹ thuật Sandwich:</em> Bắt buộc dưỡng ẩm phục hồi trước và sau bước thoa hoạt chất mạnh.</li>
+            <li><em>Lịch xen kẽ ngày (Alternate Days):</em> Tránh bạt sừng quá mức theo khuyến cáo điều trị của AAD (JAAD 2016).</li>
+            <li><em>Kỹ thuật Sandwich:</em> Bắt buộc thoa đệm kem dưỡng phục hồi Ceramide trước và sau bước điều trị.</li>
+            <li><em>Quang bảo vệ:</em> Bắt buộc thoa lại kem chống nắng phổ rộng SPF50+ mỗi 2-3 giờ.</li>
           </ul>`;
       }
 
@@ -1373,13 +1476,15 @@
         sunBox.innerHTML = '<span class="text-brand-warning font-bold">🚨 CẢNH BÁO QUAN TRỌNG:</span> Chưa có kem chống nắng bảo vệ! Bắt buộc bổ sung kem chống nắng phổ rộng khi đang dùng Retinoids/Acids để tránh thâm sạm PIH.';
       }
 
-      document.getElementById('top-patient-summary').innerText = `Hồ sơ: ${appState.patient.name}, ${appState.patient.age}t · ${appState.skin.sebum === 'high' ? 'Da dầu' : 'Da khô'} ${appState.skin.sensitivity === 'high' ? 'nhạy cảm' : ''}`;
+      const skinName = getSkinTypeName();
+      document.getElementById('top-patient-summary').innerText = `Hồ sơ: ${appState.patient.name}, ${appState.patient.age}t · ${skinName}`;
 
       renderDynamicRoutine();
       calculateAndRenderAll();
       switchTab('tab-home');
     }
 
+    // ĐÃ SỬA: Nếu không chọn hoạt chất thì không tự ép Adapalene vào phác đồ
     function renderDynamicRoutine() {
       const container = document.getElementById('routine-list-container');
       const view = appState.currentRoutineView;
@@ -1431,8 +1536,37 @@
           </div>
         `;
       } else {
-        let activeLabels = appState.currentActives.map(a => ACTIVE_NAME_MAP[a] || a);
-        if (activeLabels.length === 0) activeLabels = ["Adapalene 0.1% vi hạt"];
+        let activeElements = "";
+        if (appState.currentActives.length === 0) {
+          activeElements = `
+            <div class="flex items-center justify-between p-2.5 rounded-xl bg-brand-secondary-light/40 border border-brand-secondary/30">
+              <div class="flex items-center space-x-2.5">
+                <span class="w-6 h-6 rounded-full bg-brand-secondary-light text-brand-secondary text-xs flex items-center justify-center font-bold">3</span>
+                <div>
+                  <h4 class="text-xs font-semibold text-brand-secondary">Phục hồi & Dưỡng ẩm đệm</h4>
+                  <p class="text-[11px] text-brand-muted">Chưa cài đặt hoạt chất đặc trị mạnh · Giữ màng lipid ổn định</p>
+                </div>
+              </div>
+              <span class="text-[10px] bg-white px-2 py-0.5 rounded-md border border-brand-secondary/30 text-brand-secondary font-medium">Dưỡng êm</span>
+            </div>
+          `;
+        } else {
+          activeElements = appState.currentActives.map((actKey, idx) => {
+            const actName = ACTIVE_NAME_MAP[actKey] || actKey;
+            return `
+              <div class="flex items-center justify-between p-2.5 rounded-xl bg-brand-bg/50 border border-brand-border/50">
+                <div class="flex items-center space-x-2.5">
+                  <span class="w-6 h-6 rounded-full bg-brand-primary-light text-brand-accent text-xs flex items-center justify-center font-bold">${idx + 3}</span>
+                  <div>
+                    <h4 class="text-xs font-semibold text-brand-text">${actName}</h4>
+                    <p class="text-[11px] text-brand-muted">Thoa lượng bằng hạt đậu · Dùng kỹ thuật thoa đệm Sandwich</p>
+                  </div>
+                </div>
+                <span class="text-[10px] bg-brand-primary-light px-2 py-0.5 rounded-md text-brand-accent font-medium">Đặc trị</span>
+              </div>
+            `;
+          }).join('');
+        }
 
         container.innerHTML = `
           <div class="flex items-center justify-between p-2.5 rounded-xl bg-brand-bg/50 border border-brand-border/50">
@@ -1457,22 +1591,11 @@
             <span class="text-[10px] bg-white px-2 py-0.5 rounded-md border border-brand-border text-brand-muted">Làm sạch 2</span>
           </div>
 
-          ${activeLabels.map((actName, idx) => `
-            <div class="flex items-center justify-between p-2.5 rounded-xl bg-brand-bg/50 border border-brand-border/50">
-              <div class="flex items-center space-x-2.5">
-                <span class="w-6 h-6 rounded-full bg-brand-primary-light text-brand-accent text-xs flex items-center justify-center font-bold">${idx + 3}</span>
-                <div>
-                  <h4 class="text-xs font-semibold text-brand-text">${actName}</h4>
-                  <p class="text-[11px] text-brand-muted">Thoa lượng bằng hạt đậu · Dùng kỹ thuật thoa đệm Sandwich</p>
-                </div>
-              </div>
-              <span class="text-[10px] bg-brand-primary-light px-2 py-0.5 rounded-md text-brand-accent font-medium">Đặc trị</span>
-            </div>
-          `).join('')}
+          ${activeElements}
 
           <div class="flex items-center justify-between p-2.5 rounded-xl bg-brand-bg/50 border border-brand-border/50">
             <div class="flex items-center space-x-2.5">
-              <span class="w-6 h-6 rounded-full bg-brand-secondary-light text-brand-secondary text-xs flex items-center justify-center font-bold">${activeLabels.length + 3}</span>
+              <span class="w-6 h-6 rounded-full bg-brand-secondary-light text-brand-secondary text-xs flex items-center justify-center font-bold">${appState.currentActives.length + 3}</span>
               <div>
                 <h4 class="text-xs font-semibold text-brand-text">Kem dưỡng phục hồi màng ẩm B5 & Ceramide 3:1:1</h4>
                 <p class="text-[11px] text-brand-muted">Khóa ẩm tỷ lệ sinh lý, làm dịu châm chích và tái tạo màng tế bào</p>
@@ -1498,7 +1621,7 @@
       renderDynamicRoutine();
     }
 
-    // 🌟 CATEGORY-DIRECTED CLINICAL RECOMMENDATION ENGINE (FIXES USER'S LOGIC BUG)
+    // 🌟 CATEGORY-DIRECTED CLINICAL RECOMMENDATION ENGINE
     function isTargetProduct(p, targetKey) {
       const actives = (p.key_actives || '').toLowerCase();
       const pName = (p.product_name || '').toLowerCase();
@@ -1550,7 +1673,7 @@
         if (actives.includes('tretinoin') || actives.includes('adapalene') || actives.includes('retinol') || 
             actives.includes('tazarotene') || actives.includes('trifarotene') || actives.includes('hydroquinone') || 
             (actives.includes('salicylic acid') && (p.category === 'Mask & Exfoliant' || actives.includes('2%')))) {
-          return -1; // Excluded
+          return -1;
         }
       }
 
@@ -1590,7 +1713,7 @@
         } else if (target !== 'none') {
           banner.innerHTML = `🎯 Đang ưu tiên trực tiếp các sản phẩm chứa <strong>${ACTIVE_NAME_MAP[target] || target}</strong> theo mục tiêu mô phỏng, kèm các sản phẩm phục hồi đệm màng lipid.`;
         } else {
-          banner.innerHTML = `🎯 Đang đề xuất các sản phẩm tối ưu cho kiểu hình da <strong>${appState.skin.sebum === 'high' ? 'da dầu' : 'da khô'} nhạy cảm</strong> và ngân sách đã chọn.`;
+          banner.innerHTML = `🎯 Đang đề xuất các sản phẩm tối ưu cho kiểu hình <strong>${getSkinTypeName()}</strong> và ngân sách đã chọn.`;
         }
       }
 
@@ -1602,7 +1725,7 @@
         if (baseScore < 0) return;
 
         if (isTargetProduct(p, target)) {
-          targetProducts.append ? targetProducts.append(p) : targetProducts.push({
+          targetProducts.push({
             ...p,
             matchScore: Math.min(99, baseScore + 20),
             isPrimary: true
@@ -1635,6 +1758,7 @@
       filterProducts(appState.selectedCategory);
     }
 
+    // ĐÃ SỬA: Định dạng giá sản phẩm gọn gàng, có nhãn mèo dễ thương
     function renderTop5Recommendations(top5) {
       const container = document.getElementById('top5-recommendation-container');
       if (!container) return;
@@ -1650,7 +1774,8 @@
       container.innerHTML = top5.map((p, idx) => {
         const badge = rankBadges[idx] || rankBadges[4];
         const icon = p.category === 'Cleanser' ? '🫧' : (p.category === 'Sunscreen' ? '☀️' : (p.category === 'Moisturizer' ? '🧴' : '🧪'));
-        
+        const cleanPrice = formatCompactPrice(p);
+
         let rationale = "";
         if (p.isPrimary) {
           if (p.category === 'Sunscreen') {
@@ -1664,34 +1789,42 @@
           } else if (p.category === 'Cleanser') {
             rationale = "Làm sạch đệm: pH sinh lý 5.5 giúp loại bỏ dầu thừa mà không làm tổn thương lớp vữa lipid gian bào.";
           } else {
-            rationale = `Sản phẩm tương thích cao với kiểu hình da ${appState.skin.sebum === 'high' ? 'dầu' : 'khô'} và ngân sách đã chọn.`;
+            rationale = `Sản phẩm tương thích cao với kiểu hình ${getSkinTypeName()} và ngân sách đã chọn.`;
           }
         }
 
         return `
           <div onclick="openProductDetail('${p.product_id}')" class="p-3.5 rounded-2xl bg-brand-surface border ${idx === 0 ? 'border-brand-primary shadow-soft' : 'border-brand-border/80'} space-y-2 hover:border-brand-accent/60 transition cursor-pointer">
             <div class="flex items-start justify-between space-x-2">
-              <div class="flex items-center space-x-2.5">
+              <div class="flex items-center space-x-2.5 min-w-0 flex-1">
                 <div class="w-10 h-10 rounded-xl bg-brand-primary-light/60 flex items-center justify-center text-lg flex-shrink-0">
                   ${icon}
                 </div>
-                <div class="min-w-0">
-                  <div class="flex items-center space-x-1.5">
+                <div class="min-w-0 flex-1">
+                  <div class="flex items-center space-x-1.5 flex-wrap gap-y-1">
                     <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border ${badge.color}">
                       ${badge.label} · Phù hợp ${p.matchScore}%
                     </span>
-                    ${p.isPrimary ? '<span class="text-[9.5px] bg-brand-accent text-white px-1.5 py-0.2 rounded font-semibold">Mục tiêu</span>' : ''}
+                    ${p.isPrimary ? '<span class="text-[9px] bg-brand-accent text-white px-1.5 py-0.2 rounded font-semibold">Mục tiêu</span>' : ''}
                   </div>
                   <h4 class="text-xs font-bold text-brand-text truncate mt-1">${p.product_name}</h4>
                   <p class="text-[11px] text-brand-muted truncate">${p.brand} · ${p.subcategory || p.category}</p>
                 </div>
               </div>
-              <span class="text-[11px] font-bold text-brand-accent whitespace-nowrap">${p.price_raw || (Number(p.price_min).toLocaleString('vi-VN') + ' đ')}</span>
+              <div class="text-right flex-shrink-0 ml-2">
+                <span class="text-[11px] font-bold text-brand-accent px-2 py-0.5 bg-brand-primary-light/50 rounded-lg border border-brand-primary/20 whitespace-nowrap block">
+                  ${cleanPrice}
+                </span>
+              </div>
             </div>
 
             <!-- Recommendation Rationale -->
             <div class="p-2 bg-brand-bg rounded-xl text-[11px] text-brand-text border border-brand-border/60 leading-relaxed">
-              <strong class="text-brand-accent font-semibold">Lý do khuyến cáo:</strong> ${rationale}
+              <strong class="text-brand-accent font-semibold flex items-center gap-1">
+                <span>Lý do khuyến cáo:</span>
+                <span class="cat-animate-paw text-[10px]">🐾</span>
+              </strong>
+              <span>${rationale}</span>
             </div>
           </div>
         `;
@@ -1713,9 +1846,11 @@
         const score = p.matchScore || calculateBaseProductScore(p);
         const isSafe = (p.irritation_risk || '').toLowerCase().includes('low');
         const icon = p.category === 'Cleanser' ? '🫧' : (p.category === 'Sunscreen' ? '☀️' : (p.category === 'Moisturizer' ? '🧴' : '🧪'));
+        const cleanPrice = formatCompactPrice(p);
+
         return `
           <div onclick="openProductDetail('${p.product_id}')" class="bg-brand-surface rounded-2xl p-3.5 shadow-card border border-brand-border/80 flex space-x-3 items-center hover:border-brand-primary/60 transition cursor-pointer">
-            <div class="w-14 h-14 rounded-xl bg-brand-primary-light/50 border border-brand-primary/20 flex items-center justify-center text-xl flex-shrink-0">
+            <div class="w-12 h-12 rounded-xl bg-brand-primary-light/50 border border-brand-primary/20 flex items-center justify-center text-lg flex-shrink-0">
               ${icon}
             </div>
             <div class="flex-1 min-w-0">
@@ -1723,7 +1858,7 @@
                 <span class="text-[10px] font-bold text-brand-secondary bg-brand-secondary-light px-2 py-0.2 rounded border border-brand-secondary/20">
                   Phù hợp ${score}%
                 </span>
-                <span class="text-[11px] font-bold text-brand-accent">${p.price_raw || (Number(p.price_min).toLocaleString('vi-VN') + ' đ')}</span>
+                <span class="text-[11px] font-bold text-brand-accent truncate max-w-[140px] text-right ml-2">${cleanPrice}</span>
               </div>
               <h3 class="text-xs font-bold text-brand-text truncate mt-1">${p.product_name}</h3>
               <p class="text-[11px] text-brand-muted truncate">${p.brand} · ${p.subcategory || p.category}</p>
@@ -1780,7 +1915,7 @@
         <div class="p-2.5 rounded-xl bg-brand-bg border border-brand-border space-y-1.5">
           <div><strong>Thương hiệu:</strong> ${prod.brand} (${prod.origin || 'Pháp/Mỹ/Hàn'})</div>
           <div><strong>Phân loại:</strong> ${prod.category} · ${prod.subcategory || ''}</div>
-          <div><strong>Khoảng giá:</strong> <span class="text-brand-accent font-bold">${prod.price_raw || (Number(prod.price_min).toLocaleString('vi-VN') + ' đ')}</span></div>
+          <div><strong>Khoảng giá:</strong> <span class="text-brand-accent font-bold">${formatCompactPrice(prod)}</span></div>
         </div>
         <div class="space-y-1">
           <strong>Hoạt chất chính (INCI):</strong>
@@ -1820,17 +1955,17 @@
         `Tình trạng thai kỳ: ${packet.patient.pregnancy}\n` +
         `Chống nắng: ${packet.patient.sunscreenHabit === 'spf50' ? 'Có dùng SPF50+ PA++++' : 'Chưa dùng / Không đều'}\n` +
         `Ngân sách: ${packet.patient.budget}\n` +
-        `Kiểu hình da: ${packet.skinPhenotype.sebum === 'high' ? 'Da dầu' : 'Da khô'}, ${packet.skinPhenotype.sensitivity === 'high' ? 'Nhạy cảm cao' : 'Nhạy cảm vừa'}, Hàng rào: ${packet.skinPhenotype.barrier}\n` +
+        `Kiểu hình da: ${getSkinTypeName()}, Hàng rào: ${packet.skinPhenotype.barrier === 'impaired' ? 'Đang tổn thương' : 'Nguyên vẹn'}\n` +
         `Môi trường: ${packet.environment.temp}°C, Độ ẩm ${packet.environment.humidity}%, UV Index ${packet.environment.uv}\n\n` +
         `HOẠT CHẤT TRONG PHÁC ĐỒ:\n` +
-        packet.currentActives.map(a => `• ${a}`).join('\n') + `\n\n` +
+        (packet.currentActives.length > 0 ? packet.currentActives.map(a => `• ${a}`).join('\n') : '• Chưa dùng hoạt chất đặc trị') + `\n\n` +
         `ĐÁNH GIÁ CHUYÊN KHOA (TIÊU CHUẨN ĐỊNH LƯỢNG):\n` +
         `• Nguy cơ kích ứng (Càng cao càng xấu): ${packet.clinicalScores.irritationRisk}\n` +
         `• Sức khỏe hàng rào bảo vệ (Càng cao càng tốt): ${packet.clinicalScores.barrierHealth}\n` +
         `• Nguy cơ thâm sau mụn PIH (Càng cao càng xấu): ${packet.clinicalScores.pihRisk}\n` +
         `• Hiệu quả điều trị thuần (Càng cao càng tốt): ${packet.clinicalScores.netBenefit}\n\n` +
         `LƯU Ý LÂM SÀNG & QUANG BẢO VỆ:\n` +
-        `Bắt buộc chống nắng phổ rộng SPF50+ PA++++ và thoa đệm phục hồi Ceramide 3:1:1 khi dùng Retinoids dưới chỉ số UV cao.`;
+        `Bắt buộc chống nắng phổ rộng SPF50+ PA++++ và thoa đệm phục hồi Ceramide 3:1:1 khi dùng Retinoids/Acids dưới chỉ số UV cao.`;
 
       document.getElementById('export-text-area').value = formatted;
       toggleModal('modal-export');
