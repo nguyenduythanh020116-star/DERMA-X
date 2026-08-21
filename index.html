@@ -133,7 +133,7 @@
               <span class="text-xs cat-animate-paw">🐾</span>
             </h1>
             <span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-brand-secondary-light text-brand-secondary border border-brand-secondary/30">
-              v0.7.2
+              v0.7.7
             </span>
           </div>
           <p id="top-patient-summary" class="text-[11px] text-brand-muted font-normal truncate max-w-[210px] sm:max-w-xs">
@@ -417,7 +417,7 @@
               <option value="ceramide">💧 Phức hợp Ceramide 3:1:1 + Panthenol 5% (Phục hồi màng ẩm)</option>
               <option value="azelaic">🎯 Azelaic Acid 15-20% (Kháng viêm, mờ thâm đỏ & đen)</option>
               <option value="glycolic">✨ Glycolic Acid 7-10% (AHA bạt sừng & sáng da)</option>
-              <option value="salicylic">🧪 Salicylic Acid 2% (BHA sạch sâu bã nhờn nang lông)</option>
+              <option value="bha">🧪 Salicylic Acid 2% (BHA sạch sâu bã nhờn nang lông)</option>
               <option value="pha">🌿 PHA 14% (Gluconolactone bạt sừng dịu nhẹ & giữ ẩm)</option>
               <option value="bpo">🛡️ Benzoyl Peroxide 2.5-5% (Diệt khuẩn C. acnes)</option>
               <option value="vitc">🌟 L-Ascorbic Acid 15% (Vitamin C nguyên chất sáng da)</option>
@@ -510,6 +510,16 @@
               <div id="sim-baseline-text"></div>
               <div id="sim-interaction-text"></div>
               <div id="sim-action-pearls"></div>
+            </div>
+
+            <!-- Chú thích & Nút áp dụng mô phỏng vào phác đồ (Lỗi 3 Fix) -->
+            <div class="pt-2 border-t border-brand-border/60 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div class="text-[10.5px] text-brand-muted italic">
+                * Đây là kết quả mô phỏng dự đoán tương tác, chưa được áp dụng vào phác đồ thực tế.
+              </div>
+              <button id="btn-apply-sim-active" onclick="applySimulatedActiveToRoutine()" class="px-3 py-1.5 rounded-xl bg-brand-accent text-white hover:bg-brand-accent-hover transition text-[11px] font-bold shadow-sm flex items-center justify-center gap-1">
+                <span>➕ Áp dụng hoạt chất này vào phác đồ</span>
+              </button>
             </div>
           </div>
 
@@ -1547,11 +1557,71 @@
       switchTab('tab-home');
     }
 
+    // Áp dụng hoạt chất mô phỏng vào phác đồ thực tế (Fix Lỗi 3)
+    function applySimulatedActiveToRoutine() {
+      const act = appState.simulatedActive;
+      if (!act || act === 'none') {
+        alert('Vui lòng chọn một hoạt chất cụ thể trong danh sách mô phỏng để áp dụng.');
+        return;
+      }
+      if (act === 'sunscreen_broad') {
+        appState.patient.sunscreenHabit = 'spf50';
+        document.getElementById('select-sunscreen-habit').value = 'spf50';
+      } else {
+        if (!appState.currentActives.includes(act)) {
+          appState.currentActives.push(act);
+          const btn = document.getElementById('act-' + act);
+          if (btn) btn.classList.add('chip-active');
+          document.getElementById('active-count-badge').innerText = `Đã chọn (${appState.currentActives.length})`;
+        }
+      }
+      applyAndSyncToDashboard();
+      alert(`Đã áp dụng ${ACTIVE_NAME_MAP[act] || act} vào phác đồ chăm sóc da thực tế!`);
+    }
+
+    // Render phác đồ AM/PM động hoàn toàn (Fix Lỗi 4)
     function renderDynamicRoutine() {
       const container = document.getElementById('routine-list-container');
       const view = appState.currentRoutineView;
 
       if (view === 'am') {
+        // Lọc các hoạt chất an toàn / tối ưu dùng ban ngày (loại bỏ Retinoids và Peel mạnh chỉ dùng tối)
+        const amDayActives = appState.currentActives.filter(a => ['vitc', 'niacinamide', 'azelaic', 'tranexamic', 'panthenol', 'hyaluronic', 'centella', 'peptides', 'ceramide'].includes(a));
+        
+        let amActiveElements = "";
+        if (amDayActives.length > 0) {
+          amActiveElements = amDayActives.map((actKey, idx) => {
+            const actName = ACTIVE_NAME_MAP[actKey] || actKey;
+            return `
+              <div class="flex items-center justify-between p-2.5 rounded-xl bg-brand-bg/50 border border-brand-border/50">
+                <div class="flex items-center space-x-2.5">
+                  <span class="w-6 h-6 rounded-full bg-brand-primary-light text-brand-accent text-xs flex items-center justify-center font-bold">${idx + 3}</span>
+                  <div>
+                    <h4 class="text-xs font-semibold text-brand-text">${actName}</h4>
+                    <p class="text-[11px] text-brand-muted">Thoa trước bước kem chống nắng · Tăng cường bảo vệ da ban ngày</p>
+                  </div>
+                </div>
+                <span class="text-[10px] bg-brand-primary-light px-2 py-0.5 rounded-md text-brand-accent font-medium">Hoạt chất sáng</span>
+              </div>
+            `;
+          }).join('');
+        } else {
+          amActiveElements = `
+            <div class="flex items-center justify-between p-2.5 rounded-xl bg-brand-bg/50 border border-brand-border/50">
+              <div class="flex items-center space-x-2.5">
+                <span class="w-6 h-6 rounded-full bg-brand-secondary-light text-brand-secondary text-xs flex items-center justify-center font-bold">3</span>
+                <div>
+                  <h4 class="text-xs font-semibold text-brand-text">Dưỡng ẩm / Serum phục hồi dịu nhẹ</h4>
+                  <p class="text-[11px] text-brand-muted">Cấp ẩm cơ bản trước khi thoa kem chống nắng</p>
+                </div>
+              </div>
+              <span class="text-[10px] bg-white px-2 py-0.5 rounded-md border border-brand-border text-brand-muted">Cấp ẩm</span>
+            </div>
+          `;
+        }
+
+        const sunStepIndex = amDayActives.length > 0 ? (amDayActives.length + 3) : 4;
+
         container.innerHTML = `
           <div class="flex items-center justify-between p-2.5 rounded-xl bg-brand-bg/50 border border-brand-border/50">
             <div class="flex items-center space-x-2.5">
@@ -1575,20 +1645,11 @@
             <span class="text-[10px] bg-brand-secondary-light px-2 py-0.5 rounded-md text-brand-secondary font-medium">Cấp ẩm</span>
           </div>
 
-          <div class="flex items-center justify-between p-2.5 rounded-xl bg-brand-bg/50 border border-brand-border/50">
-            <div class="flex items-center space-x-2.5">
-              <span class="w-6 h-6 rounded-full bg-brand-primary-light text-brand-accent text-xs flex items-center justify-center font-bold">3</span>
-              <div>
-                <h4 class="text-xs font-semibold text-brand-text">Tinh chất Niacinamide 5% (hoặc Azelaic 15%)</h4>
-                <p class="text-[11px] text-brand-muted">Kiềm dầu sinh lý, kháng viêm & ức chế vận chuyển melanosome</p>
-              </div>
-            </div>
-            <span class="text-[10px] bg-brand-primary-light px-2 py-0.5 rounded-md text-brand-accent font-medium">Hoạt chất</span>
-          </div>
+          ${amActiveElements}
 
           <div class="flex items-center justify-between p-2.5 rounded-xl bg-brand-primary-light/80 border border-brand-primary/40 shadow-sm">
             <div class="flex items-center space-x-2.5">
-              <span class="w-6 h-6 rounded-full bg-brand-accent text-white text-xs flex items-center justify-center font-bold">4</span>
+              <span class="w-6 h-6 rounded-full bg-brand-accent text-white text-xs flex items-center justify-center font-bold">${sunStepIndex}</span>
               <div>
                 <h4 class="text-xs font-bold text-brand-accent">Sữa chống nắng phổ rộng SPF50+ PA++++ (Mexoryl 400)</h4>
                 <p class="text-[11px] text-brand-text font-medium">Bảo vệ quang học bắt buộc · Chống tia UVA cực dài 380-400nm</p>
