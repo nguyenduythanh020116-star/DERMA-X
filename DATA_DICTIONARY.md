@@ -1,48 +1,40 @@
-# DERMA-X Product Database & Clinical Entities — Data Dictionary (v2.0 Schema)
+# DERMA-X Product Database — Data Dictionary (v0.6.0 Schema)
 
-## 1. Danh Mục Biến Số Lâm Sàng (Clinical Variables)
-
-| Tên biến số | Kiểu dữ liệu | Giá trị hợp lệ | Định nghĩa Y khoa |
-| :--- | :--- | :--- | :--- |
-| `acne_iga` | Integer | `0, 1, 2, 3, 4` | Thang điểm đánh giá mụn toàn cầu IGA (JAAD Criteria). |
-| `fitzpatrick` | Integer | `1, 2, 3, 4, 5, 6` | Phân loại tuýp da theo Fitzpatrick (Độ nhạy cảm ánh sáng & sắc tố). |
-| `barrier` | String | `normal, mild, moderate, severe` | Cấp độ toàn vẹn hàng rào lipid biểu bì (Stratum Corneum). |
-| `symptoms` | Array[String] | `stinging, flaking, tightness, burning` | Triệu chứng cơ năng suy yếu hàng rào. |
-| `phenotypes` | Array[String] | `comedonal, papular, pustular, nodular` | Kiểu hình tổn thương mụn cơ bản. |
-| `scarring_type` | String | `none, atrophic_icepick, atrophic_boxcar, atrophic_rolling, hypertrophic, keloid` | Biến dạng sẹo thực thể. |
-| `pregnancy` | String | `none, pregnant, lactation, planning` | Trạng thái thai kỳ & cho con bú (Gatekeeper an toàn). |
-| `actives` | Array[String] | `adapalene, bha, aha, bpo, azelaic, tretinoin, retinol, vit_c...` | Hoạt chất đang sử dụng trong chu trình hiện tại. |
-| `red_flags` | Array[String] | `acute_rash, systemic_fever, mucosal_ulcer, nodulocystic_rapid...` | Dấu hiệu cảnh báo đỏ y khoa. |
+## 1. Mục Đích & Nguyên Tắc Phương Pháp Luận
+Cơ sở dữ liệu sản phẩm của DERMA-X được thiết kế cho hệ thống hỗ trợ ra quyết định lâm sàng da liễu (*Clinical Decision-Support System*), tuân thủ các nguyên tắc y khoa khắt khe:
+- **Tách biệt cấp độ chứng cứ (*Evidence Separation*)**: Phân biệt tuyệt đối giữa chứng cứ cho hoạt chất (*ingredient-level*) và thử nghiệm lâm sàng trên thành phẩm thương mại (*product-level*).
+- **Phân tầng dữ liệu thật (*Data Confidence Tiering*)**: Không tự động gán nhãn "High", đánh giá dựa trên tiêu chí nguồn có DOI/PMID và nồng độ công bố chính thức.
+- **Nguồn dữ liệu xác thực (*Verified Source Hierarchy*)**:
+  - **Tier 1 (High)**: FDA NDA, EMA SmPC, thử nghiệm lâm sàng đối chứng ngẫu nhiên (RCT) có DOI/PMID, dược điển / nhãn thuốc chính thức.
+  - **Tier 2 (Medium)**: Hồ sơ công bố chính thức của hãng (*Brand Dossier*), cơ sở dữ liệu CosIng (EU), INCI chính ngạch.
+  - **Tier 3 (Low)**: Nhãn bao bì bán lẻ (*Retail description*), tuyên bố tiếp thị chưa kiểm chứng (*unverified: true*).
+- **Chống bịa số liệu (*No Speculation Principle*)**: Nếu nồng độ hoạt chất không được công bố chính thức trong hồ sơ/nhãn thuốc, bắt buộc ghi .
 
 ---
 
-## 2. Cấu Trúc Trường Cơ Sở Dữ Liệu Sản Phẩm (26 Trường Chuẩn Hóa)
+## 2. Cấu Trúc Trường Dữ Liệu (Schema Definition)
 
-| STT | Tên Trường (Field) | Kiểu Dữ Liệu | Mô Tả & Tiêu Chuẩn Lâm Sàng |
+| Tên Trường (Field) | Kiểu Dữ Liệu | Bắt Buộc | Mô Tả & Tiêu Chuẩn Lâm Sàng |
 | :--- | :--- | :--- | :--- |
-| 1 | `stt` | String | Số thứ tự định danh sản phẩm (1 – 80). |
-| 2 | `product_id` | String | Mã định danh duy nhất (VD: `BIODERMA_SENSIBIO_H2O`). |
-| 3 | `product_name` | String | Tên thương mại chính xác của sản phẩm. |
-| 4 | `brand` | String | Thương hiệu sản xuất. |
-| 5 | `origin` | String | Quốc gia xuất xứ (Pháp, Mỹ, Hàn Quốc, Đức...). |
-| 6 | `category` | String | Phân loại chính (Cleanser, Treatment, Moisturizer, Sunscreen). |
-| 7 | `subcategory` | String | Phân nhóm chi tiết (Micellar Water, Gel Cleanser, BHA Liquid...). |
-| 8 | `price_tier` | String | Phân khúc giá (Drugstore, Dermocosmetics, High-end, Prescription). |
-| 9 | `price_min` | String | Giá tối thiểu tham khảo tại thị trường Việt Nam (VNĐ). |
-| 10 | `price_max` | String | Giá tối đa tham khảo tại thị trường Việt Nam (VNĐ). |
-| 11 | `price_raw` | String | Chuỗi hiển thị dung tích & mức giá đầy đủ. |
-| 12 | `key_actives` | String | Danh sách hoạt chất chính kèm nồng độ định lượng. |
-| 13 | `formulation_source_type`| String | Nguồn trích xuất công thức (Brand Dossier, SmPC, CosIng, FDA). |
-| 14 | `formulation_source_url` | String | Link tham chiếu nguồn công thức hoặc đơn vị phân phối. |
-| 15 | `manufacturer_claim` | String | Tuyên bố hiệu quả chính thức từ nhà sản xuất. |
-| 16 | `clinical_evidence` | String | Dữ liệu thử nghiệm lâm sàng In Vivo / In Vitro có đối chứng. |
-| 17 | `verified_source_tier` | String | Phân tầng nguồn chứng cứ (Tier 1, Tier 2, Tier 3). |
-| 18 | `verification_date` | String | Ngày kiểm định dữ liệu (YYYY-MM-DD). |
-| 19 | `data_confidence` | String | Thang điểm tin cậy dữ liệu (High, Medium, Low). |
-| 20 | `evidence_level` | String | Cấp bậc bằng chứng lâm sàng (Level A, B, C, D). |
-| 21 | `irritation_risk` | String | Mức độ nguy cơ kích ứng (Low, Medium, High). |
-| 22 | `barrier_support` | String | Khả năng hỗ trợ & phục hồi hàng rào lipid (High, Medium, Low). |
-| 23 | `inci_breakdown` | String | **[MỚI]** Phân tích hệ nền, chất hoạt động bề mặt & hệ bảo quản. |
-| 24 | `mechanism_of_action` | String | **[MỚI]** Cơ chế tác động dược lý tế bào và lâm sàng (MoA). |
-| 25 | `comedogenic_index` | Integer | **[MỚI]** Chỉ số bít tắc lỗ chân lông (Thang 0 – 5). |
-| 26 | `barrier_tolerance` | String | **[MỚI]** Mức độ dung nạp rào cản sinh học (Cao / Trung bình / Cẩn trọng). |
+|  | Integer | Có | Số thứ tự định danh trong database. |
+|  | String | Có | Mã định danh duy nhất (VD: ). |
+|  | String | Có | Tên thương mại đầy đủ của sản phẩm. |
+|  | String | Có | Thương hiệu sản xuất & tập đoàn chủ quản. |
+|  | String | Có | Xuất xứ / Quốc gia sản xuất. |
+|  | String | Có | Phân loại chính: , , , , , . |
+|  | String | Có | Phân loại chi tiết (Micellar Water, Barrier Cream, Prescription Retinoid...). |
+|  | String | Có | 4 Phân khúc giá: , , , . |
+|  /  | Integer | Có | Khoảng giá tham khảo tại thị trường Việt Nam (VNĐ). |
+|  | Array[Object] | Có | Danh sách hoạt chất chính: . Nồng độ ghi rõ % hoặc . |
+|  | String | Có | **[MỚI]** Nguồn trích xuất INCI/công thức (SmPC, FDA, CosIng, Brand Dossier). |
+|  | Object | Có | **[MỚI]** Tuyên bố của hãng: . |
+|  | Array[Object] | Có | **[MỚI]** Bằng chứng lâm sàng có DOI/PMID kèm  ( hoặc ). |
+|  | String/Null | Có | **[MỚI]** Link DOI hoặc PubMed ID trực tiếp đến nghiên cứu gốc. |
+|  | String | Có | **[MỚI]** Phân cấp nguồn: , , . |
+|  | String | Có | **[MỚI]** Ngày kiểm định dữ liệu (YYYY-MM-DD). |
+|  | String | Có | Thang điểm tin cậy: , , . |
+|  | String | Có | Mô tả cấp độ bằng chứng thực tế. |
+|  | String | Có | Nguy cơ kích ứng: , , . |
+|  | String | Có | Mức độ hỗ trợ hàng rào lipid: , , . |
+|  | String | Có | Mức độ tương thích da mụn: , , . |
+| | String | Có | An toàn sau xâm lấn / peel / laser:  / . |

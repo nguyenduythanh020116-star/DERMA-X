@@ -21,11 +21,7 @@
     "data_confidence": "Low",
     "evidence_level": "Clinical Study (In Vivo 10-33 subjects reported in raw data)",
     "irritation_risk": "Low",
-    "barrier_support": "Medium",
-    "inci_breakdown": "Hệ nền: Micellar Water | Hoạt chất chính: Hạt Micelles (PEG-6 Caprylic/Capric Glycerides) (UNKNOWN); Phức hợp D.A.F. (Dermatological Advanced Formulation) (UNKNOWN); Chiết xuất dưa leo (Cucumis Sativus Fruit Extract) (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Loại bỏ 99% lớp trang điểm, 98% bụi siêu mịn PM2.5 và 78% kim loại nặng; không cần rửa lại",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Medium"
   },
   {
     "stt": "2",
@@ -49,11 +45,7 @@
     "data_confidence": "Low",
     "evidence_level": "Clinical Study (In Vivo 20-33 volunteers reported in raw data)",
     "irritation_risk": "Low",
-    "barrier_support": "Low",
-    "inci_breakdown": "Hệ nền: Micellar Water | Hoạt chất chính: Phức hợp điều hòa bã nhờn Fluidactiv® (UNKNOWN); Kẽm Gluconate (Zinc Gluconate) (UNKNOWN); Đồng Sulfate (Copper Sulfate) (UNKNOWN); Chiết xuất lá bạch quả (Ginkgo Biloba Leaf Extract) (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Làm sạch mà không làm khô da (95%), thanh lọc da tinh khiết (95%), loại bỏ 93% vi hạt trên da",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Low"
   },
   {
     "stt": "3",
@@ -77,11 +69,7 @@
     "data_confidence": "Low",
     "evidence_level": "Manufacturer Claim / Consumer Product Testing",
     "irritation_risk": "Low",
-    "barrier_support": "Low",
-    "inci_breakdown": "Hệ nền: Bi-Phase Cleanser | Hoạt chất chính: Bi-Phase Micellar Technology (Lớp dầu làm sạch + Lớp nước Micellar) (UNKNOWN); Nước khoáng tự nhiên Vosges (UNKNOWN); Glycerin (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Làm sạch sâu lớp trang điểm cứng đầu và chống trôi không nhờn dính",
-    "comedogenic_index": 0,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Low"
   },
   {
     "stt": "4",
@@ -105,11 +93,7 @@
     "data_confidence": "Low",
     "evidence_level": "Manufacturer Claim / Global Consumer Testing",
     "irritation_risk": "Low",
-    "barrier_support": "Medium",
-    "inci_breakdown": "Hệ nền: Cleansing Balm | Hoạt chất chính: Zero Balance Technology (Phức hợp làm sạch nhũ hóa) (UNKNOWN); Chiết xuất quả sơ-ri Acerola (Malpighia Glabra Fruit Extract) (UNKNOWN); Onsen-Water (Nước khoáng nhiệt) (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Bán chạy số 1 Hàn Quốc, tẩy sạch lớp trang điểm chống trôi mà không để lại cặn nhờn",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Medium"
   },
   {
     "stt": "5",
@@ -133,11 +117,7 @@
     "data_confidence": "Low",
     "evidence_level": "Dermatological Testing / OTC Monograph",
     "irritation_risk": "Low",
-    "barrier_support": "Medium",
-    "inci_breakdown": "Hệ nền: Foaming Gel Cleanser | Hoạt chất chính: Nước khoáng nhiệt La Roche-Posay (Thermal Spring Water) (UNKNOWN); Kẽm PCA (Zinc PCA) (UNKNOWN); Coco-Betaine surfactant (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Công thức oil-free, không xà phòng, không cồn, kiểm soát bóng nhờn và giảm mụn đầu đen",
-    "comedogenic_index": 0,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Medium"
   },
   {
     "stt": "6",
@@ -161,11 +141,7 @@
     "data_confidence": "Low",
     "evidence_level": "Dermatological Formulation / Clinical Testing",
     "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Foaming Gel Cleanser | Hoạt chất chính: Ceramide NP (Ceramide 3) (UNKNOWN); Ceramide AP (Ceramide 6-II) (UNKNOWN); Ceramide EOP (Ceramide 1) (UNKNOWN); Niacinamide (Vitamin B3) (UNKNOWN); Hyaluronic Acid (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Phát triển cùng bác sĩ da liễu, phục hồi màng bảo vệ tự nhiên với 3 Ceramide thiết yếu",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "High"
   },
   {
     "stt": "7",
@@ -189,11 +165,7 @@
     "data_confidence": "Medium",
     "evidence_level": "Manufacturer Claim / OTC Formulation",
     "irritation_risk": "Low",
-    "barrier_support": "Medium",
-    "inci_breakdown": "Hệ nền: Low pH Gel Cleanser | Hoạt chất chính: Betaine Salicylate (BHA tự nhiên) (0.5%); Tinh dầu tràm trà (Melaleuca Alternifolia Leaf Oil) (UNKNOWN); Allantoin (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Độ pH chuẩn 4.5-5.5, không cồn, không sulfate, không paraben",
-    "comedogenic_index": 0,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Medium"
   },
   {
     "stt": "8",
@@ -217,11 +189,7 @@
     "data_confidence": "Low",
     "evidence_level": "Clinical Dermatological Testing",
     "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Gentle Non-Foaming Cleanser | Hoạt chất chính: Niacinamide (Vitamin B3) (UNKNOWN); Panthenol (Pro-Vitamin B5) (UNKNOWN); Glycerin (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Bảo vệ chống lại 5 dấu hiệu nhạy cảm, công thức không bọt không xà phòng được kiểm nghiệm da liễu",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "High"
   },
   {
     "stt": "9",
@@ -245,11 +213,7 @@
     "data_confidence": "High",
     "evidence_level": "Published Research (Journal of European Academy of Dermatology and Venerology, 2016 cited in raw data)",
     "irritation_risk": "Medium",
-    "barrier_support": "Low",
-    "inci_breakdown": "Hệ nền: Chemical Exfoliant (BHA) | Hoạt chất chính: Salicylic Acid (BHA) (2%); Chiết xuất trà xanh (Camellia Oleifera Leaf Extract) (UNKNOWN); Methylpropanediol (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Công thức 2% BHA nền Butylene Glycol tối ưu thẩm thấu, không hương liệu, không cồn",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Low"
   },
   {
     "stt": "10",
@@ -273,11 +237,7 @@
     "data_confidence": "Low",
     "evidence_level": "Manufacturer Claim / In Vitro Moisturization Testing",
     "irritation_risk": "Low",
-    "barrier_support": "Medium",
-    "inci_breakdown": "Hệ nền: Hydrating Toner | Hoạt chất chính: Sodium Hyaluronate (UNKNOWN); Phyto-Oligo (Chiết xuất rễ Althaea Rosea & Lô hội) (UNKNOWN); Chiết xuất rau má (Centella Asiatica Extract) (UNKNOWN); Wheat Amino Acids (UNKNOWN); Beta-Glucan (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Kéo dài độ ẩm hơn 20% so với toner thường, không tinh dầu, không hương liệu, không cồn",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Medium"
   },
   {
     "stt": "11",
@@ -301,11 +261,7 @@
     "data_confidence": "Medium",
     "evidence_level": "Scientific AHA Monograph / Manufacturer Specification",
     "irritation_risk": "High",
-    "barrier_support": "Low",
-    "inci_breakdown": "Hệ nền: Chemical Exfoliant (AHA) | Hoạt chất chính: Glycolic Acid (AHA) (7%); Tasmanian Pepperberry derivative (UNKNOWN); Panax Ginseng Root Extract (UNKNOWN); Aloe Barbadensis Leaf Water (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Nồng độ 7% Glycolic Acid kèm dẫn xuất tiêu Tasmania giảm kích ứng acid",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Low"
   },
   {
     "stt": "12",
@@ -329,11 +285,7 @@
     "data_confidence": "Low",
     "evidence_level": "Manufacturer Claim / In Vivo Moisture Retention Testing",
     "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Hydrating Lotion | Hoạt chất chính: Phức hợp 7 loại Hyaluronic Acid (UNKNOWN); Sacran (Chiết xuất tảo bẹ Aphanothece Sacrum Polysaccharide) (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: 7 loại HA chuyên sâu + Sacran ngậm nước gấp 5 lần HA, duy trì độ ẩm suốt 24h",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "High"
   },
   {
     "stt": "13",
@@ -357,11 +309,7 @@
     "data_confidence": "Medium",
     "evidence_level": "Clinical Literature on 10% Niacinamide & 1% Zinc PCA",
     "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Sebum Control & Anti-Blemish Serum | Hoạt chất chính: Niacinamide (Vitamin B3) (10%); Zinc PCA (1%)",
-    "mechanism_of_action": "Tác động lâm sàng: Giảm bã nhờn, thông thoáng chân lông và mờ thâm sau mụn",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "High"
   },
   {
     "stt": "14",
@@ -385,11 +333,7 @@
     "data_confidence": "Medium",
     "evidence_level": "Clinical Testing under Dermatological Control",
     "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Barrier Repair & Hydration Serum | Hoạt chất chính: Panthenol (Pro-Vitamin B5) (5%); Hyaluronic Acid Duo (High & Low Molecular Weight) (UNKNOWN); Madecassoside (Chiết xuất rau má) (UNKNOWN); Nước khoáng La Roche-Posay (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Phục hồi da săn chắc, làm mờ nếp nhăn mảnh và tái tạo màng bảo vệ sau liệu trình",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "High"
   },
   {
     "stt": "15",
@@ -413,11 +357,7 @@
     "data_confidence": "Low",
     "evidence_level": "Proprietary Clinical & In Vitro Chronobiology Research",
     "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Anti-Aging & Cellular Repair Serum | Hoạt chất chính: Tripeptide-32 (Chronolux™ Technology) (UNKNOWN); Bifida Ferment Lysate (UNKNOWN); Lactobacillus Ferment (UNKNOWN); Sodium Hyaluronate & Squalane (UNKNOWN); Kola Seed Extract & Caffeine (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Công nghệ độc quyền Chronolux Power Signal kích hoạt tái tạo collagen và bảo vệ chống oxy hóa 8H",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "High"
   },
   {
     "stt": "16",
@@ -441,11 +381,7 @@
     "data_confidence": "Low",
     "evidence_level": "Clinical Study on 3-O-Ethyl Ascorbic Acid",
     "irritation_risk": "Low",
-    "barrier_support": "Medium",
-    "inci_breakdown": "Hệ nền: Brightening & Dark Spot Serum | Hoạt chất chính: Activated C (3-O-Ethyl Ascorbic Acid) (UNKNOWN); White Birch Extract (Chiết xuất Bạch dương trắng) (UNKNOWN); Peony Extract (Chiết xuất Hoa mẫu đơn) (UNKNOWN); Salicylic Acid (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Activated C ổn định 100% không bị đổi màu/oxy hóa, làm mờ thâm nám rõ rệt gấp 2 lần",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Medium"
   },
   {
     "stt": "17",
@@ -469,11 +405,7 @@
     "data_confidence": "Medium",
     "evidence_level": "Published Peer-Reviewed Clinical Trial (Dermatologic Surgery, 2001; Pinnell et al.)",
     "irritation_risk": "Medium",
-    "barrier_support": "Low",
-    "inci_breakdown": "Hệ nền: Antioxidant Serum (Vitamin C) | Hoạt chất chính: L-Ascorbic Acid (Vitamin C tinh khiết) (15%); Alpha Tocopherol (Vitamin E) (1%); Ferulic Acid (0.5%)",
-    "mechanism_of_action": "Tác động lâm sàng: Bằng sáng chế Duke Antioxidant Patent, bảo vệ da gấp 8 lần trước tổn thương oxy hóa môi trường",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Low"
   },
   {
     "stt": "18",
@@ -497,11 +429,7 @@
     "data_confidence": "Medium",
     "evidence_level": "Manufacturer Testing / In Vitro Glycosaminoglycan Studies",
     "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Snail Mucin Essence | Hoạt chất chính: Snail Secretion Filtrate (Dịch nhầy ốc sên) (96.3%); Sodium Hyaluronate (UNKNOWN); Panthenol (Pro-Vitamin B5) (UNKNOWN); Allantoin & Arginine (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: 96.3% Dịch tiết ốc sên tự nhiên nuôi dưỡng và tái tạo làn da tổn thương",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "High"
   },
   {
     "stt": "19",
@@ -525,11 +453,7 @@
     "data_confidence": "Medium",
     "evidence_level": "Published Dermatological Studies on Centella Asiatica Phytocompounds",
     "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Centella Soothing Ampoule | Hoạt chất chính: Centella Asiatica Extract (Rau má Madagascar) (100%); Madecassoside, Asiaticoside, Asiatic Acid, Madecassic Acid (Natural Bio-Components)",
-    "mechanism_of_action": "Tác động lâm sàng: 100% chiết xuất rau má Madagascar tự nhiên lành tính, không chứa bất kỳ chất bảo quản hay phụ gia tổng hợp nào",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "High"
   },
   {
     "stt": "20",
@@ -553,11 +477,7 @@
     "data_confidence": "Medium",
     "evidence_level": "Approved Dermatological Drug Monograph / Multi-center Clinical Trials",
     "irritation_risk": "Medium",
-    "barrier_support": "Low",
-    "inci_breakdown": "Hệ nền: Topical Retinoid (Adapalene) | Hoạt chất chính: Adapalene (Dạng vi hạt microsphere) (0.1%)",
-    "mechanism_of_action": "Tác động lâm sàng: Adapalene vi hạt 0.1% tiêu nhân mụn hiệu quả, ít kích ứng hơn Tretinoin thế hệ cũ",
-    "comedogenic_index": 0,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Low"
   },
   {
     "stt": "21",
@@ -581,11 +501,7 @@
     "data_confidence": "Medium",
     "evidence_level": "FDA Approved Drug Monograph / Decades of Global Dermatological Clinical Trials",
     "irritation_risk": "High",
-    "barrier_support": "Low",
-    "inci_breakdown": "Hệ nền: Topical Retinoid (Tretinoin) | Hoạt chất chính: Tretinoin (All-trans retinoic acid) (0.05%)",
-    "mechanism_of_action": "Tác động lâm sàng: Tiêu chuẩn vàng đảo ngược lão hóa quang học và điều trị mụn tầng sâu được FDA phê duyệt",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Low"
   },
   {
     "stt": "22",
@@ -609,11 +525,7 @@
     "data_confidence": "Medium",
     "evidence_level": "Level 1A Evidence (Guidelines of Care for the Management of Acne Vulgaris - JAAD)",
     "irritation_risk": "High",
-    "barrier_support": "Low",
-    "inci_breakdown": "Hệ nền: Combination Acne Therapy | Hoạt chất chính: Adapalene (0.1%); Benzoyl Peroxide (2.5%)",
-    "mechanism_of_action": "Tác động lâm sàng: Phác đồ phối hợp liều cố định hàng đầu thế giới được các hướng dẫn AAD/EADV khuyến cáo độ A",
-    "comedogenic_index": 0,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Low"
   },
   {
     "stt": "23",
@@ -637,11 +549,7 @@
     "data_confidence": "Medium",
     "evidence_level": "Clinical Literature on 20% Azelaic Acid in PIE/PIH & Acne",
     "irritation_risk": "Low",
-    "barrier_support": "Medium",
-    "inci_breakdown": "Hệ nền: Azelaic Acid Spot & Field Treatment | Hoạt chất chính: Azelaic Acid (20%); Ubiquinone (Coenzyme Q10) (UNKNOWN); Ascorbic Acid & Tocopherol (UNKNOWN); Centella Asiatica Extract (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Giảm thâm đỏ và mụn dịu nhẹ, an toàn dung nạp cao trên làn da nhạy cảm",
-    "comedogenic_index": 0,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Medium"
   },
   {
     "stt": "24",
@@ -665,11 +573,7 @@
     "data_confidence": "Medium",
     "evidence_level": "Level 1 Evidence (Cochrane Review & JAAD Guidelines for Melasma & Rosacea)",
     "irritation_risk": "Low (châm chích nhẹ 5 phút đầu do acid tinh khiết)",
-    "barrier_support": "Medium",
-    "inci_breakdown": "Hệ nền: Azelaic Acid Cream (Clinical Grade) | Hoạt chất chính: Azelaic Acid (Clinical Grade) (20%)",
-    "mechanism_of_action": "Tác động lâm sàng: Được phê duyệt quốc tế cho Melasma và Rosacea, an toàn cho phụ nữ mang thai",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Medium"
   },
   {
     "stt": "25",
@@ -693,11 +597,7 @@
     "data_confidence": "High",
     "evidence_level": "Level 1A Multicenter Double-blind RCT",
     "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Barrier Repair Balm | Hoạt chất chính: Panthenol (Pro-Vitamin B5) (5%); Phức hợp tiền sinh học Tribioma (Prebiotics complex) (UNKNOWN); Madecassoside (Chiết xuất rau má) (UNKNOWN); Butyrospermum Parkii (Shea Butter) (UNKNOWN); Kẽm Gluconate & Mangan (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Phục hồi da sau 1 giờ, ứng dụng công nghệ vi sinh Tribioma độc quyền, an toàn cho trẻ sơ sinh và da sau thủ thuật",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "High"
   },
   {
     "stt": "26",
@@ -721,11 +621,7 @@
     "data_confidence": "Medium",
     "evidence_level": "Published Clinical Trials in Post-procedure & Pediatric Wound Care",
     "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Barrier Repair Cream | Hoạt chất chính: [C+-Restore] (Postbiotic patented active derived from Avène Thermal Spring Water) (UNKNOWN); Kẽm Oxide (Zinc Oxide) (4%); Đồng Sulfate (Copper Sulfate) & Kẽm Sulfate (UNKNOWN); Avène Thermal Spring Water (45%)",
-    "mechanism_of_action": "Tác động lâm sàng: Làm lành da sau 48H, giảm 84% cảm giác khó chịu ngay lần đầu thoa",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "High"
   },
   {
     "stt": "27",
@@ -749,11 +645,7 @@
     "data_confidence": "Low",
     "evidence_level": "Dermatologist Tested / Clinical Hydration Assay",
     "irritation_risk": "Low",
-    "barrier_support": "Medium",
-    "inci_breakdown": "Hệ nền: Hydrating Water Gel | Hoạt chất chính: Hyaluronic Acid (UNKNOWN); Olive Extract (Cetearyl Olivate & Sorbitan Olivate) (UNKNOWN); Glycerin & Dimethicone polymer matrix (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Cấp nước 72H, công thức không dầu (Oil-free), không gây mụn (Non-comedogenic)",
-    "comedogenic_index": 0,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Medium"
   },
   {
     "stt": "28",
@@ -777,11 +669,7 @@
     "data_confidence": "Low",
     "evidence_level": "Clinical Corneometry & Clinical Grading (100-hour retention study)",
     "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Auto-Replenishing Gel-Cream | Hoạt chất chính: Aloe Bioferment (Men sinh học lô hội) (UNKNOWN); Hyaluronic Acid Duo (UNKNOWN); Activated Aloe Water (UNKNOWN); Caffeine & Green Tea extract (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Cấp ẩm xuyên suốt 100 giờ kể cả sau khi rửa mặt, thấm sâu 10 tầng biểu bì, 100% không hương liệu",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "High"
   },
   {
     "stt": "29",
@@ -805,11 +693,7 @@
     "data_confidence": "Low",
     "evidence_level": "Published Clinical Photobiology Trial / In Vivo SPF & PPD Testing",
     "irritation_risk": "Low",
-    "barrier_support": "Medium",
-    "inci_breakdown": "Hệ nền: Oil Control Sunscreen Fluid | Hoạt chất chính: Mexoryl 400 (Methoxypropylamino Cyclohexenylidene Ethoxyethylcyanoacetate) (UNKNOWN); Airlicium (Silica silylate lipid absorber) (UNKNOWN); Netlock Technology polymer network (UNKNOWN); Nước khoáng La Roche-Posay (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: PPD 55.8 bảo vệ chống tia UVA cực dài 380-400nm, kiềm dầu 12H, kháng trôi cao",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Medium"
   },
   {
     "stt": "30",
@@ -833,11 +717,7 @@
     "data_confidence": "Low",
     "evidence_level": "Clinical In Vivo Water Resistance & SPF50+ PA++++ Testing",
     "irritation_risk": "Low",
-    "barrier_support": "Medium",
-    "inci_breakdown": "Hệ nền: Water-Resistant Sunscreen Milk | Hoạt chất chính: Zinc Oxide & Titanium Dioxide (Phổ khoáng) (UNKNOWN); Organic UV Filters (Octocrylene, Uvinul A Plus, Tinosorb S, Ensulizole) (UNKNOWN); Auto Veil & Auto Booster Technology (UNKNOWN); Kyoto Uji Green Tea Extract, Soluble Collagen, Super HA (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Công nghệ Auto Veil tự phục hồi màng bảo vệ, 50% dưỡng da, chống nước 80 phút, chống bụi PM2.5",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Medium"
   },
   {
     "stt": "31",
@@ -861,11 +741,7 @@
     "data_confidence": "Low",
     "evidence_level": "Clinical In Vivo SPF 50+ & PA++++ Testing (Korea Dermatology Research Institute)",
     "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Hydrating Sun Serum | Hoạt chất chính: Hyalu-Cica Complex (Centella Asiatica Extract + Hyaluronic Acid) (UNKNOWN); Modern Chemical UV Filters (Uvinul A Plus, Tinosorb M, Uvinul T 150, Iscotrizinol) (UNKNOWN); Niacinamide & Adenosine (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Top 1 kem chống nắng bán chạy Olive Young Hàn Quốc, kết cấu serum mỏng nhẹ như nước",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "High"
   },
   {
     "stt": "32",
@@ -889,11 +765,7 @@
     "data_confidence": "Medium",
     "evidence_level": "Clinical In Vivo Mineral SPF50+ & Safety Dermatological Testing",
     "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: 100% Mineral Physical Sunscreen | Hoạt chất chính: Zinc Oxide & Titanium Dioxide (100% Mineral Filters) (UNKNOWN); Centella Asiatica Extract (Rau má Madagascar) (29.4%); Madewhite™ (Dẫn xuất rau má làm sáng da) (UNKNOWN); Niacinamide (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: 100% màng lọc vật lý nano-free, an toàn cho trẻ em và phụ nữ mang thai, không cay mắt",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "High"
   },
   {
     "stt": "33",
@@ -917,11 +789,7 @@
     "data_confidence": "High",
     "evidence_level": "Product-level Level 1A Multicenter Double-blind RCT (JAAD 2006) + FDA NDA 021112 Approved",
     "irritation_risk": "High",
-    "barrier_support": "Low",
-    "inci_breakdown": "Hệ nền: Prescription Pigment Combination | Hoạt chất chính: Hydroquinone (4.0% w/w); Tretinoin (0.05% w/w); Fluocinolone Acetonide (0.01% w/w)",
-    "mechanism_of_action": "Tác động lâm sàng: Thuốc bôi kê đơn duy nhất được FDA phê duyệt chứa phức hợp 3 thành phần phối hợp điều trị nám má mức độ vừa đến nặng.",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Low"
   },
   {
     "stt": "34",
@@ -945,11 +813,7 @@
     "data_confidence": "High",
     "evidence_level": "Ingredient-level Level 1A evidence (AAD Guidelines 2016) + FDA NDA 050600 Monograph",
     "irritation_risk": "Low",
-    "barrier_support": "Low",
-    "inci_breakdown": "Hệ nền: Prescription Antibiotic Gel | Hoạt chất chính: Clindamycin Phosphate (1.0% w/w)",
-    "mechanism_of_action": "Tác động lâm sàng: Thuốc bôi da liễu ức chế vi khuẩn gây mụn Cutibacterium acnes và giảm sưng viêm ở các nốt mụn mủ.",
-    "comedogenic_index": 0,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Low"
   },
   {
     "stt": "35",
@@ -973,11 +837,7 @@
     "data_confidence": "High",
     "evidence_level": "Product-level Level 1A Multicenter RCTs (JAAD 2005) + FDA NDA 050777 Approved",
     "irritation_risk": "Medium",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Prescription Calcineurin Inhibitor | Hoạt chất chính: Tacrolimus (0.1% w/w)",
-    "mechanism_of_action": "Tác động lâm sàng: Thuốc mỡ kê đơn không chứa steroid điều trị viêm da cơ địa mức độ vừa đến nặng ở người lớn và thanh thiếu niên.",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "High"
   },
   {
     "stt": "36",
@@ -1001,11 +861,7 @@
     "data_confidence": "High",
     "evidence_level": "Ingredient-level JAAD 2003 evidence (15% Azelaic Acid) + Brand In Vivo 8-Hour Clinical Assay",
     "irritation_risk": "Medium",
-    "barrier_support": "Medium",
-    "inci_breakdown": "Hệ nền: Azelaic Acid Serum | Hoạt chất chính: Azelaic Acid (15.0%); Niacinamide (Vitamin B3) (2.0%); Zinc Gluconate (0.5%); Salicylic Acid (BHA) (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: 15% Azelaic Acid tinh khiết giúp giảm rõ rệt mụn viêm, mụn đầu đen, thâm đỏ (PIE) và bóng dầu chỉ sau 8 giờ.",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Medium"
   },
   {
     "stt": "37",
@@ -1029,11 +885,7 @@
     "data_confidence": "High",
     "evidence_level": "Ingredient-level Clin Interv Aging 2006 evidence (0.1% Retinaldehyde) + Brand In Vivo Clinical Peeling Trial",
     "irritation_risk": "Medium",
-    "barrier_support": "Medium",
-    "inci_breakdown": "Hệ nền: Retinal Night Cream | Hoạt chất chính: Retinaldehyde (Retinal) (0.1%); Pro-Vitamin E (Tocopheryl Glucoside) (UNKNOWN); Oenothera Biennis (Evening Primrose) Oil (UNKNOWN); Avène Thermal Spring Water (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Hiệu quả tương đương 3 liệu trình peel da chuyên nghiệp, kích thích đổi mới tế bào và làm mờ nếp nhăn mảnh nhờ 0.1% Retinaldehyde.",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Medium"
   },
   {
     "stt": "38",
@@ -1057,11 +909,7 @@
     "data_confidence": "Medium",
     "evidence_level": "Product-level In Vivo Mattifying & Pore Efficacy Evaluation (NAOS Clinical Dossier)",
     "irritation_risk": "Low",
-    "barrier_support": "Low",
-    "inci_breakdown": "Hệ nền: Pore Refining Cream | Hoạt chất chính: Fluidactiv® Patented Sebum Quality Complex (UNKNOWN); Agaricic Acid (Fomes Officinalis Mushroom Extract) (UNKNOWN); Salicylic Acid (BHA) (UNKNOWN); Silica & Polymethyl Methacrylate Mattifying Powders (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Se khít lỗ chân lông, cải thiện kết cấu da mịn màng và kiềm dầu suốt 8 giờ nhờ phức hợp Fluidactiv độc quyền.",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Low"
   },
   {
     "stt": "39",
@@ -1085,11 +933,7 @@
     "data_confidence": "High",
     "evidence_level": "Ingredient-level verified citations (3% TXA, 1% Kojic, 5% B3) + Brand 12-Week Double-blind Clinical Trial",
     "irritation_risk": "Low",
-    "barrier_support": "Medium",
-    "inci_breakdown": "Hệ nền: Anti-Pigmentation Serum | Hoạt chất chính: Tranexamic Acid (3.0%); Kojic Acid (1.0%); Niacinamide (Vitamin B3) (5.0%); Sulfonic Acid (HEPES) (5.0%)",
-    "mechanism_of_action": "Tác động lâm sàng: Được chứng minh lâm sàng giúp giảm 60% tình trạng thâm nám cứng đầu và 81% vết thâm sau mụn (PIH) sau 12 tuần sử dụng.",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Medium"
   },
   {
     "stt": "40",
@@ -1113,11 +957,7 @@
     "data_confidence": "Medium",
     "evidence_level": "Brand Consumer Perception & Dermatological Safety Evaluation",
     "irritation_risk": "High",
-    "barrier_support": "Low",
-    "inci_breakdown": "Hệ nền: Two-Step Daily Chemical Peel | Hoạt chất chính: Step 1: 7-Acid AHA/BHA Exfoliating Complex (Glycolic, Lactic, Salicylic, Mandelic, Malic, Citric, Tartaric) (UNKNOWN); Step 2: Neutralizing & Anti-Aging Blend (Resveratrol, Retinol, Ascorbic Acid, CoQ10) (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Liệu trình peel 2 bước chuẩn phòng khám giúp thu nhỏ lỗ chân lông, làm phẳng nếp nhăn và kích thích tái sinh collagen ngay sau 1 lần dùng.",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Low"
   },
   {
     "stt": "41",
@@ -1141,11 +981,7 @@
     "data_confidence": "Medium",
     "evidence_level": "Ophthalmologist Tested / Clinical Eye Area Tolerance Testing",
     "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Eye Cream | Hoạt chất chính: Caffeine (UNKNOWN); Phytosphingosine & Sodium Hyaluronate (UNKNOWN); Camellia Sinensis (Green Tea) Leaf Extract (UNKNOWN); Butyrospermum Parkii (Shea Butter) (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Dưỡng ẩm chuyên sâu cho vùng da mắt mỏng manh, giảm rõ rệt quầng thâm, bọng mắt và củng cố màng bảo vệ chống kích ứng.",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "High"
   },
   {
     "stt": "42",
@@ -1169,11 +1005,7 @@
     "data_confidence": "High",
     "evidence_level": "Ingredient-level Level 1A evidence (AAD Guidelines 2016) + FDA OTC Drug Monograph NDC 0145-2614-05",
     "irritation_risk": "High",
-    "barrier_support": "Low",
-    "inci_breakdown": "Hệ nền: Benzoyl Peroxide Acne Wash | Hoạt chất chính: Benzoyl Peroxide (10.0% w/w)",
-    "mechanism_of_action": "Tác động lâm sàng: Sữa rửa mặt chứa 10% Benzoyl Peroxide nồng độ tối đa không kê đơn, tiêu diệt hơn 99% vi khuẩn gây mụn trên mặt và cơ thể trong 15 giây.",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Low"
   },
   {
     "stt": "43",
@@ -1197,11 +1029,7 @@
     "data_confidence": "High",
     "evidence_level": "Ingredient-level Molecules 2018 evidence (AHA desmolytic mechanisms) + Brand Verified 30% AHA / 2% BHA Formula",
     "irritation_risk": "High",
-    "barrier_support": "Low",
-    "inci_breakdown": "Hệ nền: Wash-Off Chemical Peel | Hoạt chất chính: AHA Blend (Glycolic, Lactic, Tartaric, Citric Acids) (30.0%); Salicylic Acid (BHA) (2.0%); Tasmannia Lanceolata Fruit/Leaf Extract (UNKNOWN); Sodium Hyaluronate Crosspolymer & Panthenol (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Liệu pháp peel da 10 phút tại nhà với 30% AHA và 2% BHA (pH ~3.6) làm sáng đều màu da, thông thoáng lỗ chân lông và làm mịn bề mặt thô ráp.",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Low"
   },
   {
     "stt": "44",
@@ -1225,11 +1053,7 @@
     "data_confidence": "Medium",
     "evidence_level": "Manufacturer Patented Oxygen-Free Aluminum Nozzle Delivery & In Vivo Spot Efficacy Assay",
     "irritation_risk": "Low",
-    "barrier_support": "Low",
-    "inci_breakdown": "Hệ nền: Spot Essence | Hoạt chất chính: Ascorbic Acid (Pure L-Ascorbic Acid) (UNKNOWN); Tocopheryl Acetate (Vitamin E Derivative) (UNKNOWN); Dipotassium Glycyrrhizate (Licorice extract active) (UNKNOWN); Isopropylmethylphenol (O-Cymen-5-Ol antibacterial active) (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Công nghệ màng nhôm ngăn chặn hoàn toàn oxy hóa Vitamin C nguyên chất, thẩm thấu sâu làm mờ vết thâm mụn và đốm nâu sau 2-3 tuần.",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Low"
   },
   {
     "stt": "45",
@@ -1253,11 +1077,7 @@
     "data_confidence": "High",
     "evidence_level": "Product-level Level 1A evidence (AAD Acne Guidelines 2016) + FDA NDA 050741 Approved",
     "irritation_risk": "High",
-    "barrier_support": "Low",
-    "inci_breakdown": "Hệ nền: Prescription Combination Acne Gel | Hoạt chất chính: Benzoyl Peroxide (5.0% w/w); Clindamycin Phosphate (1.0% w/w)",
-    "mechanism_of_action": "Tác động lâm sàng: Gel bôi kê đơn phối hợp 1% Clindamycin và 5% Benzoyl Peroxide giúp diệt khuẩn C. acnes, giảm sưng viêm nhanh chóng và ngăn ngừa kháng kháng sinh.",
-    "comedogenic_index": 0,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Low"
   },
   {
     "stt": "46",
@@ -1281,11 +1101,7 @@
     "data_confidence": "High",
     "evidence_level": "Product-level Level 1A Multicenter RCT (Arch Dermatol 2003) + FDA NDA 020531 Approved",
     "irritation_risk": "Low",
-    "barrier_support": "Medium",
-    "inci_breakdown": "Hệ nền: Prescription Rosacea Cream | Hoạt chất chính: Metronidazole (0.75% w/w)",
-    "mechanism_of_action": "Tác động lâm sàng: Thuốc bôi kê đơn dạng kem chứa 0.75% Metronidazole làm giảm các sẩn viêm, mụn mủ và ban đỏ trong bệnh trứng cá đỏ (rosacea).",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Medium"
   },
   {
     "stt": "47",
@@ -1309,11 +1125,7 @@
     "data_confidence": "High",
     "evidence_level": "Product-level Level 1A Phase 3 Multicenter RCTs (Cutis 2015, JAAD 2013) + FDA NDA 207071 Approved",
     "irritation_risk": "Medium",
-    "barrier_support": "Medium",
-    "inci_breakdown": "Hệ nền: Prescription Rosacea Foam | Hoạt chất chính: Azelaic Acid (15.0% w/w)",
-    "mechanism_of_action": "Tác động lâm sàng: Dạng bọt siêu mịn thấm nhanh, không bết dính giúp làm dịu sẩn viêm, giảm mẩn đỏ và kiểm soát triệu chứng rosacea mức độ vừa.",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Medium"
   },
   {
     "stt": "48",
@@ -1337,11 +1149,7 @@
     "data_confidence": "High",
     "evidence_level": "Product-level Level 1A J Invest Dermatol 1996 Ratio Evidence + Brand 8-Week Multi-Center Clinical Efficacy Study",
     "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Lipid Restoration Cream | Hoạt chất chính: Natural Cholesterol (4.0%); Pure Ceramides 1 & 3 (Ceramide EOP & Ceramide NP) (2.0%); Essential Fatty Acids (Sunflower Seed Unsaponifiables) (2.0%)",
-    "mechanism_of_action": "Tác động lâm sàng: Phục hồi hàng rào bảo vệ da, tăng 66% độ mịn màng, 35% độ săn chắc và rút ngắn thời gian thích ứng với Retinoid nhờ tỷ lệ lipid tối ưu 2:4:2.",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "High"
   },
   {
     "stt": "49",
@@ -1365,11 +1173,7 @@
     "data_confidence": "Medium",
     "evidence_level": "Ophthalmologist Tested / 100% Fragrance Free Clinical Tolerance Assay",
     "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Cleansing Balm | Hoạt chất chính: Carthamus Tinctorius (Safflower) Seed Oil (Linoleic Acid Rich) (UNKNOWN); Caprylic/Capric Triglyceride & Ethylhexyl Palmitate Emollient Esters (UNKNOWN); Tocopherol (Vitamin E) (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Sáp tẩy trang số 1 chuyển hóa từ dạng sáp sang dầu mềm mịn, hòa tan nhanh chóng lớp trang điểm chống nước, kem chống nắng và bụi bẩn mà không làm khô căng da.",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "High"
   },
   {
     "stt": "50",
@@ -1393,11 +1197,7 @@
     "data_confidence": "Medium",
     "evidence_level": "Professional Aesthetic Spa Protocol & In-Clinic Keratolytic Efficacy",
     "irritation_risk": "High",
-    "barrier_support": "Low",
-    "inci_breakdown": "Hệ nền: Multi-Acid Exfoliating Toner | Hoạt chất chính: Gluconolactone (PHA) & Lactic / Malic / Citric Acids (AHA) (UNKNOWN); Salicylic Acid (BHA) & Phytic Acid (UNKNOWN); Sulfur & Vinegar (Acetum) (UNKNOWN); Niacinamide & Horseradish / Burdock Extracts (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Biểu tượng tái tạo biểu bì qua 50 ngày, điều hòa độ pH sinh lý, thanh lọc bã nhờn và kích thích đổi mới tế bào da.",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Low"
   },
   {
     "stt": "51",
@@ -1421,11 +1221,7 @@
     "data_confidence": "High",
     "evidence_level": "Ingredient-level Level 1B RCT Efficacy (14% PHA + 4% B3) + Brand 7-Day In Vivo Clinical Test",
     "irritation_risk": "Medium",
-    "barrier_support": "Medium",
-    "inci_breakdown": "Hệ nền: Anti-Acne Gel | Hoạt chất chính: Gluconolactone (PHA) (14.0%); Niacinamide (Vitamin B3) (4.0%); Salicylic Acid (BHA) (0.5%)",
-    "mechanism_of_action": "Tác động lâm sàng: 14% Gluconolactone kết hợp 4% Niacinamide giúp giảm mụn viêm, mụn đầu đen và mờ vết thâm rõ rệt chỉ sau 7 ngày mà không làm khô rát da.",
-    "comedogenic_index": 0,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Medium"
   },
   {
     "stt": "52",
@@ -1449,11 +1245,7 @@
     "data_confidence": "Medium",
     "evidence_level": "Sterile Cosmetics Hermetic Packaging Clinical Assessment & In Vivo Calming Test",
     "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Sterile Soothing Cream | Hoạt chất chính: D-Sensinose™ (Patented Postbiotic Active from Avène Thermal Spring Water) (UNKNOWN); Avène Thermal Spring Water (UNKNOWN); Plant Squalane & Natural Beeswax (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Làm dịu cảm giác châm chích, nóng rát chỉ sau 30 giây, phục hồi hàng rào bảo vệ da trong 48 giờ với công nghệ vô trùng Sterile Cosmetics 0% chất bảo quản.",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "High"
   },
   {
     "stt": "53",
@@ -1477,11 +1269,7 @@
     "data_confidence": "Medium",
     "evidence_level": "Product-level Microbiome In Vivo Clinical Protocol (600+ subjects, L'Oréal R&I)",
     "irritation_risk": "Medium",
-    "barrier_support": "Medium",
-    "inci_breakdown": "Hệ nền: Microbiome Anti-Blemish Cream | Hoạt chất chính: Phylobioma Active (Punica Granatum Pericarp Extract - Targets C. acnes IA1) (UNKNOWN); Procerad™ (Patented Ceramide Anti-Mark Active) (UNKNOWN); Niacinamide (Vitamin B3) (UNKNOWN); LHA (Capryloyl Salicylic Acid) & Salicylic Acid (UNKNOWN); Zinc PCA (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Khoa học hệ vi sinh mới nhất nhắm trúng đích chủng vi khuẩn C. acnes phylotype IA1, giảm mụn rõ rệt sau 8 giờ và ngăn ngừa mụn tái phát.",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Medium"
   },
   {
     "stt": "54",
@@ -1505,11 +1293,7 @@
     "data_confidence": "Medium",
     "evidence_level": "Dermatologist Tested / Hypoallergenic / Pediatric Safe Evaluation",
     "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Ceramide Barrier Cream | Hoạt chất chính: Ceramide Skin Complex™ (Encapsulated Hydroxypropyl Bispalmitamide MEA) (UNKNOWN); Panax Ginseng Root Water (UNKNOWN); Phytosphingosine & Ceramide NP (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Các hạt vi nang Ceramide Skin Complex tan đều trên da, dưỡng ẩm sâu và phục hồi màng bảo vệ da suy yếu sau 3 ngày sử dụng.",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "High"
   },
   {
     "stt": "55",
@@ -1533,11 +1317,7 @@
     "data_confidence": "Medium",
     "evidence_level": "Dermatologically Tested / Non-comedogenic / Hypoallergenic Certification",
     "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Gel Cleanser | Hoạt chất chính: Pro-Vitamin B5 (Panthenol) (UNKNOWN); Vitamin E (Tocopheryl Acetate) (UNKNOWN); Triple Purified Water (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: 100% không chứa xà phòng, nhẹ nhàng làm sạch bã nhờn và tạp chất mà không làm mất đi độ ẩm tự nhiên của làn da nhạy cảm.",
-    "comedogenic_index": 0,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "High"
   },
   {
     "stt": "56",
@@ -1561,11 +1341,7 @@
     "data_confidence": "Medium",
     "evidence_level": "ISO 24444 In Vivo SPF50+ & ISO 24442 In Vivo PA++++ Japanese Standard Testing",
     "irritation_risk": "Low",
-    "barrier_support": "Medium",
-    "inci_breakdown": "Hệ nền: Color-Correcting Sunscreen Essence | Hoạt chất chính: UV Filter System: Octinoxate, Titanium Dioxide, Uvinul A Plus, Tinosorb S (UNKNOWN); Sodium Hyaluronate & Magnesium Ascorbyl Phosphate (Vitamin C derivative) (UNKNOWN); Passiflora Edulis (Passion Fruit) Extract & Micro-Pearlescent Optical Pigments (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Chống nắng phổ rộng SPF50+ PA++++ kết hợp sắc tím Lavender hiệu chỉnh sắc da vàng xỉn, tạo hiệu ứng 3D trong suốt rạng rỡ.",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Medium"
   },
   {
     "stt": "57",
@@ -1589,11 +1365,7 @@
     "data_confidence": "High",
     "evidence_level": "Product-level Level 1A Double-blind Phase 3 RCT (JAAD 2007) + FDA NDA 021794 Approved",
     "irritation_risk": "Low",
-    "barrier_support": "Medium",
-    "inci_breakdown": "Hệ nền: Prescription Anti-Inflammatory Gel | Hoạt chất chính: Dapsone (5.0% w/w)",
-    "mechanism_of_action": "Tác động lâm sàng: Gel bôi kê đơn chứa 5% Dapsone giúp giảm nhanh các sẩn viêm mụn trứng cá, đặc biệt hiệu quả ở phụ nữ trưởng thành và không gây nhạy cảm ánh sáng.",
-    "comedogenic_index": 0,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Medium"
   },
   {
     "stt": "58",
@@ -1617,11 +1389,7 @@
     "data_confidence": "High",
     "evidence_level": "Product-level Level 1A AAD 2016 Guidelines + FDA NDA 021184 Approved",
     "irritation_risk": "High",
-    "barrier_support": "Low",
-    "inci_breakdown": "Hệ nền: Prescription Retinoid Cream | Hoạt chất chính: Tazarotene (0.1% w/w)",
-    "mechanism_of_action": "Tác động lâm sàng: Retinoid thế hệ 3 acetylenic nồng độ 0.1% gắn chọn lọc cao trên thụ thể RAR-beta/gamma, bình thường hóa sừng hóa nang lông và tái cấu trúc biểu bì.",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Low"
   },
   {
     "stt": "59",
@@ -1645,11 +1413,7 @@
     "data_confidence": "High",
     "evidence_level": "Product-level Level 1A Multicenter Investigator-blinded RCT (Br J Dermatol 2015) + FDA NDA 206255 Approved",
     "irritation_risk": "Low",
-    "barrier_support": "Medium",
-    "inci_breakdown": "Hệ nền: Prescription Rosacea Cream | Hoạt chất chính: Ivermectin (1.0% w/w)",
-    "mechanism_of_action": "Tác động lâm sàng: Thuốc bôi kê đơn chứa 1% Ivermectin tác động kép diệt ký sinh trùng Demodex và kháng viêm mạnh mẽ, vượt trội hơn Metronidazole trong điều trị Rosacea.",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Medium"
   },
   {
     "stt": "60",
@@ -1673,11 +1437,7 @@
     "data_confidence": "Medium",
     "evidence_level": "Brand In Vivo 4-Week Anti-Aging & Barrier Recovery Clinical Panel (543 women)",
     "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Repair Serum | Hoạt chất chính: Bifida Ferment Lysate (UNKNOWN); Chronolux™ Power Signal Technology (Tripeptide-32) (UNKNOWN); Sodium Hyaluronate & Squalane (UNKNOWN); Adansonia Digitata (Baobab) Seed Extract (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Công nghệ Chronolux Power Signal độc quyền với Tripeptide-32 kích hoạt quá trình tự phục hồi ban đêm, tăng sinh collagen tự nhiên và cấp ẩm 72 giờ.",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "High"
   },
   {
     "stt": "61",
@@ -1701,11 +1461,7 @@
     "data_confidence": "High",
     "evidence_level": "Level 1B Longitudinal Clinical Cohort",
     "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Fermented Bio-Essence | Hoạt chất chính: Pitera™ (Galactomyces Ferment Filtrate enriched with 50+ micronutrients) (>90.0%); Organic Acids, Amino Acids, Minerals & Vitamins (Natural Bio-Components)",
-    "mechanism_of_action": "Tác động lâm sàng: Chứa hơn 90% Pitera sinh học tự nhiên, nuôi dưỡng và biến đổi làn da trở nên trong suốt như pha lê qua 5 khía cạnh: kết cấu, độ săn chắc, nếp nhăn, đốm nâu và độ sáng.",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "High"
   },
   {
     "stt": "62",
@@ -1729,11 +1485,7 @@
     "data_confidence": "High",
     "evidence_level": "Ingredient-level Molecules 2018 Evidence (AHA/BHA synergy) + Brand Verified 25% AHA/2% BHA Formulation",
     "irritation_risk": "High",
-    "barrier_support": "Low",
-    "inci_breakdown": "Hệ nền: Wash-Off Chemical Peel | Hoạt chất chính: AHA Blend: Glycolic, Tartaric, Lactic, Citric Acids (25.0%); Salicylic Acid (BHA) (2.0%); Virgin Marula Seed Oil (Antioxidant Buffering) (UNKNOWN); Chickpea Flour & Pumpkin Ferment Extract (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Liệu pháp peel da chuẩn clinic với 25% AHA và 2% BHA (pH 3.5) loại bỏ tế bào sừng chết tích tụ, làm sáng da và thu nhỏ lỗ chân lông như da em bé sau 20 phút.",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Low"
   },
   {
     "stt": "63",
@@ -1757,11 +1509,7 @@
     "data_confidence": "Medium",
     "evidence_level": "Product-level Level 1B RCT Efficacy (Int J Cosmet Sci 2021) + Beiersdorf 10-Year Screening Assay",
     "irritation_risk": "Low",
-    "barrier_support": "Medium",
-    "inci_breakdown": "Hệ nền: Anti-Pigmentation Serum | Hoạt chất chính: Thiamidol® (Isobutylamido Thiazolyl Resorcinol - Beiersdorf Patented) (UNKNOWN); Concentrated Hyaluronic Acid (Short & Long Chain) (UNKNOWN); Licorice Root Extract (Licochalcone A) & Vitamin C (SAP) (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Hoạt chất Thiamidol độc quyền ức chế enzyme Tyrosinase tận gốc, giảm thâm nám sâu và đốm nâu đến 75% chỉ sau 2 tuần mà không gây mất sắc tố vĩnh viễn.",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Medium"
   },
   {
     "stt": "64",
@@ -1785,11 +1533,7 @@
     "data_confidence": "High",
     "evidence_level": "Ingredient-level Level 1A AAD Guidelines 2016 + FDA OTC Acne Monograph NDC 62032-117-36",
     "irritation_risk": "High",
-    "barrier_support": "Low",
-    "inci_breakdown": "Hệ nền: Salicylic Acid Liquid Exfoliant | Hoạt chất chính: Salicylic Acid USP (BHA) (2.0% w/w); Menthol & Menthoxypropanediol Cooling Blend (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Chứa 2% Salicylic Acid chuẩn Dược điển Mỹ (USP) thâm nhập sâu vào lỗ chân lông, làm sạch bã nhờn tắc nghẽn và tiêu diệt vi khuẩn gây mụn.",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Low"
   },
   {
     "stt": "65",
@@ -1813,11 +1557,7 @@
     "data_confidence": "High",
     "evidence_level": "Level 1B In Vivo Clinical Assay",
     "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Hydrating Booster Serum | Hoạt chất chính: Vichy Volcanic Mineralizing Water (Concentrated with 15 Essential Minerals) (89.0%); High Molecular Weight Sodium Hyaluronate (Naturally Derived) (0.4%)",
-    "mechanism_of_action": "Tác động lâm sàng: Chứa 89% nước khoáng núi lửa Pháp giàu 15 khoáng chất quý hiếm kết hợp Hyaluronic Acid, giúp củng cố hàng rào bảo vệ da và cấp ẩm căng mọng chỉ sau 7 ngày.",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "High"
   },
   {
     "stt": "66",
@@ -1841,11 +1581,7 @@
     "data_confidence": "High",
     "evidence_level": "Level 1B Verified In Vivo Dermatological Assay",
     "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Repair Essence | Hoạt chất chính: Snail Secretion Filtrate (96.3%); Sodium Hyaluronate & Panthenol (Pro-Vitamin B5) (UNKNOWN); Allantoin & Betaine (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Chứa 96.3% dịch nhầy ốc sên nguyên chất, cấp ẩm sâu, làm dịu kích ứng và phục hồi độ đàn hồi cho làn da tổn thương.",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "High"
   },
   {
     "stt": "67",
@@ -1869,11 +1605,7 @@
     "data_confidence": "Medium",
     "evidence_level": "Rohto Research Institute Moisture Permeation & Corneometer Hydration Testing",
     "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Hydrating Essence Toner | Hoạt chất chính: 7-Phase Hyaluronic Acid Complex (Super HA, Nano HA, 3D HA, Fermented HA, etc.) (UNKNOWN); Sakuran (Aphanothece Sacrum Polysaccharide - 5x Water Binding of HA) (UNKNOWN); Hydroxyethyl Urea & Hydrolyzed Collagen (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Công thức giàu dưỡng chất với phức hợp 7 loại Hyaluronic Acid đa phân tử và chiết xuất tảo Sakuran khóa ẩm sâu suốt 24 giờ cho làn da khô căng.",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "High"
   },
   {
     "stt": "68",
@@ -1897,11 +1629,7 @@
     "data_confidence": "Medium",
     "evidence_level": "Dermatologist Tested for 5 Signs of Skin Sensitivity (Galderma Clinical Dossier)",
     "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Gentle Cleanser | Hoạt chất chính: Niacinamide (Vitamin B3) (UNKNOWN); Panthenol (Pro-Vitamin B5) (UNKNOWN); Glycerin & Sodium Cocoyl Isethionate (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Công thức mới bổ sung Niacinamide, Panthenol và Glycerin giúp bảo vệ da chống lại 5 dấu hiệu nhạy cảm: khô, căng, kích ứng, thô ráp và màng ẩm suy yếu.",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "High"
   },
   {
     "stt": "69",
@@ -1925,11 +1653,7 @@
     "data_confidence": "High",
     "evidence_level": "Product-level Level 1A Multicenter Phase 3 RCT (J Drugs Dermatol 2015) + FDA NDA 207917 Approved",
     "irritation_risk": "High",
-    "barrier_support": "Low",
-    "inci_breakdown": "Hệ nền: Prescription Combination Acne Gel | Hoạt chất chính: Adapalene (0.3% w/w); Benzoyl Peroxide (2.5% w/w)",
-    "mechanism_of_action": "Tác động lâm sàng: Gel bôi kê đơn nồng độ tăng cường 0.3% Adapalene và 2.5% BPO mang lại hiệu quả tiêu viêm mụn và ngăn ngừa sẹo lõm sau mụn vượt trội.",
-    "comedogenic_index": 0,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Low"
   },
   {
     "stt": "70",
@@ -1953,11 +1677,7 @@
     "data_confidence": "High",
     "evidence_level": "Product-level Level 1A Multicenter Double-blind Phase 3 RCT (JAAD 2019) + FDA NDA 211527 Approved",
     "irritation_risk": "Medium",
-    "barrier_support": "Low",
-    "inci_breakdown": "Hệ nền: Prescription Retinoid Cream | Hoạt chất chính: Trifarotene (0.005% w/w (50mcg/g))",
-    "mechanism_of_action": "Tác động lâm sàng: Retinoid thế hệ 4 đầu tiên sau 20 năm được FDA phê duyệt gắn chọn lọc thụ thể RAR-gamma, điều trị hiệu quả mụn ở cả vùng mặt và vùng thân mình (ngực, lưng, vai).",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Low"
   },
   {
     "stt": "71",
@@ -1981,11 +1701,7 @@
     "data_confidence": "High",
     "evidence_level": "Product-level Level 1A Phase 3 Multicenter RCTs (J Drugs Dermatol 2018/2020) + FDA NDA 209845 Approved",
     "irritation_risk": "Medium",
-    "barrier_support": "Medium",
-    "inci_breakdown": "Hệ nền: Prescription Retinoid Lotion | Hoạt chất chính: Micronized Tretinoin (0.05% w/w); Sodium Hyaluronate & Soluble Collagen Peptides (UNKNOWN); Glycerin & Mineral Oil Polymeric Mesh Matrix (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Dạng sữa dưỡng tretinoin 0.05% vi hạt đầu tiên được FDA phê duyệt ứng dụng màng lưới tổ ong polymeric honeycomb kết hợp Hyaluronic Acid và Collagen giúp giảm kích ứng tối đa.",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Medium"
   },
   {
     "stt": "72",
@@ -2009,11 +1725,7 @@
     "data_confidence": "Medium",
     "evidence_level": "Brand In Vivo 4-Week Barrier & Transdermal Absorption Clinical Trial",
     "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: First-Step Activating Serum | Hoạt chất chính: SULWHASOO MASTER COMPLEX™ (Panax Ginseng Bio-Conversion Extract + JAUM Balancing Complex™) (UNKNOWN); 5 Traditional Korean Herbal Synergistic Extracts (Paeonia, Nelumbo, Polygonatum, Lilium, Rehmannia) (UNKNOWN); Soybean Polypeptide & Fermented Honey (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Sử dụng ngay sau khi rửa mặt giúp củng cố hàng rào bảo vệ da, kích hoạt khả năng phục hồi tự nhiên và tăng cường hấp thu dưỡng chất bước kế tiếp.",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "High"
   },
   {
     "stt": "73",
@@ -2037,11 +1749,7 @@
     "data_confidence": "Medium",
     "evidence_level": "Brand In Vivo Sensory & TEWL Occlusion Evaluation Panel",
     "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Cellular Renewal Cream | Hoạt chất chính: Miracle Broth™ (Giant Sea Kelp Macrocystis Pyrifera Bio-Ferment) (UNKNOWN); Lime Tea Extract (Citrus Aurantifolia Antioxidant Concentrate) (UNKNOWN); Mineral Oil, Petrolatum & Microcrystalline Wax Occlusive Lipid Matrix (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Năng lượng tái sinh từ Miracle Broth lên men sinh học trong 3-4 tháng kết hợp chiết xuất trà chanh chống oxy hóa, làm dịu đỏ rát và chữa lành làn da khô nhạy cảm.",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "High"
   },
   {
     "stt": "74",
@@ -2065,11 +1773,7 @@
     "data_confidence": "Medium",
     "evidence_level": "Ingredient-level Molecules 2018 Evidence + Brand 3-Minute In Vivo Radiance Profilometry Testing",
     "irritation_risk": "Medium",
-    "barrier_support": "Medium",
-    "inci_breakdown": "Hệ nền: Lactic Acid Serum Exfoliant | Hoạt chất chính: Purified Grade Lactic Acid (AHA) (UNKNOWN); Glycyrrhiza Glabra (Licorice) Root Extract & Lemongrass Oil (UNKNOWN); Prickly Pear (Opuntia) Cactus & Arnica Soothing Extracts (UNKNOWN); Plant Squalane (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Lactic Acid tinh khiết phân tử lớn tẩy tế bào chết nhẹ nhàng, làm đầy nếp nhăn mảnh và làm sáng đều màu da rõ rệt chỉ sau 3 phút.",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Medium"
   },
   {
     "stt": "75",
@@ -2093,11 +1797,7 @@
     "data_confidence": "Medium",
     "evidence_level": "National Eczema Association (NEA) Accepted Seal / Pediatric Atopic Dermatitis Protocol",
     "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Eczema Calming Cleanser | Hoạt chất chính: Filaggrin Breakdown Technology (Sodium PCA + Arginine) (UNKNOWN); Miracare® Lipid Cleansing Technology (Shea Butter + Sunflower Seed Oil) (UNKNOWN); Niacinamide (Vitamin B3) & Allantoin (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Công nghệ màng ẩm độc quyền chứa phức hợp phân giải Filaggrin và mỡ hạt mỡ bọc màng làm sạch dịu nhẹ, giảm ngứa ngáy và khô rát cho da viêm da cơ địa.",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "High"
   },
   {
     "stt": "76",
@@ -2121,11 +1821,7 @@
     "data_confidence": "High",
     "evidence_level": "Level 1A In Vivo Biofilm Clinical Trial",
     "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Anti-Acne Soothing Cream | Hoạt chất chính: Myrtacine® Bio-Active (Patented Myrtus Communis Leaf Extract - Biofilm Disruptor) (UNKNOWN); Celastrol (Patented Plant Extract from Pierre Fabre Biotechnology) (UNKNOWN); Vitamin PP / Niacinamide (4.0%); Shea Butter & Hydrating Lipid Complex (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Hoạt chất Myrtacine độc quyền phá vỡ màng sinh học biofilm của vi khuẩn C. acnes kết hợp 4% Niacinamide và Celastrol giúp làm dịu sưng đỏ sau 7 ngày và dung nạp tốt với thuốc bôi mụn.",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "High"
   },
   {
     "stt": "77",
@@ -2149,11 +1845,7 @@
     "data_confidence": "High",
     "evidence_level": "Ingredient-level Molecules 2018 Evidence + Dr. Van Scott & Dr. Yu AHA Landmark Patents",
     "irritation_risk": "High",
-    "barrier_support": "Low",
-    "inci_breakdown": "Hệ nền: Glycolic Acid Gel Exfoliant | Hoạt chất chính: Glycolic Acid (High Purity Free Acid Value) (15.0%); Aqueous-Alcoholic Resurfacing Gel Base (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: 15% Glycolic Acid nồng độ tự do chuẩn phòng khám giúp bạt sừng dày, cải thiện kết cấu da thô ráp, làm sáng đều màu da và kích thích tái sinh tế bào.",
-    "comedogenic_index": 0,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Low"
   },
   {
     "stt": "78",
@@ -2177,11 +1869,7 @@
     "data_confidence": "Medium",
     "evidence_level": "Dermatologist Tested / Non-Comedogenic & Oil-Free Assay",
     "irritation_risk": "Low",
-    "barrier_support": "Medium",
-    "inci_breakdown": "Hệ nền: Oil-Free Water Gel | Hoạt chất chính: Purified Hyaluronic Acid (Sodium Hyaluronate) (UNKNOWN); Glycerin & Trehalose Moisture Complex (UNKNOWN); Dimethicone Matrix (Oil-Free) (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Chứa Hyaluronic Acid tinh khiết giúp cấp nước liên tục 72 giờ, khóa ẩm không gây nhờn dính và tăng 80% độ ẩm tự nhiên của da ngay tức thì.",
-    "comedogenic_index": 0,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Medium"
   },
   {
     "stt": "79",
@@ -2205,11 +1893,7 @@
     "data_confidence": "Medium",
     "evidence_level": "Kao Global R&D Micro-Capsule UV Sensor Verification & ISO 24444 SPF50+ In Vivo Standard",
     "irritation_risk": "Medium",
-    "barrier_support": "Low",
-    "inci_breakdown": "Hệ nền: Chemical Sunscreen Essence | Hoạt chất chính: UV Filter Matrix: Octinoxate, Uvinul T 150, Tinosorb S, Uvinul A Plus (UNKNOWN); Micro Defense Formula (Micro-capsule UV protection up to 0.2 microns) (UNKNOWN); Sodium Hyaluronate & Royal Jelly Extract (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: Công nghệ Micro Defense màng nước đầu tiên trên thế giới bao phủ đến từng vi điểm siêu nhỏ của da, chống tia UV phổ rộng SPF50+ PA++++ với cảm giác nhẹ như nước.",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
+    "barrier_support": "Low"
   },
   {
     "stt": "80",
@@ -2233,570 +1917,6 @@
     "data_confidence": "High",
     "evidence_level": "Level 1A Dual-Laboratory ISO 24444 Standard",
     "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Chemical Sunscreen Cream | Hoạt chất chính: Oryza Sativa (Rice) Bran Extract (30.0%); Grain Fermented Probiotics Complex (Lactobacillus/Rice Ferment, Saccharomyces, Aspergillus) (UNKNOWN); Modern Broad-Spectrum Filter Matrix (Uvinul A Plus, Uvinul T 150, Tinosorb M, Uvasorb HEB) (UNKNOWN); Niacinamide (Vitamin B3) & Adenosine (UNKNOWN)",
-    "mechanism_of_action": "Tác động lâm sàng: 30% chiết xuất cám gạo và phức hợp men vi sinh hạt ngũ cốc kết hợp màng lọc hóa học thế hệ mới bảo vệ quang phổ rộng SPF50+ PA++++, dưỡng ẩm êm dịu không nhờn dính.",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Tương thích sinh học)"
-  },
-  {
-    "stt": "81",
-    "product_id": "CERAVE_MOISTURISING_CREAM",
-    "product_name": "Kem Dưỡng Ẩm Chuyên Sâu Cho Da Khô Đến Rất Khô CeraVe Moisturising Cream",
-    "brand": "CeraVe",
-    "origin": "Mỹ / Pháp",
-    "category": "Moisturizer",
-    "subcategory": "Barrier Cream",
-    "price_tier": "Dermocosmetics",
-    "price_min": "190000",
-    "price_max": "450000",
-    "price_raw": "190.000 VNĐ (50ml) / 450.000 VNĐ (340g / 454g)",
-    "key_actives": "3 Ceramides thiết yếu (1, 3, 6-II) (UNKNOWN); Hyaluronic Acid (Sodium Hyaluronate) (UNKNOWN); Công nghệ giải phóng MVE đa tầng (UNKNOWN); Petrolatum & Dimethicone (UNKNOWN)",
-    "formulation_source_type": "brand_official",
-    "formulation_source_url": "https://www.cerave.com.vn/our-products/moisturizers/moisturising-cream",
-    "manufacturer_claim": "Cung cấp độ ẩm suốt 24 giờ và phục hồi hàng rào bảo vệ da với 3 Ceramides thiết yếu và công nghệ MVE",
-    "clinical_evidence": "[product-level] Nghiên cứu đa trung tâm trên bệnh nhân khô da và viêm da cơ địa chứng minh sự gia tăng đáng kể hàm lượng ceramide biểu bì và giảm TEWL sau 4 tuần sử dụng công thức MVE Ceramides. (DOI: 10.1111/jocd.12456)",
-    "verified_source_tier": "1",
-    "verification_date": "2026-08-20",
-    "data_confidence": "High",
-    "evidence_level": "Level 1B Controlled Clinical Trial",
-    "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Barrier Cream | Hoạt chất chính: 3 Ceramides thiết yếu (1, 3, 6-II), Hyaluronic Acid, MVE Delivery Technology, Petrolatum, Cholesterol, Phytosphingosine",
-    "mechanism_of_action": "Tái tạo cấu trúc lipid màng kép tầng sừng, khóa ẩm kéo dài nhờ vi hạt giải phóng chậm MVE, ngăn ngừa thoát hơi nước qua biểu bì (TEWL)",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Không cồn khô, Không hương liệu)"
-  },
-  {
-    "stt": "82",
-    "product_id": "CERAVE_PM_FACIAL_MOISTURISING_LOTION",
-    "product_name": "Sữa Dưỡng Ẩm Phục Hồi Ban Đêm CeraVe PM Facial Moisturising Lotion",
-    "brand": "CeraVe",
-    "origin": "Mỹ / Pháp",
-    "category": "Moisturizer",
-    "subcategory": "Facial Lotion",
-    "price_tier": "Dermocosmetics",
-    "price_min": "350000",
-    "price_max": "430000",
-    "price_raw": "350.000 VNĐ (52ml) / 430.000 VNĐ (89ml)",
-    "key_actives": "Niacinamide (4%); 3 Ceramides thiết yếu (1, 3, 6-II) (UNKNOWN); Hyaluronic Acid (UNKNOWN); Công nghệ MVE (UNKNOWN)",
-    "formulation_source_type": "brand_official",
-    "formulation_source_url": "https://www.cerave.com.vn/our-products/facial-moisturizers/pm-facial-moisturising-lotion",
-    "manufacturer_claim": "Dưỡng ẩm ban đêm siêu mỏng nhẹ, làm dịu da và củng cố hàng rào bảo vệ da với 4% Niacinamide",
-    "clinical_evidence": "[ingredient-level] Niacinamide 4% phối hợp 3 Ceramides chứng minh hiệu quả giảm đỏ, củng cố tổng hợp ceramide nội sinh và làm sáng đều màu da sau viêm (PIH/PIE). (PMID: 17147561)",
-    "verified_source_tier": "1",
-    "verification_date": "2026-08-20",
-    "data_confidence": "High",
-    "evidence_level": "Level 2A Clinical Trial",
-    "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Facial Lotion | Hoạt chất chính: Niacinamide (4%), Ceramide NP, Ceramide AP, Ceramide EOP, Phytosphingosine, Cholesterol, Hyaluronic Acid",
-    "mechanism_of_action": "Ức chế vận chuyển melanosome, kháng viêm sưng, kích thích nguyên bào sợi tổng hợp collagen và củng cố liên kết gian bào",
-    "comedogenic_index": 0,
-    "barrier_tolerance": "Cao (Không gây bít tắc lỗ chân lông)"
-  },
-  {
-    "stt": "83",
-    "product_id": "BIODERMA_ATODERM_INTENSIVE_BAUME",
-    "product_name": "Kem Dưỡng Chuyên Sâu Cắt Cơn Ngứa & Phục Hồi Da Viêm Cơ Địa Bioderma Atoderm Intensive Baume",
-    "brand": "Bioderma",
-    "origin": "Pháp",
-    "category": "Moisturizer",
-    "subcategory": "Atopic Barrier Balm",
-    "price_tier": "Dermocosmetics",
-    "price_min": "290000",
-    "price_max": "590000",
-    "price_raw": "290.000 VNĐ (75ml) / 590.000 VNĐ (500ml)",
-    "key_actives": "Palmitoylethanolamide (PEA) (UNKNOWN); Phức hợp Lipigenium (Bioceramides, Phytosphingosine) (UNKNOWN); Bằng sáng chế Skin Barrier Therapy (UNKNOWN); Kẽm Gluconate (UNKNOWN)",
-    "formulation_source_type": "brand_official",
-    "formulation_source_url": "https://www.bioderma.com.vn/san-pham/atoderm/intensive-baume",
-    "manufacturer_claim": "Cắt cơn ngứa nhanh chóng, tái tạo sinh học hàng rào bảo vệ da và ức chế sự bám dính của tụ cầu vàng S. aureus",
-    "clinical_evidence": "[product-level] Đánh giá lâm sàng trên 130 bệnh nhân viêm da cơ địa chứng minh giảm 95% cảm giác ngứa ngáy (Pruritus NRS) và phục hồi chức năng rào cản biểu bì sau 21 ngày. (DOI: 10.1111/jdv.14890)",
-    "verified_source_tier": "1",
-    "verification_date": "2026-08-20",
-    "data_confidence": "High",
-    "evidence_level": "Level 1B Multicenter Clinical Study",
-    "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Atopic Barrier Balm | Hoạt chất chính: PEA, Lipigenium, Skin Barrier Therapy, Canola Oil, Ceramide NP, Phytosphingosine, Zinc Gluconate",
-    "mechanism_of_action": "Kháng viêm thần kinh thông qua thụ thể PPAR-alpha bởi PEA, phục hồi tỷ lệ lipid sinh học 3:1:1 và điều hòa hệ vi sinh vật trên da",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Tuyệt đối (Dùng được cho trẻ sơ sinh và da tổn thương cấp)"
-  },
-  {
-    "stt": "84",
-    "product_id": "BIODERMA_SEBIUM_HYDRA",
-    "product_name": "Kem Dưỡng Bù Ẩm & Giảm Bong Tróc Cho Da Mụn Đang Điều Trị Bioderma Sébium Hydra",
-    "brand": "Bioderma",
-    "origin": "Pháp",
-    "category": "Moisturizer",
-    "subcategory": "Compensating Care Cream",
-    "price_tier": "Dermocosmetics",
-    "price_min": "350000",
-    "price_max": "420000",
-    "price_raw": "350.000 VNĐ (40ml)",
-    "key_actives": "Glycerin & Ceramide 3 (UNKNOWN); Enoxolone (Chiết xuất cam thảo) (UNKNOWN); Allantoin (UNKNOWN); Bằng sáng chế Fluidactiv (UNKNOWN)",
-    "formulation_source_type": "brand_official",
-    "formulation_source_url": "https://www.bioderma.com.vn/san-pham/sebium/hydra",
-    "manufacturer_claim": "Dưỡng ẩm bù nước chuyên biệt cho làn da mụn bị khô căng, tróc vảy do tác dụng phụ của Isotretinoin hoặc Retinoids bôi ngoài",
-    "clinical_evidence": "[product-level] Nghiên cứu trên bệnh nhân mụn trứng cá dùng Isotretinoin đường uống cho thấy Sébium Hydra làm giảm 89% tình trạng bong tróc và cải thiện độ ẩm biểu bì sau 14 ngày. (DOI: 10.1080/09546634.2018.1527993)",
-    "verified_source_tier": "1",
-    "verification_date": "2026-08-20",
-    "data_confidence": "High",
-    "evidence_level": "Level 2A Clinical Trial",
-    "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Compensating Care Cream | Hoạt chất: Glycerin, Mineral Oil, Ceramide NP, Enoxolone, Allantoin, Fluidactiv Seboregulation Complex",
-    "mechanism_of_action": "Bù ẩm tức thì, ức chế enzyme 11beta-HSD1 giảm viêm đỏ, đồng thời ngăn chặn hiện tượng đặc quánh bã nhờn gây mụn thứ phát",
-    "comedogenic_index": 0,
-    "barrier_tolerance": "Cao (Không gây mụn bùng phát trên nền da Isotretinoin)"
-  },
-  {
-    "stt": "85",
-    "product_id": "EUCERIN_UREAREPAIR_PLUS_5PCT_LOTION",
-    "product_name": "Sữa Dưỡng Phục Hồi Độ Ẩm & Tẩy Tế Bào Chết Dịu Nhẹ Eucerin UreaRepair PLUS 5% Urea Lotion",
-    "brand": "Eucerin",
-    "origin": "Đức",
-    "category": "Moisturizer",
-    "subcategory": "Keratolytic Hydrating Lotion",
-    "price_tier": "Dermocosmetics",
-    "price_min": "360000",
-    "price_max": "520000",
-    "price_raw": "360.000 VNĐ (250ml) / 520.000 VNĐ (400ml)",
-    "key_actives": "Urea (5%); Ceramides NP (UNKNOWN); Yếu tố giữ ẩm tự nhiên (NMFs - Amino Acids, Lactic Acid, Urea) (UNKNOWN); Gluco-Glycerol (UNKNOWN)",
-    "formulation_source_type": "brand_official",
-    "formulation_source_url": "https://www.eucerin.vn/san-pham/urearepair-plus/urearepair-plus-5-urea-lotion",
-    "manufacturer_claim": "Cung cấp độ ẩm tức thì và duy trì suốt 48 giờ, cải thiện bề mặt da thô ráp, sần sùi và nứt nẻ",
-    "clinical_evidence": "[ingredient-level] Urea 5% đóng vai trò NMFs nội sinh, vừa giữ nước vừa kích thích biểu hiện gene tổng hợp filaggrin và lipid màng tế bào. (PMID: 29057689)",
-    "verified_source_tier": "1",
-    "verification_date": "2026-08-20",
-    "data_confidence": "High",
-    "evidence_level": "Level 1A Systematic Review & RCT",
-    "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Keratolytic Hydrating Lotion | Hoạt chất: Urea (5%), Ceramide NP, Lactic Acid, Arginine HCL, Sodium PCA, Gluco-Glycerol",
-    "mechanism_of_action": "Phá vỡ liên kết hydro trong keratin lớp sừng giúp bong tróc vảy mịn, đồng thời hoạt hóa kênh dẫn nước Aquaporin-3 nội bào",
-    "comedogenic_index": 0,
-    "barrier_tolerance": "Cao (Chuẩn y khoa cho da dày sừng, vảy nến, chàm khô)"
-  },
-  {
-    "stt": "86",
-    "product_id": "EUCERIN_ATOCONTROL_ACUTE_CARE_CREAM",
-    "product_name": "Kem Cắt Cơn Viêm Ngứa Cấp Cho Da Viêm Cơ Địa Eucerin AtoControl Acute Care Cream",
-    "brand": "Eucerin",
-    "origin": "Đức",
-    "category": "Moisturizer",
-    "subcategory": "Acute Flare Cream",
-    "price_tier": "Dermocosmetics",
-    "price_min": "390000",
-    "price_max": "490000",
-    "price_raw": "390.000 VNĐ (40ml)",
-    "key_actives": "Licochalcone A (Chiết xuất rễ cam thảo) (UNKNOWN); Decanediol (Kháng khuẩn) (UNKNOWN); Menthoxypropanediol (Làm mát cắt ngứa) (UNKNOWN); Dầu hoa anh thảo (Evening Primrose Oil) & Dầu hạt nho (UNKNOWN)",
-    "formulation_source_type": "brand_official",
-    "formulation_source_url": "https://www.eucerin.vn/san-pham/atocontrol/acute-care-cream",
-    "manufacturer_claim": "Cải thiện rõ rệt tình trạng da kích ứng đỏ, ngứa rát trong đợt bùng phát viêm da cơ địa tương đương kem hydrocortisone 1%",
-    "clinical_evidence": "[product-level] Thử nghiệm lâm sàng so sánh đối đầu chứng minh AtoControl Acute Care Cream có hiệu quả giảm ngứa và giảm đỏ tương đương Hydrocortisone 1% trong kiểm soát đợt bùng phát nhẹ đến vừa của viêm da cơ địa. (DOI: 10.1111/dth.12058)",
-    "verified_source_tier": "1",
-    "verification_date": "2026-08-20",
-    "data_confidence": "High",
-    "evidence_level": "Level 1B Head-to-head RCT",
-    "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Acute Flare Cream | Hoạt chất: Licochalcone A, Menthoxypropanediol, Decanediol, Evening Primrose Oil, Vitis Vinifera Seed Oil, Ceramide 3",
-    "mechanism_of_action": "Ức chế thụ thể TRPM8 tạo cảm giác the mát cắt phản xạ cào gãi, ức chế phóng thích cytokine gây viêm TNF-a và IL-6",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Tuyệt đối (Không chứa Corticoid, an toàn cho trẻ sơ sinh từ 3 tháng)"
-  },
-  {
-    "stt": "87",
-    "product_id": "EUCERIN_AQUAPHOR_REPAIRING_OINTMENT",
-    "product_name": "Sáp Mỡ Phục Hồi & Tái Tạo Vết Thương Hở Nông Eucerin Aquaphor Repairing Ointment",
-    "brand": "Eucerin",
-    "origin": "Đức",
-    "category": "Moisturizer",
-    "subcategory": "Occlusive Healing Ointment",
-    "price_tier": "Dermocosmetics",
-    "price_min": "220000",
-    "price_max": "420000",
-    "price_raw": "220.000 VNĐ (45ml) / 420.000 VNĐ (198g)",
-    "key_actives": "Petrolatum (41%); Panthenol (Pro-Vitamin B5) (UNKNOWN); Bisabolol (UNKNOWN); Glycerin & Ceresin (UNKNOWN)",
-    "formulation_source_type": "brand_official",
-    "formulation_source_url": "https://www.eucerin.vn/san-pham/aquaphor/repairing-ointment",
-    "manufacturer_claim": "Tạo màng bán thấm bảo vệ vi môi trường ẩm lý tưởng, thúc đẩy quá trình biểu mô hóa và phục hồi da tổn thương sau can thiệp thủ thuật",
-    "clinical_evidence": "[product-level] Thử nghiệm lâm sàng sau điều trị laser fractional và thủ thuật da liễu chứng minh Aquaphor giúp rút ngắn thời gian tái tạo biểu mô 40% so với để khô tự nhiên. (PMID: 21375508)",
-    "verified_source_tier": "1",
-    "verification_date": "2026-08-20",
-    "data_confidence": "High",
-    "evidence_level": "Level 1B Controlled Trial",
-    "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Occlusive Semi-permeable Ointment | Hoạt chất: Petrolatum (41%), Liquid Paraffin, Ceresin, Glycerin, Panthenol, Bisabolol",
-    "mechanism_of_action": "Tạo màng khóa ẩm bán thấm cho phép oxy lưu thông nhưng ngăn cản mất nước và vi khuẩn xâm nhập, kích thích phân chia tế bào đáy",
-    "comedogenic_index": 2,
-    "barrier_tolerance": "Tuyệt đối (Dùng sau laser, peel nông, vết thương lành giai đoạn 2)"
-  },
-  {
-    "stt": "88",
-    "product_id": "AVENE_XERACALM_AD_BALM",
-    "product_name": "Kem Dưỡng Bổ Sung Lipid Cắt Cơn Ngứa Viêm Da Cơ Địa Avène XeraCalm A.D Lipid-Replenishing Balm",
-    "brand": "Eau Thermale Avène",
-    "origin": "Pháp",
-    "category": "Moisturizer",
-    "subcategory": "Lipid-Replenishing Balm",
-    "price_tier": "Dermocosmetics",
-    "price_min": "450000",
-    "price_max": "680000",
-    "price_raw": "450.000 VNĐ (200ml) / 680.000 VNĐ (400ml)",
-    "key_actives": "I-modulia (Chiết xuất sinh học Aquaphilus dolomiae) (UNKNOWN); Cer-omega (Lipid giống da) (UNKNOWN); Nước khoáng Avène Thermal Spring Water (UNKNOWN)",
-    "formulation_source_type": "brand_official",
-    "formulation_source_url": "https://www.eau-thermale-avene.vn/p/xeracalm-a-d-lipid-replenishing-balm",
-    "manufacturer_claim": "Công nghệ Sterile Cosmetics vô trùng tuyệt đối, làm dịu cảm giác ngứa do khô da, nuôi dưỡng và phục hồi hàng rào bảo vệ da",
-    "clinical_evidence": "[product-level] Thử nghiệm lâm sàng đa trung tâm trên 3.000 bệnh nhân chàm/viêm da cơ địa chứng minh giảm 97% phản xạ cào gãi và cải thiện điểm SCORAD sau 7 ngày. (DOI: 10.1111/jdv.13540)",
-    "verified_source_tier": "1",
-    "verification_date": "2026-08-20",
-    "data_confidence": "High",
-    "evidence_level": "Level 1A Multicenter Clinical Study",
-    "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Sterile Cosmetics Lipid Balm | Hoạt chất: I-modulia, Cer-omega, Evening Primrose Oil, Glycerin, Avène Thermal Spring Water",
-    "mechanism_of_action": "Kích hoạt thụ thể miễn dịch bẩm sinh PAR-2, điều hòa giải phóng IL-31 (cytokine gây ngứa chính) và phục hồi màng lipid gian bào",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Tuyệt đối (0% chất bảo quản, 0% hương liệu, đầu bơm tiệt trùng Defi)"
-  },
-  {
-    "stt": "89",
-    "product_id": "CETAPHIL_DAILY_HYDRATING_LOTION",
-    "product_name": "Sữa Dưỡng Ẩm Không Dầu Dịu Nhẹ Hàng Ngày Cetaphil Daily Hydrating Lotion with Hyaluronic Acid",
-    "brand": "Cetaphil / Galderma",
-    "origin": "Canada",
-    "category": "Moisturizer",
-    "subcategory": "Oil-Free Hydrating Lotion",
-    "price_tier": "Dermocosmetics",
-    "price_min": "280000",
-    "price_max": "360000",
-    "price_raw": "280.000 VNĐ (88ml)",
-    "key_actives": "Hyaluronic Acid (Sodium Hyaluronate) (UNKNOWN); Glycerin (UNKNOWN); Erythritol & Homarine HCL (UNKNOWN)",
-    "formulation_source_type": "brand_official",
-    "formulation_source_url": "https://www.cetaphil.com.vn/products/daily-hydrating-lotion",
-    "manufacturer_claim": "Cấp nước tức thì và duy trì độ ẩm suốt 24 giờ cho da thường đến da khô, kết cấu mỏng nhẹ không dầu không gây mụn",
-    "clinical_evidence": "[product-level] Thử nghiệm đo độ ẩm corneometry chứng minh tăng 65% độ ẩm tức thì và duy trì độ ngậm nước ổn định không bít tắc nang lông. (PMID: 28830114)",
-    "verified_source_tier": "1",
-    "verification_date": "2026-08-20",
-    "data_confidence": "High",
-    "evidence_level": "Level 2B Clinical Evaluation",
-    "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Oil-Free Hydrating Lotion | Hoạt chất: Sodium Hyaluronate, Glycerin, Hydrolyzed Hyaluronic Acid, Erythritol",
-    "mechanism_of_action": "Hút ẩm đa tầng, cân bằng áp suất thẩm thấu nội bào và duy trì độ mềm dẻo của màng sừng",
-    "comedogenic_index": 0,
-    "barrier_tolerance": "Cao (Không gây bít tắc nang lông, an toàn cho da mụn nhạy cảm)"
-  },
-  {
-    "stt": "90",
-    "product_id": "DRG_RED_BLEMISH_CLEAR_SOOTHING_CREAM",
-    "product_name": "Kem Dưỡng Làm Dịu & Giảm Mụn Phục Hồi Dr.G R.E.D Blemish Clear Soothing Cream",
-    "brand": "Dr.G (Gowoonsesang Cosmetics)",
-    "origin": "Hàn Quốc",
-    "category": "Moisturizer",
-    "subcategory": "Cica Soothing Gel Cream",
-    "price_tier": "K-Beauty / Dermocosmetics",
-    "price_min": "350000",
-    "price_max": "520000",
-    "price_raw": "350.000 VNĐ (70ml) / 520.000 VNĐ (hũ đôi 70ml x 2)",
-    "key_actives": "Phức hợp 10-Cica (Madecassoside, Asiaticoside, Madecassic Acid, Asiatic Acid...) (UNKNOWN); Niacinamide (2%); Panthenol (Pro-Vitamin B5) (UNKNOWN); Beta-Glucan (UNKNOWN); Lợi khuẩn lên men (Bifida / Lactobacillus) (UNKNOWN)",
-    "formulation_source_type": "brand_official",
-    "formulation_source_url": "https://dr-g.vn/products/red-blemish-clear-soothing-cream",
-    "manufacturer_claim": "Làm dịu tức thì làn da kích ứng mẩn đỏ, phục hồi tổn thương sau mụn và kiểm soát dầu thừa với kết cấu gel cream tươi mát",
-    "clinical_evidence": "[product-level] Thử nghiệm lâm sàng tại P&K Skin Research Center chứng minh giảm 29.7% nhiệt độ bề mặt da, giảm 21.3% lượng bã nhờn và 98% đối tượng hài lòng về độ êm dịu không gây bít tắc. (KTR Report: 2021-089)",
-    "verified_source_tier": "1",
-    "verification_date": "2026-08-20",
-    "data_confidence": "High",
-    "evidence_level": "Level 2A Clinical Trial",
-    "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Cica Soothing Gel Cream | Hoạt chất: 10-Cica Complex, Niacinamide 2%, Panthenol, Beta-Glucan, Bifida Ferment Lysate, Epigallocatechin Gallate",
-    "mechanism_of_action": "Kháng viêm qua ức chế con đường NF-kB, kích thích tăng sinh tế bào hạt và hạ nhiệt độ bề mặt da bị viêm",
-    "comedogenic_index": 0,
-    "barrier_tolerance": "Cao (Phù hợp da dầu mụn nhạy cảm, mụn viêm đỏ)"
-  },
-  {
-    "stt": "91",
-    "product_id": "ROUND_LAB_BIRCH_JUICE_MOISTURIZING_CREAM",
-    "product_name": "Kem Dưỡng Cấp Nước Nhựa Cây Bạch Dương Round Lab Birch Juice Moisturizing Cream",
-    "brand": "Round Lab",
-    "origin": "Hàn Quốc",
-    "category": "Moisturizer",
-    "subcategory": "Hydrating Capsule Cream",
-    "price_tier": "K-Beauty",
-    "price_min": "360000",
-    "price_max": "480000",
-    "price_raw": "360.000 VNĐ (80ml)",
-    "key_actives": "Nhựa cây bạch dương Inje (Betula Platyphylla Japonica Juice) (10,000ppm); Vita Hyaluronic Acid (UNKNOWN); Chiết xuất nghệ & dầu hạt Jojoba (UNKNOWN); Collagen vi nang (UNKNOWN)",
-    "formulation_source_type": "brand_official",
-    "formulation_source_url": "https://roundlab.com/products/birch-juice-moisturizing-cream",
-    "manufacturer_claim": "Cung cấp độ ẩm sâu suốt 48 giờ với viên nang collagen giữ ẩm, mang lại làn da căng mọng thanh khiết",
-    "clinical_evidence": "[product-level] Thử nghiệm tại Viện Da liễu Hàn Quốc (KDRI) chứng minh cải thiện 142% độ ẩm tầng sâu biểu bì và không gây kích ứng trên da nhạy cảm. (KDRI-2022-771)",
-    "verified_source_tier": "1",
-    "verification_date": "2026-08-20",
-    "data_confidence": "High",
-    "evidence_level": "Level 2B Clinical Study",
-    "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Hydrating Capsule Cream | Hoạt chất: Betula Platyphylla Japonica Juice, Sodium Hyaluronate, Hyaluronic Acid, Jojoba Esters, Curcuma Longa Root",
-    "mechanism_of_action": "Cung cấp 17 loại acid amin và khoáng chất tự nhiên từ dịch thực vật, giải phóng viên nang ẩm duy trì màng nước bảo vệ",
-    "comedogenic_index": 0,
-    "barrier_tolerance": "Cao (Phù hợp da hỗn hợp thiếu nước, da dầu mất nước)"
-  },
-  {
-    "stt": "92",
-    "product_id": "TORRIDEN_DIVE_IN_SOOTHING_CREAM",
-    "product_name": "Kem Dưỡng Cấp Nước Làm Dịu Torriden Dive-In Low Molecular Hyaluronic Acid Soothing Cream",
-    "brand": "Torriden",
-    "origin": "Hàn Quốc",
-    "category": "Moisturizer",
-    "subcategory": "5D Hyaluronic Gel Cream",
-    "price_tier": "K-Beauty",
-    "price_min": "320000",
-    "price_max": "420000",
-    "price_raw": "320.000 VNĐ (100ml)",
-    "key_actives": "Phức hợp 5D Hyaluronic Acid phân tử siêu nhỏ (UNKNOWN); Trehalose (UNKNOWN); Panthenol (Pro-Vitamin B5) (UNKNOWN); Chiết xuất Malachite (Đá Khổng Tước) (UNKNOWN); Allantoin (UNKNOWN)",
-    "formulation_source_type": "brand_official",
-    "formulation_source_url": "https://torriden.com/products/dive-in-soothing-cream",
-    "manufacturer_claim": "Cấp nước thẩm thấu đa tầng không nhờn dính, làm dịu da nhạy cảm với sắc xanh tự nhiên từ khoáng chất Malachite",
-    "clinical_evidence": "[product-level] Thử nghiệm lâm sàng xác nhận chỉ số bít tắc comedogenic = 0, cải thiện độ ẩm bề mặt 88% ngay sau 1 lần thoa. (Korea Dermatological Research Institute, 2023)",
-    "verified_source_tier": "1",
-    "verification_date": "2026-08-20",
-    "data_confidence": "High",
-    "evidence_level": "Level 2A Clinical Evaluation",
-    "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: 5D Hyaluronic Gel Cream | Hoạt chất: 5D Multi HA Complex, Trehalose, Panthenol, Malachite Extract, Allantoin, Hamamelis Virginiana",
-    "mechanism_of_action": "Cung cấp các phân tử HA kích thước từ cao đến siêu nhỏ thâm nhập sâu vào các lớp tế bào sừng, khóa ẩm bằng đường Trehalose sinh học",
-    "comedogenic_index": 0,
-    "barrier_tolerance": "Cao (Không cồn, không hương liệu, không dầu khoáng)"
-  },
-  {
-    "stt": "93",
-    "product_id": "SKIN1004_PROBIO_CICA_ENRICH_CREAM",
-    "product_name": "Kem Dưỡng Phục Hồi Lên Men Rau Má SKIN1004 Madagascar Centella Probio-Cica Enrich Cream",
-    "brand": "SKIN1004",
-    "origin": "Hàn Quốc",
-    "category": "Moisturizer",
-    "subcategory": "Fermented Cica Barrier Cream",
-    "price_tier": "K-Beauty",
-    "price_min": "340000",
-    "price_max": "460000",
-    "price_raw": "340.000 VNĐ (50ml)",
-    "key_actives": "Rau má lên men sinh học (ProBio-Cica - Centella Ferment Extract) (UNKNOWN); Ceramide NP & Phytosphingosine (UNKNOWN); Chiết xuất TECA (Asiaticoside, Madecassic Acid, Asiatic Acid) (UNKNOWN); Niacinamide (UNKNOWN)",
-    "formulation_source_type": "brand_official",
-    "formulation_source_url": "https://skin1004.com/products/madagascar-centella-probio-cica-enrich-cream",
-    "manufacturer_claim": "Củng cố hệ vi sinh vật trên da, phục hồi hàng rào da bị tổn thương sau điều trị treatment mạnh với cấu trúc chuỗi lipid sinh học tương thích",
-    "clinical_evidence": "[ingredient-level] Chiết xuất rau má lên men kết hợp TECA và Ceramide NP chứng minh kích thích tổng hợp Collagen Type I và phục hồi 76% tổn thương màng tế bào do kích ứng hóa học. (PMID: 33261122)",
-    "verified_source_tier": "1",
-    "verification_date": "2026-08-20",
-    "data_confidence": "High",
-    "evidence_level": "Level 2A Clinical Study",
-    "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Fermented Cica Barrier Cream | Hoạt chất: Lactobacillus/Centella Asiatica Ferment Filtrat, Ceramide NP, TECA, Macadamia Oil, Niacinamide",
-    "mechanism_of_action": "Cân bằng microbiome biểu bì, kích thích các yếu tố tăng trưởng nội sinh và làm đầy liên kết màng lipid tầng sừng",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Cao (Phù hợp da sau peel, da đang dùng Retinol/Tretinoin)"
-  },
-  {
-    "stt": "94",
-    "product_id": "COSRX_OIL_FREE_ULTRA_MOISTURIZING_LOTION",
-    "product_name": "Sữa Dưỡng Ẩm Không Chứa Dầu Chiết Xuất Nhựa Bạch Dương COSRX Oil-Free Ultra-Moisturizing Lotion",
-    "brand": "COSRX",
-    "origin": "Hàn Quốc",
-    "category": "Moisturizer",
-    "subcategory": "Oil-Free Birch Sap Lotion",
-    "price_tier": "K-Beauty",
-    "price_min": "290000",
-    "price_max": "390000",
-    "price_raw": "290.000 VNĐ (100ml)",
-    "key_actives": "Nhựa cây bạch dương (Betula Platyphylla Japonica Juice) (70.85%); Hyaluronic Acid (Sodium Hyaluronate) (UNKNOWN); Allantoin & Panthenol (UNKNOWN); Tinh dầu tràm trà vi lượng (Tea Tree Oil) (UNKNOWN)",
-    "formulation_source_type": "brand_official",
-    "formulation_source_url": "https://www.cosrx.com/products/oil-free-ultra-moisturizing-lotion-with-birch-sap",
-    "manufacturer_claim": "Dưỡng ẩm chuyên sâu cho da mụn và da dầu với 70.85% dịch cây bạch dương, hoàn toàn không gây nhờn bóng hay bí tắc",
-    "clinical_evidence": "[ingredient-level] Betula Platyphylla Japonica Juice 70% giàu betulinic acid và polyphenol giúp kháng khuẩn nhẹ, làm dịu phản ứng viêm đỏ tại nang lông mụn. (PMID: 25828775)",
-    "verified_source_tier": "1",
-    "verification_date": "2026-08-20",
-    "data_confidence": "High",
-    "evidence_level": "Level 2B Clinical Evaluation",
-    "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Oil-Free Birch Sap Lotion | Hoạt chất: Betula Platyphylla Japonica Juice (70.85%), Sodium Hyaluronate, Panthenol, Allantoin, Melaleuca Alternifolia",
-    "mechanism_of_action": "Cung cấp độ ẩm sinh học tương thích cao, làm mềm lớp sừng và điều tiết tuyến bã nhờn hoạt động quá mức",
-    "comedogenic_index": 0,
-    "barrier_tolerance": "Cao (Phù hợp kết hợp phác đồ BHA/AHA/Retinoids hàng ngày)"
-  },
-  {
-    "stt": "95",
-    "product_id": "PURITO_OAT_IN_CALMING_GEL_CREAM",
-    "product_name": "Kem Dưỡng Dạng Gel Làm Dịu Da Yến Mạch Tinh Khiết Purito Seoul Oat-in Calming Gel Cream",
-    "brand": "Purito Seoul",
-    "origin": "Hàn Quốc",
-    "category": "Moisturizer",
-    "subcategory": "Oat Calming Gel Cream",
-    "price_tier": "K-Beauty",
-    "price_min": "280000",
-    "price_max": "380000",
-    "price_raw": "280.000 VNĐ (100ml)",
-    "key_actives": "Nước hạt yến mạch (Avena Sativa Seed Water) (77%); Squalane thực vật (UNKNOWN); Panthenol (Pro-Vitamin B5) (UNKNOWN); Beta-Glucan (UNKNOWN)",
-    "formulation_source_type": "brand_official",
-    "formulation_source_url": "https://purito.com/product/oat-in-calming-gel-cream/",
-    "manufacturer_claim": "Công thức tối giản chỉ 15 thành phần thiết yếu với 77% nước hạt yến mạch, làm dịu da quá mẫn cảm và bảo vệ hàng rào da mỏng manh",
-    "clinical_evidence": "[ingredient-level] Avenanthramides trong yến mạch có tác dụng ức chế giải phóng Histamine và cytokine tiền viêm, giảm nhanh cảm giác châm chích và đỏ rát. (PMID: 18460663)",
-    "verified_source_tier": "1",
-    "verification_date": "2026-08-20",
-    "data_confidence": "High",
-    "evidence_level": "Level 2A In-vitro & Clinical Study",
-    "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Oat Calming Gel Cream | Hoạt chất: Avena Sativa Seed Water (77%), Squalane, Panthenol, Beta-Glucan, Glycerin",
-    "mechanism_of_action": "Cắt đứt tín hiệu kích ứng thụ thể thần kinh ngoại biên, cấp nước mỏng nhẹ và bảo toàn màng hydrolipid tự nhiên",
-    "comedogenic_index": 0,
-    "barrier_tolerance": "Tuyệt đối (Thuần chay, 0% cồn, 0% hương liệu, 0% tinh dầu)"
-  },
-  {
-    "stt": "96",
-    "product_id": "ETUDE_SOONJUNG_2X_BARRIER_INTENSIVE_CREAM",
-    "product_name": "Kem Dưỡng Ẩm Phục Hồi Chuyên Sâu Củng Cố Hàng Rào Da Etude SoonJung 2x Barrier Intensive Cream",
-    "brand": "Etude (Amorepacific)",
-    "origin": "Hàn Quốc",
-    "category": "Moisturizer",
-    "subcategory": "Intensive Barrier Cream",
-    "price_tier": "K-Beauty",
-    "price_min": "270000",
-    "price_max": "390000",
-    "price_raw": "270.000 VNĐ (60ml)",
-    "key_actives": "Panthenol (Pro-Vitamin B5) (5%); Madecassoside (Chiết xuất rau má) (UNKNOWN); Bơ hạt mỡ (Shea Butter) & Dầu hạt hướng dương (UNKNOWN); Công thức pH 5.5 cân bằng (UNKNOWN)",
-    "formulation_source_type": "brand_official",
-    "formulation_source_url": "https://www.etude.com/int/en/index.php/soonjung-2x-barrier-intensive-cream.html",
-    "manufacturer_claim": "Củng cố sức đề kháng cho làn da nhạy cảm bị stress với phức hợp Panthensoside và độ pH acid yếu 5.5 tương thích sinh học",
-    "clinical_evidence": "[product-level] Thử nghiệm da liễu tại Amorepacific R&D Center xác nhận phục hồi 94% tổn thương rào cản do chất tẩy rửa hóa học sau 72 giờ sử dụng. (Amorepacific Derm Report, 2022)",
-    "verified_source_tier": "1",
-    "verification_date": "2026-08-20",
-    "data_confidence": "High",
-    "evidence_level": "Level 2A Clinical Trial",
-    "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Intensive Barrier Cream | Hoạt chất: Panthenol 5%, Madecassoside, Butyrospermum Parkii, Helianthus Annuus Seed Oil, Tocopherol",
-    "mechanism_of_action": "Kích thích chuyển hóa biểu mô, ức chế enzyme thoái hóa chất nền MMPs và tái thiết lập lớp màng axit tự nhiên của da",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Tuyệt đối (Đạt chứng nhận 10-Free không hóa chất độc hại)"
-  },
-  {
-    "stt": "97",
-    "product_id": "CUREL_INTENSIVE_MOISTURE_CARE_CREAM",
-    "product_name": "Kem Dưỡng Ẩm Chuyên Sâu Tái Tạo Ceramide Curél Intensive Moisture Care Moisture Facial Cream",
-    "brand": "Curél (Kao Corporation)",
-    "origin": "Nhật Bản",
-    "category": "Moisturizer",
-    "subcategory": "Ceramide Facial Cream",
-    "price_tier": "J-Beauty / Dermocosmetics",
-    "price_min": "480000",
-    "price_max": "590000",
-    "price_raw": "480.000 VNĐ (40g)",
-    "key_actives": "Pseudo-Ceramide (Cetyl-PG Hydroxyethyl Palmitamide) (UNKNOWN); Chiết xuất lá khuynh diệp (Eucalyptus Globulus Leaf Extract) (UNKNOWN); Allantoin (UNKNOWN); Squalane (UNKNOWN)",
-    "formulation_source_type": "brand_official",
-    "formulation_source_url": "https://www.curel.com/vi-vn/products/intensive-moisture-care/moisture-facial-cream/",
-    "manufacturer_claim": "Công nghệ Ceramide Care độc quyền từ Kao Nhật Bản giúp bổ sung và kích thích sản sinh Ceramide tự nhiên, nuôi dưỡng da mềm mịn từ sâu bên trong",
-    "clinical_evidence": "[product-level] Nghiên cứu đa trung tâm trên 240 phụ nữ có làn da khô nhạy cảm tại Nhật Bản chứng minh tăng 82% nồng độ ceramide biểu bì và giảm 74% kích ứng thời tiết sau 4 tuần. (DOI: 10.1111/ics.12488)",
-    "verified_source_tier": "1",
-    "verification_date": "2026-08-20",
-    "data_confidence": "High",
-    "evidence_level": "Level 1B Multicenter Clinical Study",
-    "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Ceramide Facial Cream | Hoạt chất: Cetyl-PG Hydroxyethyl Palmitamide (Pseudo-Ceramide), Eucalyptus Extract, Allantoin, Squalane",
-    "mechanism_of_action": "Bắt chước chính xác cấu trúc lamellar màng lipid kép, lấp đầy các khoảng trống gian bào bị suy yếu do thiếu hụt Ceramide",
-    "comedogenic_index": 0,
-    "barrier_tolerance": "Tuyệt đối (Được bình chọn No.1 Cosme Nhật Bản cho da nhạy cảm)"
-  },
-  {
-    "stt": "98",
-    "product_id": "LAROCHEPOSAY_TOLERIANE_DERMALLERGO_FLUID",
-    "product_name": "Sữa Dưỡng Làm Dịu Tức Thì Cho Da Dị Ứng La Roche-Posay Toleriane Dermallergo Fluid",
-    "brand": "La Roche-Posay (L'Oréal)",
-    "origin": "Pháp",
-    "category": "Moisturizer",
-    "subcategory": "Anti-Allergy Soothing Fluid",
-    "price_tier": "Dermocosmetics",
-    "price_min": "460000",
-    "price_max": "540000",
-    "price_raw": "460.000 VNĐ (40ml)",
-    "key_actives": "Sphingobioma (Chiết xuất vi sinh vật độc quyền) (UNKNOWN); Neurosensine (Dipeptide giảm đau rát) (UNKNOWN); Nước khoáng La Roche-Posay Thermal Spring Water (UNKNOWN); Squalane (UNKNOWN)",
-    "formulation_source_type": "brand_official",
-    "formulation_source_url": "https://www.larocheposay.vn/toleriane/toleriane-dermallergo-fluide",
-    "manufacturer_claim": "Làm dịu da mẩn đỏ, ngứa rát trong 1 phút, củng cố hệ vi sinh vật và chống tái phát dị ứng da",
-    "clinical_evidence": "[product-level] Thử nghiệm lâm sàng mù đôi trên 63 đối tượng da dị ứng chứng minh giảm 93% cảm giác nóng rát ngay sau khi thoa và phục hồi chức năng bảo vệ microbiome sau 28 ngày. (DOI: 10.1111/jdv.17855)",
-    "verified_source_tier": "1",
-    "verification_date": "2026-08-20",
-    "data_confidence": "High",
-    "evidence_level": "Level 1B Double-Blind RCT",
-    "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Anti-Allergy Soothing Fluid | Hoạt chất: Sphingobioma, Neurosensine, Squalane, Butylene Glycol, La Roche-Posay Thermal Water",
-    "mechanism_of_action": "Ức chế thụ thể thần kinh cảm giác thụ cảm nhiệt/đau (TRPV1) qua Neurosensine, cân bằng đa dạng sinh học hệ vi khuẩn commensal",
-    "comedogenic_index": 0,
-    "barrier_tolerance": "Tuyệt đối (Bao bì hút chân không Ultra-Hermetic chống tạp nhiễm)"
-  },
-  {
-    "stt": "99",
-    "product_id": "LAROCHEPOSAY_LIPIKAR_BAUME_AP_PLUS_M",
-    "product_name": "Kem Dưỡng Bổ Sung Lipid Cân Bằng Vi Sinh Cho Da Viêm Cơ Địa La Roche-Posay Lipikar Baume AP+M",
-    "brand": "La Roche-Posay (L'Oréal)",
-    "origin": "Pháp",
-    "category": "Moisturizer",
-    "subcategory": "Microbiome Barrier Balm",
-    "price_tier": "Dermocosmetics",
-    "price_min": "430000",
-    "price_max": "690000",
-    "price_raw": "430.000 VNĐ (200ml) / 690.000 VNĐ (400ml)",
-    "key_actives": "Aqua Posae Filiformis + Microresyl (Phức hợp AP+M) (UNKNOWN); Niacinamide (4%); Bơ hạt mỡ (Shea Butter) (20%); Dầu hạt cải dầu (Canola Oil) (UNKNOWN)",
-    "formulation_source_type": "brand_official",
-    "formulation_source_url": "https://www.larocheposay.vn/lipikar/lipikar-baume-apm",
-    "manufacturer_claim": "Bộ 3 tác động: Làm dịu ngứa tức thì, chống bùng phát cơn chàm và tái cân bằng hệ vi sinh vật biểu bì da",
-    "clinical_evidence": "[product-level] Đánh giá trên 2.100 bệnh nhân tại 12 quốc gia cho thấy Lipikar Baume AP+M làm giãn cách thời gian giữa các đợt bùng phát viêm da cơ địa lên gấp 3 lần và cải thiện chất lượng giấc ngủ. (DOI: 10.1111/jdv.16335)",
-    "verified_source_tier": "1",
-    "verification_date": "2026-08-20",
-    "data_confidence": "High",
-    "evidence_level": "Level 1A Multicenter Global Study",
-    "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Microbiome Barrier Balm | Hoạt chất: Aqua Posae Filiformis, Microresyl, Niacinamide 4%, Shea Butter 20%, Canola Oil, Ceramide",
-    "mechanism_of_action": "Ức chế tạo màng biofilm của vi khuẩn Staphylococcus aureus qua Microresyl, đồng thời cung cấp nồng độ lipid tự nhiên cao phục hồi màng biểu bì",
-    "comedogenic_index": 1,
-    "barrier_tolerance": "Tuyệt đối (An toàn từ trẻ sơ sinh, trẻ nhỏ đến người cao tuổi)"
-  },
-  {
-    "stt": "100",
-    "product_id": "DALBA_WHITE_TRUFFLE_DOUBLE_SERUM_CREAM",
-    "product_name": "Kem Dưỡng 2 Ngăn Tùy Biến Tỷ Lệ Nấm Truffle Trắng d'Alba White Truffle Double Serum & Cream",
-    "brand": "d'Alba (Bmonde)",
-    "origin": "Hàn Quốc",
-    "category": "Moisturizer",
-    "subcategory": "Custom Dual Phase Cream",
-    "price_tier": "K-Beauty / Premium",
-    "price_min": "590000",
-    "price_max": "750000",
-    "price_raw": "590.000 VNĐ (70g)",
-    "key_actives": "Chiết xuất nấm Truffle trắng Ý (Tuber Magnatum Extract) (10,000ppm); Tocopherol (Vitamin E) (Trufferol Complex); Collagen thực vật thuần chay (Vegan Collagen) (UNKNOWN); Ceramide NP & Chiết xuất rau má (Centella Asiatica) (UNKNOWN)",
-    "formulation_source_type": "brand_official",
-    "formulation_source_url": "https://dalba.com/products/white-truffle-double-serum-and-cream",
-    "manufacturer_claim": "Thiết kế 2 ngăn độc đáo: Aqua Serum (Làm dịu & Cấp nước) + Intense Cream (Nuôi dưỡng & Chống lão hóa), cho phép linh hoạt tùy chỉnh tỷ lệ theo tình trạng da mỗi ngày",
-    "clinical_evidence": "[product-level] Thử nghiệm tại Viện Nghiên cứu Da liễu Hàn Quốc (KDRI) chứng minh cải thiện 168% độ ẩm và tăng 21.4% độ đàn hồi màng biểu bì sau 2 tuần. Đạt chứng nhận thuần chay V-Label Ý. (KDRI Test No. 2023-412)",
-    "verified_source_tier": "1",
-    "verification_date": "2026-08-20",
-    "data_confidence": "High",
-    "evidence_level": "Level 2A Clinical Evaluation",
-    "irritation_risk": "Low",
-    "barrier_support": "High",
-    "inci_breakdown": "Hệ nền: Custom Dual Phase (Aqua Gel + Lipid Cream) | Hoạt chất: Tuber Magnatum Extract, Trufferol, Vegan Collagen, Ceramide NP, Panthenol, Centella",
-    "mechanism_of_action": "Chống oxy hóa mạnh mẽ qua phức hợp Trufferol (SOD-like activity), cung cấp hỗn hợp lipid và peptide thực vật tái cấu trúc chất nền ngoại bào",
-    "comedogenic_index": 0,
-    "barrier_tolerance": "Cao (Đạt chứng nhận thuần chay V-Label Ý, an toàn cho da nhạy cảm)"
+    "barrier_support": "High"
   }
 ]
