@@ -1,42 +1,26 @@
-# DERMA-X v2.0 — Interactive Dynamic 3D Skin Visualization Engine
+# DERMA-X v2.0 — Kiến Trúc Mô Hình Giải Phẫu Da 3D Động Tương Tác (3D Skin Engine)
 
-**Engine:** Three.js / WebGL & High-Performance Procedural Shaders  
-**Fallback:** HTML5 Canvas 2D Anatomical Cross-Section Renderer  
-**Nguyên tắc:** Animation và biến dạng 3D được điều khiển 100% bằng **Biến số Lâm sàng Chuẩn hóa**, không để AI tự bịa đặt hình ảnh bệnh lý.
-
----
-
-## 1. Cấu Trúc Giải Phẫu 3D (Anatomical Skin Layers)
-Mô hình cắt lớp giải phẫu da 3D thể hiện trực quan 8 tầng cấu trúc:
-1. **Lớp sừng & Bề mặt da (Stratum Corneum):** Lưới đa giác tế bào sừng với biến dạng đỉnh (Vertex Displacement) mô phỏng sẹo rỗ thật.
-2. **Thượng bì sống (Viable Epidermis):** Lớp hạt, lớp gai, lớp đáy giàu tế bào sừng và tế bào hắc tố Melanocytes.
-3. **Trung bì & Mạng lưới Collagen (Dermis & ECM):** Bó sợi Collagen Type I/III, Elastin và chất nền ngoại bào.
-4. **Nang lông & Thân lông (Hair Follicle & Shaft):** Phễu nang lông chứa nút sừng mụn ẩn (Comedone plug) hoặc sẩn viêm mủ.
-5. **Tuyến bã nhờn đa thùy (Sebaceous Glands):** Thùy tuyến bã kết nối với phễu nang lông, tự động phì đại và phát xung nhịp khi điểm Sebum = HIGH.
-6. **Mạng lưới mao mạch bì nông & sâu (Micro-Vasculature):** Quai mao mạch nhú bì, tự động giãn mạch và phát ánh sáng hồng ban (Erythema Glow) khi viêm da.
-7. **Tuyến mồ hôi ngoại tiết (Eccrine Sweat Glands):** Ống cuộn sâu trung bì với ống dẫn xoắn ốc lên bề mặt da.
-8. **Hạ bì mô mỡ (Subcutaneous Adipose Fat):** Cụm tế bào mỡ hình cầu màu vàng giữ nhiệt và nâng đỡ cơ học.
+**Động cơ hiển thị:** Three.js / WebGL với Shaders & Vật liệu Lâm sàng Chuẩn hóa  
+**Cơ chế dự phòng (Fallback):** HTML5 Canvas 2D Anatomical Cross-Section Renderer (hoạt động 100% ngoại tuyến)  
+**Nguyên tắc Y khoa cốt lõi:** Toàn bộ hoạt ảnh, biến dạng mô học và mật độ tổn thương 3D được điều khiển 100% từ **Biến số Lâm sàng Chuẩn hóa** (IGA, Hàng rào, Fitzpatrick, Kiểu hình tổn thương), tuyệt đối không để AI tạo sinh tự do làm sai lệch kiến thức giải phẫu.
 
 ---
 
-## 2. Hệ Thống Hạt Động (Dynamic Particle Systems)
-- **Hạt Lipid Sebum:** Các giọt lipid màu vàng phát sáng di chuyển từ tuyến bã nhờn theo ống dẫn nang lông lên bề mặt da.
-- **Hạt Thoát ẩm TEWL (Transepidermal Water Loss):** Các phân tử hơi nước màu xanh cyan bốc hơi thoát qua lớp sừng bị đứt gãy (Minh họa nguy cơ mất nước giáo dục).
-- **Hạt Dị nguyên Môi trường:** Các vi hạt bụi mịn và chất ô nhiễm lơ lửng tiếp xúc bề mặt da.
+## 1. Cấu Trúc Giải Phẫu 3D Phân Tầng (Anatomical Skin Layers)
+Mô hình cắt lớp 3D của DERMA-X tái hiện trực quan 8 tầng cấu trúc vi thể:
+1. **Lớp Sừng & Màng Lipid Biểu Bì (Stratum Corneum):** Lưới đa giác tế bào sừng (Corneocytes) xếp lớp cùng phiến lipid gian bào (Ceramide:Cholesterol:Acid béo 3:1:1), ngăn mất nước qua biểu bì (TEWL).
+2. **Thượng Bì Sống (Viable Epidermis):** Lớp hạt, lớp gai, lớp đáy với tế bào sừng phân chia và tế bào hắc tố (Melanocytes) quyết định màu da theo phân loại Fitzpatrick I–VI.
+3. **Trung Bì & Khung Đỡ Ngoại Bào (Dermis & ECM):** Bó sợi Collagen Type I/III, Elastin và chất nền ngoại bào (Hyaluronic Acid, Proteoglycans).
+4. **Đơn Vị Nang Lông - Thân Lông (Pilosebaceous Unit):** Phễu nang lông chứa nút sừng vi thể (Microcomedone), mụn đầu đen/trắng hoặc sẩn viêm mủ.
+5. **Tuyến Bã Nhờn Đa Thùy (Sebaceous Glands):** Tuyến bã tiết lipid bảo vệ, phì đại và tăng tiết bã nhờn khi điểm Sebum tăng.
+6. **Mạng Lưới Mao Mạch Bì Nông & Sâu (Micro-Vasculature):** Quai mao mạch nhú bì giãn nở và phát quang hồng ban (Erythema Glow) khi có phản ứng viêm da.
+7. **Tuyến Mồ Hôi Ngoại Tiết (Eccrine Sweat Glands):** Ống cuộn sâu hạ bì dẫn lên bề mặt điều hòa nhiệt.
+8. **Hạ Bì Mô Mỡ (Subcutaneous Adipose Fat):** Cụm tế bào mỡ đệm cơ học và giữ nhiệt.
 
 ---
 
-## 3. Biến Dạng Sẹo 3D Thật (3D Real Vertex Deformation)
-- **Sẹo lõm đáy nhọn (Ice-pick atrophic scar):** Vết lõm sâu dạng hình chữ V dốc đứng.
-- **Sẹo lõm đáy vuông (Boxcar atrophic scar):** Vết lõm thành dựng đứng, đáy phẳng.
-- **Sẹo lõm lượn sóng (Rolling atrophic scar):** Vùng trũng lượn sóng mềm mại rộng > 4mm.
-- **Sẹo phì đại (Hypertrophic scar):** Mô sợi trung bì nhô cao trong giới hạn vết thương.
-- **Sẹo lồi (Keloid scar):** Khối u sợi collagen gồ cao phát triển vượt ra ngoài ranh giới tổn thương ban đầu.
-
----
-
-## 4. Tương Tác & Điều Khiển
-- **OrbitControls 360°:** Xoay tự do mọi góc nhìn, thu phóng (Zoom), dịch chuyển (Pan), đặt lại camera.
-- **Chế độ So Sánh Đối Chứng (Comparison Slider):** Nửa trái hiển thị Da Chuẩn Tham Chiếu (Healthy Baseline), Nửa phải hiển thị Kiểu Hình Ca Bệnh Hiện Tại.
-- **Trình Khám Phá Lớp (Layer Explorer):** Bật/tắt hiển thị độc lập từng lớp giải phẫu.
-- **Thanh Giả Lập Diễn Tiến (Simulation Timeline):** Quan sát mô phỏng phục hồi mô từ Hiện tại ➔ Tuần 2 ➔ Tuần 4 ➔ Tuần 8 ➔ Tuần 12.
+## 2. Hệ Thống Tương Tác & Điều Khiển 3D
+- **OrbitControls 360°:** Xoay tự do mọi góc độ, thu phóng (Zoom), dịch chuyển (Pan), phím đặt lại góc nhìn chuẩn (`reset3DCamera()`).
+- **Bật/Tắt Từng Tầng Giải Phẫu (Layer Toggles):** Bật/tắt độc lập Tầng sừng (Corneum), Thượng bì (Epidermis), Trung bì (Dermis), Tuyến bã (Sebaceous), và Ổ mụn viêm (Lesions).
+- **Mặt Cắt Giải Phẫu (Anatomical Cut Plane):** Cắt dọc khối mô để quan sát sâu bên trong nang lông và mạch máu bì.
+- **Cửa Sổ Tra Cứu Mô Học 3D (Histology Modal):** Nhấp vào các thẻ tầng giải phẫu để xem chi tiết sinh lý học, trạng thái ca bệnh hiện tại và hoạt chất điều trị mục tiêu.

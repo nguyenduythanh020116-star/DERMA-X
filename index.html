@@ -1216,6 +1216,10 @@
               <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
               <span>Sao chép văn bản</span>
             </button>
+            <button onclick="downloadExportJSON()" class="px-4 py-2 rounded-xl bg-[#FAF5F2] hover:bg-[#F3ECE8] text-[#5C4D47] text-xs font-semibold flex items-center space-x-1.5 transition border border-[#F0E6E0]">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Tải JSON (.json)</span>
+            </button>
             <button onclick="window.print()" class="px-4 py-2 rounded-xl bg-[#FAF5F2] hover:bg-[#F3ECE8] text-[#5C4D47] text-xs font-semibold flex items-center space-x-1.5 transition border border-[#F0E6E0]">
               <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/></svg>
               <span>In / Lưu PDF</span>
@@ -1390,7 +1394,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Low",
     "evidence_level": "Clinical Study (In Vivo 10-33 subjects reported in raw data)",
     "irritation_risk": "Low",
-    "barrier_support": "Medium"
+    "barrier_support": "Medium",
+    "inci_breakdown": "Hệ nền: Micellar Water | Hoạt chất chính: Hạt Micelles (PEG-6 Caprylic/Capric Glycerides) (UNKNOWN); Phức hợp D.A.F. (Dermatological Advanced Formulation) (UNKNOWN); Chiết xuất dưa leo (Cucumis Sativus Fruit Extract) (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Loại bỏ 99% lớp trang điểm, 98% bụi siêu mịn PM2.5 và 78% kim loại nặng; không cần rửa lại",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "2",
@@ -1414,7 +1422,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Low",
     "evidence_level": "Clinical Study (In Vivo 20-33 volunteers reported in raw data)",
     "irritation_risk": "Low",
-    "barrier_support": "Low"
+    "barrier_support": "Low",
+    "inci_breakdown": "Hệ nền: Micellar Water | Hoạt chất chính: Phức hợp điều hòa bã nhờn Fluidactiv® (UNKNOWN); Kẽm Gluconate (Zinc Gluconate) (UNKNOWN); Đồng Sulfate (Copper Sulfate) (UNKNOWN); Chiết xuất lá bạch quả (Ginkgo Biloba Leaf Extract) (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Làm sạch mà không làm khô da (95%), thanh lọc da tinh khiết (95%), loại bỏ 93% vi hạt trên da",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "3",
@@ -1438,7 +1450,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Low",
     "evidence_level": "Manufacturer Claim / Consumer Product Testing",
     "irritation_risk": "Low",
-    "barrier_support": "Low"
+    "barrier_support": "Low",
+    "inci_breakdown": "Hệ nền: Bi-Phase Cleanser | Hoạt chất chính: Bi-Phase Micellar Technology (Lớp dầu làm sạch + Lớp nước Micellar) (UNKNOWN); Nước khoáng tự nhiên Vosges (UNKNOWN); Glycerin (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Làm sạch sâu lớp trang điểm cứng đầu và chống trôi không nhờn dính",
+    "comedogenic_index": 0,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "4",
@@ -1462,7 +1478,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Low",
     "evidence_level": "Manufacturer Claim / Global Consumer Testing",
     "irritation_risk": "Low",
-    "barrier_support": "Medium"
+    "barrier_support": "Medium",
+    "inci_breakdown": "Hệ nền: Cleansing Balm | Hoạt chất chính: Zero Balance Technology (Phức hợp làm sạch nhũ hóa) (UNKNOWN); Chiết xuất quả sơ-ri Acerola (Malpighia Glabra Fruit Extract) (UNKNOWN); Onsen-Water (Nước khoáng nhiệt) (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Bán chạy số 1 Hàn Quốc, tẩy sạch lớp trang điểm chống trôi mà không để lại cặn nhờn",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "5",
@@ -1486,7 +1506,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Low",
     "evidence_level": "Dermatological Testing / OTC Monograph",
     "irritation_risk": "Low",
-    "barrier_support": "Medium"
+    "barrier_support": "Medium",
+    "inci_breakdown": "Hệ nền: Foaming Gel Cleanser | Hoạt chất chính: Nước khoáng nhiệt La Roche-Posay (Thermal Spring Water) (UNKNOWN); Kẽm PCA (Zinc PCA) (UNKNOWN); Coco-Betaine surfactant (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Công thức oil-free, không xà phòng, không cồn, kiểm soát bóng nhờn và giảm mụn đầu đen",
+    "comedogenic_index": 0,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "6",
@@ -1510,7 +1534,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Low",
     "evidence_level": "Dermatological Formulation / Clinical Testing",
     "irritation_risk": "Low",
-    "barrier_support": "High"
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Foaming Gel Cleanser | Hoạt chất chính: Ceramide NP (Ceramide 3) (UNKNOWN); Ceramide AP (Ceramide 6-II) (UNKNOWN); Ceramide EOP (Ceramide 1) (UNKNOWN); Niacinamide (Vitamin B3) (UNKNOWN); Hyaluronic Acid (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Phát triển cùng bác sĩ da liễu, phục hồi màng bảo vệ tự nhiên với 3 Ceramide thiết yếu",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "7",
@@ -1534,7 +1562,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Medium",
     "evidence_level": "Manufacturer Claim / OTC Formulation",
     "irritation_risk": "Low",
-    "barrier_support": "Medium"
+    "barrier_support": "Medium",
+    "inci_breakdown": "Hệ nền: Low pH Gel Cleanser | Hoạt chất chính: Betaine Salicylate (BHA tự nhiên) (0.5%); Tinh dầu tràm trà (Melaleuca Alternifolia Leaf Oil) (UNKNOWN); Allantoin (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Độ pH chuẩn 4.5-5.5, không cồn, không sulfate, không paraben",
+    "comedogenic_index": 0,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "8",
@@ -1558,7 +1590,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Low",
     "evidence_level": "Clinical Dermatological Testing",
     "irritation_risk": "Low",
-    "barrier_support": "High"
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Gentle Non-Foaming Cleanser | Hoạt chất chính: Niacinamide (Vitamin B3) (UNKNOWN); Panthenol (Pro-Vitamin B5) (UNKNOWN); Glycerin (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Bảo vệ chống lại 5 dấu hiệu nhạy cảm, công thức không bọt không xà phòng được kiểm nghiệm da liễu",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "9",
@@ -1582,7 +1618,11 @@ var PRODUCTS_DB = [
     "data_confidence": "High",
     "evidence_level": "Published Research (Journal of European Academy of Dermatology and Venerology, 2016 cited in raw data)",
     "irritation_risk": "Medium",
-    "barrier_support": "Low"
+    "barrier_support": "Low",
+    "inci_breakdown": "Hệ nền: Chemical Exfoliant (BHA) | Hoạt chất chính: Salicylic Acid (BHA) (2%); Chiết xuất trà xanh (Camellia Oleifera Leaf Extract) (UNKNOWN); Methylpropanediol (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Công thức 2% BHA nền Butylene Glycol tối ưu thẩm thấu, không hương liệu, không cồn",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "10",
@@ -1606,7 +1646,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Low",
     "evidence_level": "Manufacturer Claim / In Vitro Moisturization Testing",
     "irritation_risk": "Low",
-    "barrier_support": "Medium"
+    "barrier_support": "Medium",
+    "inci_breakdown": "Hệ nền: Hydrating Toner | Hoạt chất chính: Sodium Hyaluronate (UNKNOWN); Phyto-Oligo (Chiết xuất rễ Althaea Rosea & Lô hội) (UNKNOWN); Chiết xuất rau má (Centella Asiatica Extract) (UNKNOWN); Wheat Amino Acids (UNKNOWN); Beta-Glucan (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Kéo dài độ ẩm hơn 20% so với toner thường, không tinh dầu, không hương liệu, không cồn",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "11",
@@ -1630,7 +1674,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Medium",
     "evidence_level": "Scientific AHA Monograph / Manufacturer Specification",
     "irritation_risk": "High",
-    "barrier_support": "Low"
+    "barrier_support": "Low",
+    "inci_breakdown": "Hệ nền: Chemical Exfoliant (AHA) | Hoạt chất chính: Glycolic Acid (AHA) (7%); Tasmanian Pepperberry derivative (UNKNOWN); Panax Ginseng Root Extract (UNKNOWN); Aloe Barbadensis Leaf Water (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Nồng độ 7% Glycolic Acid kèm dẫn xuất tiêu Tasmania giảm kích ứng acid",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "12",
@@ -1654,7 +1702,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Low",
     "evidence_level": "Manufacturer Claim / In Vivo Moisture Retention Testing",
     "irritation_risk": "Low",
-    "barrier_support": "High"
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Hydrating Lotion | Hoạt chất chính: Phức hợp 7 loại Hyaluronic Acid (UNKNOWN); Sacran (Chiết xuất tảo bẹ Aphanothece Sacrum Polysaccharide) (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: 7 loại HA chuyên sâu + Sacran ngậm nước gấp 5 lần HA, duy trì độ ẩm suốt 24h",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "13",
@@ -1678,7 +1730,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Medium",
     "evidence_level": "Clinical Literature on 10% Niacinamide & 1% Zinc PCA",
     "irritation_risk": "Low",
-    "barrier_support": "High"
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Sebum Control & Anti-Blemish Serum | Hoạt chất chính: Niacinamide (Vitamin B3) (10%); Zinc PCA (1%)",
+    "mechanism_of_action": "Tác động lâm sàng: Giảm bã nhờn, thông thoáng chân lông và mờ thâm sau mụn",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "14",
@@ -1702,7 +1758,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Medium",
     "evidence_level": "Clinical Testing under Dermatological Control",
     "irritation_risk": "Low",
-    "barrier_support": "High"
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Barrier Repair & Hydration Serum | Hoạt chất chính: Panthenol (Pro-Vitamin B5) (5%); Hyaluronic Acid Duo (High & Low Molecular Weight) (UNKNOWN); Madecassoside (Chiết xuất rau má) (UNKNOWN); Nước khoáng La Roche-Posay (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Phục hồi da săn chắc, làm mờ nếp nhăn mảnh và tái tạo màng bảo vệ sau liệu trình",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "15",
@@ -1726,7 +1786,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Low",
     "evidence_level": "Proprietary Clinical & In Vitro Chronobiology Research",
     "irritation_risk": "Low",
-    "barrier_support": "High"
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Anti-Aging & Cellular Repair Serum | Hoạt chất chính: Tripeptide-32 (Chronolux™ Technology) (UNKNOWN); Bifida Ferment Lysate (UNKNOWN); Lactobacillus Ferment (UNKNOWN); Sodium Hyaluronate & Squalane (UNKNOWN); Kola Seed Extract & Caffeine (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Công nghệ độc quyền Chronolux Power Signal kích hoạt tái tạo collagen và bảo vệ chống oxy hóa 8H",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "16",
@@ -1750,7 +1814,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Low",
     "evidence_level": "Clinical Study on 3-O-Ethyl Ascorbic Acid",
     "irritation_risk": "Low",
-    "barrier_support": "Medium"
+    "barrier_support": "Medium",
+    "inci_breakdown": "Hệ nền: Brightening & Dark Spot Serum | Hoạt chất chính: Activated C (3-O-Ethyl Ascorbic Acid) (UNKNOWN); White Birch Extract (Chiết xuất Bạch dương trắng) (UNKNOWN); Peony Extract (Chiết xuất Hoa mẫu đơn) (UNKNOWN); Salicylic Acid (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Activated C ổn định 100% không bị đổi màu/oxy hóa, làm mờ thâm nám rõ rệt gấp 2 lần",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "17",
@@ -1774,7 +1842,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Medium",
     "evidence_level": "Published Peer-Reviewed Clinical Trial (Dermatologic Surgery, 2001; Pinnell et al.)",
     "irritation_risk": "Medium",
-    "barrier_support": "Low"
+    "barrier_support": "Low",
+    "inci_breakdown": "Hệ nền: Antioxidant Serum (Vitamin C) | Hoạt chất chính: L-Ascorbic Acid (Vitamin C tinh khiết) (15%); Alpha Tocopherol (Vitamin E) (1%); Ferulic Acid (0.5%)",
+    "mechanism_of_action": "Tác động lâm sàng: Bằng sáng chế Duke Antioxidant Patent, bảo vệ da gấp 8 lần trước tổn thương oxy hóa môi trường",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "18",
@@ -1798,7 +1870,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Medium",
     "evidence_level": "Manufacturer Testing / In Vitro Glycosaminoglycan Studies",
     "irritation_risk": "Low",
-    "barrier_support": "High"
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Snail Mucin Essence | Hoạt chất chính: Snail Secretion Filtrate (Dịch nhầy ốc sên) (96.3%); Sodium Hyaluronate (UNKNOWN); Panthenol (Pro-Vitamin B5) (UNKNOWN); Allantoin & Arginine (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: 96.3% Dịch tiết ốc sên tự nhiên nuôi dưỡng và tái tạo làn da tổn thương",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "19",
@@ -1822,7 +1898,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Medium",
     "evidence_level": "Published Dermatological Studies on Centella Asiatica Phytocompounds",
     "irritation_risk": "Low",
-    "barrier_support": "High"
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Centella Soothing Ampoule | Hoạt chất chính: Centella Asiatica Extract (Rau má Madagascar) (100%); Madecassoside, Asiaticoside, Asiatic Acid, Madecassic Acid (Natural Bio-Components)",
+    "mechanism_of_action": "Tác động lâm sàng: 100% chiết xuất rau má Madagascar tự nhiên lành tính, không chứa bất kỳ chất bảo quản hay phụ gia tổng hợp nào",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "20",
@@ -1846,7 +1926,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Medium",
     "evidence_level": "Approved Dermatological Drug Monograph / Multi-center Clinical Trials",
     "irritation_risk": "Medium",
-    "barrier_support": "Low"
+    "barrier_support": "Low",
+    "inci_breakdown": "Hệ nền: Topical Retinoid (Adapalene) | Hoạt chất chính: Adapalene (Dạng vi hạt microsphere) (0.1%)",
+    "mechanism_of_action": "Tác động lâm sàng: Adapalene vi hạt 0.1% tiêu nhân mụn hiệu quả, ít kích ứng hơn Tretinoin thế hệ cũ",
+    "comedogenic_index": 0,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "21",
@@ -1870,7 +1954,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Medium",
     "evidence_level": "FDA Approved Drug Monograph / Decades of Global Dermatological Clinical Trials",
     "irritation_risk": "High",
-    "barrier_support": "Low"
+    "barrier_support": "Low",
+    "inci_breakdown": "Hệ nền: Topical Retinoid (Tretinoin) | Hoạt chất chính: Tretinoin (All-trans retinoic acid) (0.05%)",
+    "mechanism_of_action": "Tác động lâm sàng: Tiêu chuẩn vàng đảo ngược lão hóa quang học và điều trị mụn tầng sâu được FDA phê duyệt",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "22",
@@ -1894,7 +1982,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Medium",
     "evidence_level": "Level 1A Evidence (Guidelines of Care for the Management of Acne Vulgaris - JAAD)",
     "irritation_risk": "High",
-    "barrier_support": "Low"
+    "barrier_support": "Low",
+    "inci_breakdown": "Hệ nền: Combination Acne Therapy | Hoạt chất chính: Adapalene (0.1%); Benzoyl Peroxide (2.5%)",
+    "mechanism_of_action": "Tác động lâm sàng: Phác đồ phối hợp liều cố định hàng đầu thế giới được các hướng dẫn AAD/EADV khuyến cáo độ A",
+    "comedogenic_index": 0,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "23",
@@ -1918,7 +2010,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Medium",
     "evidence_level": "Clinical Literature on 20% Azelaic Acid in PIE/PIH & Acne",
     "irritation_risk": "Low",
-    "barrier_support": "Medium"
+    "barrier_support": "Medium",
+    "inci_breakdown": "Hệ nền: Azelaic Acid Spot & Field Treatment | Hoạt chất chính: Azelaic Acid (20%); Ubiquinone (Coenzyme Q10) (UNKNOWN); Ascorbic Acid & Tocopherol (UNKNOWN); Centella Asiatica Extract (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Giảm thâm đỏ và mụn dịu nhẹ, an toàn dung nạp cao trên làn da nhạy cảm",
+    "comedogenic_index": 0,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "24",
@@ -1942,7 +2038,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Medium",
     "evidence_level": "Level 1 Evidence (Cochrane Review & JAAD Guidelines for Melasma & Rosacea)",
     "irritation_risk": "Low (châm chích nhẹ 5 phút đầu do acid tinh khiết)",
-    "barrier_support": "Medium"
+    "barrier_support": "Medium",
+    "inci_breakdown": "Hệ nền: Azelaic Acid Cream (Clinical Grade) | Hoạt chất chính: Azelaic Acid (Clinical Grade) (20%)",
+    "mechanism_of_action": "Tác động lâm sàng: Được phê duyệt quốc tế cho Melasma và Rosacea, an toàn cho phụ nữ mang thai",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "25",
@@ -1966,7 +2066,11 @@ var PRODUCTS_DB = [
     "data_confidence": "High",
     "evidence_level": "Level 1A Multicenter Double-blind RCT",
     "irritation_risk": "Low",
-    "barrier_support": "High"
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Barrier Repair Balm | Hoạt chất chính: Panthenol (Pro-Vitamin B5) (5%); Phức hợp tiền sinh học Tribioma (Prebiotics complex) (UNKNOWN); Madecassoside (Chiết xuất rau má) (UNKNOWN); Butyrospermum Parkii (Shea Butter) (UNKNOWN); Kẽm Gluconate & Mangan (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Phục hồi da sau 1 giờ, ứng dụng công nghệ vi sinh Tribioma độc quyền, an toàn cho trẻ sơ sinh và da sau thủ thuật",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "26",
@@ -1990,7 +2094,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Medium",
     "evidence_level": "Published Clinical Trials in Post-procedure & Pediatric Wound Care",
     "irritation_risk": "Low",
-    "barrier_support": "High"
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Barrier Repair Cream | Hoạt chất chính: [C+-Restore] (Postbiotic patented active derived from Avène Thermal Spring Water) (UNKNOWN); Kẽm Oxide (Zinc Oxide) (4%); Đồng Sulfate (Copper Sulfate) & Kẽm Sulfate (UNKNOWN); Avène Thermal Spring Water (45%)",
+    "mechanism_of_action": "Tác động lâm sàng: Làm lành da sau 48H, giảm 84% cảm giác khó chịu ngay lần đầu thoa",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "27",
@@ -2014,7 +2122,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Low",
     "evidence_level": "Dermatologist Tested / Clinical Hydration Assay",
     "irritation_risk": "Low",
-    "barrier_support": "Medium"
+    "barrier_support": "Medium",
+    "inci_breakdown": "Hệ nền: Hydrating Water Gel | Hoạt chất chính: Hyaluronic Acid (UNKNOWN); Olive Extract (Cetearyl Olivate & Sorbitan Olivate) (UNKNOWN); Glycerin & Dimethicone polymer matrix (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Cấp nước 72H, công thức không dầu (Oil-free), không gây mụn (Non-comedogenic)",
+    "comedogenic_index": 0,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "28",
@@ -2038,7 +2150,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Low",
     "evidence_level": "Clinical Corneometry & Clinical Grading (100-hour retention study)",
     "irritation_risk": "Low",
-    "barrier_support": "High"
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Auto-Replenishing Gel-Cream | Hoạt chất chính: Aloe Bioferment (Men sinh học lô hội) (UNKNOWN); Hyaluronic Acid Duo (UNKNOWN); Activated Aloe Water (UNKNOWN); Caffeine & Green Tea extract (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Cấp ẩm xuyên suốt 100 giờ kể cả sau khi rửa mặt, thấm sâu 10 tầng biểu bì, 100% không hương liệu",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "29",
@@ -2062,7 +2178,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Low",
     "evidence_level": "Published Clinical Photobiology Trial / In Vivo SPF & PPD Testing",
     "irritation_risk": "Low",
-    "barrier_support": "Medium"
+    "barrier_support": "Medium",
+    "inci_breakdown": "Hệ nền: Oil Control Sunscreen Fluid | Hoạt chất chính: Mexoryl 400 (Methoxypropylamino Cyclohexenylidene Ethoxyethylcyanoacetate) (UNKNOWN); Airlicium (Silica silylate lipid absorber) (UNKNOWN); Netlock Technology polymer network (UNKNOWN); Nước khoáng La Roche-Posay (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: PPD 55.8 bảo vệ chống tia UVA cực dài 380-400nm, kiềm dầu 12H, kháng trôi cao",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "30",
@@ -2086,7 +2206,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Low",
     "evidence_level": "Clinical In Vivo Water Resistance & SPF50+ PA++++ Testing",
     "irritation_risk": "Low",
-    "barrier_support": "Medium"
+    "barrier_support": "Medium",
+    "inci_breakdown": "Hệ nền: Water-Resistant Sunscreen Milk | Hoạt chất chính: Zinc Oxide & Titanium Dioxide (Phổ khoáng) (UNKNOWN); Organic UV Filters (Octocrylene, Uvinul A Plus, Tinosorb S, Ensulizole) (UNKNOWN); Auto Veil & Auto Booster Technology (UNKNOWN); Kyoto Uji Green Tea Extract, Soluble Collagen, Super HA (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Công nghệ Auto Veil tự phục hồi màng bảo vệ, 50% dưỡng da, chống nước 80 phút, chống bụi PM2.5",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "31",
@@ -2110,7 +2234,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Low",
     "evidence_level": "Clinical In Vivo SPF 50+ & PA++++ Testing (Korea Dermatology Research Institute)",
     "irritation_risk": "Low",
-    "barrier_support": "High"
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Hydrating Sun Serum | Hoạt chất chính: Hyalu-Cica Complex (Centella Asiatica Extract + Hyaluronic Acid) (UNKNOWN); Modern Chemical UV Filters (Uvinul A Plus, Tinosorb M, Uvinul T 150, Iscotrizinol) (UNKNOWN); Niacinamide & Adenosine (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Top 1 kem chống nắng bán chạy Olive Young Hàn Quốc, kết cấu serum mỏng nhẹ như nước",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "32",
@@ -2134,7 +2262,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Medium",
     "evidence_level": "Clinical In Vivo Mineral SPF50+ & Safety Dermatological Testing",
     "irritation_risk": "Low",
-    "barrier_support": "High"
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: 100% Mineral Physical Sunscreen | Hoạt chất chính: Zinc Oxide & Titanium Dioxide (100% Mineral Filters) (UNKNOWN); Centella Asiatica Extract (Rau má Madagascar) (29.4%); Madewhite™ (Dẫn xuất rau má làm sáng da) (UNKNOWN); Niacinamide (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: 100% màng lọc vật lý nano-free, an toàn cho trẻ em và phụ nữ mang thai, không cay mắt",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "33",
@@ -2158,7 +2290,11 @@ var PRODUCTS_DB = [
     "data_confidence": "High",
     "evidence_level": "Product-level Level 1A Multicenter Double-blind RCT (JAAD 2006) + FDA NDA 021112 Approved",
     "irritation_risk": "High",
-    "barrier_support": "Low"
+    "barrier_support": "Low",
+    "inci_breakdown": "Hệ nền: Prescription Pigment Combination | Hoạt chất chính: Hydroquinone (4.0% w/w); Tretinoin (0.05% w/w); Fluocinolone Acetonide (0.01% w/w)",
+    "mechanism_of_action": "Tác động lâm sàng: Thuốc bôi kê đơn duy nhất được FDA phê duyệt chứa phức hợp 3 thành phần phối hợp điều trị nám má mức độ vừa đến nặng.",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "34",
@@ -2182,7 +2318,11 @@ var PRODUCTS_DB = [
     "data_confidence": "High",
     "evidence_level": "Ingredient-level Level 1A evidence (AAD Guidelines 2016) + FDA NDA 050600 Monograph",
     "irritation_risk": "Low",
-    "barrier_support": "Low"
+    "barrier_support": "Low",
+    "inci_breakdown": "Hệ nền: Prescription Antibiotic Gel | Hoạt chất chính: Clindamycin Phosphate (1.0% w/w)",
+    "mechanism_of_action": "Tác động lâm sàng: Thuốc bôi da liễu ức chế vi khuẩn gây mụn Cutibacterium acnes và giảm sưng viêm ở các nốt mụn mủ.",
+    "comedogenic_index": 0,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "35",
@@ -2206,7 +2346,11 @@ var PRODUCTS_DB = [
     "data_confidence": "High",
     "evidence_level": "Product-level Level 1A Multicenter RCTs (JAAD 2005) + FDA NDA 050777 Approved",
     "irritation_risk": "Medium",
-    "barrier_support": "High"
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Prescription Calcineurin Inhibitor | Hoạt chất chính: Tacrolimus (0.1% w/w)",
+    "mechanism_of_action": "Tác động lâm sàng: Thuốc mỡ kê đơn không chứa steroid điều trị viêm da cơ địa mức độ vừa đến nặng ở người lớn và thanh thiếu niên.",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "36",
@@ -2230,7 +2374,11 @@ var PRODUCTS_DB = [
     "data_confidence": "High",
     "evidence_level": "Ingredient-level JAAD 2003 evidence (15% Azelaic Acid) + Brand In Vivo 8-Hour Clinical Assay",
     "irritation_risk": "Medium",
-    "barrier_support": "Medium"
+    "barrier_support": "Medium",
+    "inci_breakdown": "Hệ nền: Azelaic Acid Serum | Hoạt chất chính: Azelaic Acid (15.0%); Niacinamide (Vitamin B3) (2.0%); Zinc Gluconate (0.5%); Salicylic Acid (BHA) (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: 15% Azelaic Acid tinh khiết giúp giảm rõ rệt mụn viêm, mụn đầu đen, thâm đỏ (PIE) và bóng dầu chỉ sau 8 giờ.",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "37",
@@ -2254,7 +2402,11 @@ var PRODUCTS_DB = [
     "data_confidence": "High",
     "evidence_level": "Ingredient-level Clin Interv Aging 2006 evidence (0.1% Retinaldehyde) + Brand In Vivo Clinical Peeling Trial",
     "irritation_risk": "Medium",
-    "barrier_support": "Medium"
+    "barrier_support": "Medium",
+    "inci_breakdown": "Hệ nền: Retinal Night Cream | Hoạt chất chính: Retinaldehyde (Retinal) (0.1%); Pro-Vitamin E (Tocopheryl Glucoside) (UNKNOWN); Oenothera Biennis (Evening Primrose) Oil (UNKNOWN); Avène Thermal Spring Water (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Hiệu quả tương đương 3 liệu trình peel da chuyên nghiệp, kích thích đổi mới tế bào và làm mờ nếp nhăn mảnh nhờ 0.1% Retinaldehyde.",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "38",
@@ -2278,7 +2430,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Medium",
     "evidence_level": "Product-level In Vivo Mattifying & Pore Efficacy Evaluation (NAOS Clinical Dossier)",
     "irritation_risk": "Low",
-    "barrier_support": "Low"
+    "barrier_support": "Low",
+    "inci_breakdown": "Hệ nền: Pore Refining Cream | Hoạt chất chính: Fluidactiv® Patented Sebum Quality Complex (UNKNOWN); Agaricic Acid (Fomes Officinalis Mushroom Extract) (UNKNOWN); Salicylic Acid (BHA) (UNKNOWN); Silica & Polymethyl Methacrylate Mattifying Powders (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Se khít lỗ chân lông, cải thiện kết cấu da mịn màng và kiềm dầu suốt 8 giờ nhờ phức hợp Fluidactiv độc quyền.",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "39",
@@ -2302,7 +2458,11 @@ var PRODUCTS_DB = [
     "data_confidence": "High",
     "evidence_level": "Ingredient-level verified citations (3% TXA, 1% Kojic, 5% B3) + Brand 12-Week Double-blind Clinical Trial",
     "irritation_risk": "Low",
-    "barrier_support": "Medium"
+    "barrier_support": "Medium",
+    "inci_breakdown": "Hệ nền: Anti-Pigmentation Serum | Hoạt chất chính: Tranexamic Acid (3.0%); Kojic Acid (1.0%); Niacinamide (Vitamin B3) (5.0%); Sulfonic Acid (HEPES) (5.0%)",
+    "mechanism_of_action": "Tác động lâm sàng: Được chứng minh lâm sàng giúp giảm 60% tình trạng thâm nám cứng đầu và 81% vết thâm sau mụn (PIH) sau 12 tuần sử dụng.",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "40",
@@ -2326,7 +2486,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Medium",
     "evidence_level": "Brand Consumer Perception & Dermatological Safety Evaluation",
     "irritation_risk": "High",
-    "barrier_support": "Low"
+    "barrier_support": "Low",
+    "inci_breakdown": "Hệ nền: Two-Step Daily Chemical Peel | Hoạt chất chính: Step 1: 7-Acid AHA/BHA Exfoliating Complex (Glycolic, Lactic, Salicylic, Mandelic, Malic, Citric, Tartaric) (UNKNOWN); Step 2: Neutralizing & Anti-Aging Blend (Resveratrol, Retinol, Ascorbic Acid, CoQ10) (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Liệu trình peel 2 bước chuẩn phòng khám giúp thu nhỏ lỗ chân lông, làm phẳng nếp nhăn và kích thích tái sinh collagen ngay sau 1 lần dùng.",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "41",
@@ -2350,7 +2514,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Medium",
     "evidence_level": "Ophthalmologist Tested / Clinical Eye Area Tolerance Testing",
     "irritation_risk": "Low",
-    "barrier_support": "High"
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Eye Cream | Hoạt chất chính: Caffeine (UNKNOWN); Phytosphingosine & Sodium Hyaluronate (UNKNOWN); Camellia Sinensis (Green Tea) Leaf Extract (UNKNOWN); Butyrospermum Parkii (Shea Butter) (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Dưỡng ẩm chuyên sâu cho vùng da mắt mỏng manh, giảm rõ rệt quầng thâm, bọng mắt và củng cố màng bảo vệ chống kích ứng.",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "42",
@@ -2374,7 +2542,11 @@ var PRODUCTS_DB = [
     "data_confidence": "High",
     "evidence_level": "Ingredient-level Level 1A evidence (AAD Guidelines 2016) + FDA OTC Drug Monograph NDC 0145-2614-05",
     "irritation_risk": "High",
-    "barrier_support": "Low"
+    "barrier_support": "Low",
+    "inci_breakdown": "Hệ nền: Benzoyl Peroxide Acne Wash | Hoạt chất chính: Benzoyl Peroxide (10.0% w/w)",
+    "mechanism_of_action": "Tác động lâm sàng: Sữa rửa mặt chứa 10% Benzoyl Peroxide nồng độ tối đa không kê đơn, tiêu diệt hơn 99% vi khuẩn gây mụn trên mặt và cơ thể trong 15 giây.",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "43",
@@ -2398,7 +2570,11 @@ var PRODUCTS_DB = [
     "data_confidence": "High",
     "evidence_level": "Ingredient-level Molecules 2018 evidence (AHA desmolytic mechanisms) + Brand Verified 30% AHA / 2% BHA Formula",
     "irritation_risk": "High",
-    "barrier_support": "Low"
+    "barrier_support": "Low",
+    "inci_breakdown": "Hệ nền: Wash-Off Chemical Peel | Hoạt chất chính: AHA Blend (Glycolic, Lactic, Tartaric, Citric Acids) (30.0%); Salicylic Acid (BHA) (2.0%); Tasmannia Lanceolata Fruit/Leaf Extract (UNKNOWN); Sodium Hyaluronate Crosspolymer & Panthenol (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Liệu pháp peel da 10 phút tại nhà với 30% AHA và 2% BHA (pH ~3.6) làm sáng đều màu da, thông thoáng lỗ chân lông và làm mịn bề mặt thô ráp.",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "44",
@@ -2422,7 +2598,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Medium",
     "evidence_level": "Manufacturer Patented Oxygen-Free Aluminum Nozzle Delivery & In Vivo Spot Efficacy Assay",
     "irritation_risk": "Low",
-    "barrier_support": "Low"
+    "barrier_support": "Low",
+    "inci_breakdown": "Hệ nền: Spot Essence | Hoạt chất chính: Ascorbic Acid (Pure L-Ascorbic Acid) (UNKNOWN); Tocopheryl Acetate (Vitamin E Derivative) (UNKNOWN); Dipotassium Glycyrrhizate (Licorice extract active) (UNKNOWN); Isopropylmethylphenol (O-Cymen-5-Ol antibacterial active) (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Công nghệ màng nhôm ngăn chặn hoàn toàn oxy hóa Vitamin C nguyên chất, thẩm thấu sâu làm mờ vết thâm mụn và đốm nâu sau 2-3 tuần.",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "45",
@@ -2446,7 +2626,11 @@ var PRODUCTS_DB = [
     "data_confidence": "High",
     "evidence_level": "Product-level Level 1A evidence (AAD Acne Guidelines 2016) + FDA NDA 050741 Approved",
     "irritation_risk": "High",
-    "barrier_support": "Low"
+    "barrier_support": "Low",
+    "inci_breakdown": "Hệ nền: Prescription Combination Acne Gel | Hoạt chất chính: Benzoyl Peroxide (5.0% w/w); Clindamycin Phosphate (1.0% w/w)",
+    "mechanism_of_action": "Tác động lâm sàng: Gel bôi kê đơn phối hợp 1% Clindamycin và 5% Benzoyl Peroxide giúp diệt khuẩn C. acnes, giảm sưng viêm nhanh chóng và ngăn ngừa kháng kháng sinh.",
+    "comedogenic_index": 0,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "46",
@@ -2470,7 +2654,11 @@ var PRODUCTS_DB = [
     "data_confidence": "High",
     "evidence_level": "Product-level Level 1A Multicenter RCT (Arch Dermatol 2003) + FDA NDA 020531 Approved",
     "irritation_risk": "Low",
-    "barrier_support": "Medium"
+    "barrier_support": "Medium",
+    "inci_breakdown": "Hệ nền: Prescription Rosacea Cream | Hoạt chất chính: Metronidazole (0.75% w/w)",
+    "mechanism_of_action": "Tác động lâm sàng: Thuốc bôi kê đơn dạng kem chứa 0.75% Metronidazole làm giảm các sẩn viêm, mụn mủ và ban đỏ trong bệnh trứng cá đỏ (rosacea).",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "47",
@@ -2494,7 +2682,11 @@ var PRODUCTS_DB = [
     "data_confidence": "High",
     "evidence_level": "Product-level Level 1A Phase 3 Multicenter RCTs (Cutis 2015, JAAD 2013) + FDA NDA 207071 Approved",
     "irritation_risk": "Medium",
-    "barrier_support": "Medium"
+    "barrier_support": "Medium",
+    "inci_breakdown": "Hệ nền: Prescription Rosacea Foam | Hoạt chất chính: Azelaic Acid (15.0% w/w)",
+    "mechanism_of_action": "Tác động lâm sàng: Dạng bọt siêu mịn thấm nhanh, không bết dính giúp làm dịu sẩn viêm, giảm mẩn đỏ và kiểm soát triệu chứng rosacea mức độ vừa.",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "48",
@@ -2518,7 +2710,11 @@ var PRODUCTS_DB = [
     "data_confidence": "High",
     "evidence_level": "Product-level Level 1A J Invest Dermatol 1996 Ratio Evidence + Brand 8-Week Multi-Center Clinical Efficacy Study",
     "irritation_risk": "Low",
-    "barrier_support": "High"
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Lipid Restoration Cream | Hoạt chất chính: Natural Cholesterol (4.0%); Pure Ceramides 1 & 3 (Ceramide EOP & Ceramide NP) (2.0%); Essential Fatty Acids (Sunflower Seed Unsaponifiables) (2.0%)",
+    "mechanism_of_action": "Tác động lâm sàng: Phục hồi hàng rào bảo vệ da, tăng 66% độ mịn màng, 35% độ săn chắc và rút ngắn thời gian thích ứng với Retinoid nhờ tỷ lệ lipid tối ưu 2:4:2.",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "49",
@@ -2542,7 +2738,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Medium",
     "evidence_level": "Ophthalmologist Tested / 100% Fragrance Free Clinical Tolerance Assay",
     "irritation_risk": "Low",
-    "barrier_support": "High"
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Cleansing Balm | Hoạt chất chính: Carthamus Tinctorius (Safflower) Seed Oil (Linoleic Acid Rich) (UNKNOWN); Caprylic/Capric Triglyceride & Ethylhexyl Palmitate Emollient Esters (UNKNOWN); Tocopherol (Vitamin E) (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Sáp tẩy trang số 1 chuyển hóa từ dạng sáp sang dầu mềm mịn, hòa tan nhanh chóng lớp trang điểm chống nước, kem chống nắng và bụi bẩn mà không làm khô căng da.",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "50",
@@ -2566,7 +2766,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Medium",
     "evidence_level": "Professional Aesthetic Spa Protocol & In-Clinic Keratolytic Efficacy",
     "irritation_risk": "High",
-    "barrier_support": "Low"
+    "barrier_support": "Low",
+    "inci_breakdown": "Hệ nền: Multi-Acid Exfoliating Toner | Hoạt chất chính: Gluconolactone (PHA) & Lactic / Malic / Citric Acids (AHA) (UNKNOWN); Salicylic Acid (BHA) & Phytic Acid (UNKNOWN); Sulfur & Vinegar (Acetum) (UNKNOWN); Niacinamide & Horseradish / Burdock Extracts (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Biểu tượng tái tạo biểu bì qua 50 ngày, điều hòa độ pH sinh lý, thanh lọc bã nhờn và kích thích đổi mới tế bào da.",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "51",
@@ -2590,7 +2794,11 @@ var PRODUCTS_DB = [
     "data_confidence": "High",
     "evidence_level": "Ingredient-level Level 1B RCT Efficacy (14% PHA + 4% B3) + Brand 7-Day In Vivo Clinical Test",
     "irritation_risk": "Medium",
-    "barrier_support": "Medium"
+    "barrier_support": "Medium",
+    "inci_breakdown": "Hệ nền: Anti-Acne Gel | Hoạt chất chính: Gluconolactone (PHA) (14.0%); Niacinamide (Vitamin B3) (4.0%); Salicylic Acid (BHA) (0.5%)",
+    "mechanism_of_action": "Tác động lâm sàng: 14% Gluconolactone kết hợp 4% Niacinamide giúp giảm mụn viêm, mụn đầu đen và mờ vết thâm rõ rệt chỉ sau 7 ngày mà không làm khô rát da.",
+    "comedogenic_index": 0,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "52",
@@ -2614,7 +2822,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Medium",
     "evidence_level": "Sterile Cosmetics Hermetic Packaging Clinical Assessment & In Vivo Calming Test",
     "irritation_risk": "Low",
-    "barrier_support": "High"
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Sterile Soothing Cream | Hoạt chất chính: D-Sensinose™ (Patented Postbiotic Active from Avène Thermal Spring Water) (UNKNOWN); Avène Thermal Spring Water (UNKNOWN); Plant Squalane & Natural Beeswax (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Làm dịu cảm giác châm chích, nóng rát chỉ sau 30 giây, phục hồi hàng rào bảo vệ da trong 48 giờ với công nghệ vô trùng Sterile Cosmetics 0% chất bảo quản.",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "53",
@@ -2638,7 +2850,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Medium",
     "evidence_level": "Product-level Microbiome In Vivo Clinical Protocol (600+ subjects, L'Oréal R&I)",
     "irritation_risk": "Medium",
-    "barrier_support": "Medium"
+    "barrier_support": "Medium",
+    "inci_breakdown": "Hệ nền: Microbiome Anti-Blemish Cream | Hoạt chất chính: Phylobioma Active (Punica Granatum Pericarp Extract - Targets C. acnes IA1) (UNKNOWN); Procerad™ (Patented Ceramide Anti-Mark Active) (UNKNOWN); Niacinamide (Vitamin B3) (UNKNOWN); LHA (Capryloyl Salicylic Acid) & Salicylic Acid (UNKNOWN); Zinc PCA (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Khoa học hệ vi sinh mới nhất nhắm trúng đích chủng vi khuẩn C. acnes phylotype IA1, giảm mụn rõ rệt sau 8 giờ và ngăn ngừa mụn tái phát.",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "54",
@@ -2662,7 +2878,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Medium",
     "evidence_level": "Dermatologist Tested / Hypoallergenic / Pediatric Safe Evaluation",
     "irritation_risk": "Low",
-    "barrier_support": "High"
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Ceramide Barrier Cream | Hoạt chất chính: Ceramide Skin Complex™ (Encapsulated Hydroxypropyl Bispalmitamide MEA) (UNKNOWN); Panax Ginseng Root Water (UNKNOWN); Phytosphingosine & Ceramide NP (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Các hạt vi nang Ceramide Skin Complex tan đều trên da, dưỡng ẩm sâu và phục hồi màng bảo vệ da suy yếu sau 3 ngày sử dụng.",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "55",
@@ -2686,7 +2906,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Medium",
     "evidence_level": "Dermatologically Tested / Non-comedogenic / Hypoallergenic Certification",
     "irritation_risk": "Low",
-    "barrier_support": "High"
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Gel Cleanser | Hoạt chất chính: Pro-Vitamin B5 (Panthenol) (UNKNOWN); Vitamin E (Tocopheryl Acetate) (UNKNOWN); Triple Purified Water (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: 100% không chứa xà phòng, nhẹ nhàng làm sạch bã nhờn và tạp chất mà không làm mất đi độ ẩm tự nhiên của làn da nhạy cảm.",
+    "comedogenic_index": 0,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "56",
@@ -2710,7 +2934,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Medium",
     "evidence_level": "ISO 24444 In Vivo SPF50+ & ISO 24442 In Vivo PA++++ Japanese Standard Testing",
     "irritation_risk": "Low",
-    "barrier_support": "Medium"
+    "barrier_support": "Medium",
+    "inci_breakdown": "Hệ nền: Color-Correcting Sunscreen Essence | Hoạt chất chính: UV Filter System: Octinoxate, Titanium Dioxide, Uvinul A Plus, Tinosorb S (UNKNOWN); Sodium Hyaluronate & Magnesium Ascorbyl Phosphate (Vitamin C derivative) (UNKNOWN); Passiflora Edulis (Passion Fruit) Extract & Micro-Pearlescent Optical Pigments (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Chống nắng phổ rộng SPF50+ PA++++ kết hợp sắc tím Lavender hiệu chỉnh sắc da vàng xỉn, tạo hiệu ứng 3D trong suốt rạng rỡ.",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "57",
@@ -2734,7 +2962,11 @@ var PRODUCTS_DB = [
     "data_confidence": "High",
     "evidence_level": "Product-level Level 1A Double-blind Phase 3 RCT (JAAD 2007) + FDA NDA 021794 Approved",
     "irritation_risk": "Low",
-    "barrier_support": "Medium"
+    "barrier_support": "Medium",
+    "inci_breakdown": "Hệ nền: Prescription Anti-Inflammatory Gel | Hoạt chất chính: Dapsone (5.0% w/w)",
+    "mechanism_of_action": "Tác động lâm sàng: Gel bôi kê đơn chứa 5% Dapsone giúp giảm nhanh các sẩn viêm mụn trứng cá, đặc biệt hiệu quả ở phụ nữ trưởng thành và không gây nhạy cảm ánh sáng.",
+    "comedogenic_index": 0,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "58",
@@ -2758,7 +2990,11 @@ var PRODUCTS_DB = [
     "data_confidence": "High",
     "evidence_level": "Product-level Level 1A AAD 2016 Guidelines + FDA NDA 021184 Approved",
     "irritation_risk": "High",
-    "barrier_support": "Low"
+    "barrier_support": "Low",
+    "inci_breakdown": "Hệ nền: Prescription Retinoid Cream | Hoạt chất chính: Tazarotene (0.1% w/w)",
+    "mechanism_of_action": "Tác động lâm sàng: Retinoid thế hệ 3 acetylenic nồng độ 0.1% gắn chọn lọc cao trên thụ thể RAR-beta/gamma, bình thường hóa sừng hóa nang lông và tái cấu trúc biểu bì.",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "59",
@@ -2782,7 +3018,11 @@ var PRODUCTS_DB = [
     "data_confidence": "High",
     "evidence_level": "Product-level Level 1A Multicenter Investigator-blinded RCT (Br J Dermatol 2015) + FDA NDA 206255 Approved",
     "irritation_risk": "Low",
-    "barrier_support": "Medium"
+    "barrier_support": "Medium",
+    "inci_breakdown": "Hệ nền: Prescription Rosacea Cream | Hoạt chất chính: Ivermectin (1.0% w/w)",
+    "mechanism_of_action": "Tác động lâm sàng: Thuốc bôi kê đơn chứa 1% Ivermectin tác động kép diệt ký sinh trùng Demodex và kháng viêm mạnh mẽ, vượt trội hơn Metronidazole trong điều trị Rosacea.",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "60",
@@ -2806,7 +3046,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Medium",
     "evidence_level": "Brand In Vivo 4-Week Anti-Aging & Barrier Recovery Clinical Panel (543 women)",
     "irritation_risk": "Low",
-    "barrier_support": "High"
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Repair Serum | Hoạt chất chính: Bifida Ferment Lysate (UNKNOWN); Chronolux™ Power Signal Technology (Tripeptide-32) (UNKNOWN); Sodium Hyaluronate & Squalane (UNKNOWN); Adansonia Digitata (Baobab) Seed Extract (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Công nghệ Chronolux Power Signal độc quyền với Tripeptide-32 kích hoạt quá trình tự phục hồi ban đêm, tăng sinh collagen tự nhiên và cấp ẩm 72 giờ.",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "61",
@@ -2830,7 +3074,11 @@ var PRODUCTS_DB = [
     "data_confidence": "High",
     "evidence_level": "Level 1B Longitudinal Clinical Cohort",
     "irritation_risk": "Low",
-    "barrier_support": "High"
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Fermented Bio-Essence | Hoạt chất chính: Pitera™ (Galactomyces Ferment Filtrate enriched with 50+ micronutrients) (>90.0%); Organic Acids, Amino Acids, Minerals & Vitamins (Natural Bio-Components)",
+    "mechanism_of_action": "Tác động lâm sàng: Chứa hơn 90% Pitera sinh học tự nhiên, nuôi dưỡng và biến đổi làn da trở nên trong suốt như pha lê qua 5 khía cạnh: kết cấu, độ săn chắc, nếp nhăn, đốm nâu và độ sáng.",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "62",
@@ -2854,7 +3102,11 @@ var PRODUCTS_DB = [
     "data_confidence": "High",
     "evidence_level": "Ingredient-level Molecules 2018 Evidence (AHA/BHA synergy) + Brand Verified 25% AHA/2% BHA Formulation",
     "irritation_risk": "High",
-    "barrier_support": "Low"
+    "barrier_support": "Low",
+    "inci_breakdown": "Hệ nền: Wash-Off Chemical Peel | Hoạt chất chính: AHA Blend: Glycolic, Tartaric, Lactic, Citric Acids (25.0%); Salicylic Acid (BHA) (2.0%); Virgin Marula Seed Oil (Antioxidant Buffering) (UNKNOWN); Chickpea Flour & Pumpkin Ferment Extract (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Liệu pháp peel da chuẩn clinic với 25% AHA và 2% BHA (pH 3.5) loại bỏ tế bào sừng chết tích tụ, làm sáng da và thu nhỏ lỗ chân lông như da em bé sau 20 phút.",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "63",
@@ -2878,7 +3130,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Medium",
     "evidence_level": "Product-level Level 1B RCT Efficacy (Int J Cosmet Sci 2021) + Beiersdorf 10-Year Screening Assay",
     "irritation_risk": "Low",
-    "barrier_support": "Medium"
+    "barrier_support": "Medium",
+    "inci_breakdown": "Hệ nền: Anti-Pigmentation Serum | Hoạt chất chính: Thiamidol® (Isobutylamido Thiazolyl Resorcinol - Beiersdorf Patented) (UNKNOWN); Concentrated Hyaluronic Acid (Short & Long Chain) (UNKNOWN); Licorice Root Extract (Licochalcone A) & Vitamin C (SAP) (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Hoạt chất Thiamidol độc quyền ức chế enzyme Tyrosinase tận gốc, giảm thâm nám sâu và đốm nâu đến 75% chỉ sau 2 tuần mà không gây mất sắc tố vĩnh viễn.",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "64",
@@ -2902,7 +3158,11 @@ var PRODUCTS_DB = [
     "data_confidence": "High",
     "evidence_level": "Ingredient-level Level 1A AAD Guidelines 2016 + FDA OTC Acne Monograph NDC 62032-117-36",
     "irritation_risk": "High",
-    "barrier_support": "Low"
+    "barrier_support": "Low",
+    "inci_breakdown": "Hệ nền: Salicylic Acid Liquid Exfoliant | Hoạt chất chính: Salicylic Acid USP (BHA) (2.0% w/w); Menthol & Menthoxypropanediol Cooling Blend (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Chứa 2% Salicylic Acid chuẩn Dược điển Mỹ (USP) thâm nhập sâu vào lỗ chân lông, làm sạch bã nhờn tắc nghẽn và tiêu diệt vi khuẩn gây mụn.",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "65",
@@ -2926,7 +3186,11 @@ var PRODUCTS_DB = [
     "data_confidence": "High",
     "evidence_level": "Level 1B In Vivo Clinical Assay",
     "irritation_risk": "Low",
-    "barrier_support": "High"
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Hydrating Booster Serum | Hoạt chất chính: Vichy Volcanic Mineralizing Water (Concentrated with 15 Essential Minerals) (89.0%); High Molecular Weight Sodium Hyaluronate (Naturally Derived) (0.4%)",
+    "mechanism_of_action": "Tác động lâm sàng: Chứa 89% nước khoáng núi lửa Pháp giàu 15 khoáng chất quý hiếm kết hợp Hyaluronic Acid, giúp củng cố hàng rào bảo vệ da và cấp ẩm căng mọng chỉ sau 7 ngày.",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "66",
@@ -2950,7 +3214,11 @@ var PRODUCTS_DB = [
     "data_confidence": "High",
     "evidence_level": "Level 1B Verified In Vivo Dermatological Assay",
     "irritation_risk": "Low",
-    "barrier_support": "High"
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Repair Essence | Hoạt chất chính: Snail Secretion Filtrate (96.3%); Sodium Hyaluronate & Panthenol (Pro-Vitamin B5) (UNKNOWN); Allantoin & Betaine (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Chứa 96.3% dịch nhầy ốc sên nguyên chất, cấp ẩm sâu, làm dịu kích ứng và phục hồi độ đàn hồi cho làn da tổn thương.",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "67",
@@ -2974,7 +3242,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Medium",
     "evidence_level": "Rohto Research Institute Moisture Permeation & Corneometer Hydration Testing",
     "irritation_risk": "Low",
-    "barrier_support": "High"
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Hydrating Essence Toner | Hoạt chất chính: 7-Phase Hyaluronic Acid Complex (Super HA, Nano HA, 3D HA, Fermented HA, etc.) (UNKNOWN); Sakuran (Aphanothece Sacrum Polysaccharide - 5x Water Binding of HA) (UNKNOWN); Hydroxyethyl Urea & Hydrolyzed Collagen (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Công thức giàu dưỡng chất với phức hợp 7 loại Hyaluronic Acid đa phân tử và chiết xuất tảo Sakuran khóa ẩm sâu suốt 24 giờ cho làn da khô căng.",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "68",
@@ -2998,7 +3270,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Medium",
     "evidence_level": "Dermatologist Tested for 5 Signs of Skin Sensitivity (Galderma Clinical Dossier)",
     "irritation_risk": "Low",
-    "barrier_support": "High"
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Gentle Cleanser | Hoạt chất chính: Niacinamide (Vitamin B3) (UNKNOWN); Panthenol (Pro-Vitamin B5) (UNKNOWN); Glycerin & Sodium Cocoyl Isethionate (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Công thức mới bổ sung Niacinamide, Panthenol và Glycerin giúp bảo vệ da chống lại 5 dấu hiệu nhạy cảm: khô, căng, kích ứng, thô ráp và màng ẩm suy yếu.",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "69",
@@ -3022,7 +3298,11 @@ var PRODUCTS_DB = [
     "data_confidence": "High",
     "evidence_level": "Product-level Level 1A Multicenter Phase 3 RCT (J Drugs Dermatol 2015) + FDA NDA 207917 Approved",
     "irritation_risk": "High",
-    "barrier_support": "Low"
+    "barrier_support": "Low",
+    "inci_breakdown": "Hệ nền: Prescription Combination Acne Gel | Hoạt chất chính: Adapalene (0.3% w/w); Benzoyl Peroxide (2.5% w/w)",
+    "mechanism_of_action": "Tác động lâm sàng: Gel bôi kê đơn nồng độ tăng cường 0.3% Adapalene và 2.5% BPO mang lại hiệu quả tiêu viêm mụn và ngăn ngừa sẹo lõm sau mụn vượt trội.",
+    "comedogenic_index": 0,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "70",
@@ -3046,7 +3326,11 @@ var PRODUCTS_DB = [
     "data_confidence": "High",
     "evidence_level": "Product-level Level 1A Multicenter Double-blind Phase 3 RCT (JAAD 2019) + FDA NDA 211527 Approved",
     "irritation_risk": "Medium",
-    "barrier_support": "Low"
+    "barrier_support": "Low",
+    "inci_breakdown": "Hệ nền: Prescription Retinoid Cream | Hoạt chất chính: Trifarotene (0.005% w/w (50mcg/g))",
+    "mechanism_of_action": "Tác động lâm sàng: Retinoid thế hệ 4 đầu tiên sau 20 năm được FDA phê duyệt gắn chọn lọc thụ thể RAR-gamma, điều trị hiệu quả mụn ở cả vùng mặt và vùng thân mình (ngực, lưng, vai).",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "71",
@@ -3070,7 +3354,11 @@ var PRODUCTS_DB = [
     "data_confidence": "High",
     "evidence_level": "Product-level Level 1A Phase 3 Multicenter RCTs (J Drugs Dermatol 2018/2020) + FDA NDA 209845 Approved",
     "irritation_risk": "Medium",
-    "barrier_support": "Medium"
+    "barrier_support": "Medium",
+    "inci_breakdown": "Hệ nền: Prescription Retinoid Lotion | Hoạt chất chính: Micronized Tretinoin (0.05% w/w); Sodium Hyaluronate & Soluble Collagen Peptides (UNKNOWN); Glycerin & Mineral Oil Polymeric Mesh Matrix (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Dạng sữa dưỡng tretinoin 0.05% vi hạt đầu tiên được FDA phê duyệt ứng dụng màng lưới tổ ong polymeric honeycomb kết hợp Hyaluronic Acid và Collagen giúp giảm kích ứng tối đa.",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "72",
@@ -3094,7 +3382,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Medium",
     "evidence_level": "Brand In Vivo 4-Week Barrier & Transdermal Absorption Clinical Trial",
     "irritation_risk": "Low",
-    "barrier_support": "High"
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: First-Step Activating Serum | Hoạt chất chính: SULWHASOO MASTER COMPLEX™ (Panax Ginseng Bio-Conversion Extract + JAUM Balancing Complex™) (UNKNOWN); 5 Traditional Korean Herbal Synergistic Extracts (Paeonia, Nelumbo, Polygonatum, Lilium, Rehmannia) (UNKNOWN); Soybean Polypeptide & Fermented Honey (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Sử dụng ngay sau khi rửa mặt giúp củng cố hàng rào bảo vệ da, kích hoạt khả năng phục hồi tự nhiên và tăng cường hấp thu dưỡng chất bước kế tiếp.",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "73",
@@ -3118,7 +3410,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Medium",
     "evidence_level": "Brand In Vivo Sensory & TEWL Occlusion Evaluation Panel",
     "irritation_risk": "Low",
-    "barrier_support": "High"
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Cellular Renewal Cream | Hoạt chất chính: Miracle Broth™ (Giant Sea Kelp Macrocystis Pyrifera Bio-Ferment) (UNKNOWN); Lime Tea Extract (Citrus Aurantifolia Antioxidant Concentrate) (UNKNOWN); Mineral Oil, Petrolatum & Microcrystalline Wax Occlusive Lipid Matrix (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Năng lượng tái sinh từ Miracle Broth lên men sinh học trong 3-4 tháng kết hợp chiết xuất trà chanh chống oxy hóa, làm dịu đỏ rát và chữa lành làn da khô nhạy cảm.",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "74",
@@ -3142,7 +3438,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Medium",
     "evidence_level": "Ingredient-level Molecules 2018 Evidence + Brand 3-Minute In Vivo Radiance Profilometry Testing",
     "irritation_risk": "Medium",
-    "barrier_support": "Medium"
+    "barrier_support": "Medium",
+    "inci_breakdown": "Hệ nền: Lactic Acid Serum Exfoliant | Hoạt chất chính: Purified Grade Lactic Acid (AHA) (UNKNOWN); Glycyrrhiza Glabra (Licorice) Root Extract & Lemongrass Oil (UNKNOWN); Prickly Pear (Opuntia) Cactus & Arnica Soothing Extracts (UNKNOWN); Plant Squalane (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Lactic Acid tinh khiết phân tử lớn tẩy tế bào chết nhẹ nhàng, làm đầy nếp nhăn mảnh và làm sáng đều màu da rõ rệt chỉ sau 3 phút.",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "75",
@@ -3166,7 +3466,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Medium",
     "evidence_level": "National Eczema Association (NEA) Accepted Seal / Pediatric Atopic Dermatitis Protocol",
     "irritation_risk": "Low",
-    "barrier_support": "High"
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Eczema Calming Cleanser | Hoạt chất chính: Filaggrin Breakdown Technology (Sodium PCA + Arginine) (UNKNOWN); Miracare® Lipid Cleansing Technology (Shea Butter + Sunflower Seed Oil) (UNKNOWN); Niacinamide (Vitamin B3) & Allantoin (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Công nghệ màng ẩm độc quyền chứa phức hợp phân giải Filaggrin và mỡ hạt mỡ bọc màng làm sạch dịu nhẹ, giảm ngứa ngáy và khô rát cho da viêm da cơ địa.",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "76",
@@ -3190,7 +3494,11 @@ var PRODUCTS_DB = [
     "data_confidence": "High",
     "evidence_level": "Level 1A In Vivo Biofilm Clinical Trial",
     "irritation_risk": "Low",
-    "barrier_support": "High"
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Anti-Acne Soothing Cream | Hoạt chất chính: Myrtacine® Bio-Active (Patented Myrtus Communis Leaf Extract - Biofilm Disruptor) (UNKNOWN); Celastrol (Patented Plant Extract from Pierre Fabre Biotechnology) (UNKNOWN); Vitamin PP / Niacinamide (4.0%); Shea Butter & Hydrating Lipid Complex (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Hoạt chất Myrtacine độc quyền phá vỡ màng sinh học biofilm của vi khuẩn C. acnes kết hợp 4% Niacinamide và Celastrol giúp làm dịu sưng đỏ sau 7 ngày và dung nạp tốt với thuốc bôi mụn.",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "77",
@@ -3214,7 +3522,11 @@ var PRODUCTS_DB = [
     "data_confidence": "High",
     "evidence_level": "Ingredient-level Molecules 2018 Evidence + Dr. Van Scott & Dr. Yu AHA Landmark Patents",
     "irritation_risk": "High",
-    "barrier_support": "Low"
+    "barrier_support": "Low",
+    "inci_breakdown": "Hệ nền: Glycolic Acid Gel Exfoliant | Hoạt chất chính: Glycolic Acid (High Purity Free Acid Value) (15.0%); Aqueous-Alcoholic Resurfacing Gel Base (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: 15% Glycolic Acid nồng độ tự do chuẩn phòng khám giúp bạt sừng dày, cải thiện kết cấu da thô ráp, làm sáng đều màu da và kích thích tái sinh tế bào.",
+    "comedogenic_index": 0,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "78",
@@ -3238,7 +3550,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Medium",
     "evidence_level": "Dermatologist Tested / Non-Comedogenic & Oil-Free Assay",
     "irritation_risk": "Low",
-    "barrier_support": "Medium"
+    "barrier_support": "Medium",
+    "inci_breakdown": "Hệ nền: Oil-Free Water Gel | Hoạt chất chính: Purified Hyaluronic Acid (Sodium Hyaluronate) (UNKNOWN); Glycerin & Trehalose Moisture Complex (UNKNOWN); Dimethicone Matrix (Oil-Free) (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Chứa Hyaluronic Acid tinh khiết giúp cấp nước liên tục 72 giờ, khóa ẩm không gây nhờn dính và tăng 80% độ ẩm tự nhiên của da ngay tức thì.",
+    "comedogenic_index": 0,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "79",
@@ -3262,7 +3578,11 @@ var PRODUCTS_DB = [
     "data_confidence": "Medium",
     "evidence_level": "Kao Global R&D Micro-Capsule UV Sensor Verification & ISO 24444 SPF50+ In Vivo Standard",
     "irritation_risk": "Medium",
-    "barrier_support": "Low"
+    "barrier_support": "Low",
+    "inci_breakdown": "Hệ nền: Chemical Sunscreen Essence | Hoạt chất chính: UV Filter Matrix: Octinoxate, Uvinul T 150, Tinosorb S, Uvinul A Plus (UNKNOWN); Micro Defense Formula (Micro-capsule UV protection up to 0.2 microns) (UNKNOWN); Sodium Hyaluronate & Royal Jelly Extract (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: Công nghệ Micro Defense màng nước đầu tiên trên thế giới bao phủ đến từng vi điểm siêu nhỏ của da, chống tia UV phổ rộng SPF50+ PA++++ với cảm giác nhẹ như nước.",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   },
   {
     "stt": "80",
@@ -3286,9 +3606,14 @@ var PRODUCTS_DB = [
     "data_confidence": "High",
     "evidence_level": "Level 1A Dual-Laboratory ISO 24444 Standard",
     "irritation_risk": "Low",
-    "barrier_support": "High"
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Chemical Sunscreen Cream | Hoạt chất chính: Oryza Sativa (Rice) Bran Extract (30.0%); Grain Fermented Probiotics Complex (Lactobacillus/Rice Ferment, Saccharomyces, Aspergillus) (UNKNOWN); Modern Broad-Spectrum Filter Matrix (Uvinul A Plus, Uvinul T 150, Tinosorb M, Uvasorb HEB) (UNKNOWN); Niacinamide (Vitamin B3) & Adenosine (UNKNOWN)",
+    "mechanism_of_action": "Tác động lâm sàng: 30% chiết xuất cám gạo và phức hợp men vi sinh hạt ngũ cốc kết hợp màng lọc hóa học thế hệ mới bảo vệ quang phổ rộng SPF50+ PA++++, dưỡng ẩm êm dịu không nhờn dính.",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Tương thích sinh học)"
   }
 ];
+
 var CLINICAL_RULES = [
   {
     "id": "ACNE_001",
@@ -4119,11 +4444,32 @@ function filterProducts() {
 // 6. POP-UP MODAL CONTROLLERS & EXPORT ENGINE
 // -------------------------------------------------------------------------
 
+// =========================================================================
+// POP-UP MODAL CONTROLLERS & EXPORT ENGINE
+// =========================================================================
+
 function toggleModal(modalId) {
   const modal = document.getElementById(modalId);
   if (!modal) return;
   modal.classList.toggle('hidden');
 }
+
+function openModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (!modal) return;
+  modal.classList.remove('hidden');
+}
+
+function closeModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (!modal) return;
+  modal.classList.add('hidden');
+}
+
+window.toggleModal = toggleModal;
+window.openModal = openModal;
+window.closeModal = closeModal;
+
 
 // Escape key listener to close modals
 window.addEventListener('keydown', (e) => {
@@ -4141,50 +4487,108 @@ function openProductDetail(prodId) {
   const prod = PRODUCTS_DB.find(p => String(p.product_id) === String(prodId) || String(p.stt) === String(prodId)) || PRODUCTS_DB[0];
   const isContra = isContraindicated(prod, patientState);
 
-  document.getElementById('modal-prod-name').innerText = prod.product_name;
-  document.getElementById('modal-prod-brand').innerText = prod.brand + " • " + prod.origin + " • " + prod.category;
+  const nameEl = document.getElementById('modal-prod-name');
+  const brandEl = document.getElementById('modal-prod-brand');
+  const bodyEl = document.getElementById('modal-prod-body');
 
-  document.getElementById('modal-prod-body').innerHTML = `
-    <!-- Top Alert if Contraindicated -->
-    ` + (isContra ? `
-      <div class="p-3.5 rounded-2xl bg-[#FDE8E8] border border-[#F5B8B8] text-[#9E2A2B] text-xs space-y-1">
-        <div class="font-bold flex items-center space-x-1.5">
-          <svg class="w-4 h-4 text-[#9E2A2B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-          <span>CẢNH BÁO AN TOÀN / CHỐNG CHỈ ĐỊNH:</span>
+  if (nameEl) nameEl.innerText = prod.product_name;
+  if (brandEl) brandEl.innerText = prod.brand + " • " + prod.origin + " • " + prod.category + " (" + (prod.subcategory || '') + ")";
+
+  if (bodyEl) {
+    bodyEl.innerHTML = `
+      <!-- Top Alert if Contraindicated -->
+      ` + (isContra ? `
+        <div class="p-3.5 rounded-2xl bg-[#FDE8E8] border border-[#F5B8B8] text-[#9E2A2B] text-xs space-y-1.5 shadow-sm">
+          <div class="font-bold flex items-center space-x-2">
+            <svg class="w-4 h-4 text-[#9E2A2B] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <span>CẢNH BÁO AN TOÀN / CHỐNG CHỈ ĐỊNH LÂM SÀNG:</span>
+          </div>
+          <p class="leading-relaxed">Sản phẩm này chứa hoạt chất không an toàn cho phụ nữ mang thai hoặc xung đột với mức độ suy yếu hàng rào biểu bì hiện tại.</p>
         </div>
-        <p class="leading-relaxed">Sản phẩm này chứa hoạt chất không an toàn cho phụ nữ mang thai hoặc xung đột với mức độ tổn thương rào cản hiện tại của bệnh nhân.</p>
-      </div>
-    ` : '') + `
+      ` : '') + `
 
-    <!-- Key Actives & INCI Formulation -->
-    <div class="p-4 bg-[#FAF5F2] rounded-2xl border border-[#F0E6E0] space-y-2">
-      <div class="font-bold text-[#4A3B36] flex items-center justify-between">
-        <span>Hoạt chất chính & Phân tích nồng độ:</span>
-        <span class="text-[10px] px-2 py-0.5 rounded-full bg-[#EBF6F0] text-[#2D6A4F] border border-[#B8D8C8] font-bold">` + (prod.evidence_level || 'Level A') + `</span>
+      <!-- Price and Classification Overview -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
+        <div class="p-3 bg-[#FAF5F2] rounded-2xl border border-[#F0E6E0]">
+          <span class="text-[#9E8D87] block text-[11px]">Phân khúc giá:</span>
+          <div class="font-bold text-[#4A3B36] mt-0.5">` + (prod.price_tier || 'Dermocosmetics') + `</div>
+        </div>
+        <div class="p-3 bg-[#FAF5F2] rounded-2xl border border-[#F0E6E0]">
+          <span class="text-[#9E8D87] block text-[11px]">Giá tham khảo:</span>
+          <div class="font-bold text-[#D97768] mt-0.5 truncate" title="` + (prod.price_raw || '') + `">` + (prod.price_raw || 'Liên hệ') + `</div>
+        </div>
+        <div class="p-3 bg-[#FAF5F2] rounded-2xl border border-[#F0E6E0] col-span-2 sm:col-span-1">
+          <span class="text-[#9E8D87] block text-[11px]">Cấp bằng chứng EBM:</span>
+          <div class="font-bold text-[#2D6A4F] mt-0.5 flex items-center space-x-1">
+            <span class="w-2 h-2 rounded-full bg-[#2D6A4F]"></span>
+            <span>` + (prod.evidence_level || 'Level A (Guideline)') + `</span>
+          </div>
+        </div>
       </div>
-      <p class="text-[#5C4D47] leading-relaxed text-xs">` + (prod.key_actives || 'Chi tiết hoạt chất đầy đủ') + `</p>
-    </div>
 
-    <!-- Mechanism of Action (MoA) -->
-    <div class="p-4 bg-[#FAF5F2] rounded-2xl border border-[#F0E6E0] space-y-1.5">
-      <div class="font-bold text-[#D97768]">Cơ chế Dược lý Lâm sàng (MoA):</div>
-      <p class="text-[#5C4D47] text-xs leading-relaxed">` + (prod.clinical_evidence || prod.manufacturer_claim) + `</p>
-    </div>
-
-    <!-- Safety & Tolerability Metrics -->
-    <div class="grid grid-cols-2 gap-2 text-xs">
-      <div class="p-3 bg-[#FAF5F2] rounded-xl border border-[#F0E6E0]">
-        <span class="text-[#9E8D87] block text-[11px]">Mức độ hỗ trợ rào cản:</span>
-        <div class="font-bold text-[#2D6A4F] mt-0.5">` + (prod.barrier_support || 'Bảo tồn sinh lý') + `</div>
+      <!-- Key Actives & INCI Formulation -->
+      <div class="p-4 bg-[#FAF5F2] rounded-2xl border border-[#F0E6E0] space-y-2">
+        <div class="font-bold text-[#4A3B36] flex items-center justify-between">
+          <span class="flex items-center space-x-1.5">
+            <svg class="w-4 h-4 text-[#D97768]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg>
+            <span>Hoạt chất chính & Nồng độ:</span>
+          </span>
+          <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-[#EBF6F0] text-[#2D6A4F] border border-[#B8D8C8] font-bold">Độ tin cậy: ` + (prod.data_confidence || 'High') + `</span>
+        </div>
+        <p class="text-[#5C4D47] leading-relaxed text-xs font-medium">` + (prod.key_actives || 'Chi tiết hoạt chất đầy đủ') + `</p>
       </div>
-      <div class="p-3 bg-[#FAF5F2] rounded-xl border border-[#F0E6E0]">
-        <span class="text-[#9E8D87] block text-[11px]">Nguy cơ kích ứng (Irritation):</span>
-        <div class="font-bold text-[#4A3B36] mt-0.5">` + (prod.irritation_risk || 'Thấp / Dung nạp tốt') + `</div>
-      </div>
-    </div>
-  `;
 
-  toggleModal('modal-prod-detail');
+      <!-- INCI Breakdown -->
+      ` + (prod.inci_breakdown ? `
+        <div class="p-4 bg-[#FAF5F2] rounded-2xl border border-[#F0E6E0] space-y-1.5">
+          <div class="font-bold text-[#4A3B36] text-xs flex items-center space-x-1.5">
+            <svg class="w-4 h-4 text-[#7CA894]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            <span>Phân tích Hệ nền & Thành phần INCI:</span>
+          </div>
+          <p class="text-[#5C4D47] text-xs leading-relaxed">` + prod.inci_breakdown + `</p>
+        </div>
+      ` : '') + `
+
+      <!-- Mechanism of Action (MoA) -->
+      <div class="p-4 bg-[#FAF5F2] rounded-2xl border border-[#F0E6E0] space-y-1.5">
+        <div class="font-bold text-[#D97768] text-xs flex items-center space-x-1.5">
+          <svg class="w-4 h-4 text-[#D97768]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <span>Cơ chế Dược lý Lâm sàng (Mechanism of Action):</span>
+        </div>
+        <p class="text-[#5C4D47] text-xs leading-relaxed">` + (prod.mechanism_of_action || prod.clinical_evidence || prod.manufacturer_claim || 'Chưa có ghi chú dược lý bổ sung.') + `</p>
+      </div>
+
+      <!-- Clinical Metrics: Comedogenic & Barrier Tolerance -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
+        <div class="p-3 bg-[#FAF5F2] rounded-2xl border border-[#F0E6E0]">
+          <span class="text-[#9E8D87] block text-[10.5px]">Chỉ số bít tắc:</span>
+          <div class="font-bold text-[#4A3B36] mt-0.5">` + (prod.comedogenic_index !== undefined ? 'Thang ' + prod.comedogenic_index + '/5' : '1/5 (Thấp)') + `</div>
+        </div>
+        <div class="p-3 bg-[#FAF5F2] rounded-2xl border border-[#F0E6E0]">
+          <span class="text-[#9E8D87] block text-[10.5px]">Dung nạp rào cản:</span>
+          <div class="font-bold text-[#2D6A4F] mt-0.5 truncate">` + (prod.barrier_tolerance || 'Cao (Tương thích)') + `</div>
+        </div>
+        <div class="p-3 bg-[#FAF5F2] rounded-2xl border border-[#F0E6E0]">
+          <span class="text-[#9E8D87] block text-[10.5px]">Hỗ trợ màng Lipid:</span>
+          <div class="font-bold text-[#2D6A4F] mt-0.5">` + (prod.barrier_support || 'Bảo tồn sinh lý') + `</div>
+        </div>
+        <div class="p-3 bg-[#FAF5F2] rounded-2xl border border-[#F0E6E0]">
+          <span class="text-[#9E8D87] block text-[10.5px]">Nguy cơ kích ứng:</span>
+          <div class="font-bold text-[#4A3B36] mt-0.5">` + (prod.irritation_risk || 'Thấp / Dịu nhẹ') + `</div>
+        </div>
+      </div>
+
+      <!-- Manufacturer Claims & Verified Source -->
+      ` + (prod.manufacturer_claim ? `
+        <div class="p-3.5 bg-white rounded-2xl border border-[#F0E6E0] space-y-1 text-xs">
+          <span class="text-[#9E8D87] block text-[11px] font-semibold">Tuyên bố hiệu quả từ nhà sản xuất:</span>
+          <p class="text-[#7E6E67] italic leading-relaxed text-[11.5px]">"` + prod.manufacturer_claim + `"</p>
+        </div>
+      ` : '') + `
+    `;
+  }
+
+  openModal('modal-prod-detail');
 }
 
 function openExportModal() {
@@ -4255,6 +4659,94 @@ function copyExportText() {
       setTimeout(() => msg.classList.add('hidden'), 3000);
     }
   }
+}
+
+function downloadExportJSON() {
+  const acne = assessAcne(patientState.acne_iga, patientState.phenotypes, patientState.scarring_type);
+  const barrier = assessBarrier(patientState.barrier, patientState.symptoms);
+  const risk = evaluateClinicalRiskProfile(patientState);
+  const redFlags = checkRedFlagsStatus(patientState);
+
+  const exportData = {
+    system: "DERMA-X Clinical-First & 3D Skin Engine",
+    version: "2.0.0",
+    aesthetic_edition: "Pastel Dermatology & CDSS",
+    export_timestamp: new Date().toISOString(),
+    patient_demographics: {
+      age: patientState.age,
+      sex: patientState.sex,
+      pregnancy: patientState.pregnancy,
+      fitzpatrick: patientState.fitzpatrick,
+      environment: patientState.environment,
+      sunscreen_habit: patientState.sunscreen
+    },
+    clinical_assessment: {
+      acne_iga: patientState.acne_iga,
+      acne_evaluation: acne,
+      barrier_status: patientState.barrier,
+      barrier_evaluation: barrier,
+      symptoms: patientState.symptoms,
+      phenotypes: patientState.phenotypes,
+      scarring_type: patientState.scarring_type,
+      actives_in_use: patientState.actives,
+      risk_profile: risk,
+      red_flags: redFlags
+    }
+  };
+
+  const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: "application/json;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `DERMA-X_Ho_So_Lam_Sang_${new Date().toISOString().slice(0, 10)}.json`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+function downloadExportJSON() {
+  const acne = assessAcne(patientState.acne_iga, patientState.phenotypes, patientState.scarring_type);
+  const barrier = assessBarrier(patientState.barrier, patientState.symptoms);
+  const risk = evaluateClinicalRiskProfile(patientState);
+  const redFlags = checkRedFlagsStatus(patientState);
+
+  const exportData = {
+    system: "DERMA-X Clinical-First & 3D Skin Engine",
+    version: "2.0.0",
+    aesthetic_edition: "Pastel Dermatology & CDSS",
+    export_timestamp: new Date().toISOString(),
+    patient_demographics: {
+      age: patientState.age,
+      sex: patientState.sex,
+      pregnancy: patientState.pregnancy,
+      fitzpatrick: patientState.fitzpatrick,
+      environment: patientState.environment,
+      sunscreen_habit: patientState.sunscreen
+    },
+    clinical_assessment: {
+      acne_iga: patientState.acne_iga,
+      acne_evaluation: acne,
+      barrier_status: patientState.barrier,
+      barrier_evaluation: barrier,
+      symptoms: patientState.symptoms,
+      phenotypes: patientState.phenotypes,
+      scarring_type: patientState.scarring_type,
+      actives_in_use: patientState.actives,
+      risk_profile: risk,
+      red_flags: redFlags
+    }
+  };
+
+  const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: "application/json;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `DERMA-X_Ho_So_Lam_Sang_${new Date().toISOString().slice(0, 10)}.json`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
 }
 
 function openRedFlagModal() {
@@ -4637,8 +5129,9 @@ window.addEventListener('DOMContentLoaded', () => {
   syncFormInputsFromState();
   updateDiagnostics();
 });
-</script>
 
+
+</script>
 
 </div>
 </body>
