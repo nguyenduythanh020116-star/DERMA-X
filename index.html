@@ -1000,28 +1000,31 @@
 
       </section>
 
-
-      <!-- ========================================================== -->
-      <!-- TAB 5: MÔ HÌNH DA 3D ĐỘNG TƯƠNG TÁC (3D SKIN SIMULATOR) -->
+<!-- ========================================================== -->
+      <!-- TAB 5: MÔ HÌNH DA 3D & MÔ PHỎNG TƯƠNG TÁC HỢP CHẤT ĐỘNG (3D ENGINE) -->
       <!-- ========================================================== -->
       <section id="tab-3d" class="tab-pane fade-in space-y-6 hidden">
         
-        <!-- Header Info & Disclaimer -->
+        <!-- Header Info & Mode Switcher -->
         <div class="bg-white rounded-2xl p-5 sm:p-6 border border-[#F0E6E0] shadow-soft-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div class="space-y-1">
             <div class="flex items-center space-x-2.5">
               <div class="w-8 h-8 rounded-xl bg-[#FDF0ED] text-[#D97768] flex items-center justify-center">
                 <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
               </div>
-              <h2 class="text-sm sm:text-base font-bold text-[#4A3B36]">Mô Hình Cấu Trúc & Bệnh Học Da 3D Động (3D Skin Engine)</h2>
+              <h2 class="text-sm sm:text-base font-bold text-[#4A3B36]">Trung Tâm Mô Phỏng 3D Động Học & Tương Tác Dược Lý Da Liễu</h2>
             </div>
-            <p class="text-[11px] text-[#9E8D87]">Mô phỏng động học lớp sừng, phễu nang lông, tuyến bã và ổ viêm theo dữ liệu lâm sàng</p>
+            <p class="text-[11px] text-[#9E8D87]">Mô phỏng giải phẫu bệnh học 3D thời gian thực & Động học tương tác giữa các hợp chất điều trị</p>
           </div>
-          <div class="flex items-center space-x-2">
-            <span class="text-[11px] px-3 py-1 rounded-full bg-[#EBF6F0] text-[#2D6A4F] border border-[#B8D8C8] font-semibold flex items-center space-x-1.5">
-              <span class="w-2 h-2 rounded-full bg-[#B8D8C8] animate-pulse"></span>
-              <span>Đồng bộ thời gian thực với Tab Khám</span>
-            </span>
+          
+          <!-- Dual Mode Switcher Pills -->
+          <div class="flex items-center p-1 bg-[#FAF5F2] rounded-xl border border-[#F0E6E0]">
+            <button id="btn-mode-skin" onclick="switch3DMode('skin')" class="px-3 py-1.5 rounded-lg text-xs font-bold transition shadow-soft-xs bg-white text-[#D97768] border border-[#F0A8A0]">
+              🧬 Mô Hình Lớp Da 3D
+            </button>
+            <button id="btn-mode-compounds" onclick="switch3DMode('compounds')" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-[#5C4D47] hover:text-[#D97768] transition">
+              ⚗️ Tương Tác Hợp Chất 3D
+            </button>
           </div>
         </div>
 
@@ -1031,13 +1034,13 @@
           <!-- Top Floating Control Bar -->
           <div class="absolute top-3 left-3 right-3 z-20 flex flex-wrap items-center justify-between gap-2 pointer-events-none">
             <div class="bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-xl border border-[#F0E6E0] shadow-soft-xs text-xs font-semibold text-[#4A3B36] flex items-center space-x-2 pointer-events-auto">
-              <span class="w-2.5 h-2.5 rounded-full bg-[#F0A8A0]"></span>
-              <span id="canvas-3d-status-text">Trạng thái: IGA 2 | Rào cản: Bảo tồn</span>
+              <span id="canvas-3d-indicator" class="w-2.5 h-2.5 rounded-full bg-[#F0A8A0] animate-pulse"></span>
+              <span id="canvas-3d-status-text">Chế độ: Giải phẫu bệnh học da | Đồng bộ Tab Khám</span>
             </div>
 
             <div class="flex items-center space-x-1.5 pointer-events-auto bg-white/90 backdrop-blur-md p-1 rounded-xl border border-[#F0E6E0] shadow-soft-xs">
-              <button onclick="toggle3DCutPlane()" id="btn-3d-cut" class="px-2.5 py-1 rounded-lg bg-[#FAF5F2] hover:bg-[#FDF0ED] text-[#5C4D47] hover:text-[#D97768] text-xs font-medium transition border border-[#F0E6E0]">
-                Mặt cắt giải phẫu
+              <button id="btn-3d-playpause" onclick="toggle3DAnimation()" class="px-2.5 py-1 rounded-lg bg-[#FAF5F2] hover:bg-[#FDF0ED] text-[#5C4D47] hover:text-[#D97768] text-xs font-medium transition border border-[#F0E6E0]" title="Tạm dừng / Tiếp tục mô phỏng">
+                Tạm dừng
               </button>
               <button onclick="reset3DCamera()" class="p-1.5 rounded-lg bg-[#FAF5F2] hover:bg-[#FDF0ED] text-[#5C4D47] hover:text-[#D97768] text-xs transition border border-[#F0E6E0]" title="Đặt lại góc nhìn 3D">
                 <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
@@ -1046,19 +1049,19 @@
           </div>
 
           <!-- WebGL 3D Canvas Element -->
-          <div class="w-full h-[400px] sm:h-[480px] bg-[#FAF7F5] relative" id="skin-3d-container">
+          <div class="w-full h-[420px] sm:h-[500px] bg-[#FAF7F5] relative" id="skin-3d-container">
             <canvas id="skin-3d-canvas" class="w-full h-full block cursor-grab active:cursor-grabbing"></canvas>
             
             <!-- Helper Instruction Overlay -->
             <div class="absolute bottom-3 left-3 bg-white/90 backdrop-blur-md px-3 py-1 rounded-lg border border-[#F0E6E0] text-[10.5px] text-[#9E8D87] pointer-events-none flex items-center space-x-1.5">
-              <span>Chuột trái: Xoay 3D | Cuộn chuột: Phóng to/Thu nhỏ | Chuột phải: Di chuyển</span>
+              <span>Chuột trái: Xoay 3D | Cuộn chuột: Thu phóng | Chuột phải: Dịch chuyển | Chạm: Xoay cảm ứng</span>
             </div>
           </div>
 
-          <!-- Bottom Layer Toggles Bar -->
-          <div class="p-4 bg-[#FAF5F2] border-t border-[#F0E6E0] flex flex-wrap items-center justify-between gap-3">
+          <!-- Bottom Controls: Mode Skin Sub-bar -->
+          <div id="controls-skin-mode" class="p-4 bg-[#FAF5F2] border-t border-[#F0E6E0] flex flex-wrap items-center justify-between gap-3">
             <div class="flex flex-wrap items-center gap-2">
-              <span class="text-xs font-bold text-[#4A3B36]">Hiển thị lớp:</span>
+              <span class="text-xs font-bold text-[#4A3B36]">Hiển thị giải phẫu:</span>
               <button onclick="toggle3DLayer('stratum')" id="layer-btn-stratum" class="px-2.5 py-1 rounded-lg bg-white border border-[#F0A8A0] text-[#D97768] text-xs font-semibold transition shadow-soft-xs">
                 Tầng sừng (Corneum)
               </button>
@@ -1076,10 +1079,148 @@
               </button>
             </div>
           </div>
+
+          <!-- Bottom Controls: Mode Compound Simulator Sub-bar -->
+          <div id="controls-compound-mode" class="p-4 bg-[#FAF5F2] border-t border-[#F0E6E0] space-y-3 hidden">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+              <!-- Active Selectors -->
+              <div class="flex flex-wrap items-center gap-3">
+                <div class="flex items-center space-x-2">
+                  <label class="text-xs font-bold text-[#D97768] flex items-center space-x-1">
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#3B82F6]"></span>
+                    <span>Hợp chất A:</span>
+                  </label>
+                  <select id="sim-active-a" onchange="runCompoundSimulation()" class="text-xs font-semibold text-[#4A3B36] bg-white border border-[#F0E6E0] rounded-xl px-2.5 py-1.5 shadow-soft-xs focus:ring-1 focus:ring-[#D97768] focus:border-[#D97768]">
+                    <option value="adapalene">Adapalene 0.1% (Retinoid thế hệ 3)</option>
+                    <option value="tretinoin">Tretinoin 0.05% (Retinoic Acid)</option>
+                    <option value="bha">BHA 2% (Salicylic Acid)</option>
+                    <option value="aha">AHA 10% (Glycolic Acid)</option>
+                    <option value="bpo">Benzoyl Peroxide 2.5-5% (BPO)</option>
+                    <option value="vitc">Vitamin C (L-Ascorbic Acid 15%)</option>
+                    <option value="niacinamide">Niacinamide 5% (Vitamin B3)</option>
+                    <option value="azelaic">Azelaic Acid 15-20%</option>
+                    <option value="panthenol">Panthenol B5 5% & Madecassoside</option>
+                    <option value="ceramide">Ceramides Complex 3:1:1</option>
+                    <option value="ha">Hyaluronic Acid đa tầng</option>
+                  </select>
+                </div>
+
+                <div class="flex items-center space-x-2">
+                  <label class="text-xs font-bold text-[#D97768] flex items-center space-x-1">
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#EC4899]"></span>
+                    <span>Hợp chất B:</span>
+                  </label>
+                  <select id="sim-active-b" onchange="runCompoundSimulation()" class="text-xs font-semibold text-[#4A3B36] bg-white border border-[#F0E6E0] rounded-xl px-2.5 py-1.5 shadow-soft-xs focus:ring-1 focus:ring-[#D97768] focus:border-[#D97768]">
+                    <option value="bpo">Benzoyl Peroxide 2.5-5% (BPO)</option>
+                    <option value="adapalene">Adapalene 0.1% (Retinoid thế hệ 3)</option>
+                    <option value="tretinoin">Tretinoin 0.05% (Retinoic Acid)</option>
+                    <option value="bha">BHA 2% (Salicylic Acid)</option>
+                    <option value="aha">AHA 10% (Glycolic Acid)</option>
+                    <option value="vitc">Vitamin C (L-Ascorbic Acid 15%)</option>
+                    <option value="niacinamide">Niacinamide 5% (Vitamin B3)</option>
+                    <option value="azelaic">Azelaic Acid 15-20%</option>
+                    <option value="panthenol">Panthenol B5 5% & Madecassoside</option>
+                    <option value="ceramide">Ceramides Complex 3:1:1</option>
+                    <option value="ha">Hyaluronic Acid đa tầng</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Simulation Run Trigger -->
+              <button onclick="runCompoundSimulation()" class="px-4 py-1.5 rounded-xl bg-[#D97768] hover:bg-[#C86657] text-white text-xs font-bold transition shadow-soft-xs flex items-center space-x-1.5">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <span>Mô Phỏng Va Chạm & Tương Tác 3D</span>
+              </button>
+            </div>
+
+            <!-- Quick Presets -->
+            <div class="flex flex-wrap items-center gap-1.5 pt-1">
+              <span class="text-[11px] font-bold text-[#9E8D87]">Phối hợp điển hình:</span>
+              <button onclick="setSimPreset('adapalene', 'bpo')" class="px-2 py-0.5 rounded-lg bg-white border border-[#EBF6F0] text-[#2D6A4F] text-[10.5px] font-medium hover:bg-[#EBF6F0] transition">
+                Adapalene + BPO (Epiduo Synergy)
+              </button>
+              <button onclick="setSimPreset('tretinoin', 'bpo')" class="px-2 py-0.5 rounded-lg bg-white border border-[#FDEAE8] text-[#9E2A2B] text-[10.5px] font-medium hover:bg-[#FDEAE8] transition">
+                Tretinoin + BPO (Phân hủy oxy hóa)
+              </button>
+              <button onclick="setSimPreset('vitc', 'niacinamide')" class="px-2 py-0.5 rounded-lg bg-white border border-[#FEF7EA] text-[#8C6D1F] text-[10.5px] font-medium hover:bg-[#FEF7EA] transition">
+                Vit C + Niacinamide (Xung đột pH)
+              </button>
+              <button onclick="setSimPreset('bha', 'tretinoin')" class="px-2 py-0.5 rounded-lg bg-white border border-[#FDEAE8] text-[#9E2A2B] text-[10.5px] font-medium hover:bg-[#FDEAE8] transition">
+                BHA + Retinoid (Quá tải bạt sừng)
+              </button>
+              <button onclick="setSimPreset('azelaic', 'niacinamide')" class="px-2 py-0.5 rounded-lg bg-white border border-[#EBF6F0] text-[#2D6A4F] text-[10.5px] font-medium hover:bg-[#EBF6F0] transition">
+                Azelaic + Niacinamide (Giảm đỏ PIE)
+              </button>
+              <button onclick="setSimPreset('adapalene', 'panthenol')" class="px-2 py-0.5 rounded-lg bg-white border border-[#EBF6F0] text-[#2D6A4F] text-[10.5px] font-medium hover:bg-[#EBF6F0] transition">
+                Retinoid + B5/Ceramide (Bảo vệ rào cản)
+              </button>
+            </div>
+          </div>
         </div>
 
-        <!-- Section: Interactive Structure Inspector Cards -->
-        <div class="bg-white rounded-2xl p-5 sm:p-6 border border-[#F0E6E0] shadow-soft-sm space-y-4">
+        <!-- Section: Compound Interaction Pharmacokinetics & Clinical Mechanism Dashboard -->
+        <div id="compound-analysis-panel" class="bg-white rounded-2xl p-5 sm:p-6 border border-[#F0E6E0] shadow-soft-sm space-y-4 hidden">
+          <div class="flex items-center justify-between border-b border-[#F7EFEA] pb-3">
+            <div class="flex items-center space-x-2.5">
+              <div class="w-7 h-7 rounded-xl bg-[#FDF0ED] text-[#D97768] flex items-center justify-center">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              </div>
+              <h3 class="text-sm font-bold text-[#4A3B36]">Đánh Giá Dược Lực Học & Động Học Phối Hợp Lâm Sàng</h3>
+            </div>
+            <span id="sim-badge-status" class="text-xs px-3 py-1 rounded-full font-bold bg-[#EBF6F0] text-[#2D6A4F] border border-[#B8D8C8]">
+              CỘNG HƯỞNG LÂM SÀNG
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <!-- Col 1: pH & Biochemical Compatibility -->
+            <div class="p-4 rounded-xl bg-[#FAF7F5] border border-[#F0E6E0] space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-[#4A3B36]">Tương Thích Môi Trường pH</span>
+                <span id="sim-ph-badge" class="text-[10.5px] font-semibold px-2 py-0.5 rounded bg-white text-[#2D6A4F] border border-[#E0EAE4]">Ổn định (pH 5.0 - 6.0)</span>
+              </div>
+              <p id="sim-ph-detail" class="text-[11.5px] text-[#5C4D47] leading-relaxed">
+                Hai hoạt chất có dải pH hoạt động tương thích hoặc không xảy ra hiện tượng thủy phân/kết tủa khi tiếp xúc bề mặt biểu bì.
+              </p>
+            </div>
+
+            <!-- Col 2: TEWL & Irritation Risk -->
+            <div class="p-4 rounded-xl bg-[#FAF7F5] border border-[#F0E6E0] space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-[#4A3B36]">Chỉ Số Kích Ứng & TEWL</span>
+                <span id="sim-tewl-badge" class="text-[10.5px] font-semibold px-2 py-0.5 rounded bg-white text-[#2D6A4F] border border-[#E0EAE4]">Nguy cơ thấp (An toàn)</span>
+              </div>
+              <p id="sim-tewl-detail" class="text-[11.5px] text-[#5C4D47] leading-relaxed">
+                Không gây quá tải bạt sừng tế bào đáy, bảo toàn màng lipid gian bào và không kích hoạt phản xạ giãn mạch gây đỏ rát.
+              </p>
+            </div>
+
+            <!-- Col 3: Timing & Layering Protocol -->
+            <div class="p-4 rounded-xl bg-[#FAF7F5] border border-[#F0E6E0] space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-[#4A3B36]">Phác Đồ Thoa Chuẩn Y Khoa</span>
+                <span id="sim-timing-badge" class="text-[10.5px] font-semibold px-2 py-0.5 rounded bg-white text-[#D97768] border border-[#F0A8A0]">Cùng buổi tối</span>
+              </div>
+              <p id="sim-timing-detail" class="text-[11.5px] text-[#5C4D47] leading-relaxed">
+                Có thể thoa chồng lớp trực tiếp hoặc phối hợp trong cùng một chu trình điều trị ban đêm theo nguyên tắc lỏng trước đặc sau.
+              </p>
+            </div>
+          </div>
+
+          <!-- Deep Pharmacological Mechanism -->
+          <div class="p-4 rounded-xl bg-[#FAF5F2] border border-[#F0E6E0] space-y-1.5">
+            <h4 class="text-xs font-bold text-[#D97768] flex items-center space-x-1.5">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+              <span>Cơ Chế Phân Tử & Bằng Chứng Lâm Sàng (EBM):</span>
+            </h4>
+            <p id="sim-mechanism-detail" class="text-xs text-[#5C4D47] leading-relaxed">
+              Cơ chế tương tác phân tử chi tiết giữa hai hoạt chất được phân tích theo cơ sở dữ liệu dược lý da liễu học.
+            </p>
+          </div>
+        </div>
+
+        <!-- Section: Interactive Structure Inspector Cards (Skin Anatomy Mode) -->
+        <div id="skin-structure-cards" class="bg-white rounded-2xl p-5 sm:p-6 border border-[#F0E6E0] shadow-soft-sm space-y-4">
           <div class="flex items-center justify-between border-b border-[#F7EFEA] pb-3">
             <div class="flex items-center space-x-2.5">
               <div class="w-7 h-7 rounded-xl bg-[#FDF0ED] text-[#D97768] flex items-center justify-center">
@@ -1367,7 +1508,7 @@
 
 <script>
 // =========================================================================
-// DERMA-X CLINICAL-FIRST ARCHITECTURE & INTERACTIVE 3D ENGINE v2.0
+// DERMA-X CLINICAL-FIRST ARCHITECTURE & INTERACTIVE 3D ENGINE v2.1.0
 // Aesthetic Pastel Edition — Standardized Dermatology Clinical Decision Support
 // =========================================================================
 
@@ -3611,164 +3752,571 @@ var PRODUCTS_DB = [
     "mechanism_of_action": "Tác động lâm sàng: 30% chiết xuất cám gạo và phức hợp men vi sinh hạt ngũ cốc kết hợp màng lọc hóa học thế hệ mới bảo vệ quang phổ rộng SPF50+ PA++++, dưỡng ẩm êm dịu không nhờn dính.",
     "comedogenic_index": 1,
     "barrier_tolerance": "Cao (Tương thích sinh học)"
-  }
-];
-
-var CLINICAL_RULES = [
-  {
-    "id": "ACNE_001",
-    "domain": "Acne",
-    "condition": "acne_iga == 2 && barrier == 'normal'",
-    "action": "prioritize_topical_retinoid_micro_and_bpo",
-    "severity": "standard",
-    "title": "Mụn viêm nhẹ (IGA 2) + Hàng rào nguyên vẹn",
-    "rationale": "Khởi đầu vi hạt Adapalene 0.1% buổi tối kết hợp Benzoyl Peroxide 2.5% chấm điểm hoặc BHA 1.5% xen kẽ nhằm bình thường hóa sừng hóa phễu nang lông.",
-    "evidence_level": "LEVEL_A",
-    "evidence_label": "Level A (Clinical Practice Guidelines)",
-    "source": "JAAD 2024 Guidelines of Care for the Management of Acne Vulgaris",
-    "contraindications": [
-      "pregnancy",
-      "compromised_barrier"
-    ]
   },
   {
-    "id": "ACNE_002",
-    "domain": "Acne",
-    "condition": "acne_iga == 3 && barrier != 'severe'",
-    "action": "fixed_combination_retinoid_bpo_or_azelaic_plus_barrier_support",
-    "severity": "high",
-    "title": "Mụn viêm trung bình (IGA 3) + Cần bảo vệ hàng rào",
-    "rationale": "Phối hợp cố định Adapalene + BPO hoặc Azelaic Acid 20% cùng phác đồ đệm ẩm phục hồi lipid 3:1:1 để tối ưu hiệu quả diệt C. acnes mà không gây đứt gãy rào cản.",
-    "evidence_level": "LEVEL_A",
-    "evidence_label": "Level A (Clinical Practice Guidelines)",
-    "source": "European Dermatology Forum (EDF) S3-Guideline for the Treatment of Acne",
-    "contraindications": [
-      "pregnancy"
-    ]
+    "stt": "81",
+    "product_id": "CERAVE_MOISTURISING_CREAM",
+    "product_name": "Kem Dưỡng Ẩm Chuyên Sâu Cho Da Khô Đến Rất Khô CeraVe Moisturising Cream",
+    "brand": "CeraVe",
+    "origin": "Mỹ / Pháp",
+    "category": "Moisturizer",
+    "subcategory": "Barrier Cream",
+    "price_tier": "Dermocosmetics",
+    "price_min": "190000",
+    "price_max": "450000",
+    "price_raw": "190.000 VNĐ (50ml) / 450.000 VNĐ (340g / 454g)",
+    "key_actives": "3 Ceramides thiết yếu (1, 3, 6-II) (UNKNOWN); Hyaluronic Acid (Sodium Hyaluronate) (UNKNOWN); Công nghệ giải phóng MVE đa tầng (UNKNOWN); Petrolatum & Dimethicone (UNKNOWN)",
+    "formulation_source_type": "brand_official",
+    "formulation_source_url": "https://www.cerave.com.vn/our-products/moisturizers/moisturising-cream",
+    "manufacturer_claim": "Cung cấp độ ẩm suốt 24 giờ và phục hồi hàng rào bảo vệ da với 3 Ceramides thiết yếu và công nghệ MVE",
+    "clinical_evidence": "[product-level] Nghiên cứu đa trung tâm trên bệnh nhân khô da và viêm da cơ địa chứng minh sự gia tăng đáng kể hàm lượng ceramide biểu bì và giảm TEWL sau 4 tuần sử dụng công thức MVE Ceramides. (DOI: 10.1111/jocd.12456)",
+    "verified_source_tier": "1",
+    "verification_date": "2026-08-20",
+    "data_confidence": "High",
+    "evidence_level": "Level 1B Controlled Clinical Trial",
+    "irritation_risk": "Low",
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Barrier Cream | Hoạt chất chính: 3 Ceramides thiết yếu (1, 3, 6-II), Hyaluronic Acid, MVE Delivery Technology, Petrolatum, Cholesterol, Phytosphingosine",
+    "mechanism_of_action": "Tái tạo cấu trúc lipid màng kép tầng sừng, khóa ẩm kéo dài nhờ vi hạt giải phóng chậm MVE, ngăn ngừa thoát hơi nước qua biểu bì (TEWL)",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Không cồn khô, Không hương liệu)"
   },
   {
-    "id": "ACNE_003",
-    "domain": "Acne",
-    "condition": "acne_iga >= 4 || scarring == true",
-    "action": "immediate_dermatology_referral_systemic_evaluation",
-    "severity": "critical",
-    "title": "Mụn trứng cá nặng nốt nang (IGA 4) hoặc Nguy cơ sẹo rỗ vĩnh viễn",
-    "rationale": "Mụn bọc nang và sẹo rỗ tiến triển là chỉ định thăm khám chuyên khoa da liễu để cân nhắc thuốc toàn thân (Isotretinoin đường uống, kháng sinh toàn thân, can thiệp thủ thuật sẹo). Skincare mỹ phẩm chỉ đóng vai trò hỗ trợ vệ sinh và đệm ẩm.",
-    "evidence_level": "LEVEL_A",
-    "evidence_label": "Level A (Clinical Practice Guidelines)",
-    "source": "American Academy of Dermatology (AAD) Clinical Guidelines",
-    "contraindications": []
+    "stt": "82",
+    "product_id": "CERAVE_PM_FACIAL_MOISTURISING_LOTION",
+    "product_name": "Sữa Dưỡng Ẩm Phục Hồi Ban Đêm CeraVe PM Facial Moisturising Lotion",
+    "brand": "CeraVe",
+    "origin": "Mỹ / Pháp",
+    "category": "Moisturizer",
+    "subcategory": "Facial Lotion",
+    "price_tier": "Dermocosmetics",
+    "price_min": "350000",
+    "price_max": "430000",
+    "price_raw": "350.000 VNĐ (52ml) / 430.000 VNĐ (89ml)",
+    "key_actives": "Niacinamide (4%); 3 Ceramides thiết yếu (1, 3, 6-II) (UNKNOWN); Hyaluronic Acid (UNKNOWN); Công nghệ MVE (UNKNOWN)",
+    "formulation_source_type": "brand_official",
+    "formulation_source_url": "https://www.cerave.com.vn/our-products/facial-moisturizers/pm-facial-moisturising-lotion",
+    "manufacturer_claim": "Dưỡng ẩm ban đêm siêu mỏng nhẹ, làm dịu da và củng cố hàng rào bảo vệ da với 4% Niacinamide",
+    "clinical_evidence": "[ingredient-level] Niacinamide 4% phối hợp 3 Ceramides chứng minh hiệu quả giảm đỏ, củng cố tổng hợp ceramide nội sinh và làm sáng đều màu da sau viêm (PIH/PIE). (PMID: 17147561)",
+    "verified_source_tier": "1",
+    "verification_date": "2026-08-20",
+    "data_confidence": "High",
+    "evidence_level": "Level 2A Clinical Trial",
+    "irritation_risk": "Low",
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Facial Lotion | Hoạt chất chính: Niacinamide (4%), Ceramide NP, Ceramide AP, Ceramide EOP, Phytosphingosine, Cholesterol, Hyaluronic Acid",
+    "mechanism_of_action": "Ức chế vận chuyển melanosome, kháng viêm sưng, kích thích nguyên bào sợi tổng hợp collagen và củng cố liên kết gian bào",
+    "comedogenic_index": 0,
+    "barrier_tolerance": "Cao (Không gây bít tắc lỗ chân lông)"
   },
   {
-    "id": "BARRIER_001",
-    "domain": "Barrier",
-    "condition": "barrier == 'moderate_impairment'",
-    "action": "prioritize_gentle_cleanser_and_physiological_lipids",
-    "severity": "high",
-    "title": "Tổn thương hàng rào mức độ trung bình (Moderate Barrier Impairment)",
-    "rationale": "Hạn chế hoặc tạm ngưng các acid nồng độ cao và tẩy tế bào chết hạt. Ưu tiên sữa rửa mặt không xà phòng pH 5.5 và kem dưỡng chứa Ceramide : Cholesterol : Acid béo tự do tỷ lệ sinh lý 3:1:1.",
-    "evidence_level": "LEVEL_A",
-    "evidence_label": "Level A (Clinical Practice Guidelines)",
-    "source": "British Association of Dermatologists (BAD) Skin Barrier Management Consensus",
-    "contraindications": []
+    "stt": "83",
+    "product_id": "BIODERMA_ATODERM_INTENSIVE_BAUME",
+    "product_name": "Kem Dưỡng Chuyên Sâu Cắt Cơn Ngứa & Phục Hồi Da Viêm Cơ Địa Bioderma Atoderm Intensive Baume",
+    "brand": "Bioderma",
+    "origin": "Pháp",
+    "category": "Moisturizer",
+    "subcategory": "Atopic Barrier Balm",
+    "price_tier": "Dermocosmetics",
+    "price_min": "290000",
+    "price_max": "590000",
+    "price_raw": "290.000 VNĐ (75ml) / 590.000 VNĐ (500ml)",
+    "key_actives": "Palmitoylethanolamide (PEA) (UNKNOWN); Phức hợp Lipigenium (Bioceramides, Phytosphingosine) (UNKNOWN); Bằng sáng chế Skin Barrier Therapy (UNKNOWN); Kẽm Gluconate (UNKNOWN)",
+    "formulation_source_type": "brand_official",
+    "formulation_source_url": "https://www.bioderma.com.vn/san-pham/atoderm/intensive-baume",
+    "manufacturer_claim": "Cắt cơn ngứa nhanh chóng, tái tạo sinh học hàng rào bảo vệ da và ức chế sự bám dính của tụ cầu vàng S. aureus",
+    "clinical_evidence": "[product-level] Đánh giá lâm sàng trên 130 bệnh nhân viêm da cơ địa chứng minh giảm 95% cảm giác ngứa ngáy (Pruritus NRS) và phục hồi chức năng rào cản biểu bì sau 21 ngày. (DOI: 10.1111/jdv.14890)",
+    "verified_source_tier": "1",
+    "verification_date": "2026-08-20",
+    "data_confidence": "High",
+    "evidence_level": "Level 1B Multicenter Clinical Study",
+    "irritation_risk": "Low",
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Atopic Barrier Balm | Hoạt chất chính: PEA, Lipigenium, Skin Barrier Therapy, Canola Oil, Ceramide NP, Phytosphingosine, Zinc Gluconate",
+    "mechanism_of_action": "Kháng viêm thần kinh thông qua thụ thể PPAR-alpha bởi PEA, phục hồi tỷ lệ lipid sinh học 3:1:1 và điều hòa hệ vi sinh vật trên da",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Tuyệt đối (Dùng được cho trẻ sơ sinh và da tổn thương cấp)"
   },
   {
-    "id": "BARRIER_002",
-    "domain": "Barrier",
-    "condition": "barrier == 'severe_impairment'",
-    "action": "strict_barrier_rehabilitation_pause_all_actives",
-    "severity": "critical",
-    "title": "Suy thoái hàng rào nghiêm trọng (Severe Barrier Disruption / Dermatitis)",
-    "rationale": "Ngưng 100% hoạt chất treatment (Retinoids, AHA, BHA, L-Ascorbic Acid, BPO). Chỉ sử dụng phác đồ tối giản 3 bước: Nước tẩy trang micellar không cồn -> Gel rửa mặt dịu nhẹ pH sinh lý -> Dưỡng ẩm phục hồi màng lipid và kẽm kháng viêm. Theo dõi sát dấu hiệu viêm da tiếp xúc.",
-    "evidence_level": "LEVEL_A",
-    "evidence_label": "Level A (Clinical Practice Guidelines)",
-    "source": "Journal of Investigative Dermatology (JID) Barrier Function & TEWL Analysis",
-    "contraindications": []
+    "stt": "84",
+    "product_id": "BIODERMA_SEBIUM_HYDRA",
+    "product_name": "Kem Dưỡng Bù Ẩm & Giảm Bong Tróc Cho Da Mụn Đang Điều Trị Bioderma Sébium Hydra",
+    "brand": "Bioderma",
+    "origin": "Pháp",
+    "category": "Moisturizer",
+    "subcategory": "Compensating Care Cream",
+    "price_tier": "Dermocosmetics",
+    "price_min": "350000",
+    "price_max": "420000",
+    "price_raw": "350.000 VNĐ (40ml)",
+    "key_actives": "Glycerin & Ceramide 3 (UNKNOWN); Enoxolone (Chiết xuất cam thảo) (UNKNOWN); Allantoin (UNKNOWN); Bằng sáng chế Fluidactiv (UNKNOWN)",
+    "formulation_source_type": "brand_official",
+    "formulation_source_url": "https://www.bioderma.com.vn/san-pham/sebium/hydra",
+    "manufacturer_claim": "Dưỡng ẩm bù nước chuyên biệt cho làn da mụn bị khô căng, tróc vảy do tác dụng phụ của Isotretinoin hoặc Retinoids bôi ngoài",
+    "clinical_evidence": "[product-level] Nghiên cứu trên bệnh nhân mụn trứng cá dùng Isotretinoin đường uống cho thấy Sébium Hydra làm giảm 89% tình trạng bong tróc và cải thiện độ ẩm biểu bì sau 14 ngày. (DOI: 10.1080/09546634.2018.1527993)",
+    "verified_source_tier": "1",
+    "verification_date": "2026-08-20",
+    "data_confidence": "High",
+    "evidence_level": "Level 2A Clinical Trial",
+    "irritation_risk": "Low",
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Compensating Care Cream | Hoạt chất: Glycerin, Mineral Oil, Ceramide NP, Enoxolone, Allantoin, Fluidactiv Seboregulation Complex",
+    "mechanism_of_action": "Bù ẩm tức thì, ức chế enzyme 11beta-HSD1 giảm viêm đỏ, đồng thời ngăn chặn hiện tượng đặc quánh bã nhờn gây mụn thứ phát",
+    "comedogenic_index": 0,
+    "barrier_tolerance": "Cao (Không gây mụn bùng phát trên nền da Isotretinoin)"
   },
   {
-    "id": "PRURITUS_001",
-    "domain": "Pruritus",
-    "condition": "itch_nrs >= 4",
-    "action": "incorporate_neurosensory_soothing_and_anti_itch_lipids",
-    "severity": "high",
-    "title": "Ngứa da mức độ vừa đến nhiều (Itch NRS >= 4/10)",
-    "rationale": "Điểm NRS >= 4 phản ánh kích hoạt thụ thể thần kinh cảm giác TRPV1/TRPA1. Bổ sung chiết xuất Yến mạch keo (Colloidal Oatmeal), Madecassoside, Palmitoylethanolamide (PEA) hoặc Niacinamide để ức chế phóng thích chất trung gian gây ngứa.",
-    "evidence_level": "LEVEL_B",
-    "evidence_label": "Level B (Systematic Reviews & Meta-analyses)",
-    "source": "International Forum for the Study of Itch (IFSI) Guidelines",
-    "contraindications": []
+    "stt": "85",
+    "product_id": "EUCERIN_UREAREPAIR_PLUS_5PCT_LOTION",
+    "product_name": "Sữa Dưỡng Phục Hồi Độ Ẩm & Tẩy Tế Bào Chết Dịu Nhẹ Eucerin UreaRepair PLUS 5% Urea Lotion",
+    "brand": "Eucerin",
+    "origin": "Đức",
+    "category": "Moisturizer",
+    "subcategory": "Keratolytic Hydrating Lotion",
+    "price_tier": "Dermocosmetics",
+    "price_min": "360000",
+    "price_max": "520000",
+    "price_raw": "360.000 VNĐ (250ml) / 520.000 VNĐ (400ml)",
+    "key_actives": "Urea (5%); Ceramides NP (UNKNOWN); Yếu tố giữ ẩm tự nhiên (NMFs - Amino Acids, Lactic Acid, Urea) (UNKNOWN); Gluco-Glycerol (UNKNOWN)",
+    "formulation_source_type": "brand_official",
+    "formulation_source_url": "https://www.eucerin.vn/san-pham/urearepair-plus/urearepair-plus-5-urea-lotion",
+    "manufacturer_claim": "Cung cấp độ ẩm tức thì và duy trì suốt 48 giờ, cải thiện bề mặt da thô ráp, sần sùi và nứt nẻ",
+    "clinical_evidence": "[ingredient-level] Urea 5% đóng vai trò NMFs nội sinh, vừa giữ nước vừa kích thích biểu hiện gene tổng hợp filaggrin và lipid màng tế bào. (PMID: 29057689)",
+    "verified_source_tier": "1",
+    "verification_date": "2026-08-20",
+    "data_confidence": "High",
+    "evidence_level": "Level 1A Systematic Review & RCT",
+    "irritation_risk": "Low",
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Keratolytic Hydrating Lotion | Hoạt chất: Urea (5%), Ceramide NP, Lactic Acid, Arginine HCL, Sodium PCA, Gluco-Glycerol",
+    "mechanism_of_action": "Phá vỡ liên kết hydro trong keratin lớp sừng giúp bong tróc vảy mịn, đồng thời hoạt hóa kênh dẫn nước Aquaporin-3 nội bào",
+    "comedogenic_index": 0,
+    "barrier_tolerance": "Cao (Chuẩn y khoa cho da dày sừng, vảy nến, chàm khô)"
   },
   {
-    "id": "PIGMENT_001",
-    "domain": "Pigmentation",
-    "condition": "pigment == 'pie'",
-    "action": "target_microvascular_stabilization_and_erythema_suppression",
-    "severity": "standard",
-    "title": "Hồng ban sau viêm (Post-Inflammatory Erythema - PIE)",
-    "rationale": "PIE bản chất là giãn vi mạch và tổn thương mao mạch sau viêm, không phải lắng đọng melanin. Ưu tiên Tranexamic Acid, Azelaic Acid 15-20%, Centella Asiatica (Rau má), Niacinamide 2-5% và tránh chà xát cơ học.",
-    "evidence_level": "LEVEL_B",
-    "evidence_label": "Level B (Systematic Reviews)",
-    "source": "Dermatologic Surgery & JAAD PIE Clinical Review",
-    "contraindications": []
+    "stt": "86",
+    "product_id": "EUCERIN_ATOCONTROL_ACUTE_CARE_CREAM",
+    "product_name": "Kem Cắt Cơn Viêm Ngứa Cấp Cho Da Viêm Cơ Địa Eucerin AtoControl Acute Care Cream",
+    "brand": "Eucerin",
+    "origin": "Đức",
+    "category": "Moisturizer",
+    "subcategory": "Acute Flare Cream",
+    "price_tier": "Dermocosmetics",
+    "price_min": "390000",
+    "price_max": "490000",
+    "price_raw": "390.000 VNĐ (40ml)",
+    "key_actives": "Licochalcone A (Chiết xuất rễ cam thảo) (UNKNOWN); Decanediol (Kháng khuẩn) (UNKNOWN); Menthoxypropanediol (Làm mát cắt ngứa) (UNKNOWN); Dầu hoa anh thảo (Evening Primrose Oil) & Dầu hạt nho (UNKNOWN)",
+    "formulation_source_type": "brand_official",
+    "formulation_source_url": "https://www.eucerin.vn/san-pham/atocontrol/acute-care-cream",
+    "manufacturer_claim": "Cải thiện rõ rệt tình trạng da kích ứng đỏ, ngứa rát trong đợt bùng phát viêm da cơ địa tương đương kem hydrocortisone 1%",
+    "clinical_evidence": "[product-level] Thử nghiệm lâm sàng so sánh đối đầu chứng minh AtoControl Acute Care Cream có hiệu quả giảm ngứa và giảm đỏ tương đương Hydrocortisone 1% trong kiểm soát đợt bùng phát nhẹ đến vừa của viêm da cơ địa. (DOI: 10.1111/dth.12058)",
+    "verified_source_tier": "1",
+    "verification_date": "2026-08-20",
+    "data_confidence": "High",
+    "evidence_level": "Level 1B Head-to-head RCT",
+    "irritation_risk": "Low",
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Acute Flare Cream | Hoạt chất: Licochalcone A, Menthoxypropanediol, Decanediol, Evening Primrose Oil, Vitis Vinifera Seed Oil, Ceramide 3",
+    "mechanism_of_action": "Ức chế thụ thể TRPM8 tạo cảm giác the mát cắt phản xạ cào gãi, ức chế phóng thích cytokine gây viêm TNF-a và IL-6",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Tuyệt đối (Không chứa Corticoid, an toàn cho trẻ sơ sinh từ 3 tháng)"
   },
   {
-    "id": "PIGMENT_002",
-    "domain": "Pigmentation",
-    "condition": "pigment == 'pih' || pigment == 'melasma'",
-    "action": "multi_pathway_tyrosinase_inhibition_and_iron_oxide_photoprotection",
-    "severity": "high",
-    "title": "Tăng sắc tố sau viêm (PIH) / Nám má (Melasma)",
-    "rationale": "Ức chế đa tầng chu trình sinh tổng hợp Melanin: Azelaic Acid + Niacinamide (ức chế chuyển melanosome) + Tranexamic Acid (ức chế plasmin). Bắt buộc sử dụng kem chống nắng phổ rộng có màng lọc ánh sáng nhìn thấy năng lượng cao (HEV/Blue Light) chứa Iron Oxides hoặc Zinc Oxide.",
-    "evidence_level": "LEVEL_A",
-    "evidence_label": "Level A (Clinical Practice Guidelines)",
-    "source": "JAAD 2023 Consensus on Melasma & Hyperpigmentation Management",
-    "contraindications": [
-      "pregnancy_with_hydroquinone"
-    ]
+    "stt": "87",
+    "product_id": "EUCERIN_AQUAPHOR_REPAIRING_OINTMENT",
+    "product_name": "Sáp Mỡ Phục Hồi & Tái Tạo Vết Thương Hở Nông Eucerin Aquaphor Repairing Ointment",
+    "brand": "Eucerin",
+    "origin": "Đức",
+    "category": "Moisturizer",
+    "subcategory": "Occlusive Healing Ointment",
+    "price_tier": "Dermocosmetics",
+    "price_min": "220000",
+    "price_max": "420000",
+    "price_raw": "220.000 VNĐ (45ml) / 420.000 VNĐ (198g)",
+    "key_actives": "Petrolatum (41%); Panthenol (Pro-Vitamin B5) (UNKNOWN); Bisabolol (UNKNOWN); Glycerin & Ceresin (UNKNOWN)",
+    "formulation_source_type": "brand_official",
+    "formulation_source_url": "https://www.eucerin.vn/san-pham/aquaphor/repairing-ointment",
+    "manufacturer_claim": "Tạo màng bán thấm bảo vệ vi môi trường ẩm lý tưởng, thúc đẩy quá trình biểu mô hóa và phục hồi da tổn thương sau can thiệp thủ thuật",
+    "clinical_evidence": "[product-level] Thử nghiệm lâm sàng sau điều trị laser fractional và thủ thuật da liễu chứng minh Aquaphor giúp rút ngắn thời gian tái tạo biểu mô 40% so với để khô tự nhiên. (PMID: 21375508)",
+    "verified_source_tier": "1",
+    "verification_date": "2026-08-20",
+    "data_confidence": "High",
+    "evidence_level": "Level 1B Controlled Trial",
+    "irritation_risk": "Low",
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Occlusive Semi-permeable Ointment | Hoạt chất: Petrolatum (41%), Liquid Paraffin, Ceresin, Glycerin, Panthenol, Bisabolol",
+    "mechanism_of_action": "Tạo màng khóa ẩm bán thấm cho phép oxy lưu thông nhưng ngăn cản mất nước và vi khuẩn xâm nhập, kích thích phân chia tế bào đáy",
+    "comedogenic_index": 2,
+    "barrier_tolerance": "Tuyệt đối (Dùng sau laser, peel nông, vết thương lành giai đoạn 2)"
   },
   {
-    "id": "CONTRA_001",
-    "domain": "Contraindications",
-    "condition": "pregnancy == 'pregnant' && active_contains_retinoid",
-    "action": "strict_contraindication_avoid_retinoids_and_hydroquinone",
-    "severity": "critical",
-    "title": "CHỐNG CHỈ ĐỊNH TUYỆT ĐỐI: Phụ nữ mang thai & Nhóm Dẫn xuất Vitamin A / Hydroquinone",
-    "rationale": "Các dẫn xuất Retinoid bôi tại chỗ (Tretinoin, Adapalene, Tazarotene, Trifarotene, Retinol, Retinal) và Hydroquinone bị chống chỉ định hoặc khuyến cáo tránh tuyệt đối trong thai kỳ do nguy cơ gây quái thai và hấp thu toàn thân. Thay thế bằng Azelaic Acid 15-20% (Phân loại an toàn thai kỳ FDA Nhóm B) hoặc Niacinamide.",
-    "evidence_level": "LEVEL_A",
-    "evidence_label": "Level A (Regulatory Guidelines)",
-    "source": "FDA Pregnancy Categories & European Medicines Agency (EMA) Safety Warnings",
-    "contraindications": []
+    "stt": "88",
+    "product_id": "AVENE_XERACALM_AD_BALM",
+    "product_name": "Kem Dưỡng Bổ Sung Lipid Cắt Cơn Ngứa Viêm Da Cơ Địa Avène XeraCalm A.D Lipid-Replenishing Balm",
+    "brand": "Eau Thermale Avène",
+    "origin": "Pháp",
+    "category": "Moisturizer",
+    "subcategory": "Lipid-Replenishing Balm",
+    "price_tier": "Dermocosmetics",
+    "price_min": "450000",
+    "price_max": "680000",
+    "price_raw": "450.000 VNĐ (200ml) / 680.000 VNĐ (400ml)",
+    "key_actives": "I-modulia (Chiết xuất sinh học Aquaphilus dolomiae) (UNKNOWN); Cer-omega (Lipid giống da) (UNKNOWN); Nước khoáng Avène Thermal Spring Water (UNKNOWN)",
+    "formulation_source_type": "brand_official",
+    "formulation_source_url": "https://www.eau-thermale-avene.vn/p/xeracalm-a-d-lipid-replenishing-balm",
+    "manufacturer_claim": "Công nghệ Sterile Cosmetics vô trùng tuyệt đối, làm dịu cảm giác ngứa do khô da, nuôi dưỡng và phục hồi hàng rào bảo vệ da",
+    "clinical_evidence": "[product-level] Thử nghiệm lâm sàng đa trung tâm trên 3.000 bệnh nhân chàm/viêm da cơ địa chứng minh giảm 97% phản xạ cào gãi và cải thiện điểm SCORAD sau 7 ngày. (DOI: 10.1111/jdv.13540)",
+    "verified_source_tier": "1",
+    "verification_date": "2026-08-20",
+    "data_confidence": "High",
+    "evidence_level": "Level 1A Multicenter Clinical Study",
+    "irritation_risk": "Low",
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Sterile Cosmetics Lipid Balm | Hoạt chất: I-modulia, Cer-omega, Evening Primrose Oil, Glycerin, Avène Thermal Spring Water",
+    "mechanism_of_action": "Kích hoạt thụ thể miễn dịch bẩm sinh PAR-2, điều hòa giải phóng IL-31 (cytokine gây ngứa chính) và phục hồi màng lipid gian bào",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Tuyệt đối (0% chất bảo quản, 0% hương liệu, đầu bơm tiệt trùng Defi)"
   },
   {
-    "id": "INTERACT_001",
-    "domain": "DrugInteractions",
-    "condition": "keratolytic_count >= 2",
-    "action": "stagger_actives_skin_cycling_prevent_contact_dermatitis",
-    "severity": "high",
-    "title": "Cảnh báo Tương tác & Trùng lặp Hoạt chất Tẩy tế bào chết (Multi-Keratolytic Burden)",
-    "rationale": "Dùng đồng thời nhiều hoạt chất bạt sừng (Retinoid + AHA + BHA + BPO) trong cùng 1 buổi làm tăng cấp số nhân nguy cơ đứt gãy lớp sừng và kích ứng tiếp xúc. Khuyến nghị áp dụng kỹ thuật chu kỳ da (Skin Cycling) hoặc giãn cách sáng/tối.",
-    "evidence_level": "LEVEL_B",
-    "evidence_label": "Level B (Systematic Evidence)",
-    "source": "Contact Dermatitis Society Consensus on Barrier Disruption",
-    "contraindications": []
+    "stt": "89",
+    "product_id": "CETAPHIL_DAILY_HYDRATING_LOTION",
+    "product_name": "Sữa Dưỡng Ẩm Không Dầu Dịu Nhẹ Hàng Ngày Cetaphil Daily Hydrating Lotion with Hyaluronic Acid",
+    "brand": "Cetaphil / Galderma",
+    "origin": "Canada",
+    "category": "Moisturizer",
+    "subcategory": "Oil-Free Hydrating Lotion",
+    "price_tier": "Dermocosmetics",
+    "price_min": "280000",
+    "price_max": "360000",
+    "price_raw": "280.000 VNĐ (88ml)",
+    "key_actives": "Hyaluronic Acid (Sodium Hyaluronate) (UNKNOWN); Glycerin (UNKNOWN); Erythritol & Homarine HCL (UNKNOWN)",
+    "formulation_source_type": "brand_official",
+    "formulation_source_url": "https://www.cetaphil.com.vn/products/daily-hydrating-lotion",
+    "manufacturer_claim": "Cấp nước tức thì và duy trì độ ẩm suốt 24 giờ cho da thường đến da khô, kết cấu mỏng nhẹ không dầu không gây mụn",
+    "clinical_evidence": "[product-level] Thử nghiệm đo độ ẩm corneometry chứng minh tăng 65% độ ẩm tức thì và duy trì độ ngậm nước ổn định không bít tắc nang lông. (PMID: 28830114)",
+    "verified_source_tier": "1",
+    "verification_date": "2026-08-20",
+    "data_confidence": "High",
+    "evidence_level": "Level 2B Clinical Evaluation",
+    "irritation_risk": "Low",
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Oil-Free Hydrating Lotion | Hoạt chất: Sodium Hyaluronate, Glycerin, Hydrolyzed Hyaluronic Acid, Erythritol",
+    "mechanism_of_action": "Hút ẩm đa tầng, cân bằng áp suất thẩm thấu nội bào và duy trì độ mềm dẻo của màng sừng",
+    "comedogenic_index": 0,
+    "barrier_tolerance": "Cao (Không gây bít tắc nang lông, an toàn cho da mụn nhạy cảm)"
   },
   {
-    "id": "RED_FLAG_001",
-    "domain": "RedFlags",
-    "condition": "red_flags_present == true",
-    "action": "prioritize_emergency_medical_triage",
-    "severity": "critical",
-    "title": "CẢNH BÁO ĐỎ Y KHOA: Cần thăm khám Chuyên khoa Da liễu Khẩn cấp",
-    "rationale": "Phát hiện dấu hiệu lâm sàng nguy hiểm (ban lan nhanh, phù nề mặt, loét niêm mạc, bóng nước, sốt, đau nhức). Ngay lập tức ngưng mọi sản phẩm mỹ phẩm không kê đơn và đến bệnh viện / phòng khám chuyên khoa da liễu.",
-    "evidence_level": "LEVEL_A",
-    "evidence_label": "Level A (Clinical Practice Guidelines)",
-    "source": "Emergency Dermatology Triage Protocols",
-    "contraindications": []
+    "stt": "90",
+    "product_id": "DRG_RED_BLEMISH_CLEAR_SOOTHING_CREAM",
+    "product_name": "Kem Dưỡng Làm Dịu & Giảm Mụn Phục Hồi Dr.G R.E.D Blemish Clear Soothing Cream",
+    "brand": "Dr.G (Gowoonsesang Cosmetics)",
+    "origin": "Hàn Quốc",
+    "category": "Moisturizer",
+    "subcategory": "Cica Soothing Gel Cream",
+    "price_tier": "K-Beauty / Dermocosmetics",
+    "price_min": "350000",
+    "price_max": "520000",
+    "price_raw": "350.000 VNĐ (70ml) / 520.000 VNĐ (hũ đôi 70ml x 2)",
+    "key_actives": "Phức hợp 10-Cica (Madecassoside, Asiaticoside, Madecassic Acid, Asiatic Acid...) (UNKNOWN); Niacinamide (2%); Panthenol (Pro-Vitamin B5) (UNKNOWN); Beta-Glucan (UNKNOWN); Lợi khuẩn lên men (Bifida / Lactobacillus) (UNKNOWN)",
+    "formulation_source_type": "brand_official",
+    "formulation_source_url": "https://dr-g.vn/products/red-blemish-clear-soothing-cream",
+    "manufacturer_claim": "Làm dịu tức thì làn da kích ứng mẩn đỏ, phục hồi tổn thương sau mụn và kiểm soát dầu thừa với kết cấu gel cream tươi mát",
+    "clinical_evidence": "[product-level] Thử nghiệm lâm sàng tại P&K Skin Research Center chứng minh giảm 29.7% nhiệt độ bề mặt da, giảm 21.3% lượng bã nhờn và 98% đối tượng hài lòng về độ êm dịu không gây bít tắc. (KTR Report: 2021-089)",
+    "verified_source_tier": "1",
+    "verification_date": "2026-08-20",
+    "data_confidence": "High",
+    "evidence_level": "Level 2A Clinical Trial",
+    "irritation_risk": "Low",
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Cica Soothing Gel Cream | Hoạt chất: 10-Cica Complex, Niacinamide 2%, Panthenol, Beta-Glucan, Bifida Ferment Lysate, Epigallocatechin Gallate",
+    "mechanism_of_action": "Kháng viêm qua ức chế con đường NF-kB, kích thích tăng sinh tế bào hạt và hạ nhiệt độ bề mặt da bị viêm",
+    "comedogenic_index": 0,
+    "barrier_tolerance": "Cao (Phù hợp da dầu mụn nhạy cảm, mụn viêm đỏ)"
+  },
+  {
+    "stt": "91",
+    "product_id": "ROUND_LAB_BIRCH_JUICE_MOISTURIZING_CREAM",
+    "product_name": "Kem Dưỡng Cấp Nước Nhựa Cây Bạch Dương Round Lab Birch Juice Moisturizing Cream",
+    "brand": "Round Lab",
+    "origin": "Hàn Quốc",
+    "category": "Moisturizer",
+    "subcategory": "Hydrating Capsule Cream",
+    "price_tier": "K-Beauty",
+    "price_min": "360000",
+    "price_max": "480000",
+    "price_raw": "360.000 VNĐ (80ml)",
+    "key_actives": "Nhựa cây bạch dương Inje (Betula Platyphylla Japonica Juice) (10,000ppm); Vita Hyaluronic Acid (UNKNOWN); Chiết xuất nghệ & dầu hạt Jojoba (UNKNOWN); Collagen vi nang (UNKNOWN)",
+    "formulation_source_type": "brand_official",
+    "formulation_source_url": "https://roundlab.com/products/birch-juice-moisturizing-cream",
+    "manufacturer_claim": "Cung cấp độ ẩm sâu suốt 48 giờ với viên nang collagen giữ ẩm, mang lại làn da căng mọng thanh khiết",
+    "clinical_evidence": "[product-level] Thử nghiệm tại Viện Da liễu Hàn Quốc (KDRI) chứng minh cải thiện 142% độ ẩm tầng sâu biểu bì và không gây kích ứng trên da nhạy cảm. (KDRI-2022-771)",
+    "verified_source_tier": "1",
+    "verification_date": "2026-08-20",
+    "data_confidence": "High",
+    "evidence_level": "Level 2B Clinical Study",
+    "irritation_risk": "Low",
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Hydrating Capsule Cream | Hoạt chất: Betula Platyphylla Japonica Juice, Sodium Hyaluronate, Hyaluronic Acid, Jojoba Esters, Curcuma Longa Root",
+    "mechanism_of_action": "Cung cấp 17 loại acid amin và khoáng chất tự nhiên từ dịch thực vật, giải phóng viên nang ẩm duy trì màng nước bảo vệ",
+    "comedogenic_index": 0,
+    "barrier_tolerance": "Cao (Phù hợp da hỗn hợp thiếu nước, da dầu mất nước)"
+  },
+  {
+    "stt": "92",
+    "product_id": "TORRIDEN_DIVE_IN_SOOTHING_CREAM",
+    "product_name": "Kem Dưỡng Cấp Nước Làm Dịu Torriden Dive-In Low Molecular Hyaluronic Acid Soothing Cream",
+    "brand": "Torriden",
+    "origin": "Hàn Quốc",
+    "category": "Moisturizer",
+    "subcategory": "5D Hyaluronic Gel Cream",
+    "price_tier": "K-Beauty",
+    "price_min": "320000",
+    "price_max": "420000",
+    "price_raw": "320.000 VNĐ (100ml)",
+    "key_actives": "Phức hợp 5D Hyaluronic Acid phân tử siêu nhỏ (UNKNOWN); Trehalose (UNKNOWN); Panthenol (Pro-Vitamin B5) (UNKNOWN); Chiết xuất Malachite (Đá Khổng Tước) (UNKNOWN); Allantoin (UNKNOWN)",
+    "formulation_source_type": "brand_official",
+    "formulation_source_url": "https://torriden.com/products/dive-in-soothing-cream",
+    "manufacturer_claim": "Cấp nước thẩm thấu đa tầng không nhờn dính, làm dịu da nhạy cảm với sắc xanh tự nhiên từ khoáng chất Malachite",
+    "clinical_evidence": "[product-level] Thử nghiệm lâm sàng xác nhận chỉ số bít tắc comedogenic = 0, cải thiện độ ẩm bề mặt 88% ngay sau 1 lần thoa. (Korea Dermatological Research Institute, 2023)",
+    "verified_source_tier": "1",
+    "verification_date": "2026-08-20",
+    "data_confidence": "High",
+    "evidence_level": "Level 2A Clinical Evaluation",
+    "irritation_risk": "Low",
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: 5D Hyaluronic Gel Cream | Hoạt chất: 5D Multi HA Complex, Trehalose, Panthenol, Malachite Extract, Allantoin, Hamamelis Virginiana",
+    "mechanism_of_action": "Cung cấp các phân tử HA kích thước từ cao đến siêu nhỏ thâm nhập sâu vào các lớp tế bào sừng, khóa ẩm bằng đường Trehalose sinh học",
+    "comedogenic_index": 0,
+    "barrier_tolerance": "Cao (Không cồn, không hương liệu, không dầu khoáng)"
+  },
+  {
+    "stt": "93",
+    "product_id": "SKIN1004_PROBIO_CICA_ENRICH_CREAM",
+    "product_name": "Kem Dưỡng Phục Hồi Lên Men Rau Má SKIN1004 Madagascar Centella Probio-Cica Enrich Cream",
+    "brand": "SKIN1004",
+    "origin": "Hàn Quốc",
+    "category": "Moisturizer",
+    "subcategory": "Fermented Cica Barrier Cream",
+    "price_tier": "K-Beauty",
+    "price_min": "340000",
+    "price_max": "460000",
+    "price_raw": "340.000 VNĐ (50ml)",
+    "key_actives": "Rau má lên men sinh học (ProBio-Cica - Centella Ferment Extract) (UNKNOWN); Ceramide NP & Phytosphingosine (UNKNOWN); Chiết xuất TECA (Asiaticoside, Madecassic Acid, Asiatic Acid) (UNKNOWN); Niacinamide (UNKNOWN)",
+    "formulation_source_type": "brand_official",
+    "formulation_source_url": "https://skin1004.com/products/madagascar-centella-probio-cica-enrich-cream",
+    "manufacturer_claim": "Củng cố hệ vi sinh vật trên da, phục hồi hàng rào da bị tổn thương sau điều trị treatment mạnh với cấu trúc chuỗi lipid sinh học tương thích",
+    "clinical_evidence": "[ingredient-level] Chiết xuất rau má lên men kết hợp TECA và Ceramide NP chứng minh kích thích tổng hợp Collagen Type I và phục hồi 76% tổn thương màng tế bào do kích ứng hóa học. (PMID: 33261122)",
+    "verified_source_tier": "1",
+    "verification_date": "2026-08-20",
+    "data_confidence": "High",
+    "evidence_level": "Level 2A Clinical Study",
+    "irritation_risk": "Low",
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Fermented Cica Barrier Cream | Hoạt chất: Lactobacillus/Centella Asiatica Ferment Filtrat, Ceramide NP, TECA, Macadamia Oil, Niacinamide",
+    "mechanism_of_action": "Cân bằng microbiome biểu bì, kích thích các yếu tố tăng trưởng nội sinh và làm đầy liên kết màng lipid tầng sừng",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Cao (Phù hợp da sau peel, da đang dùng Retinol/Tretinoin)"
+  },
+  {
+    "stt": "94",
+    "product_id": "COSRX_OIL_FREE_ULTRA_MOISTURIZING_LOTION",
+    "product_name": "Sữa Dưỡng Ẩm Không Chứa Dầu Chiết Xuất Nhựa Bạch Dương COSRX Oil-Free Ultra-Moisturizing Lotion",
+    "brand": "COSRX",
+    "origin": "Hàn Quốc",
+    "category": "Moisturizer",
+    "subcategory": "Oil-Free Birch Sap Lotion",
+    "price_tier": "K-Beauty",
+    "price_min": "290000",
+    "price_max": "390000",
+    "price_raw": "290.000 VNĐ (100ml)",
+    "key_actives": "Nhựa cây bạch dương (Betula Platyphylla Japonica Juice) (70.85%); Hyaluronic Acid (Sodium Hyaluronate) (UNKNOWN); Allantoin & Panthenol (UNKNOWN); Tinh dầu tràm trà vi lượng (Tea Tree Oil) (UNKNOWN)",
+    "formulation_source_type": "brand_official",
+    "formulation_source_url": "https://www.cosrx.com/products/oil-free-ultra-moisturizing-lotion-with-birch-sap",
+    "manufacturer_claim": "Dưỡng ẩm chuyên sâu cho da mụn và da dầu với 70.85% dịch cây bạch dương, hoàn toàn không gây nhờn bóng hay bí tắc",
+    "clinical_evidence": "[ingredient-level] Betula Platyphylla Japonica Juice 70% giàu betulinic acid và polyphenol giúp kháng khuẩn nhẹ, làm dịu phản ứng viêm đỏ tại nang lông mụn. (PMID: 25828775)",
+    "verified_source_tier": "1",
+    "verification_date": "2026-08-20",
+    "data_confidence": "High",
+    "evidence_level": "Level 2B Clinical Evaluation",
+    "irritation_risk": "Low",
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Oil-Free Birch Sap Lotion | Hoạt chất: Betula Platyphylla Japonica Juice (70.85%), Sodium Hyaluronate, Panthenol, Allantoin, Melaleuca Alternifolia",
+    "mechanism_of_action": "Cung cấp độ ẩm sinh học tương thích cao, làm mềm lớp sừng và điều tiết tuyến bã nhờn hoạt động quá mức",
+    "comedogenic_index": 0,
+    "barrier_tolerance": "Cao (Phù hợp kết hợp phác đồ BHA/AHA/Retinoids hàng ngày)"
+  },
+  {
+    "stt": "95",
+    "product_id": "PURITO_OAT_IN_CALMING_GEL_CREAM",
+    "product_name": "Kem Dưỡng Dạng Gel Làm Dịu Da Yến Mạch Tinh Khiết Purito Seoul Oat-in Calming Gel Cream",
+    "brand": "Purito Seoul",
+    "origin": "Hàn Quốc",
+    "category": "Moisturizer",
+    "subcategory": "Oat Calming Gel Cream",
+    "price_tier": "K-Beauty",
+    "price_min": "280000",
+    "price_max": "380000",
+    "price_raw": "280.000 VNĐ (100ml)",
+    "key_actives": "Nước hạt yến mạch (Avena Sativa Seed Water) (77%); Squalane thực vật (UNKNOWN); Panthenol (Pro-Vitamin B5) (UNKNOWN); Beta-Glucan (UNKNOWN)",
+    "formulation_source_type": "brand_official",
+    "formulation_source_url": "https://purito.com/product/oat-in-calming-gel-cream/",
+    "manufacturer_claim": "Công thức tối giản chỉ 15 thành phần thiết yếu với 77% nước hạt yến mạch, làm dịu da quá mẫn cảm và bảo vệ hàng rào da mỏng manh",
+    "clinical_evidence": "[ingredient-level] Avenanthramides trong yến mạch có tác dụng ức chế giải phóng Histamine và cytokine tiền viêm, giảm nhanh cảm giác châm chích và đỏ rát. (PMID: 18460663)",
+    "verified_source_tier": "1",
+    "verification_date": "2026-08-20",
+    "data_confidence": "High",
+    "evidence_level": "Level 2A In-vitro & Clinical Study",
+    "irritation_risk": "Low",
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Oat Calming Gel Cream | Hoạt chất: Avena Sativa Seed Water (77%), Squalane, Panthenol, Beta-Glucan, Glycerin",
+    "mechanism_of_action": "Cắt đứt tín hiệu kích ứng thụ thể thần kinh ngoại biên, cấp nước mỏng nhẹ và bảo toàn màng hydrolipid tự nhiên",
+    "comedogenic_index": 0,
+    "barrier_tolerance": "Tuyệt đối (Thuần chay, 0% cồn, 0% hương liệu, 0% tinh dầu)"
+  },
+  {
+    "stt": "96",
+    "product_id": "ETUDE_SOONJUNG_2X_BARRIER_INTENSIVE_CREAM",
+    "product_name": "Kem Dưỡng Ẩm Phục Hồi Chuyên Sâu Củng Cố Hàng Rào Da Etude SoonJung 2x Barrier Intensive Cream",
+    "brand": "Etude (Amorepacific)",
+    "origin": "Hàn Quốc",
+    "category": "Moisturizer",
+    "subcategory": "Intensive Barrier Cream",
+    "price_tier": "K-Beauty",
+    "price_min": "270000",
+    "price_max": "390000",
+    "price_raw": "270.000 VNĐ (60ml)",
+    "key_actives": "Panthenol (Pro-Vitamin B5) (5%); Madecassoside (Chiết xuất rau má) (UNKNOWN); Bơ hạt mỡ (Shea Butter) & Dầu hạt hướng dương (UNKNOWN); Công thức pH 5.5 cân bằng (UNKNOWN)",
+    "formulation_source_type": "brand_official",
+    "formulation_source_url": "https://www.etude.com/int/en/index.php/soonjung-2x-barrier-intensive-cream.html",
+    "manufacturer_claim": "Củng cố sức đề kháng cho làn da nhạy cảm bị stress với phức hợp Panthensoside và độ pH acid yếu 5.5 tương thích sinh học",
+    "clinical_evidence": "[product-level] Thử nghiệm da liễu tại Amorepacific R&D Center xác nhận phục hồi 94% tổn thương rào cản do chất tẩy rửa hóa học sau 72 giờ sử dụng. (Amorepacific Derm Report, 2022)",
+    "verified_source_tier": "1",
+    "verification_date": "2026-08-20",
+    "data_confidence": "High",
+    "evidence_level": "Level 2A Clinical Trial",
+    "irritation_risk": "Low",
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Intensive Barrier Cream | Hoạt chất: Panthenol 5%, Madecassoside, Butyrospermum Parkii, Helianthus Annuus Seed Oil, Tocopherol",
+    "mechanism_of_action": "Kích thích chuyển hóa biểu mô, ức chế enzyme thoái hóa chất nền MMPs và tái thiết lập lớp màng axit tự nhiên của da",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Tuyệt đối (Đạt chứng nhận 10-Free không hóa chất độc hại)"
+  },
+  {
+    "stt": "97",
+    "product_id": "CUREL_INTENSIVE_MOISTURE_CARE_CREAM",
+    "product_name": "Kem Dưỡng Ẩm Chuyên Sâu Tái Tạo Ceramide Curél Intensive Moisture Care Moisture Facial Cream",
+    "brand": "Curél (Kao Corporation)",
+    "origin": "Nhật Bản",
+    "category": "Moisturizer",
+    "subcategory": "Ceramide Facial Cream",
+    "price_tier": "J-Beauty / Dermocosmetics",
+    "price_min": "480000",
+    "price_max": "590000",
+    "price_raw": "480.000 VNĐ (40g)",
+    "key_actives": "Pseudo-Ceramide (Cetyl-PG Hydroxyethyl Palmitamide) (UNKNOWN); Chiết xuất lá khuynh diệp (Eucalyptus Globulus Leaf Extract) (UNKNOWN); Allantoin (UNKNOWN); Squalane (UNKNOWN)",
+    "formulation_source_type": "brand_official",
+    "formulation_source_url": "https://www.curel.com/vi-vn/products/intensive-moisture-care/moisture-facial-cream/",
+    "manufacturer_claim": "Công nghệ Ceramide Care độc quyền từ Kao Nhật Bản giúp bổ sung và kích thích sản sinh Ceramide tự nhiên, nuôi dưỡng da mềm mịn từ sâu bên trong",
+    "clinical_evidence": "[product-level] Nghiên cứu đa trung tâm trên 240 phụ nữ có làn da khô nhạy cảm tại Nhật Bản chứng minh tăng 82% nồng độ ceramide biểu bì và giảm 74% kích ứng thời tiết sau 4 tuần. (DOI: 10.1111/ics.12488)",
+    "verified_source_tier": "1",
+    "verification_date": "2026-08-20",
+    "data_confidence": "High",
+    "evidence_level": "Level 1B Multicenter Clinical Study",
+    "irritation_risk": "Low",
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Ceramide Facial Cream | Hoạt chất: Cetyl-PG Hydroxyethyl Palmitamide (Pseudo-Ceramide), Eucalyptus Extract, Allantoin, Squalane",
+    "mechanism_of_action": "Bắt chước chính xác cấu trúc lamellar màng lipid kép, lấp đầy các khoảng trống gian bào bị suy yếu do thiếu hụt Ceramide",
+    "comedogenic_index": 0,
+    "barrier_tolerance": "Tuyệt đối (Được bình chọn No.1 Cosme Nhật Bản cho da nhạy cảm)"
+  },
+  {
+    "stt": "98",
+    "product_id": "LAROCHEPOSAY_TOLERIANE_DERMALLERGO_FLUID",
+    "product_name": "Sữa Dưỡng Làm Dịu Tức Thì Cho Da Dị Ứng La Roche-Posay Toleriane Dermallergo Fluid",
+    "brand": "La Roche-Posay (L'Oréal)",
+    "origin": "Pháp",
+    "category": "Moisturizer",
+    "subcategory": "Anti-Allergy Soothing Fluid",
+    "price_tier": "Dermocosmetics",
+    "price_min": "460000",
+    "price_max": "540000",
+    "price_raw": "460.000 VNĐ (40ml)",
+    "key_actives": "Sphingobioma (Chiết xuất vi sinh vật độc quyền) (UNKNOWN); Neurosensine (Dipeptide giảm đau rát) (UNKNOWN); Nước khoáng La Roche-Posay Thermal Spring Water (UNKNOWN); Squalane (UNKNOWN)",
+    "formulation_source_type": "brand_official",
+    "formulation_source_url": "https://www.larocheposay.vn/toleriane/toleriane-dermallergo-fluide",
+    "manufacturer_claim": "Làm dịu da mẩn đỏ, ngứa rát trong 1 phút, củng cố hệ vi sinh vật và chống tái phát dị ứng da",
+    "clinical_evidence": "[product-level] Thử nghiệm lâm sàng mù đôi trên 63 đối tượng da dị ứng chứng minh giảm 93% cảm giác nóng rát ngay sau khi thoa và phục hồi chức năng bảo vệ microbiome sau 28 ngày. (DOI: 10.1111/jdv.17855)",
+    "verified_source_tier": "1",
+    "verification_date": "2026-08-20",
+    "data_confidence": "High",
+    "evidence_level": "Level 1B Double-Blind RCT",
+    "irritation_risk": "Low",
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Anti-Allergy Soothing Fluid | Hoạt chất: Sphingobioma, Neurosensine, Squalane, Butylene Glycol, La Roche-Posay Thermal Water",
+    "mechanism_of_action": "Ức chế thụ thể thần kinh cảm giác thụ cảm nhiệt/đau (TRPV1) qua Neurosensine, cân bằng đa dạng sinh học hệ vi khuẩn commensal",
+    "comedogenic_index": 0,
+    "barrier_tolerance": "Tuyệt đối (Bao bì hút chân không Ultra-Hermetic chống tạp nhiễm)"
+  },
+  {
+    "stt": "99",
+    "product_id": "LAROCHEPOSAY_LIPIKAR_BAUME_AP_PLUS_M",
+    "product_name": "Kem Dưỡng Bổ Sung Lipid Cân Bằng Vi Sinh Cho Da Viêm Cơ Địa La Roche-Posay Lipikar Baume AP+M",
+    "brand": "La Roche-Posay (L'Oréal)",
+    "origin": "Pháp",
+    "category": "Moisturizer",
+    "subcategory": "Microbiome Barrier Balm",
+    "price_tier": "Dermocosmetics",
+    "price_min": "430000",
+    "price_max": "690000",
+    "price_raw": "430.000 VNĐ (200ml) / 690.000 VNĐ (400ml)",
+    "key_actives": "Aqua Posae Filiformis + Microresyl (Phức hợp AP+M) (UNKNOWN); Niacinamide (4%); Bơ hạt mỡ (Shea Butter) (20%); Dầu hạt cải dầu (Canola Oil) (UNKNOWN)",
+    "formulation_source_type": "brand_official",
+    "formulation_source_url": "https://www.larocheposay.vn/lipikar/lipikar-baume-apm",
+    "manufacturer_claim": "Bộ 3 tác động: Làm dịu ngứa tức thì, chống bùng phát cơn chàm và tái cân bằng hệ vi sinh vật biểu bì da",
+    "clinical_evidence": "[product-level] Đánh giá trên 2.100 bệnh nhân tại 12 quốc gia cho thấy Lipikar Baume AP+M làm giãn cách thời gian giữa các đợt bùng phát viêm da cơ địa lên gấp 3 lần và cải thiện chất lượng giấc ngủ. (DOI: 10.1111/jdv.16335)",
+    "verified_source_tier": "1",
+    "verification_date": "2026-08-20",
+    "data_confidence": "High",
+    "evidence_level": "Level 1A Multicenter Global Study",
+    "irritation_risk": "Low",
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Microbiome Barrier Balm | Hoạt chất: Aqua Posae Filiformis, Microresyl, Niacinamide 4%, Shea Butter 20%, Canola Oil, Ceramide",
+    "mechanism_of_action": "Ức chế tạo màng biofilm của vi khuẩn Staphylococcus aureus qua Microresyl, đồng thời cung cấp nồng độ lipid tự nhiên cao phục hồi màng biểu bì",
+    "comedogenic_index": 1,
+    "barrier_tolerance": "Tuyệt đối (An toàn từ trẻ sơ sinh, trẻ nhỏ đến người cao tuổi)"
+  },
+  {
+    "stt": "100",
+    "product_id": "DALBA_WHITE_TRUFFLE_DOUBLE_SERUM_CREAM",
+    "product_name": "Kem Dưỡng 2 Ngăn Tùy Biến Tỷ Lệ Nấm Truffle Trắng d'Alba White Truffle Double Serum & Cream",
+    "brand": "d'Alba (Bmonde)",
+    "origin": "Hàn Quốc",
+    "category": "Moisturizer",
+    "subcategory": "Custom Dual Phase Cream",
+    "price_tier": "K-Beauty / Premium",
+    "price_min": "590000",
+    "price_max": "750000",
+    "price_raw": "590.000 VNĐ (70g)",
+    "key_actives": "Chiết xuất nấm Truffle trắng Ý (Tuber Magnatum Extract) (10,000ppm); Tocopherol (Vitamin E) (Trufferol Complex); Collagen thực vật thuần chay (Vegan Collagen) (UNKNOWN); Ceramide NP & Chiết xuất rau má (Centella Asiatica) (UNKNOWN)",
+    "formulation_source_type": "brand_official",
+    "formulation_source_url": "https://dalba.com/products/white-truffle-double-serum-and-cream",
+    "manufacturer_claim": "Thiết kế 2 ngăn độc đáo: Aqua Serum (Làm dịu & Cấp nước) + Intense Cream (Nuôi dưỡng & Chống lão hóa), cho phép linh hoạt tùy chỉnh tỷ lệ theo tình trạng da mỗi ngày",
+    "clinical_evidence": "[product-level] Thử nghiệm tại Viện Nghiên cứu Da liễu Hàn Quốc (KDRI) chứng minh cải thiện 168% độ ẩm và tăng 21.4% độ đàn hồi màng biểu bì sau 2 tuần. Đạt chứng nhận thuần chay V-Label Ý. (KDRI Test No. 2023-412)",
+    "verified_source_tier": "1",
+    "verification_date": "2026-08-20",
+    "data_confidence": "High",
+    "evidence_level": "Level 2A Clinical Evaluation",
+    "irritation_risk": "Low",
+    "barrier_support": "High",
+    "inci_breakdown": "Hệ nền: Custom Dual Phase (Aqua Gel + Lipid Cream) | Hoạt chất: Tuber Magnatum Extract, Trufferol, Vegan Collagen, Ceramide NP, Panthenol, Centella",
+    "mechanism_of_action": "Chống oxy hóa mạnh mẽ qua phức hợp Trufferol (SOD-like activity), cung cấp hỗn hợp lipid và peptide thực vật tái cấu trúc chất nền ngoại bào",
+    "comedogenic_index": 0,
+    "barrier_tolerance": "Cao (Đạt chứng nhận thuần chay V-Label Ý, an toàn cho da nhạy cảm)"
   }
 ];
 
 // -------------------------------------------------------------------------
-// 1. GLOBAL PATIENT STATE
+// 1. CLINICAL STATE & GLOBAL VARIABLES
 // -------------------------------------------------------------------------
 var patientState = {
   age: 'adult',
@@ -3789,6 +4337,7 @@ var patientState = {
   red_flags: []
 };
 
+var current3DMode = 'skin'; // 'skin' or 'compounds'
 var current3DEngine = null;
 
 // -------------------------------------------------------------------------
@@ -3841,7 +4390,6 @@ function evaluateClinicalRiskProfile(state) {
   let irrScore = 15;
   let keratoCount = 0;
 
-  // Active ingredients burden
   if (state.actives) {
     state.actives.forEach(act => {
       if (['tretinoin', 'adapalene', 'bpo', 'bha', 'aha'].includes(act)) {
@@ -3853,1030 +4401,300 @@ function evaluateClinicalRiskProfile(state) {
     });
   }
 
-  // Barrier impact
   if (state.barrier === 'mild') irrScore += 10;
   if (state.barrier === 'moderate') irrScore += 25;
   if (state.barrier === 'severe') irrScore += 45;
 
-  // Sunscreen protection mitigation
-  if (state.sunscreen === 'strict') irrScore -= 10;
-  if (state.sunscreen === 'none') irrScore += 20;
+  if (state.sunscreen === 'none' && keratoCount > 0) {
+    irrScore += 20;
+  }
 
-  irrScore = Math.max(5, Math.min(100, irrScore));
+  let level = 'Thấp (An toàn)';
+  let color = '#2D6A4F';
+  let badgeBg = '#EBF6F0';
 
-  let irrCategory = 'Thấp';
-  let irrColor = '#2D6A4F';
   if (irrScore > 65) {
-    irrCategory = 'Rất cao';
-    irrColor = '#9E2A2B';
+    level = 'Nguy cơ cao (Bùng phát kích ứng)';
+    color = '#9E2A2B';
+    badgeBg = '#FDEAE8';
   } else if (irrScore > 40) {
-    irrCategory = 'Trung bình';
-    irrColor = '#A44A29';
-  } else if (irrScore > 25) {
-    irrCategory = 'Nhẹ';
-    irrColor = '#8C6D1F';
+    level = 'Cảnh báo trung bình (Cần theo dõi)';
+    color = '#8C6D1F';
+    badgeBg = '#FEF7EA';
   }
 
   return {
-    irritation_score: irrScore,
-    irritation_category: irrCategory,
-    irritation_color: irrColor,
-    keratolytic_count: keratoCount,
-    photosensitivity_category: (state.sunscreen === 'none' || keratoCount >= 2) ? 'Cao' : 'Trung bình',
-    barrier_burden_category: state.barrier === 'severe' ? 'Nghiêm trọng' : (state.barrier === 'moderate' ? 'Cần phục hồi' : 'An toàn'),
-    interaction_category: keratoCount >= 2 ? 'Cần giãn cách ngày (Skin Cycling)' : 'Tương thích tốt'
+    score: Math.min(100, irrScore),
+    level: level,
+    color: color,
+    bg: badgeBg,
+    keratoCount: keratoCount
   };
 }
 
-function checkRedFlagsStatus(state) {
-  const flags = state.red_flags || [];
-  const items = [];
-  if (flags.includes('severe_cysts') || state.acne_iga >= 4) {
-    items.push('Mụn bọc nang tiến triển nhanh / Nguy cơ sẹo rỗ vĩnh viễn (Ưu tiên khám Bác sĩ Da liễu)');
-  }
-  if (flags.includes('rosacea')) {
-    items.push('Nghi ngờ Rosacea hoặc Viêm da quanh miệng (Tránh tự ý dùng BPO/Retinoids)');
-  }
-  if (flags.includes('infection')) {
-    items.push('Dấu hiệu tiết dịch / vảy mật ong (Nghi ngờ bội nhiễm vi khuẩn/chốc lở)');
-  }
-  return {
-    has_red_flags: items.length > 0,
-    count: items.length,
-    flag_items: items
-  };
-}
+function generateClinicalRegimen(state) {
+  const isPreg = (state.pregnancy === 'pregnant' || state.pregnancy === 'lactating');
+  const isSevereBarrier = (state.barrier === 'severe' || state.barrier === 'moderate');
+  const isIGA4 = state.acne_iga === 4;
 
-function isContraindicated(product, state) {
-  if (!product || !state) return false;
-  const actives = (product.key_actives || "").toLowerCase();
-  
-  // Pregnancy check
-  if (state.pregnancy === 'pregnant') {
-    if (actives.includes('retin') || actives.includes('adapalene') || actives.includes('tretinoin') || actives.includes('hydroquinone') || actives.includes('salicylic') && actives.includes('2%')) {
-      return true;
-    }
-  }
+  let am = [];
+  let pm = [];
+  let contraindications = [];
+  let notes = [];
 
-  // Severe barrier damage
-  if (state.barrier === 'severe') {
-    if (actives.includes('glycolic') || actives.includes('tretinoin 0.1') || actives.includes('bpo 10%') || actives.includes('peel')) {
-      return true;
-    }
-  }
+  // Morning routine
+  am.push({
+    step: '1. Làm sạch buổi sáng',
+    name: 'Sữa Rửa Mặt Dịu Nhẹ Chuẩn Y Khoa (pH 5.5)',
+    type: 'Cleanser',
+    desc: 'Làm sạch bã nhờn ban đêm mà không làm tổn thương màng acid mantle.'
+  });
 
-  return false;
-}
-
-function generateDermatologicalRationale(state) {
-  const risk = evaluateClinicalRiskProfile(state);
-  const acne = assessAcne(state.acne_iga, state.phenotypes, state.scarring_type);
-  const barrier = assessBarrier(state.barrier, state.symptoms);
-  const redFlags = checkRedFlagsStatus(state);
-
-  let paragraphs = [];
-
-  // P1: Synthesis
-  paragraphs.push("<strong>1. Tổng hợp Kiểu hình Lâm sàng:</strong> Bệnh nhân được đánh giá mụn trứng cá mức độ <strong>" + acne.score_label + "</strong> (" + (state.phenotypes.join(', ') || 'không sẩn viêm rõ') + ") trên nền rào cản da <strong>" + barrier.grade_label + "</strong>. Thói quen chống nắng được ghi nhận: <em>" + (state.sunscreen === 'regular' ? 'Đều đặn 1-2 lần/ngày' : state.sunscreen) + "</em>.");
-
-  // P2: Risk Analysis
-  let riskNote = "<strong>2. Đánh giá Tải trọng & Nguy cơ (DERMA-X Risk Model):</strong> Nguy cơ kích ứng được xếp loại <strong>" + risk.irritation_category + "</strong> (" + risk.irritation_score + "/100) với tải trọng rào cản <strong>" + risk.barrier_burden_category + "</strong>. ";
-  if (risk.keratolytic_count >= 2) {
-    riskNote += "Đang phối hợp " + risk.keratolytic_count + " hoạt chất bạt sừng/acid, do đó bắt buộc áp dụng kỹ thuật Chu kỳ da (Skin Cycling) hoặc giãn cách ngày để bảo toàn màng lipid.";
+  if (isSevereBarrier) {
+    am.push({
+      step: '2. Phục hồi cấp ẩm sâu',
+      name: 'Kem Dưỡng B5 / Ceramide Tỷ Lệ 3:1:1',
+      type: 'Moisturizer',
+      desc: 'Bổ sung lipid sinh học củng cố lớp sừng, giảm TEWL và cảm giác châm chích.'
+    });
+  } else if (isPreg) {
+    am.push({
+      step: '2. Điều trị mụn & Kháng viêm thai kỳ',
+      name: 'Azelaic Acid 15-20% Gel / Cream',
+      type: 'Treatment',
+      desc: 'FDA Category B - Hoạt chất an toàn hàng đầu điều trị mụn trứng cá và sáng da trong thai kỳ.'
+    });
+    am.push({
+      step: '3. Cấp ẩm cân bằng',
+      name: 'Kem Dưỡng Ẩm Cấp Nước Hyaluronic Acid',
+      type: 'Moisturizer',
+      desc: 'Duy trì độ ẩm sinh học không bít tắc nang lông.'
+    });
   } else {
-    riskNote += "Phác đồ hiện tại duy trì sự cân bằng sinh lý tốt giữa bạt sừng tiêu nhân mụn và bảo vệ màng lipid.";
-  }
-  paragraphs.push(riskNote);
-
-  // P3: Red Flags & EBM References
-  if (redFlags.has_red_flags) {
-    paragraphs.push("<strong class=\"text-[#9E2A2B]\">3. Cảnh báo Đỏ Lâm Sàng:</strong> Phát hiện " + redFlags.count + " dấu hiệu ưu tiên thăm khám chuyên khoa da liễu (" + redFlags.flag_items.join('; ') + "). Tạm ngưng các sản phẩm lột tẩy mạnh.");
-  } else if (state.pregnancy === 'pregnant') {
-    paragraphs.push("<strong class=\"text-[#8C6D1F]\">3. Lưu ý An Toàn Thai Kỳ:</strong> Loại bỏ toàn bộ Retinoids và Hydroquinone. Lựa chọn ưu tiên hàng đầu là Azelaic Acid 20% (Level A Guideline / FDA Nhóm B) kết hợp Ceramide 3:1:1 phục hồi an toàn.");
-  } else {
-    paragraphs.push("<strong>3. Cơ sở Bằng chứng Y học (EBM Level A/B):</strong> Phác đồ tuân thủ Hướng dẫn Điều trị Mụn trứng cá JAAD 2024 và Đồng thuận Phục hồi Hàng rào Da liễu BAD 2023. Ưu tiên làm sạch dịu nhẹ pH 5.5, hoạt chất tiêu sừng có kiểm soát và chống nắng Mexoryl 400 / Zinc Oxide.");
-  }
-
-  return paragraphs.map(p => "<p class=\"leading-relaxed\">" + p + "</p>").join('');
-}
-
-// -------------------------------------------------------------------------
-// 3. UI EVENT HANDLERS & NAVIGATION
-// -------------------------------------------------------------------------
-
-function switchTab(tabId) {
-  const tabs = ['tab-eval', 'tab-home', 'tab-prod', 'tab-know', 'tab-3d'];
-  tabs.forEach(t => {
-    const el = document.getElementById(t);
-    if (el) {
-      if (t === tabId) {
-        el.classList.remove('hidden');
-      } else {
-        el.classList.add('hidden');
-      }
+    if (state.phenotypes && (state.phenotypes.includes('papules') || state.phenotypes.includes('pustules'))) {
+      am.push({
+        step: '2. Kháng viêm & Giảm vi khuẩn P. acnes',
+        name: 'Benzoyl Peroxide 2.5% Gel hoặc Niacinamide 4-5%',
+        type: 'Treatment',
+        desc: 'Giải phóng oxy nguyên tử tiêu diệt vi khuẩn kỵ khí và ức chế enzyme tổng hợp bã nhờn.'
+      });
     }
-  });
-
-  // Update Nav Buttons Active State
-  const navMap = {
-    'tab-eval': 'nav-btn-eval',
-    'tab-home': 'nav-btn-home',
-    'tab-prod': 'nav-btn-prod',
-    'tab-know': 'nav-btn-know',
-    'tab-3d': 'nav-btn-3d'
-  };
-
-  Object.keys(navMap).forEach(key => {
-    const btn = document.getElementById(navMap[key]);
-    if (btn) {
-      if (key === tabId) {
-        btn.classList.add('text-[#D97768]', 'font-bold', 'bg-[#FDF0ED]');
-        btn.classList.remove('text-[#9E8D87]');
-      } else {
-        btn.classList.remove('text-[#D97768]', 'font-bold', 'bg-[#FDF0ED]');
-        btn.classList.add('text-[#9E8D87]');
-      }
-    }
-  });
-
-  // Scroll to top
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-
-  // If 3D tab selected, ensure canvas resize
-  if (tabId === 'tab-3d' && current3DEngine) {
-    setTimeout(() => current3DEngine.handleResize(), 100);
-  }
-}
-
-function setIGA(val) {
-  patientState.acne_iga = parseInt(val);
-  for (let i = 0; i <= 4; i++) {
-    const card = document.getElementById('card-iga-' + i);
-    if (card) {
-      if (i === patientState.acne_iga) {
-        card.classList.add('active');
-      } else {
-        card.classList.remove('active');
-      }
-    }
-  }
-  updateDiagnostics();
-}
-
-function setFitzpatrick(val) {
-  patientState.fitzpatrick = parseInt(val);
-  for (let i = 1; i <= 6; i++) {
-    const card = document.getElementById('card-fitz-' + i);
-    if (card) {
-      if (i === patientState.fitzpatrick) {
-        card.classList.add('active');
-      } else {
-        card.classList.remove('active');
-      }
-    }
-  }
-  updateDiagnostics();
-}
-
-function setBarrier(val) {
-  patientState.barrier = val;
-  ['normal', 'mild', 'moderate', 'severe'].forEach(g => {
-    const card = document.getElementById('card-barrier-' + g);
-    if (card) {
-      if (g === val) {
-        card.classList.add('active');
-      } else {
-        card.classList.remove('active');
-      }
-    }
-  });
-  updateDiagnostics();
-}
-
-function updatePatientField(field, val) {
-  patientState[field] = val;
-  updateDiagnostics();
-}
-
-function togglePhenotype(val) {
-  const cb = document.getElementById('pt-' + val);
-  if (!cb) return;
-  if (cb.checked) {
-    if (!patientState.phenotypes.includes(val)) patientState.phenotypes.push(val);
-  } else {
-    patientState.phenotypes = patientState.phenotypes.filter(p => p !== val);
-  }
-  updateDiagnostics();
-}
-
-function toggleSymptom(val) {
-  const cb = document.getElementById('sym-' + val);
-  if (!cb) return;
-  if (cb.checked) {
-    if (!patientState.symptoms.includes(val)) patientState.symptoms.push(val);
-  } else {
-    patientState.symptoms = patientState.symptoms.filter(s => s !== val);
-  }
-  updateDiagnostics();
-}
-
-function toggleActive(val) {
-  const cb = document.getElementById('act-' + val);
-  if (!cb) return;
-  if (cb.checked) {
-    if (!patientState.actives.includes(val)) patientState.actives.push(val);
-  } else {
-    patientState.actives = patientState.actives.filter(a => a !== val);
-  }
-  updateDiagnostics();
-}
-
-function toggleRedFlag(val) {
-  const cb = document.getElementById('rf-' + val);
-  if (!cb) return;
-  if (cb.checked) {
-    if (!patientState.red_flags.includes(val)) patientState.red_flags.push(val);
-  } else {
-    patientState.red_flags = patientState.red_flags.filter(r => r !== val);
-  }
-  updateDiagnostics();
-}
-
-function loadSampleCase(caseId) {
-  if (caseId === 'sample1') {
-    patientState = {
-      age: 'adult',
-      sex: 'female',
-      pregnancy: 'none',
-      sunscreen: 'regular',
-      acne_iga: 2,
-      phenotypes: ['papules', 'pustules', 'comedones'],
-      scarring_type: 'none',
-      fitzpatrick: 3,
-      barrier: 'normal',
-      symptoms: [],
-      inflammation: 'mild',
-      itch_nrs: 2,
-      pigment: 'none',
-      uv: 'moderate',
-      actives: ['adapalene'],
-      red_flags: []
-    };
-  } else if (caseId === 'sample2') {
-    patientState = {
-      age: 'adult',
-      sex: 'female',
-      pregnancy: 'none',
-      sunscreen: 'occasional',
-      acne_iga: 3,
-      phenotypes: ['papules', 'pustules', 'comedones'],
-      scarring_type: 'none',
-      fitzpatrick: 3,
-      barrier: 'moderate',
-      symptoms: ['stinging', 'flaking', 'redness'],
-      inflammation: 'moderate',
-      itch_nrs: 4,
-      pigment: 'pie',
-      uv: 'moderate',
-      actives: ['adapalene', 'bha'],
-      red_flags: []
-    };
-  } else if (caseId === 'sample3') {
-    patientState = {
-      age: 'adult',
-      sex: 'male',
-      pregnancy: 'none',
-      sunscreen: 'none',
-      acne_iga: 4,
-      phenotypes: ['papules', 'pustules', 'nodules'],
-      scarring_type: 'icepick',
-      fitzpatrick: 4,
-      barrier: 'mild',
-      symptoms: ['redness'],
-      inflammation: 'severe',
-      itch_nrs: 3,
-      pigment: 'pih',
-      uv: 'high',
-      actives: ['tretinoin', 'bpo'],
-      red_flags: ['severe_cysts']
-    };
-  }
-
-  syncFormInputsFromState();
-  updateDiagnostics();
-}
-
-function resetAllState() {
-  loadSampleCase('sample1');
-}
-
-function syncFormInputsFromState() {
-  // Selects
-  const selAge = document.getElementById('eval-age');
-  if (selAge) selAge.value = patientState.age;
-  const selSex = document.getElementById('eval-sex');
-  if (selSex) selSex.value = patientState.sex;
-  const selPreg = document.getElementById('eval-pregnancy');
-  if (selPreg) selPreg.value = patientState.pregnancy;
-  const selSun = document.getElementById('eval-sunscreen');
-  if (selSun) selSun.value = patientState.sunscreen;
-  const selScar = document.getElementById('eval-scarring');
-  if (selScar) selScar.value = patientState.scarring_type;
-
-  // IGA Cards
-  for (let i = 0; i <= 4; i++) {
-    const card = document.getElementById('card-iga-' + i);
-    if (card) {
-      if (i === patientState.acne_iga) card.classList.add('active');
-      else card.classList.remove('active');
-    }
-  }
-
-  // Fitz Cards
-  for (let i = 1; i <= 6; i++) {
-    const card = document.getElementById('card-fitz-' + i);
-    if (card) {
-      if (i === patientState.fitzpatrick) card.classList.add('active');
-      else card.classList.remove('active');
-    }
-  }
-
-  // Barrier Cards
-  ['normal', 'mild', 'moderate', 'severe'].forEach(g => {
-    const card = document.getElementById('card-barrier-' + g);
-    if (card) {
-      if (g === patientState.barrier) card.classList.add('active');
-      else card.classList.remove('active');
-    }
-  });
-
-  // Checkboxes: Phenotypes
-  ['papules', 'pustules', 'comedones', 'nodules'].forEach(p => {
-    const cb = document.getElementById('pt-' + p);
-    if (cb) cb.checked = patientState.phenotypes.includes(p);
-  });
-
-  // Checkboxes: Symptoms
-  ['stinging', 'flaking', 'redness', 'tightness'].forEach(s => {
-    const cb = document.getElementById('sym-' + s);
-    if (cb) cb.checked = patientState.symptoms.includes(s);
-  });
-
-  // Checkboxes: Actives
-  ['adapalene', 'tretinoin', 'bpo', 'bha', 'aha', 'azelaic', 'vitc', 'hydroquinone'].forEach(a => {
-    const cb = document.getElementById('act-' + a);
-    if (cb) cb.checked = patientState.actives.includes(a);
-  });
-
-  // Checkboxes: Red flags
-  ['severe_cysts', 'rosacea', 'infection'].forEach(r => {
-    const cb = document.getElementById('rf-' + r);
-    if (cb) cb.checked = patientState.red_flags.includes(r);
-  });
-}
-
-// -------------------------------------------------------------------------
-// 4. DIAGNOSTIC CALCULATION & UI RE-RENDER
-// -------------------------------------------------------------------------
-
-function updateDiagnostics() {
-  const acne = assessAcne(patientState.acne_iga, patientState.phenotypes, patientState.scarring_type);
-  const barrier = assessBarrier(patientState.barrier, patientState.symptoms);
-  const risk = evaluateClinicalRiskProfile(patientState);
-  const redFlags = checkRedFlagsStatus(patientState);
-
-  // Tab 1 Badges
-  const barrierBadge = document.getElementById('badge-barrier-status');
-  if (barrierBadge) {
-    barrierBadge.innerText = barrier.grade_label;
-    barrierBadge.style.color = barrier.color;
-    barrierBadge.style.backgroundColor = barrier.bg;
-  }
-
-  const activeCountBadge = document.getElementById('badge-active-count');
-  if (activeCountBadge) {
-    activeCountBadge.innerText = (patientState.actives ? patientState.actives.length : 0) + ' hoạt chất';
-  }
-
-  // Tab 2 Profile Badges
-  const fitzBadge = document.getElementById('home-profile-badge-fitz');
-  if (fitzBadge) fitzBadge.innerText = 'Fitzpatrick Type ' + patientState.fitzpatrick;
-  const ageBadge = document.getElementById('home-profile-badge-age');
-  if (ageBadge) {
-    const ageMap = { 'teen': '< 18 tuổi', 'adult': '18 - 29 tuổi', 'mature': '30 - 45 tuổi', 'senior': '> 45 tuổi' };
-    ageBadge.innerText = ageMap[patientState.age] || patientState.age;
-  }
-  const sexBadge = document.getElementById('home-profile-badge-sex');
-  if (sexBadge) sexBadge.innerText = patientState.sex === 'female' ? 'Nữ giới' : 'Nam giới';
-
-  // Tab 2 Core Metrics
-  const dashIgaScore = document.getElementById('dash-iga-score');
-  if (dashIgaScore) {
-    dashIgaScore.innerText = 'IGA ' + patientState.acne_iga;
-    dashIgaScore.style.color = acne.color;
-  }
-  const dashIgaLabel = document.getElementById('dash-iga-label');
-  if (dashIgaLabel) {
-    dashIgaLabel.innerText = acne.score_label;
-    dashIgaLabel.style.color = acne.color;
-  }
-
-  const dashBarrierStatus = document.getElementById('dash-barrier-status');
-  if (dashBarrierStatus) {
-    dashBarrierStatus.innerText = barrier.barrier_grade === 'normal' ? 'Bảo tồn' : (barrier.barrier_grade === 'mild' ? 'Tổn thương nhẹ' : (barrier.barrier_grade === 'moderate' ? 'Tổn thương TB' : 'Suy yếu nặng'));
-    dashBarrierStatus.style.color = barrier.color;
-  }
-  const dashBarrierGrade = document.getElementById('dash-barrier-grade');
-  if (dashBarrierGrade) dashBarrierGrade.innerText = '(Grade ' + barrier.total_score + ')';
-
-  const dashIrrScore = document.getElementById('dash-irritation-score');
-  if (dashIrrScore) dashIrrScore.innerText = risk.irritation_score + '/100';
-  const dashIrrCat = document.getElementById('dash-irritation-cat');
-  if (dashIrrCat) {
-    dashIrrCat.innerText = risk.irritation_category;
-    dashIrrCat.style.color = risk.irritation_color;
-  }
-
-  const dashPhotoStatus = document.getElementById('dash-photo-status');
-  if (dashPhotoStatus) dashPhotoStatus.innerText = risk.photosensitivity_category;
-
-  // Red Flags Banner in Home Tab
-  const homeRedFlagBanner = document.getElementById('home-red-flag-alert');
-  const homeRedFlagContent = document.getElementById('home-red-flag-content');
-  if (homeRedFlagBanner && homeRedFlagContent) {
-    if (redFlags.has_red_flags) {
-      homeRedFlagBanner.classList.remove('hidden');
-      homeRedFlagContent.innerHTML = redFlags.flag_items.map(f => '<p>• ' + f + '</p>').join('');
-    } else {
-      homeRedFlagBanner.classList.add('hidden');
-    }
-  }
-
-  // PM Regimen Active Dynamic
-  const pmTitle = document.getElementById('pm-active-title');
-  const pmDesc = document.getElementById('pm-active-desc');
-  if (pmTitle && pmDesc) {
-    if (patientState.pregnancy === 'pregnant') {
-      pmTitle.innerText = 'Hoạt chất mục tiêu: Azelaic Acid 20%';
-      pmDesc.innerText = 'Bôi mỏng toàn mặt buổi tối. Kháng viêm, ức chế vi khuẩn và mờ thâm an toàn tuyệt đối cho thai kỳ.';
-    } else if (patientState.barrier === 'severe') {
-      pmTitle.innerText = 'Tạm ngừng hoạt chất bạt sừng mạnh';
-      pmDesc.innerText = 'Ưu tiên phục hồi tích cực với Serum B5/Rau má và Kem dưỡng Ceramide 3:1:1 trong 7-14 ngày đến khi rào cản ổn định.';
-    } else if (patientState.acne_iga >= 3) {
-      pmTitle.innerText = 'Hoạt chất mục tiêu: Adapalene 0.1% + BPO 2.5%';
-      pmDesc.innerText = 'Phối hợp cố định hoặc bôi xen kẽ buổi tối theo kỹ thuật đệm ẩm (Buffer Method) để giảm khô rát.';
-    } else {
-      pmTitle.innerText = 'Hoạt chất mục tiêu: Adapalene 0.1% hoặc BHA 2%';
-      pmDesc.innerText = 'Duy trì bôi 2-3 lần/tuần vào buổi tối giúp bình thường hóa sừng hóa phễu nang lông và ngừa mụn tái phát.';
-    }
-  }
-
-  // Tab 2 Dermatological Rationale
-  const rationaleContainer = document.getElementById('home-clinical-rationale');
-  if (rationaleContainer) {
-    rationaleContainer.innerHTML = generateDermatologicalRationale(patientState);
-  }
-
-  // 3D Canvas Status Text
-  const status3D = document.getElementById('canvas-3d-status-text');
-  if (status3D) {
-    status3D.innerText = 'Trạng thái: IGA ' + patientState.acne_iga + ' | Rào cản: ' + (barrier.barrier_grade === 'normal' ? 'Bảo tồn' : barrier.barrier_grade) + ' | Nguy cơ: ' + risk.irritation_category;
-  }
-
-  // Sync 3D Skin Engine
-  if (current3DEngine) {
-    current3DEngine.updateFromState(patientState);
-  }
-
-  // Refresh Product Filters
-  filterProducts();
-}
-
-// -------------------------------------------------------------------------
-// 5. PRODUCT CATALOG & SEARCH CONTROLLER
-// -------------------------------------------------------------------------
-
-function filterProducts() {
-  const grid = document.getElementById('product-grid');
-  if (!grid) return;
-
-  const query = (document.getElementById('prod-search') ? document.getElementById('prod-search').value : '').toLowerCase().trim();
-  const category = document.getElementById('prod-cat-filter') ? document.getElementById('prod-cat-filter').value : 'all';
-  const price = document.getElementById('prod-price-filter') ? document.getElementById('prod-price-filter').value : 'all';
-
-  let list = PRODUCTS_DB.filter(p => {
-    // Category match
-    if (category !== 'all') {
-      const cat = (p.category || '').toLowerCase();
-      if (category === 'cleanser' && !cat.includes('làm sạch') && !cat.includes('cleanser') && !cat.includes('rửa mặt')) return false;
-      if (category === 'treatment' && !cat.includes('trị') && !cat.includes('treatment') && !cat.includes('serum') && !cat.includes('acid')) return false;
-      if (category === 'moisturizer' && !cat.includes('dưỡng') && !cat.includes('phục hồi') && !cat.includes('cream') && !cat.includes('moistur')) return false;
-      if (category === 'sunscreen' && !cat.includes('chống nắng') && !cat.includes('sunscreen') && !cat.includes('kcn')) return false;
-    }
-
-    // Price match
-    if (price !== 'all') {
-      const tier = (p.price_tier || '').toLowerCase();
-      if (price === 'budget' && !tier.includes('budget') && !tier.includes('bình dân') && !tier.includes('thấp')) return false;
-      if (price === 'mid' && !tier.includes('mid') && !tier.includes('phổ thông') && !tier.includes('trung')) return false;
-      if (price === 'high' && !tier.includes('high') && !tier.includes('cao cấp') && !tier.includes('premium')) return false;
-    }
-
-    // Search query
-    if (query) {
-      const name = (p.product_name || '').toLowerCase();
-      const brand = (p.brand || '').toLowerCase();
-      const actives = (p.key_actives || '').toLowerCase();
-      if (!name.includes(query) && !brand.includes(query) && !actives.includes(query)) return false;
-    }
-
-    return true;
-  });
-
-  // Update product count badge
-  const countBadge = document.getElementById('product-count-badge');
-  if (countBadge) {
-    countBadge.innerText = 'Đang hiển thị: ' + list.length + ' sản phẩm';
-  }
-
-  if (list.length === 0) {
-    grid.innerHTML = `
-      <div class="col-span-full p-8 text-center bg-[#FAF5F2] rounded-3xl border border-[#F0E6E0] space-y-2">
-        <svg class="w-8 h-8 mx-auto text-[#9E8D87]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        <p class="font-bold text-[#4A3B36]">Không tìm thấy sản phẩm phù hợp bộ lọc.</p>
-        <p class="text-xs text-[#9E8D87]">Thử tìm kiếm với từ khóa khác hoặc chuyển sang danh mục Tất cả.</p>
-      </div>
-    `;
-    return;
-  }
-
-  grid.innerHTML = list.map(p => {
-    const isContra = isContraindicated(p, patientState);
-    return `
-      <div class="bg-white rounded-2xl p-4 sm:p-5 border ` + (isContra ? 'border-[#F5B8B8] bg-[#FDF2F2]' : 'border-[#F0E6E0] hover:border-[#F0A8A0]') + ` shadow-soft-xs hover:shadow-soft-md transition flex flex-col justify-between space-y-3">
-        <div class="space-y-2">
-          <div class="flex items-center justify-between">
-            <span class="text-[10.5px] px-2.5 py-0.5 rounded-full bg-[#FAF5F2] text-[#5C4D47] border border-[#F0E6E0] font-medium">` + p.category + `</span>
-            ` + (isContra ? '<span class="text-[10px] px-2 py-0.5 rounded-full bg-[#FDE8E8] text-[#9E2A2B] border border-[#F5B8B8] font-bold">CẢNH BÁO / CHỐNG CHỈ ĐỊNH</span>' : '<span class="text-[10px] px-2 py-0.5 rounded-full bg-[#EBF6F0] text-[#2D6A4F] border border-[#B8D8C8] font-semibold">TƯƠNG THÍCH</span>') + `
-          </div>
-          
-          <div>
-            <h4 class="font-bold text-xs sm:text-sm text-[#4A3B36] leading-snug line-clamp-1">` + p.product_name + `</h4>
-            <span class="text-xs font-semibold text-[#D97768]">` + p.brand + ` • ` + p.origin + `</span>
-          </div>
-
-          <p class="text-[11px] text-[#5C4D47] line-clamp-2 leading-relaxed">` + (p.key_actives || p.manufacturer_claim) + `</p>
-        </div>
-
-        <div class="pt-2.5 border-t border-[#F7EFEA] flex items-center justify-between">
-          <span class="font-bold text-[#4A3B36] text-xs">` + (p.price_raw || 'Liên hệ') + `</span>
-          <button onclick="openProductDetail('` + p.product_id + `')" class="px-3 py-1.5 rounded-xl bg-[#FAF5F2] hover:bg-[#FDF0ED] text-[#5C4D47] hover:text-[#D97768] text-xs font-semibold border border-[#F0E6E0] hover:border-[#F5B8A8] transition flex items-center space-x-1">
-            <span>Chi tiết</span>
-            <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-          </button>
-        </div>
-      </div>
-    `;
-  }).join('');
-}
-
-// -------------------------------------------------------------------------
-// 6. POP-UP MODAL CONTROLLERS & EXPORT ENGINE
-// -------------------------------------------------------------------------
-
-// =========================================================================
-// POP-UP MODAL CONTROLLERS & EXPORT ENGINE
-// =========================================================================
-
-function toggleModal(modalId) {
-  const modal = document.getElementById(modalId);
-  if (!modal) return;
-  modal.classList.toggle('hidden');
-}
-
-function openModal(modalId) {
-  const modal = document.getElementById(modalId);
-  if (!modal) return;
-  modal.classList.remove('hidden');
-}
-
-function closeModal(modalId) {
-  const modal = document.getElementById(modalId);
-  if (!modal) return;
-  modal.classList.add('hidden');
-}
-
-window.toggleModal = toggleModal;
-window.openModal = openModal;
-window.closeModal = closeModal;
-
-
-// Escape key listener to close modals
-window.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    ['modal-prod-detail', 'modal-export', 'modal-red-flags', 'modal-rule-inspector', 'modal-scale-expansion', 'modal-3d-structure'].forEach(m => {
-      const el = document.getElementById(m);
-      if (el && !el.classList.contains('hidden')) {
-        el.classList.add('hidden');
-      }
+    am.push({
+      step: '3. Khóa ẩm mỏng nhẹ',
+      name: 'Gel Dưỡng Ẩm Bù Nước Phục Hồi Hàng Rào Da',
+      type: 'Moisturizer',
+      desc: 'Khóa ẩm, làm dịu da và củng cố hàng rào bảo vệ.'
     });
   }
-});
 
-function openProductDetail(prodId) {
-  const prod = PRODUCTS_DB.find(p => String(p.product_id) === String(prodId) || String(p.stt) === String(prodId)) || PRODUCTS_DB[0];
-  const isContra = isContraindicated(prod, patientState);
+  am.push({
+    step: isSevereBarrier ? '3. Bảo vệ quang học' : '4. Bảo vệ quang học',
+    name: 'Kem Chống Nắng Phổ Rộng SPF 50+ PA++++ (Mexoryl / Thuần Khoáng)',
+    type: 'Sunscreen',
+    desc: 'Bắt buộc khi sử dụng phác đồ bạt sừng để ngăn ngừa tăng sắc tố sau viêm (PIH).'
+  });
 
-  const nameEl = document.getElementById('modal-prod-name');
-  const brandEl = document.getElementById('modal-prod-brand');
-  const bodyEl = document.getElementById('modal-prod-body');
+  // Night routine
+  pm.push({
+    step: '1. Tẩy trang & Làm sạch kép (Double Cleansing)',
+    name: 'Nước Tẩy Trang Micellar Dịu Nhẹ + Sữa Rửa Mặt pH Cân Bằng',
+    type: 'Cleanser',
+    desc: 'Nhũ hóa sạch cặn kem chống nắng và bụi mịn PM2.5.'
+  });
 
-  if (nameEl) nameEl.innerText = prod.product_name;
-  if (brandEl) brandEl.innerText = prod.brand + " • " + prod.origin + " • " + prod.category + " (" + (prod.subcategory || '') + ")";
-
-  if (bodyEl) {
-    bodyEl.innerHTML = `
-      <!-- Top Alert if Contraindicated -->
-      ` + (isContra ? `
-        <div class="p-3.5 rounded-2xl bg-[#FDE8E8] border border-[#F5B8B8] text-[#9E2A2B] text-xs space-y-1.5 shadow-sm">
-          <div class="font-bold flex items-center space-x-2">
-            <svg class="w-4 h-4 text-[#9E2A2B] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-            <span>CẢNH BÁO AN TOÀN / CHỐNG CHỈ ĐỊNH LÂM SÀNG:</span>
-          </div>
-          <p class="leading-relaxed">Sản phẩm này chứa hoạt chất không an toàn cho phụ nữ mang thai hoặc xung đột với mức độ suy yếu hàng rào biểu bì hiện tại.</p>
-        </div>
-      ` : '') + `
-
-      <!-- Price and Classification Overview -->
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
-        <div class="p-3 bg-[#FAF5F2] rounded-2xl border border-[#F0E6E0]">
-          <span class="text-[#9E8D87] block text-[11px]">Phân khúc giá:</span>
-          <div class="font-bold text-[#4A3B36] mt-0.5">` + (prod.price_tier || 'Dermocosmetics') + `</div>
-        </div>
-        <div class="p-3 bg-[#FAF5F2] rounded-2xl border border-[#F0E6E0]">
-          <span class="text-[#9E8D87] block text-[11px]">Giá tham khảo:</span>
-          <div class="font-bold text-[#D97768] mt-0.5 truncate" title="` + (prod.price_raw || '') + `">` + (prod.price_raw || 'Liên hệ') + `</div>
-        </div>
-        <div class="p-3 bg-[#FAF5F2] rounded-2xl border border-[#F0E6E0] col-span-2 sm:col-span-1">
-          <span class="text-[#9E8D87] block text-[11px]">Cấp bằng chứng EBM:</span>
-          <div class="font-bold text-[#2D6A4F] mt-0.5 flex items-center space-x-1">
-            <span class="w-2 h-2 rounded-full bg-[#2D6A4F]"></span>
-            <span>` + (prod.evidence_level || 'Level A (Guideline)') + `</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Key Actives & INCI Formulation -->
-      <div class="p-4 bg-[#FAF5F2] rounded-2xl border border-[#F0E6E0] space-y-2">
-        <div class="font-bold text-[#4A3B36] flex items-center justify-between">
-          <span class="flex items-center space-x-1.5">
-            <svg class="w-4 h-4 text-[#D97768]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg>
-            <span>Hoạt chất chính & Nồng độ:</span>
-          </span>
-          <span class="text-[10px] px-2.5 py-0.5 rounded-full bg-[#EBF6F0] text-[#2D6A4F] border border-[#B8D8C8] font-bold">Độ tin cậy: ` + (prod.data_confidence || 'High') + `</span>
-        </div>
-        <p class="text-[#5C4D47] leading-relaxed text-xs font-medium">` + (prod.key_actives || 'Chi tiết hoạt chất đầy đủ') + `</p>
-      </div>
-
-      <!-- INCI Breakdown -->
-      ` + (prod.inci_breakdown ? `
-        <div class="p-4 bg-[#FAF5F2] rounded-2xl border border-[#F0E6E0] space-y-1.5">
-          <div class="font-bold text-[#4A3B36] text-xs flex items-center space-x-1.5">
-            <svg class="w-4 h-4 text-[#7CA894]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            <span>Phân tích Hệ nền & Thành phần INCI:</span>
-          </div>
-          <p class="text-[#5C4D47] text-xs leading-relaxed">` + prod.inci_breakdown + `</p>
-        </div>
-      ` : '') + `
-
-      <!-- Mechanism of Action (MoA) -->
-      <div class="p-4 bg-[#FAF5F2] rounded-2xl border border-[#F0E6E0] space-y-1.5">
-        <div class="font-bold text-[#D97768] text-xs flex items-center space-x-1.5">
-          <svg class="w-4 h-4 text-[#D97768]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-          <span>Cơ chế Dược lý Lâm sàng (Mechanism of Action):</span>
-        </div>
-        <p class="text-[#5C4D47] text-xs leading-relaxed">` + (prod.mechanism_of_action || prod.clinical_evidence || prod.manufacturer_claim || 'Chưa có ghi chú dược lý bổ sung.') + `</p>
-      </div>
-
-      <!-- Clinical Metrics: Comedogenic & Barrier Tolerance -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
-        <div class="p-3 bg-[#FAF5F2] rounded-2xl border border-[#F0E6E0]">
-          <span class="text-[#9E8D87] block text-[10.5px]">Chỉ số bít tắc:</span>
-          <div class="font-bold text-[#4A3B36] mt-0.5">` + (prod.comedogenic_index !== undefined ? 'Thang ' + prod.comedogenic_index + '/5' : '1/5 (Thấp)') + `</div>
-        </div>
-        <div class="p-3 bg-[#FAF5F2] rounded-2xl border border-[#F0E6E0]">
-          <span class="text-[#9E8D87] block text-[10.5px]">Dung nạp rào cản:</span>
-          <div class="font-bold text-[#2D6A4F] mt-0.5 truncate">` + (prod.barrier_tolerance || 'Cao (Tương thích)') + `</div>
-        </div>
-        <div class="p-3 bg-[#FAF5F2] rounded-2xl border border-[#F0E6E0]">
-          <span class="text-[#9E8D87] block text-[10.5px]">Hỗ trợ màng Lipid:</span>
-          <div class="font-bold text-[#2D6A4F] mt-0.5">` + (prod.barrier_support || 'Bảo tồn sinh lý') + `</div>
-        </div>
-        <div class="p-3 bg-[#FAF5F2] rounded-2xl border border-[#F0E6E0]">
-          <span class="text-[#9E8D87] block text-[10.5px]">Nguy cơ kích ứng:</span>
-          <div class="font-bold text-[#4A3B36] mt-0.5">` + (prod.irritation_risk || 'Thấp / Dịu nhẹ') + `</div>
-        </div>
-      </div>
-
-      <!-- Manufacturer Claims & Verified Source -->
-      ` + (prod.manufacturer_claim ? `
-        <div class="p-3.5 bg-white rounded-2xl border border-[#F0E6E0] space-y-1 text-xs">
-          <span class="text-[#9E8D87] block text-[11px] font-semibold">Tuyên bố hiệu quả từ nhà sản xuất:</span>
-          <p class="text-[#7E6E67] italic leading-relaxed text-[11.5px]">"` + prod.manufacturer_claim + `"</p>
-        </div>
-      ` : '') + `
-    `;
-  }
-
-  openModal('modal-prod-detail');
-}
-
-function openExportModal() {
-  const acne = assessAcne(patientState.acne_iga, patientState.phenotypes, patientState.scarring_type);
-  const barrier = assessBarrier(patientState.barrier, patientState.symptoms);
-  const risk = evaluateClinicalRiskProfile(patientState);
-  const redFlags = checkRedFlagsStatus(patientState);
-
-  const reportText = `=====================================================
-BÁO CÁO ĐÁNH GIÁ LÂM SÀNG & PHÁC ĐỒ ĐIỀU TRỊ DERMA-X
-Hệ Thống Hỗ Trợ Quyết Định Da Liễu Chuẩn Hóa v2.0
-Ngày lập: ` + new Date().toLocaleDateString('vi-VN') + `
-=====================================================
-
-1. THÔNG TIN BỆNH NHÂN & TIỀN SỬ
-- Nhóm tuổi: ` + patientState.age + ` | Giới tính: ` + (patientState.sex === 'female' ? 'Nữ' : 'Nam') + `
-- Tình trạng thai kỳ: ` + patientState.pregnancy + `
-- Thói quen chống nắng: ` + patientState.sunscreen + `
-
-2. KẾT QUẢ ĐÁNH GIÁ LÂM SÀNG CHUẨN HÓA
-- Thang điểm mụn (IGA Scale): ` + acne.score_label + ` (IGA ` + patientState.acne_iga + `)
-- Kiểu hình tổn thương: ` + (patientState.phenotypes.join(', ') || 'Không có tổn thương viêm') + `
-- Biến dạng sẹo 3D: ` + (patientState.scarring_type || 'None') + `
-- Rào cản da (Barrier): ` + barrier.grade_label + `
-- Triệu chứng kèm theo: ` + (patientState.symptoms.join(', ') || 'Không có') + `
-- Phân loại da Fitzpatrick: Type ` + patientState.fitzpatrick + `
-
-3. HỒ SƠ NGUY CƠ HOẠT CHẤT (DERMA-X RISK ENGINE)
-- Nguy cơ kích ứng: ` + risk.irritation_category + ` (` + risk.irritation_score + `/100)
-- Tải trọng rào cản: ` + risk.barrier_burden_category + `
-- Nhạy cảm quang học: ` + risk.photosensitivity_category + `
-- Tương tác hoạt chất: ` + risk.interaction_category + `
-- Số lượng Keratolytic dùng đồng thời: ` + risk.keratolytic_count + `
-
-4. CẢNH BÁO ĐỎ Y KHOA (RED FLAGS)
-- Trạng thái: ` + (redFlags.has_red_flags ? `PHÁT HIỆN ` + redFlags.count + ` DẤU HIỆU CẦN THĂM KHÁM CHUYÊN KHOA DA LIỄU` : 'Không có dấu hiệu cấp cứu') + `
-` + redFlags.flag_items.map(f => '  * ' + f).join('\n') + `
-
-5. PHÁC ĐỒ CHĂM SÓC MỤC TIÊU (AM / PM REGIMEN)
-[SÁNG - AM]
-- Bước 1: Sữa rửa mặt dịu nhẹ pH chuẩn 5.5
-- Bước 2: Serum Cấp nước / Phục hồi đệm B5 & Hyaluronic Acid đa tầng
-- Bước 3: Kem chống nắng phổ rộng Mexoryl 400 / Zinc Oxide SPF 50+ PA++++
-
-[TỐI - PM]
-- Bước 1: Nước tẩy trang Micellar hòa tan bã nhờn dịu nhẹ
-- Bước 2: Sữa rửa mặt dịu nhẹ pH 5.5
-- Bước 3: Điều trị mục tiêu (Adapalene 0.1% / Azelaic 20% theo lịch chỉ định)
-- Bước 4: Kem dưỡng phục hồi màng lipid sinh lý Ceramide:Cholesterol:Acid béo 3:1:1
-
-6. TUYÊN BỐ MIỄN TRỪ TRÁCH NHIỆM Y KHOA
-Báo cáo này được tạo tự động bởi hệ thống hỗ trợ quyết định lâm sàng DERMA-X cho mục đích giáo dục và tham khảo y khoa. Không thay thế chẩn đoán hoặc đơn thuốc của bác sĩ chuyên khoa da liễu.
-=====================================================`;
-
-  const txtArea = document.getElementById('export-preview-text');
-  if (txtArea) txtArea.value = reportText;
-  toggleModal('modal-export');
-}
-
-function copyExportText() {
-  const txt = document.getElementById('export-preview-text');
-  if (txt) {
-    txt.select();
-    navigator.clipboard.writeText(txt.value);
-    const msg = document.getElementById('copy-status-msg');
-    if (msg) {
-      msg.classList.remove('hidden');
-      setTimeout(() => msg.classList.add('hidden'), 3000);
-    }
-  }
-}
-
-function downloadExportJSON() {
-  const acne = assessAcne(patientState.acne_iga, patientState.phenotypes, patientState.scarring_type);
-  const barrier = assessBarrier(patientState.barrier, patientState.symptoms);
-  const risk = evaluateClinicalRiskProfile(patientState);
-  const redFlags = checkRedFlagsStatus(patientState);
-
-  const exportData = {
-    system: "DERMA-X Clinical-First & 3D Skin Engine",
-    version: "2.0.0",
-    aesthetic_edition: "Pastel Dermatology & CDSS",
-    export_timestamp: new Date().toISOString(),
-    patient_demographics: {
-      age: patientState.age,
-      sex: patientState.sex,
-      pregnancy: patientState.pregnancy,
-      fitzpatrick: patientState.fitzpatrick,
-      environment: patientState.environment,
-      sunscreen_habit: patientState.sunscreen
-    },
-    clinical_assessment: {
-      acne_iga: patientState.acne_iga,
-      acne_evaluation: acne,
-      barrier_status: patientState.barrier,
-      barrier_evaluation: barrier,
-      symptoms: patientState.symptoms,
-      phenotypes: patientState.phenotypes,
-      scarring_type: patientState.scarring_type,
-      actives_in_use: patientState.actives,
-      risk_profile: risk,
-      red_flags: redFlags
-    }
-  };
-
-  const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: "application/json;charset=utf-8" });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `DERMA-X_Ho_So_Lam_Sang_${new Date().toISOString().slice(0, 10)}.json`;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
-}
-
-function downloadExportJSON() {
-  const acne = assessAcne(patientState.acne_iga, patientState.phenotypes, patientState.scarring_type);
-  const barrier = assessBarrier(patientState.barrier, patientState.symptoms);
-  const risk = evaluateClinicalRiskProfile(patientState);
-  const redFlags = checkRedFlagsStatus(patientState);
-
-  const exportData = {
-    system: "DERMA-X Clinical-First & 3D Skin Engine",
-    version: "2.0.0",
-    aesthetic_edition: "Pastel Dermatology & CDSS",
-    export_timestamp: new Date().toISOString(),
-    patient_demographics: {
-      age: patientState.age,
-      sex: patientState.sex,
-      pregnancy: patientState.pregnancy,
-      fitzpatrick: patientState.fitzpatrick,
-      environment: patientState.environment,
-      sunscreen_habit: patientState.sunscreen
-    },
-    clinical_assessment: {
-      acne_iga: patientState.acne_iga,
-      acne_evaluation: acne,
-      barrier_status: patientState.barrier,
-      barrier_evaluation: barrier,
-      symptoms: patientState.symptoms,
-      phenotypes: patientState.phenotypes,
-      scarring_type: patientState.scarring_type,
-      actives_in_use: patientState.actives,
-      risk_profile: risk,
-      red_flags: redFlags
-    }
-  };
-
-  const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: "application/json;charset=utf-8" });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `DERMA-X_Ho_So_Lam_Sang_${new Date().toISOString().slice(0, 10)}.json`;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
-}
-
-function openRedFlagModal() {
-  const redFlags = checkRedFlagsStatus(patientState);
-  const container = document.getElementById('modal-red-flags-list');
-  if (!container) return;
-
-  container.innerHTML = `
-    <div class="p-4 bg-[#FDE8E8] rounded-2xl border border-[#F5B8B8] space-y-2">
-      <div class="font-bold text-[#9E2A2B] text-xs">Các tiêu chuẩn chuyển tuyến Da liễu Khẩn cấp:</div>
-      <ul class="list-disc pl-5 space-y-1 text-[#782828] text-xs">
-        <li>Mụn bọc nang tiến triển nhanh, đau nhức dữ dội hoặc xuất hiện sẹo lõm mới.</li>
-        <li>Hồng ban bừng mặt kịch phát kèm giãn mao mạch hoặc sẩn mủ vùng trung tâm mặt (Nghi ngờ Rosacea).</li>
-        <li>Tiết dịch vàng, đóng vảy mật ong hoặc mụn nước chùm (Nghi ngờ Herpes / Chốc lở).</li>
-        <li>Bệnh nhân đang mang thai cần loại bỏ toàn bộ dẫn xuất Vitamin A (Isotretinoin, Tretinoin, Tazarotene).</li>
-      </ul>
-    </div>
-
-    <div class="p-4 bg-[#FAF5F2] rounded-2xl border border-[#F0E6E0] space-y-2">
-      <div class="font-bold text-[#4A3B36] text-xs">Trạng thái trên ca bệnh hiện tại:</div>
-      <p class="text-xs text-[#5C4D47]">` + (redFlags.has_red_flags ? '<span class="text-[#9E2A2B] font-bold">⚠️ Có ' + redFlags.count + ' dấu hiệu cảnh báo cần theo dõi sát:</span> ' + redFlags.flag_items.join('; ') : '<span class="text-[#2D6A4F] font-semibold">✓ Không phát hiện dấu hiệu cảnh báo đỏ cấp bách. Có thể tiếp tục phác đồ chăm sóc ngoại trú.</span>') + `</p>
-    </div>
-  `;
-
-  toggleModal('modal-red-flags');
-}
-
-function openRuleInspectorModal() {
-  const listContainer = document.getElementById('rule-inspector-list');
-  if (!listContainer) return;
-
-  listContainer.innerHTML = CLINICAL_RULES.map(r => `
-    <div class="p-4 bg-[#FAF5F2] rounded-2xl border border-[#F0E6E0] space-y-2">
-      <div class="flex items-center justify-between">
-        <span class="text-xs font-bold text-[#4A3B36]">` + r.title + `</span>
-        <span class="text-[10px] px-2 py-0.5 rounded-full bg-[#EBF6F0] text-[#2D6A4F] border border-[#B8D8C8] font-bold">` + r.evidence_level + `</span>
-      </div>
-      <p class="text-[#5C4D47] text-xs leading-relaxed">` + r.rationale + `</p>
-      <div class="text-[10.5px] text-[#9E8D87] pt-1 border-t border-[#F0E6E0]">
-        <strong>Nguồn trích dẫn:</strong> ` + r.source + `
-      </div>
-    </div>
-  `).join('');
-
-  toggleModal('modal-rule-inspector');
-}
-
-function openScaleExpansionModal(scaleType) {
-  const title = document.getElementById('modal-scale-title');
-  const body = document.getElementById('modal-scale-body');
-  if (!title || !body) return;
-
-  if (scaleType === 'iga') {
-    title.innerText = 'Tiêu Chuẩn Đánh Giá Thang Điểm Mụn IGA (JAAD Criteria)';
-    body.innerHTML = `
-      <div class="space-y-3 text-xs">
-        <div class="p-3 bg-[#FAF5F2] rounded-xl border border-[#F0E6E0]">
-          <strong class="text-[#2D6A4F]">IGA 0 (Sạch mụn - Clear):</strong> Da hoàn toàn sạch, không có tổn thương viêm hay không viêm.
-        </div>
-        <div class="p-3 bg-[#FAF5F2] rounded-xl border border-[#F0E6E0]">
-          <strong class="text-[#2D6A4F]">IGA 1 (Gần như sạch - Almost Clear):</strong> Hiếm có nhân mụn không viêm, không quá 1 sẩn viêm nhỏ.
-        </div>
-        <div class="p-3 bg-[#FEF7EA] rounded-xl border border-[#FDE8C0]">
-          <strong class="text-[#8C6D1F]">IGA 2 (Nhẹ - Mild):</strong> Dễ nhận thấy nhân mụn, ít hơn 10-15 sẩn viêm, không có mụn bọc nang.
-        </div>
-        <div class="p-3 bg-[#FEF0E6] rounded-xl border border-[#FBBF9E]">
-          <strong class="text-[#A44A29]">IGA 3 (Trung bình - Moderate):</strong> Nhiều nhân mụn, nhiều sẩn viêm và mụn mủ rõ rệt, tối đa 1 nốt nhỏ.
-        </div>
-        <div class="p-3 bg-[#FDEAE8] rounded-xl border border-[#F0A8A0]">
-          <strong class="text-[#9E2A2B]">IGA 4 (Nặng - Severe):</strong> Dày đặc sẩn viêm mụn mủ, xuất hiện nhiều nốt nang/mụn bọc, nguy cơ sẹo rỗ cao.
-        </div>
-      </div>
-    `;
+  if (isSevereBarrier) {
+    pm.push({
+      step: '2. Phục hồi chuyên sâu ban đêm',
+      name: 'Kem Dưỡng Phục Hồi Đa Công Dụng (Cicaplast B5+ / Atoderm Baume)',
+      type: 'Moisturizer',
+      desc: 'Tạm ngừng toàn bộ hoạt chất bạt sừng (Retinoids, BHA, AHA). Tập trung phục hồi màng biểu bì trong 14 ngày.'
+    });
+    notes.push('Cấp cứu phục hồi rào cản: Ngưng bôi Retinoids/BHA/BPO cho đến khi hết triệu chứng châm chích và bong tróc.');
+  } else if (isPreg) {
+    pm.push({
+      step: '2. Cấp ẩm & Nuôi dưỡng phục hồi',
+      name: 'Tinh Chất Rau Má & Kem Dưỡng Ceramide Lành Tính',
+      type: 'Moisturizer',
+      desc: 'Tái tạo da ban đêm an toàn tuyệt đối cho mẹ và bé.'
+    });
+    contraindications.push('CHỐNG CHỈ ĐỊNH TUYỆT ĐỐI: Không sử dụng Tretinoin, Adapalene, Tazarotene, Retinol, Hydroquinone trong thời gian mang thai và cho con bú.');
   } else {
-    title.innerText = 'Phân Loại Loại Da Fitzpatrick (Phototype Classification)';
-    body.innerHTML = `
-      <div class="space-y-2 text-xs">
-        <p class="text-[#5C4D47]">Thang phân loại da theo phản ứng với bức xạ cực tím UV:</p>
-        <ul class="list-disc pl-5 space-y-1 text-[#5C4D47]">
-          <li><strong>Type I:</strong> Luôn cháy nắng, không bao giờ rám nắng (Da rất sáng).</li>
-          <li><strong>Type II:</strong> Thường cháy nắng, rám nắng tối thiểu (Da sáng).</li>
-          <li><strong>Type III:</strong> Đôi khi cháy nắng nhẹ, rám nắng đều (Da người Việt Nam sáng màu).</li>
-          <li><strong>Type IV:</strong> Hiếm khi cháy nắng, dễ rám nắng (Da người Việt Nam phổ biến / ô liu).</li>
-          <li><strong>Type V:</strong> Rất hiếm cháy nắng, rám nắng sẫm (Da nâu đậm).</li>
-          <li><strong>Type VI:</strong> Không bao giờ cháy nắng, sắc tố bảo vệ cao (Da đen).</li>
-        </ul>
-      </div>
-    `;
+    if (state.acne_iga >= 2) {
+      pm.push({
+        step: '2. Điều trị bạt sừng & Điều hòa sừng hóa',
+        name: 'Adapalene 0.1% Gel Vi Hạt (Klenzit MS / Differin)',
+        type: 'Treatment',
+        desc: 'Gắn chọn lọc thụ thể RAR-beta/gamma, bình thường hóa quá trình biệt hóa biểu mô phễu nang lông và tiêu nhân mụn.'
+      });
+      notes.push('Kỹ thuật thoa Retinoid: Sử dụng lượng cỡ hạt đậu xanh cho toàn mặt, bắt đầu cách ngày trong 2 tuần đầu.');
+    }
+    pm.push({
+      step: '3. Khóa ẩm & Phục hồi lipid',
+      name: 'Kem Dưỡng Phục Hồi Hàng Rào Bảo Vệ Da (Ceramides + NMFs)',
+      type: 'Moisturizer',
+      desc: 'Kẹp ẩm (Sandwiching) nếu có cảm giác khô căng nhẹ để tăng dung nạp Retinoid.'
+    });
   }
 
-  toggleModal('modal-scale-expansion');
-}
+  if (isIGA4) {
+    notes.push('CẢNH BÁO RED FLAG: Mụn mức độ nặng IGA 4 nốt nang cần phối hợp khám chuyên khoa Da liễu để cân nhắc chỉ định Isotretinoin đường uống hoặc kháng sinh toàn thân.');
+  }
 
-function open3DStructureModal(structId) {
-  const structData = {
-    'stratum_corneum': {
-      title: 'Tầng Sừng & Màng Lipid Sinh Lý (Stratum Corneum)',
-      layer: 'Lớp ngoài cùng của Thượng bì (Độ dày 10-20 µm)',
-      physio: 'Cấu trúc gạch & vữa gồm các tế bào sừng (Corneocytes) xếp chồng và các phiến lipid gian bào (Ceramides, Cholesterol, Acid béo tự do theo tỷ lệ 3:1:1) ngăn ngừa mất nước qua biểu bì (TEWL).',
-      state: patientState.barrier === 'normal' ? 'Hàng rào nguyên vẹn, các phiến lipid xếp khít, độ giữ ẩm sinh lý đạt 95%.' : 'Phát hiện sự đứt gãy các phiến lipid, tăng chỉ số TEWL gây châm chích và đỏ da.',
-      actives: 'Phức hợp Ceramide 3:1:1, Panthenol (B5), Hyaluronic Acid đa phân tử, Ectoin.'
-    },
-    'pilosebaceous_unit': {
-      title: 'Đơn Vị Nang Lông - Tuyến Bã Nhờn (Pilosebaceous Unit)',
-      layer: 'Thượng bì & Trung bì nông',
-      physio: 'Tuyến bã tiết bã nhờn (Sebum) bôi trơn bề mặt. Khi tăng tiết bã kết hợp tăng sừng hóa cổ nang lông sẽ hình thành nút tắc nhân mụn (Microcomedone).',
-      state: 'Tình trạng sừng hóa cổ nang lông ở mức độ IGA ' + patientState.acne_iga + ', vi khuẩn Cutibacterium acnes tăng sinh.',
-      actives: 'Adapalene 0.1%, Benzoyl Peroxide 2.5%, Salicylic Acid 2%, Azelaic Acid 20%.'
-    },
-    'inflammatory_infiltrate': {
-      title: 'Thâm Nhiễm Viêm & Mạch Máu Trung Bì (Inflammatory Infiltrate)',
-      layer: 'Trung bì nông & sâu (Dermis)',
-      physio: 'Mạng lưới mao mạch nuôi dưỡng và các tế bào miễn dịch (Bạch cầu trung tính, Đại thực bào). Khi vi khuẩn kích hoạt thụ thể TLR-2 sẽ gây giải phóng cytokine gây viêm (IL-1, TNF-alpha).',
-      state: 'Mức độ viêm trung bì: ' + patientState.inflammation.toUpperCase() + '. Giãn mao mạch bề mặt gây đỏ da sau viêm (PIE).',
-      actives: 'Niacinamide 4-5%, Centella Asiatica (Madecassoside), Azelaic Acid 20%, Kẽm PCA.'
-    }
+  return {
+    am: am,
+    pm: pm,
+    contraindications: contraindications,
+    notes: notes
   };
-
-  const data = structData[structId] || structData['stratum_corneum'];
-  document.getElementById('modal-struct-title').innerText = data.title;
-  document.getElementById('modal-struct-layer').innerText = data.layer;
-  document.getElementById('modal-struct-physio').innerText = data.physio;
-  document.getElementById('modal-struct-state').innerText = data.state;
-  document.getElementById('modal-struct-target-actives').innerText = data.actives;
-
-  toggleModal('modal-3d-structure');
 }
 
 // -------------------------------------------------------------------------
-// 7. THREE.JS 3D SKIN ENGINE IN SOFT PASTEL CLINIC TONES
+// 3. COMPOUND INTERACTION SIMULATION PHARMACOKINETICS DATA
+// -------------------------------------------------------------------------
+
+var COMPOUND_INTERACTIONS = {
+  'adapalene_bpo': {
+    status: 'CỘNG HƯỞNG LÂM SÀNG (EPIDUO SYNERGY)',
+    badgeColor: '#2D6A4F',
+    badgeBg: '#EBF6F0',
+    phStatus: 'Tương thích hoàn hảo (pH 5.0 - 6.0)',
+    phDetail: 'Khác với Tretinoin, cấu trúc hóa học Naphthoic acid của Adapalene cực kỳ bền vững dưới tác nhân oxy hóa của BPO, cho phép phối hợp cùng lúc.',
+    tewlStatus: 'Nguy cơ kích ứng vừa (Cần dưỡng ẩm bù)',
+    tewlDetail: 'Tác dụng hiệp đồng tiêu diệt vi khuẩn C. acnes + bạt sừng phễu nang lông, có thể gây khô căng nhẹ trong 2 tuần đầu.',
+    timingStatus: 'Bôi cùng buổi tối (Khuyên dùng)',
+    timingDetail: 'Phác đồ vàng chuẩn FDA (tương đương công thức Epiduo), thoa buổi tối sau bước làm sạch và kèm dưỡng ẩm.',
+    mechanism: 'Adapalene điều hòa gắn chọn lọc RAR-gamma làm thông thoáng nút sừng cổ nang lông, mở đường cho gốc tự do oxy nguyên tử từ Benzoyl Peroxide thâm nhập sâu vào ổ kỵ khí tiêu diệt 99% vi khuẩn C. acnes mà không gây kháng kháng sinh.',
+    particleMode: 'synergy'
+  },
+  'tretinoin_bpo': {
+    status: 'XUNG ĐỘT HÓA HỌC / PHÂN HỦY OXY HÓA',
+    badgeColor: '#9E2A2B',
+    badgeBg: '#FDEAE8',
+    phStatus: 'Không tương thích (Phản ứng oxy hóa phá hủy)',
+    phDetail: 'Benzoyl Peroxide là chất oxy hóa cực mạnh, nhanh chóng bẻ gãy chuỗi liên kết đôi của phân tử Tretinoin tự do, làm mất hoạt tính điều trị.',
+    tewlStatus: 'Nguy cơ kích ứng rất cao (Tăng bùng phát viêm)',
+    tewlDetail: 'Gia tăng đột biến tình trạng viêm da tiếp xúc kích ứng, tróc vảy đỏ rát nghiêm trọng và phá hủy màng lipid gian bào.',
+    timingStatus: 'Tách biệt tuyệt đối: BPO Sáng, Tretinoin Tối',
+    timingDetail: 'Không bao giờ thoa chung hoặc chồng lớp cùng một thời điểm. BPO dùng buổi sáng kèm chống nắng, Tretinoin dùng buổi tối trước khi đi ngủ.',
+    mechanism: 'Gốc tự do hydroperoxide của BPO phản ứng tức thì với vòng trimethylcyclohexenyl và chuỗi polyene của all-trans-retinoic acid, làm suy giảm đến 80% nồng độ Tretinoin hoạt tính sinh học trong vòng 2 giờ tiếp xúc trên bề mặt biểu bì.',
+    particleMode: 'conflict'
+  },
+  'vitc_niacinamide': {
+    status: 'THẬN TRỌNG / GIÃN CÁCH THỜI GIAN HOẶC TÁCH BUỔI',
+    badgeColor: '#8C6D1F',
+    badgeBg: '#FEF7EA',
+    phStatus: 'Chênh lệch pH tối ưu (pH 2.8-3.2 vs pH 6.0-7.0)',
+    phDetail: 'L-Ascorbic Acid (L-AA) cần môi trường acid mạnh (pH < 3.5) để thẩm thấu qua màng lipid, trong khi Niacinamide bền nhất ở pH trung tính 6.0.',
+    tewlStatus: 'Nguy cơ đỏ rát tạm thời (Flushing do Acid Nicotinic)',
+    tewlDetail: 'Ở môi trường acid cao, một lượng nhỏ Niacinamide có thể bị thủy phân thành Acid Nicotinic kích hoạt thụ thể giãn mạch mao mạch.',
+    timingStatus: 'Vitamin C Sáng, Niacinamide Tối (Hoặc chờ 20 phút)',
+    timingDetail: 'Vitamin C dùng buổi sáng để tăng cường khả năng chống oxy hóa cùng kem chống nắng; Niacinamide dùng buổi tối để phục hồi màng bảo vệ.',
+    mechanism: 'Mặc dù phức hợp muối lưỡng cực L-Ascorbate-Niacinamide có thể tự phân ly khi hấp thụ qua da, sự chênh lệch gradient pH làm giảm hiệu suất sinh khả dụng tối đa của cả hai hoạt chất nếu thoa liên tiếp mà không có thời gian chờ trung hòa màng da.',
+    particleMode: 'caution'
+  },
+  'bha_tretinoin': {
+    status: 'QUÁ TẢI BẠT SỪNG / NGUY CƠ SUY SỤP RÀO CẢN',
+    badgeColor: '#9E2A2B',
+    badgeBg: '#FDEAE8',
+    phStatus: 'pH Acid thấp kết hợp kích hoạt thụ thể nhân tế bào',
+    phDetail: 'BHA (pH 3.0 - 4.0) bạt sừng liên kết desmosome tầng ngoài, làm tăng đột biến độ thẩm thấu của Retinoid qua hàng rào suy yếu.',
+    tewlStatus: 'Tăng TEWL cực độ (Tróc vảy, châm chích dữ dội)',
+    tewlDetail: 'Phá vỡ cấu trúc lamellar màng lipid kép, gây bỏng rát cấp, đỏ da giãn mạch và bùng phát mụn viêm phản ứng (Purging quá mức).',
+    timingStatus: 'Xen kẽ cách ngày (Chẵn / Lẻ)',
+    timingDetail: 'Không thoa chung cùng một đêm. Ví dụ: BHA tối Thứ 2, 4, 6; Retinoid tối Thứ 3, 5, 7. Các đêm còn lại tập trung phục hồi.',
+    mechanism: 'Salicylic Acid hòa tan lipid gian bào và phá vỡ cầu nối gian bào desmosome lớp sừng, khiến Retinoic Acid thâm nhập ồ ạt không kiểm soát vào lớp gai và đáy biểu bì, kích hoạt giải phóng ồ ạt cytokine gây viêm IL-1alpha và Prostaglandin E2.',
+    particleMode: 'conflict'
+  },
+  'azelaic_niacinamide': {
+    status: 'CỘNG HƯỞNG KHÁNG VIÊM & MỜ THÂM ĐỎ (PIE / PIH)',
+    badgeColor: '#2D6A4F',
+    badgeBg: '#EBF6F0',
+    phStatus: 'Tương thích rất tốt (pH 4.5 - 5.5)',
+    phDetail: 'Azelaic Acid có tính acid yếu, dung nạp êm dịu và không bị kết tủa hay phá vỡ độ ổn định khi phối hợp với Niacinamide.',
+    tewlStatus: 'Nguy cơ thấp (Làm dịu & củng cố màng bảo vệ)',
+    tewlDetail: 'Niacinamide giúp giảm kích ứng châm chích tự nhiên của Azelaic Acid, đồng thời tăng tổng hợp ceramide nội sinh.',
+    timingStatus: 'Có thể thoa cùng buổi (Sáng hoặc Tối)',
+    timingDetail: 'Phối hợp lý tưởng cho da nhạy cảm, trứng cá đỏ (Rosacea) và thâm đỏ sau mụn. Thoa Niacinamide trước, Azelaic Acid sau.',
+    mechanism: 'Azelaic Acid ức chế cạnh tranh enzyme Tyrosinase và giảm sản sinh gốc tự do từ bạch cầu trung tính, kết hợp Niacinamide ức chế vận chuyển melanosome từ tế bào hắc tố sang tế bào sừng, tạo tác động kép toàn diện trên sắc tố và phản ứng viêm mao mạch.',
+    particleMode: 'synergy'
+  },
+  'adapalene_panthenol': {
+    status: 'CỘNG HƯỞNG BẢO VỆ MÀNG LIPID (TĂNG DUNG NẠP RETINOID)',
+    badgeColor: '#2D6A4F',
+    badgeBg: '#EBF6F0',
+    phStatus: 'Tương thích sinh học tuyệt đối (pH 5.5)',
+    phDetail: 'Panthenol B5 và Madecassoside hoạt động như chất đệm sinh học, làm dịu nhanh phản ứng thụ thể Retinoid trên màng tế bào.',
+    tewlStatus: 'Giảm TEWL rõ rệt (Khóa ẩm & làm lành mô)',
+    tewlDetail: 'Kích thích nguyên bào sợi tổng hợp collagen và glycosaminoglycans, đẩy nhanh quá trình tái tạo biểu mô.',
+    timingStatus: 'Kỹ thuật kẹp ẩm Sandwich (Trước và Sau Retinoid)',
+    timingDetail: 'Thoa 1 lớp dưỡng B5 mỏng -> Thoa Adapalene -> Khóa lại bằng kem Ceramide/B5 để triệt tiêu hoàn toàn kích ứng bong tróc.',
+    mechanism: 'Panthenol chuyển hóa thành Coenzyme A nội bào thúc đẩy sinh tổng hợp acid béo và sphingolipid màng tế bào, trung hòa áp lực kích ứng bạt sừng của Retinoid mà không làm giảm hoạt tính tiêu sừng tại phễu nang lông.',
+    particleMode: 'synergy'
+  }
+};
+
+function getCompoundInteractionData(actA, actB) {
+  let key1 = actA + '_' + actB;
+  let key2 = actB + '_' + actA;
+
+  if (COMPOUND_INTERACTIONS[key1]) return COMPOUND_INTERACTIONS[key1];
+  if (COMPOUND_INTERACTIONS[key2]) return COMPOUND_INTERACTIONS[key2];
+
+  // Default dynamic calculation
+  const isKeratolyticA = ['adapalene', 'tretinoin', 'bha', 'aha'].includes(actA);
+  const isKeratolyticB = ['adapalene', 'tretinoin', 'bha', 'aha'].includes(actB);
+  const isSoothingA = ['panthenol', 'ceramide', 'ha'].includes(actA);
+  const isSoothingB = ['panthenol', 'ceramide', 'ha'].includes(actB);
+
+  if (isKeratolyticA && isKeratolyticB) {
+    return {
+      status: 'THẬN TRỌNG CAO / TRÁNH THOA CHỒNG LỚP TRỰC TIẾP',
+      badgeColor: '#9E2A2B',
+      badgeBg: '#FDEAE8',
+      phStatus: 'Cộng gộp tác động bạt sừng',
+      phDetail: 'Hai hoạt chất tẩy tế bào chết / tái tạo sừng dùng đồng thời dễ gây tổn thương màng lipid kép.',
+      tewlStatus: 'Nguy cơ kích ứng cao',
+      tewlDetail: 'Dễ gây đỏ rát, bong tróc mảng và bùng phát phản ứng kích ứng cấp tính.',
+      timingStatus: 'Dùng xen kẽ sáng/tối hoặc cách ngày',
+      timingDetail: 'Nên tách biệt chu trình sử dụng để tránh quá tải năng lực tự phục hồi của lớp sừng.',
+      mechanism: 'Tác động đồng thời lên các liên kết corneodesmosome làm sụt giảm lớp sừng bảo vệ nhanh hơn tốc độ sinh sản tế bào biểu bì mới.',
+      particleMode: 'conflict'
+    };
+  }
+
+  if ((isKeratolyticA && isSoothingB) || (isSoothingA && isKeratolyticB)) {
+    return {
+      status: 'CỘNG HƯỞNG PHỤC HỒI & TĂNG DUNG NẠP LÂM SÀNG',
+      badgeColor: '#2D6A4F',
+      badgeBg: '#EBF6F0',
+      phStatus: 'Tương thích sinh học cao',
+      phDetail: 'Hoạt chất phục hồi đệm ẩm giúp cân bằng áp lực thẩm thấu và làm dịu phản ứng mô.',
+      tewlStatus: 'Bảo tồn & Giảm TEWL',
+      tewlDetail: 'Giúp duy trì màng bảo vệ nguyên vẹn trong suốt liệu trình điều trị hoạt chất mạnh.',
+      timingStatus: 'Thoa cùng chu trình (Kỹ thuật đệm ẩm)',
+      timingDetail: 'Thoa dưỡng phục hồi để đệm trước hoặc khóa sau hoạt chất điều trị.',
+      mechanism: 'Cung cấp các khối xây dựng lipid (Ceramides, Cholesterol, Acid béo) và yếu tố giữ ẩm NMFs hỗ trợ quá trình sửa chữa rào cản biểu bì.',
+      particleMode: 'synergy'
+    };
+  }
+
+  return {
+    status: 'TƯƠNG THÍCH BÌNH THƯỜNG / THEO DÕI ĐÁP ỨNG',
+    badgeColor: '#2D6A4F',
+    badgeBg: '#EBF6F0',
+    phStatus: 'Ổn định sinh hóa',
+    phDetail: 'Không ghi nhận phản ứng đối kháng trực tiếp hoặc phân hủy hóa học bất lợi.',
+    tewlStatus: 'Nguy cơ thấp',
+    tewlDetail: 'Đáp ứng tốt trên làn da có hàng rào bảo vệ khỏe mạnh.',
+    timingStatus: 'Thoa theo thứ tự từ lỏng đến đặc',
+    timingDetail: 'Tuân thủ quy tắc lỏng trước đặc sau và chống nắng đầy đủ ban ngày.',
+    mechanism: 'Hai hoạt chất hoạt động trên các mục tiêu sinh học độc lập mà không can thiệp tiêu cực vào con đường dược động học của nhau.',
+    particleMode: 'synergy'
+  };
+}
+
+// -------------------------------------------------------------------------
+// 4. ADVANCED THREE.JS 3D ENGINE (SKIN ANATOMY + 3D COMPOUND SIMULATOR)
 // -------------------------------------------------------------------------
 
 class Skin3DEngine {
@@ -4885,7 +4703,6 @@ class Skin3DEngine {
     this.isInitialized = false;
     this.animSpeed = 1.0;
     this.isPlaying = true;
-    this.autoRotate = true;
     this.isCutPlane = false;
     
     this.scene = null;
@@ -4893,6 +4710,7 @@ class Skin3DEngine {
     this.renderer = null;
     this.controls = null;
     
+    this.mode = 'skin'; // 'skin' or 'compounds'
     this.layers = {
       stratum: true,
       epidermis: true,
@@ -4902,6 +4720,13 @@ class Skin3DEngine {
     };
 
     this.meshes = {};
+    this.compoundObjects = {
+      groupA: null,
+      groupB: null,
+      particles: null,
+      aura: null
+    };
+
     this.init();
   }
 
@@ -4910,17 +4735,14 @@ class Skin3DEngine {
 
     try {
       const width = this.canvas.parentElement.clientWidth || 600;
-      const height = this.canvas.parentElement.clientHeight || 450;
+      const height = this.canvas.parentElement.clientHeight || 480;
 
-      // Scene with Soft Pastel Clinic Background (#FAF7F5)
       this.scene = new THREE.Scene();
       this.scene.background = new THREE.Color(0xFAF7F5);
 
-      // Camera
       this.camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
       this.camera.position.set(16, 14, 20);
 
-      // Renderer
       this.renderer = new THREE.WebGLRenderer({
         canvas: this.canvas,
         antialias: true,
@@ -4931,7 +4753,6 @@ class Skin3DEngine {
       this.renderer.shadowMap.enabled = true;
       this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
-      // Controls
       if (typeof THREE.OrbitControls !== 'undefined') {
         this.controls = new THREE.OrbitControls(this.camera, this.renderer.domElement);
         this.controls.enableDamping = true;
@@ -4939,7 +4760,6 @@ class Skin3DEngine {
         this.controls.maxPolarAngle = Math.PI / 2 + 0.1;
       }
 
-      // Warm Studio Clinic Lighting
       const ambientLight = new THREE.AmbientLight(0xFFFBF8, 0.75);
       this.scene.add(ambientLight);
 
@@ -4953,6 +4773,7 @@ class Skin3DEngine {
       this.scene.add(softFill);
 
       this.buildSkinLayers();
+      this.buildCompoundSimulationObjects();
       this.animate();
       this.isInitialized = true;
       
@@ -4963,9 +4784,10 @@ class Skin3DEngine {
   }
 
   buildSkinLayers() {
+    this.skinGroup = new THREE.Group();
     const geomLayer = new THREE.BoxGeometry(14, 1.2, 14);
 
-    // 1. Stratum Corneum (Lớp sừng & màng lipid) - Pastel Warm Peach
+    // 1. Stratum Corneum (Warm Peach)
     const matStratum = new THREE.MeshStandardMaterial({
       color: 0xFDEAE4,
       roughness: 0.5,
@@ -4974,10 +4796,10 @@ class Skin3DEngine {
     const meshStratum = new THREE.Mesh(geomLayer, matStratum);
     meshStratum.position.y = 3.6;
     meshStratum.receiveShadow = true;
-    this.scene.add(meshStratum);
+    this.skinGroup.add(meshStratum);
     this.meshes.stratum = meshStratum;
 
-    // 2. Epidermis (Thượng bì) - Soft Warm Honey
+    // 2. Epidermis (Warm Honey)
     const matEpidermis = new THREE.MeshStandardMaterial({
       color: 0xF7D8CA,
       roughness: 0.6,
@@ -4986,78 +4808,208 @@ class Skin3DEngine {
     const meshEpidermis = new THREE.Mesh(geomLayer, matEpidermis);
     meshEpidermis.position.y = 2.4;
     meshEpidermis.receiveShadow = true;
-    this.scene.add(meshEpidermis);
+    this.skinGroup.add(meshEpidermis);
     this.meshes.epidermis = meshEpidermis;
 
-    // 3. Dermis (Trung bì) - Soft Rose Mauve
+    // 3. Dermis (Rose Mauve)
     const matDermis = new THREE.MeshStandardMaterial({
       color: 0xE8B4B8,
       roughness: 0.7,
       metalness: 0.02
     });
-    const geomDermis = new THREE.BoxGeometry(14, 3.5, 14);
-    const meshDermis = new THREE.Mesh(geomDermis, matDermis);
-    meshDermis.position.y = 0;
+    const meshDermis = new THREE.Mesh(new THREE.BoxGeometry(14, 2.8, 14), matDermis);
+    meshDermis.position.y = 0.4;
     meshDermis.receiveShadow = true;
-    this.scene.add(meshDermis);
+    this.skinGroup.add(meshDermis);
     this.meshes.dermis = meshDermis;
 
-    // 4. Sebaceous Gland & Follicle (Tuyến bã) - Warm Butter Pastel
-    const geomGland = new THREE.SphereGeometry(1.2, 16, 16);
-    const matGland = new THREE.MeshStandardMaterial({
-      color: 0xFEEAA7,
+    // 4. Sebaceous Gland (Soft Ochre)
+    const matSeb = new THREE.MeshStandardMaterial({
+      color: 0xF4D06F,
       roughness: 0.4
     });
-    const meshGland = new THREE.Mesh(geomGland, matGland);
-    meshGland.position.set(0, 0.5, 0);
-    meshGland.castShadow = true;
-    this.scene.add(meshGland);
-    this.meshes.sebaceous = meshGland;
+    const meshSeb = new THREE.Mesh(new THREE.SphereGeometry(1.5, 16, 16), matSeb);
+    meshSeb.position.set(0, 0.2, 0);
+    this.skinGroup.add(meshSeb);
+    this.meshes.sebaceous = meshSeb;
 
-    // 5. Acne Lesions (Ổ viêm) - Coral Rose Pastel
-    const geomLesion = new THREE.ConeGeometry(1.1, 1.8, 16);
+    // 5. Inflammatory Lesions (Soft Coral Red)
     const matLesion = new THREE.MeshStandardMaterial({
-      color: 0xF08080,
-      roughness: 0.3
+      color: 0xD97768,
+      roughness: 0.3,
+      emissive: 0x8B3A2B,
+      emissiveIntensity: 0.2
     });
-    const meshLesion = new THREE.Mesh(geomLesion, matLesion);
+    const meshLesion = new THREE.Mesh(new THREE.ConeGeometry(1.6, 2.4, 16), matLesion);
     meshLesion.position.set(0, 4.4, 0);
-    meshLesion.castShadow = true;
-    this.scene.add(meshLesion);
+    meshLesion.rotation.x = Math.PI;
+    this.skinGroup.add(meshLesion);
     this.meshes.lesions = meshLesion;
+
+    this.scene.add(this.skinGroup);
   }
 
-  updateFromState(state) {
-    if (!this.isInitialized) return;
+  buildCompoundSimulationObjects() {
+    this.compoundGroup = new THREE.Group();
+    this.compoundGroup.visible = false;
+
+    // Molecule Cluster A (Cerulean Cyan Sphere Cluster)
+    this.molClusterA = new THREE.Group();
+    const geomSphere = new THREE.SphereGeometry(0.8, 16, 16);
+    const matA = new THREE.MeshStandardMaterial({
+      color: 0x3B82F6,
+      roughness: 0.2,
+      metalness: 0.3,
+      emissive: 0x1D4ED8,
+      emissiveIntensity: 0.4
+    });
+    const coreA = new THREE.Mesh(geomSphere, matA);
+    this.molClusterA.add(coreA);
     
-    // Scale lesion height & color based on IGA
-    if (this.meshes.lesions) {
-      const scale = 0.4 + (state.acne_iga * 0.25);
-      this.meshes.lesions.scale.set(scale, scale, scale);
-      this.meshes.lesions.visible = state.acne_iga > 0 && this.layers.lesions;
+    // Satellites for A
+    for (let i = 0; i < 4; i++) {
+      const satA = new THREE.Mesh(new THREE.SphereGeometry(0.35, 12, 12), matA);
+      const angle = (i / 4) * Math.PI * 2;
+      satA.position.set(Math.cos(angle) * 1.5, Math.sin(angle) * 0.8, Math.sin(angle) * 1.2);
+      this.molClusterA.add(satA);
+    }
+    this.molClusterA.position.set(-4, 2, 0);
+    this.compoundGroup.add(this.molClusterA);
+
+    // Molecule Cluster B (Coral Magenta Sphere Cluster)
+    this.molClusterB = new THREE.Group();
+    const matB = new THREE.MeshStandardMaterial({
+      color: 0xEC4899,
+      roughness: 0.2,
+      metalness: 0.3,
+      emissive: 0xBE185D,
+      emissiveIntensity: 0.4
+    });
+    const coreB = new THREE.Mesh(geomSphere, matB);
+    this.molClusterB.add(coreB);
+    
+    for (let i = 0; i < 4; i++) {
+      const satB = new THREE.Mesh(new THREE.SphereGeometry(0.35, 12, 12), matB);
+      const angle = (i / 4) * Math.PI * 2 + Math.PI / 4;
+      satB.position.set(Math.cos(angle) * 1.5, Math.sin(angle) * 0.8, Math.sin(angle) * 1.2);
+      this.molClusterB.add(satB);
+    }
+    this.molClusterB.position.set(4, 2, 0);
+    this.compoundGroup.add(this.molClusterB);
+
+    // Dynamic Interaction Particles Cloud
+    const particleCount = 120;
+    const particleGeom = new THREE.BufferGeometry();
+    const positions = new Float32Array(particleCount * 3);
+    const colors = new Float32Array(particleCount * 3);
+
+    for (let i = 0; i < particleCount; i++) {
+      positions[i * 3] = (Math.random() - 0.5) * 8;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 4 + 2;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 8;
+
+      colors[i * 3] = 0.4;
+      colors[i * 3 + 1] = 0.8;
+      colors[i * 3 + 2] = 0.6;
     }
 
-    // Scale sebaceous gland based on sebum / inflammation
-    if (this.meshes.sebaceous) {
-      const glandScale = 0.8 + (state.acne_iga * 0.15);
-      this.meshes.sebaceous.scale.set(glandScale, glandScale, glandScale);
+    particleGeom.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    particleGeom.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+    const particleMat = new THREE.PointsMaterial({
+      size: 0.3,
+      vertexColors: true,
+      transparent: true,
+      opacity: 0.85
+    });
+
+    this.simParticles = new THREE.Points(particleGeom, particleMat);
+    this.compoundGroup.add(this.simParticles);
+
+    // Center Reaction Ring / Aura
+    const ringGeom = new THREE.TorusGeometry(2.5, 0.15, 16, 64);
+    this.reactionRingMat = new THREE.MeshStandardMaterial({
+      color: 0x10B981,
+      emissive: 0x059669,
+      emissiveIntensity: 0.6,
+      roughness: 0.2
+    });
+    this.reactionRing = new THREE.Mesh(ringGeom, this.reactionRingMat);
+    this.reactionRing.rotation.x = Math.PI / 2;
+    this.reactionRing.position.set(0, 2, 0);
+    this.compoundGroup.add(this.reactionRing);
+
+    this.scene.add(this.compoundGroup);
+  }
+
+  setMode(mode) {
+    this.mode = mode;
+    if (mode === 'skin') {
+      this.skinGroup.visible = true;
+      this.compoundGroup.visible = false;
+      document.getElementById('canvas-3d-status-text').innerText = 'Chế độ: Giải phẫu bệnh học da | Đồng bộ Tab Khám';
+      document.getElementById('controls-skin-mode').classList.remove('hidden');
+      document.getElementById('controls-compound-mode').classList.add('hidden');
+      document.getElementById('skin-structure-cards').classList.remove('hidden');
+      document.getElementById('compound-analysis-panel').classList.add('hidden');
+      document.getElementById('btn-mode-skin').className = 'px-3 py-1.5 rounded-lg text-xs font-bold transition shadow-soft-xs bg-white text-[#D97768] border border-[#F0A8A0]';
+      document.getElementById('btn-mode-compounds').className = 'px-3 py-1.5 rounded-lg text-xs font-semibold text-[#5C4D47] hover:text-[#D97768] transition';
+    } else {
+      this.skinGroup.visible = false;
+      this.compoundGroup.visible = true;
+      document.getElementById('canvas-3d-status-text').innerText = 'Chế độ: Mô phỏng 3D Động học Tương tác Hợp chất';
+      document.getElementById('controls-skin-mode').classList.add('hidden');
+      document.getElementById('controls-compound-mode').classList.remove('hidden');
+      document.getElementById('skin-structure-cards').classList.add('hidden');
+      document.getElementById('compound-analysis-panel').classList.remove('hidden');
+      document.getElementById('btn-mode-compounds').className = 'px-3 py-1.5 rounded-lg text-xs font-bold transition shadow-soft-xs bg-white text-[#D97768] border border-[#F0A8A0]';
+      document.getElementById('btn-mode-skin').className = 'px-3 py-1.5 rounded-lg text-xs font-semibold text-[#5C4D47] hover:text-[#D97768] transition';
+      runCompoundSimulation();
     }
+  }
+
+  updateCompoundSimulation(data) {
+    if (!this.reactionRingMat || !this.simParticles) return;
+
+    let targetColor = 0x10B981; // Green synergy
+    let emissiveColor = 0x059669;
+
+    if (data.particleMode === 'conflict') {
+      targetColor = 0xEF4444; // Red conflict
+      emissiveColor = 0xB91C1C;
+    } else if (data.particleMode === 'caution') {
+      targetColor = 0xF59E0B; // Amber caution
+      emissiveColor = 0xD97706;
+    }
+
+    this.reactionRingMat.color.setHex(targetColor);
+    this.reactionRingMat.emissive.setHex(emissiveColor);
+
+    const positions = this.simParticles.geometry.attributes.position.array;
+    const colors = this.simParticles.geometry.attributes.color.array;
+    const r = (targetColor >> 16 & 255) / 255;
+    const g = (targetColor >> 8 & 255) / 255;
+    const b = (targetColor & 255) / 255;
+
+    for (let i = 0; i < positions.length / 3; i++) {
+      colors[i * 3] = r;
+      colors[i * 3 + 1] = g;
+      colors[i * 3 + 2] = b;
+    }
+    this.simParticles.geometry.attributes.color.needsUpdate = true;
   }
 
   toggleLayer(layerKey) {
-    if (this.layers[layerKey] !== undefined) {
+    if (this.meshes[layerKey]) {
       this.layers[layerKey] = !this.layers[layerKey];
-      if (this.meshes[layerKey]) {
-        this.meshes[layerKey].visible = this.layers[layerKey];
-      }
+      this.meshes[layerKey].visible = this.layers[layerKey];
+      
       const btn = document.getElementById('layer-btn-' + layerKey);
       if (btn) {
         if (this.layers[layerKey]) {
-          btn.classList.add('border-[#F0A8A0]', 'text-[#D97768]');
-          btn.classList.remove('border-[#F0E6E0]', 'text-[#9E8D87]');
+          btn.className = 'px-2.5 py-1 rounded-lg bg-white border border-[#F0A8A0] text-[#D97768] text-xs font-semibold transition shadow-soft-xs';
         } else {
-          btn.classList.remove('border-[#F0A8A0]', 'text-[#D97768]');
-          btn.classList.add('border-[#F0E6E0]', 'text-[#9E8D87]');
+          btn.className = 'px-2.5 py-1 rounded-lg bg-[#FAF5F2] border border-[#F0E6E0] text-[#9E8D87] text-xs font-normal transition';
         }
       }
     }
@@ -5065,22 +5017,15 @@ class Skin3DEngine {
 
   toggleCutPlane() {
     this.isCutPlane = !this.isCutPlane;
-    const btn = document.getElementById('btn-3d-cut');
-    if (btn) {
-      if (this.isCutPlane) {
-        btn.classList.add('bg-[#FDF0ED]', 'text-[#D97768]', 'border-[#F5B8A8]');
-        this.camera.position.set(0, 5, 20);
-      } else {
-        btn.classList.remove('bg-[#FDF0ED]', 'text-[#D97768]', 'border-[#F5B8A8]');
-        this.camera.position.set(16, 14, 20);
-      }
+    if (this.meshes.dermis) {
+      this.meshes.dermis.scale.z = this.isCutPlane ? 0.5 : 1.0;
     }
   }
 
   resetCamera() {
     if (this.camera && this.controls) {
       this.camera.position.set(16, 14, 20);
-      this.controls.target.set(0, 1.5, 0);
+      this.controls.target.set(0, 2, 0);
       this.controls.update();
     }
   }
@@ -5088,17 +5033,94 @@ class Skin3DEngine {
   handleResize() {
     if (!this.canvas || !this.renderer || !this.camera) return;
     const width = this.canvas.parentElement.clientWidth || 600;
-    const height = this.canvas.parentElement.clientHeight || 450;
+    const height = this.canvas.parentElement.clientHeight || 480;
     this.camera.aspect = width / height;
     this.camera.updateProjectionMatrix();
     this.renderer.setSize(width, height);
   }
 
   animate() {
+    if (!this.renderer || !this.scene || !this.camera) return;
     requestAnimationFrame(() => this.animate());
+
+    if (this.isPlaying) {
+      if (this.mode === 'skin') {
+        if (this.skinGroup) {
+          this.skinGroup.rotation.y += 0.003 * this.animSpeed;
+        }
+      } else {
+        if (this.molClusterA) {
+          this.molClusterA.rotation.y += 0.02 * this.animSpeed;
+          this.molClusterA.rotation.x += 0.01 * this.animSpeed;
+        }
+        if (this.molClusterB) {
+          this.molClusterB.rotation.y -= 0.02 * this.animSpeed;
+          this.molClusterB.rotation.z += 0.01 * this.animSpeed;
+        }
+        if (this.reactionRing) {
+          this.reactionRing.rotation.z += 0.01 * this.animSpeed;
+        }
+        if (this.simParticles) {
+          const positions = this.simParticles.geometry.attributes.position.array;
+          for (let i = 0; i < positions.length / 3; i++) {
+            positions[i * 3 + 1] += (Math.sin(Date.now() * 0.003 + i) * 0.02);
+          }
+          this.simParticles.geometry.attributes.position.needsUpdate = true;
+        }
+      }
+    }
+
     if (this.controls) this.controls.update();
-    if (this.renderer && this.scene && this.camera) {
-      this.renderer.render(this.scene, this.camera);
+    this.renderer.render(this.scene, this.camera);
+  }
+}
+
+function switch3DMode(mode) {
+  current3DMode = mode;
+  if (current3DEngine) current3DEngine.setMode(mode);
+}
+
+function runCompoundSimulation() {
+  const actA = document.getElementById('sim-active-a')?.value || 'adapalene';
+  const actB = document.getElementById('sim-active-b')?.value || 'bpo';
+  const data = getCompoundInteractionData(actA, actB);
+
+  // Update UI Elements
+  const badge = document.getElementById('sim-badge-status');
+  if (badge) {
+    badge.innerText = data.status;
+    badge.style.color = data.badgeColor;
+    badge.style.backgroundColor = data.badgeBg;
+    badge.style.borderColor = data.badgeColor;
+  }
+
+  document.getElementById('sim-ph-badge').innerText = data.phStatus;
+  document.getElementById('sim-ph-detail').innerText = data.phDetail;
+  document.getElementById('sim-tewl-badge').innerText = data.tewlStatus;
+  document.getElementById('sim-tewl-detail').innerText = data.tewlDetail;
+  document.getElementById('sim-timing-badge').innerText = data.timingStatus;
+  document.getElementById('sim-timing-detail').innerText = data.timingDetail;
+  document.getElementById('sim-mechanism-detail').innerText = data.mechanism;
+
+  if (current3DEngine) {
+    current3DEngine.updateCompoundSimulation(data);
+  }
+}
+
+function setSimPreset(actA, actB) {
+  const selA = document.getElementById('sim-active-a');
+  const selB = document.getElementById('sim-active-b');
+  if (selA) selA.value = actA;
+  if (selB) selB.value = actB;
+  runCompoundSimulation();
+}
+
+function toggle3DAnimation() {
+  if (current3DEngine) {
+    current3DEngine.isPlaying = !current3DEngine.isPlaying;
+    const btn = document.getElementById('btn-3d-playpause');
+    if (btn) {
+      btn.innerText = current3DEngine.isPlaying ? 'Tạm dừng' : 'Tiếp tục';
     }
   }
 }
@@ -5116,22 +5138,612 @@ function reset3DCamera() {
 }
 
 // -------------------------------------------------------------------------
-// 8. SYSTEM INITIALIZATION
+// 5. NAVIGATION, MODALS, SEARCH & EXPORT LOGIC
 // -------------------------------------------------------------------------
 
-window.addEventListener('DOMContentLoaded', () => {
-  console.log("Initializing DERMA-X Pastel Edition v2.0...");
+function switchTab(tabId) {
+  document.querySelectorAll('.tab-pane').forEach(el => el.classList.add('hidden'));
+  const target = document.getElementById(tabId);
+  if (target) target.classList.remove('hidden');
+
+  document.querySelectorAll('.nav-tab-btn').forEach(btn => {
+    btn.classList.remove('active', 'text-[#D97768]', 'font-bold');
+    btn.classList.add('text-[#9E8D87]');
+  });
+
+  const activeBtn = document.getElementById('nav-btn-' + tabId);
+  if (activeBtn) {
+    activeBtn.classList.add('active', 'text-[#D97768]', 'font-bold');
+    activeBtn.classList.remove('text-[#9E8D87]');
+  }
+
+  if (tabId === 'tab-3d' && current3DEngine) {
+    setTimeout(() => current3DEngine.handleResize(), 50);
+  }
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function updateDiagnostics() {
+  const acne = assessAcne(patientState.acne_iga, patientState.phenotypes, patientState.scarring_type);
+  const barrier = assessBarrier(patientState.barrier, patientState.symptoms);
+  const risk = evaluateClinicalRiskProfile(patientState);
+  const regimen = generateClinicalRegimen(patientState);
+
+  // Update Summary Dashboard in Tab 2
+  const igaBadge = document.getElementById('dash-iga-score');
+  if (igaBadge) {
+    igaBadge.innerText = 'IGA ' + acne.iga_score;
+    igaBadge.style.color = acne.color;
+  }
+  const igaDesc = document.getElementById('dash-iga-desc');
+  if (igaDesc) igaDesc.innerText = acne.score_label;
+
+  const barrierBadge = document.getElementById('dash-barrier-status');
+  if (barrierBadge) {
+    barrierBadge.innerText = barrier.grade_label.split(' ')[0];
+    barrierBadge.style.color = barrier.color;
+  }
+  const barrierDesc = document.getElementById('dash-barrier-desc');
+  if (barrierDesc) barrierDesc.innerText = barrier.grade_label;
+
+  const riskBadge = document.getElementById('dash-risk-score');
+  if (riskBadge) {
+    riskBadge.innerText = risk.score + '/100';
+    riskBadge.style.color = risk.color;
+  }
+  const riskDesc = document.getElementById('dash-risk-desc');
+  if (riskDesc) riskDesc.innerText = risk.level;
+
+  // Red flags banner
+  const rfBanner = document.getElementById('home-red-flag-alert');
+  if (rfBanner) {
+    if (patientState.red_flags && patientState.red_flags.length > 0) {
+      rfBanner.classList.remove('hidden');
+    } else {
+      rfBanner.classList.add('hidden');
+    }
+  }
+
+  // Render Routine Lists in Tab 2
+  renderRegimenCards(regimen);
+}
+
+function renderRegimenCards(regimen) {
+  const amContainer = document.getElementById('home-routine-am-list');
+  const pmContainer = document.getElementById('home-routine-pm-list');
+
+  if (amContainer) {
+    amContainer.innerHTML = regimen.am.map(item => `
+      <div class="p-3.5 rounded-xl bg-white border border-[#F0E6E0] shadow-soft-xs space-y-1">
+        <div class="flex items-center justify-between">
+          <span class="text-[11px] font-bold text-[#D97768]">${item.step}</span>
+          <span class="text-[10px] px-2 py-0.5 rounded bg-[#FAF5F2] text-[#9E8D87] border border-[#F0E6E0]">${item.type}</span>
+        </div>
+        <p class="text-xs font-bold text-[#4A3B36]">${item.name}</p>
+        <p class="text-[11px] text-[#5C4D47]">${item.desc}</p>
+      </div>
+    `).join('');
+  }
+
+  if (pmContainer) {
+    pmContainer.innerHTML = regimen.pm.map(item => `
+      <div class="p-3.5 rounded-xl bg-white border border-[#F0E6E0] shadow-soft-xs space-y-1">
+        <div class="flex items-center justify-between">
+          <span class="text-[11px] font-bold text-[#D97768]">${item.step}</span>
+          <span class="text-[10px] px-2 py-0.5 rounded bg-[#FAF5F2] text-[#9E8D87] border border-[#F0E6E0]">${item.type}</span>
+        </div>
+        <p class="text-xs font-bold text-[#4A3B36]">${item.name}</p>
+        <p class="text-[11px] text-[#5C4D47]">${item.desc}</p>
+      </div>
+    `).join('');
+  }
+}
+
+function filterProducts() {
+  const query = (document.getElementById('prod-search-input')?.value || '').toLowerCase().trim();
+  const catFilter = document.getElementById('prod-category-filter')?.value || 'ALL';
+  const tierFilter = document.getElementById('prod-tier-filter')?.value || 'ALL';
+
+  const filtered = PRODUCTS_DB.filter(p => {
+    const matchQ = !query || 
+      p.product_name.toLowerCase().includes(query) || 
+      p.brand.toLowerCase().includes(query) || 
+      p.key_actives.toLowerCase().includes(query);
+
+    const matchCat = (catFilter === 'ALL' || p.category === catFilter);
+    const matchTier = (tierFilter === 'ALL' || p.price_tier === tierFilter);
+
+    return matchQ && matchCat && matchTier;
+  });
+
+  renderProductGrid(filtered);
+}
+
+function renderProductGrid(items) {
+  const container = document.getElementById('product-grid-container');
+  const countBadge = document.getElementById('product-count-badge');
+  if (countBadge) {
+    countBadge.innerText = `Đang hiển thị: ${items.length} sản phẩm`;
+  }
+
+  if (!container) return;
+
+  if (items.length === 0) {
+    container.innerHTML = `
+      <div class="col-span-full p-8 text-center bg-white rounded-2xl border border-[#F0E6E0] space-y-2">
+        <p class="text-sm font-bold text-[#4A3B36]">Không tìm thấy sản phẩm phù hợp</p>
+        <p class="text-xs text-[#9E8D87]">Hãy thử thay đổi từ khóa hoặc bộ lọc danh mục.</p>
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = items.map(p => `
+    <div onclick="openProductModal('${p.product_id}')" class="bg-white rounded-2xl p-4 sm:p-5 border border-[#F0E6E0] shadow-soft-sm hover:shadow-soft-md transition flex flex-col justify-between cursor-pointer space-y-3">
+      <div class="space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-[10.5px] font-bold px-2.5 py-0.5 rounded-full bg-[#FAF5F2] text-[#D97768] border border-[#F0E6E0]">${p.brand}</span>
+          <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-[#EBF6F0] text-[#2D6A4F] border border-[#B8D8C8]">${p.category}</span>
+        </div>
+        <h4 class="text-xs sm:text-sm font-bold text-[#4A3B36] line-clamp-2">${p.product_name}</h4>
+        <p class="text-[11px] text-[#5C4D47] line-clamp-2"><span class="font-semibold text-[#9E8D87]">Hoạt chất:</span> ${p.key_actives}</p>
+      </div>
+
+      <div class="pt-2 border-t border-[#FAF5F2] flex items-center justify-between text-[11px]">
+        <span class="font-bold text-[#D97768]">${p.price_raw.split('/')[0]}</span>
+        <span class="text-[10px] text-[#9E8D87]">Bằng chứng: ${p.evidence_level.split(' ')[0]}</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+function openProductModal(prodId) {
+  const prod = PRODUCTS_DB.find(p => p.product_id === prodId);
+  if (!prod) return;
+
+  document.getElementById('modal-prod-name').innerText = prod.product_name;
+  document.getElementById('modal-prod-brand').innerText = `${prod.brand} (${prod.origin})`;
+  document.getElementById('modal-prod-category').innerText = `${prod.category} - ${prod.subcategory}`;
+  document.getElementById('modal-prod-price').innerText = prod.price_raw;
+  document.getElementById('modal-prod-actives').innerText = prod.key_actives;
+  document.getElementById('modal-prod-claim').innerText = prod.manufacturer_claim;
+  document.getElementById('modal-prod-evidence').innerText = prod.clinical_evidence;
+  document.getElementById('modal-prod-inci').innerText = prod.inci_breakdown;
+  document.getElementById('modal-prod-moa').innerText = prod.mechanism_of_action;
+  document.getElementById('modal-prod-confidence').innerText = `Độ tin cậy: ${prod.data_confidence} | Nguồn Tier ${prod.verified_source_tier}`;
   
-  // Initialize 3D Engine
+  const linkEl = document.getElementById('modal-prod-url');
+  if (linkEl) {
+    linkEl.href = prod.formulation_source_url;
+    linkEl.innerText = prod.formulation_source_url;
+  }
+
+  document.getElementById('modal-prod-detail').classList.remove('hidden');
+}
+
+function closeModal(modalId) {
+  const el = document.getElementById(modalId);
+  if (el) el.classList.add('hidden');
+}
+
+function openExportModal() {
+  const reportText = generateClinicalExportText();
+  const area = document.getElementById('export-report-text');
+  if (area) area.value = reportText;
+  document.getElementById('modal-export').classList.remove('hidden');
+}
+
+function generateClinicalExportText() {
+  const acne = assessAcne(patientState.acne_iga, patientState.phenotypes, patientState.scarring_type);
+  const barrier = assessBarrier(patientState.barrier, patientState.symptoms);
+  const risk = evaluateClinicalRiskProfile(patientState);
+  const regimen = generateClinicalRegimen(patientState);
+
+  var lines = [];
+  lines.push("=======================================================");
+  lines.push("HỒ SƠ KHÁM LÂM SÀNG & PHÁC ĐỒ ĐIỀU TRỊ DA LIỄU DERMA-X");
+  lines.push("Tiêu Chuẩn Y Khoa Thực Chứng (EBM Dermatology)");
+  lines.push("=======================================================");
+  lines.push("Ngày khám: " + new Date().toLocaleDateString('vi-VN'));
+  lines.push("Bệnh nhân: " + (patientState.sex === 'female' ? 'Nữ' : 'Nam') + ", " + patientState.age);
+  lines.push("Tình trạng thai kỳ: " + patientState.pregnancy);
+  lines.push("Thói quen chống nắng: " + patientState.sunscreen);
+  lines.push("");
+  lines.push("1. ĐÁNH GIÁ LÂM SÀNG:");
+  lines.push("- Điểm mụn trứng cá: IGA " + acne.iga_score + " (" + acne.score_label + ")");
+  lines.push("- Kiểu hình tổn thương: " + acne.phenotypes.join(', '));
+  lines.push("- Sẹo rỗ: " + patientState.scarring_type);
+  lines.push("- Phân loại da Fitzpatrick: Type " + patientState.fitzpatrick);
+  lines.push("- Tình trạng rào cản biểu bì: " + barrier.grade_label);
+  lines.push("- Điểm nguy cơ kích ứng: " + risk.score + "/100 (" + risk.level + ")");
+  lines.push("- Triệu chứng chủ quan: " + (patientState.symptoms.length > 0 ? patientState.symptoms.join(', ') : 'Không'));
+  lines.push("");
+  lines.push("2. PHÁC ĐỒ ĐIỀU TRỊ KHUYẾN NGHỊ:");
+  lines.push("[BUỔI SÁNG]:");
+  regimen.am.forEach(function(i) {
+    lines.push("* " + i.step + ": " + i.name);
+    lines.push("  -> " + i.desc);
+  });
+  lines.push("");
+  lines.push("[BUỔI TỐI]:");
+  regimen.pm.forEach(function(i) {
+    lines.push("* " + i.step + ": " + i.name);
+    lines.push("  -> " + i.desc);
+  });
+  lines.push("");
+  lines.push("3. CẢNH BÁO AN TOÀN & LƯU Ý KÊ ĐƠN:");
+  if (regimen.contraindications.length > 0) {
+    regimen.contraindications.forEach(function(c) {
+      lines.push("[!] " + c);
+    });
+  } else {
+    lines.push("- Không có chống chỉ định tuyệt đối.");
+  }
+  regimen.notes.forEach(function(n) {
+    lines.push("[*] " + n);
+  });
+  lines.push("=======================================================");
+  lines.push("Báo cáo được khởi tạo tự động bởi Hệ Thống Hỗ Trợ Ra Quyết Định Lâm Sàng DERMA-X.");
+
+  return lines.join("\n");
+}
+
+function copyExportReport() {
+  const area = document.getElementById('export-report-text');
+  if (area) {
+    area.select();
+    navigator.clipboard.writeText(area.value).then(() => {
+      alert('Đã sao chép báo cáo lâm sàng vào bộ nhớ tạm!');
+    });
+  }
+}
+
+function open3DStructureModal(structureKey) {
+  const details = {
+    'stratum_corneum': {
+      title: 'Lớp Sừng (Stratum Corneum) & Màng Lipid Kép',
+      body: 'Lớp sừng dày khoảng 10-20 micromet gồm 15-20 lớp tế bào sừng (corneocytes) được gắn kết chặt chẽ trong ma trận lipid gian bào theo mô hình gạch & vữa. Tỷ lệ lipid tối ưu gồm Ceramides (50%), Cholesterol (25%) và Acid béo tự do (15%). Khi tỷ lệ này bị phá vỡ, chỉ số mất nước qua biểu bì (TEWL) tăng cao, làm da trở nên nhạy cảm và dễ kích ứng.'
+    },
+    'pilosebaceous_unit': {
+      title: 'Đơn Vị Nang Lông - Tuyến Bã (Pilosebaceous Unit)',
+      body: 'Nơi khởi nguồn của cơ chế sinh bệnh mụn trứng cá qua 4 yếu tố then chốt: (1) Tăng tiết bã nhờn do Androgen, (2) Dày sừng nút tắc phễu nang lông, (3) Tăng sinh vi khuẩn Cutibacterium acnes, và (4) Phản ứng viêm miễn dịch bẩm sinh qua thụ thể TLR-2.'
+    },
+    'inflammatory_infiltrate': {
+      title: 'Thâm Nhiễm Viêm & Mạch Máu Trung Bì (Dermis & PIE)',
+      body: 'Các tế bào lympho T, đại thực bào và bạch cầu trung tính thâm nhiễm quanh nang lông vỡ, giải phóng enzyme tiêu protein Matrix Metalloproteinases (MMPs) phá hủy sợi Collagen/Elastin tạo sẹo rỗ, đồng thời kích thích giãn mao mạch tạo hồng ban sau viêm (PIE).'
+    }
+  };
+
+  const item = details[structureKey];
+  if (!item) return;
+
+  document.getElementById('modal-scale-title').innerText = item.title;
+  document.getElementById('modal-scale-body').innerText = item.body;
+  document.getElementById('modal-scale-expansion').classList.remove('hidden');
+}
+
+// -------------------------------------------------------------------------
+// 6. INITIALIZATION ON DOM READY
+// -------------------------------------------------------------------------
+
+// -------------------------------------------------------------------------
+// INTERACTIVE FORM STATE HANDLERS & CLINICAL WORKFLOW HELPERS
+// -------------------------------------------------------------------------
+
+function syncFormInputsFromState() {
+  // 1. Age, Sex, Pregnancy, Sunscreen
+  const ageEl = document.getElementById('eval-age');
+  if (ageEl) ageEl.value = patientState.age;
+  const sexEl = document.getElementById('eval-sex');
+  if (sexEl) sexEl.value = patientState.sex;
+  const pregEl = document.getElementById('eval-pregnancy');
+  if (pregEl) pregEl.value = patientState.pregnancy;
+  const sunEl = document.getElementById('eval-sunscreen');
+  if (sunEl) sunEl.value = patientState.sunscreen;
+
+  // 2. IGA Buttons UI
+  for (let i = 0; i <= 4; i++) {
+    const btn = document.getElementById('iga-btn-' + i);
+    if (btn) {
+      if (patientState.acne_iga === i) {
+        btn.className = 'p-3 rounded-2xl border-2 border-[#D97768] bg-[#FDF0ED] text-[#D97768] font-bold shadow-soft-xs text-center cursor-pointer transition';
+      } else {
+        btn.className = 'p-3 rounded-2xl border border-[#F0E6E0] bg-white hover:bg-[#FAF5F2] text-[#4A3B36] font-medium text-center cursor-pointer transition';
+      }
+    }
+  }
+
+  // 3. Fitzpatrick Buttons UI
+  for (let f = 1; f <= 6; f++) {
+    const btn = document.getElementById('fitz-btn-' + f);
+    if (btn) {
+      if (patientState.fitzpatrick === f) {
+        btn.className = 'p-2.5 rounded-xl border-2 border-[#D97768] bg-[#FDF0ED] text-[#D97768] font-bold text-center cursor-pointer transition';
+      } else {
+        btn.className = 'p-2.5 rounded-xl border border-[#F0E6E0] bg-white hover:bg-[#FAF5F2] text-[#4A3B36] font-medium text-center cursor-pointer transition';
+      }
+    }
+  }
+
+  // 4. Barrier Buttons UI
+  const barrierLevels = ['normal', 'mild', 'moderate', 'severe'];
+  barrierLevels.forEach(b => {
+    const btn = document.getElementById('barrier-btn-' + b);
+    if (btn) {
+      if (patientState.barrier === b) {
+        btn.className = 'p-3 rounded-2xl border-2 border-[#D97768] bg-[#FDF0ED] text-[#D97768] font-bold shadow-soft-xs text-center cursor-pointer transition';
+      } else {
+        btn.className = 'p-3 rounded-2xl border border-[#F0E6E0] bg-white hover:bg-[#FAF5F2] text-[#4A3B36] font-medium text-center cursor-pointer transition';
+      }
+    }
+  });
+
+  // 5. Phenotypes Checkboxes
+  const pts = ['comedones', 'papules', 'pustules', 'nodules'];
+  pts.forEach(p => {
+    const el = document.getElementById('pt-' + p);
+    if (el) el.checked = (patientState.phenotypes && patientState.phenotypes.includes(p));
+  });
+
+  // 6. Symptoms Checkboxes
+  const syms = ['stinging', 'flaking', 'redness', 'tightness'];
+  syms.forEach(s => {
+    const el = document.getElementById('sym-' + s);
+    if (el) el.checked = (patientState.symptoms && patientState.symptoms.includes(s));
+  });
+
+  // 7. Actives Checkboxes
+  const acts = ['adapalene', 'tretinoin', 'bpo', 'bha', 'aha', 'azelaic', 'vitc', 'hydroquinone'];
+  acts.forEach(a => {
+    const el = document.getElementById('act-' + a);
+    if (el) el.checked = (patientState.actives && patientState.actives.includes(a));
+  });
+
+  // 8. Red Flags Checkboxes
+  const rfs = ['severe-cysts', 'rosacea', 'infection'];
+  rfs.forEach(r => {
+    const el = document.getElementById('rf-' + r);
+    const key = r.replace('-', '_');
+    if (el) el.checked = (patientState.red_flags && (patientState.red_flags.includes(r) || patientState.red_flags.includes(key)));
+  });
+}
+
+function setIGA(score) {
+  patientState.acne_iga = parseInt(score, 10);
+  syncFormInputsFromState();
+  updateDiagnostics();
+}
+
+function setFitzpatrick(fitz) {
+  patientState.fitzpatrick = parseInt(fitz, 10);
+  syncFormInputsFromState();
+  updateDiagnostics();
+}
+
+function setBarrier(b) {
+  patientState.barrier = b;
+  syncFormInputsFromState();
+  updateDiagnostics();
+}
+
+function updatePatientField(field, value) {
+  patientState[field] = value;
+  syncFormInputsFromState();
+  updateDiagnostics();
+}
+
+function togglePhenotype(pt) {
+  if (!patientState.phenotypes) patientState.phenotypes = [];
+  const idx = patientState.phenotypes.indexOf(pt);
+  if (idx > -1) {
+    patientState.phenotypes.splice(idx, 1);
+  } else {
+    patientState.phenotypes.push(pt);
+  }
+  updateDiagnostics();
+}
+
+function toggleSymptom(sym) {
+  if (!patientState.symptoms) patientState.symptoms = [];
+  const idx = patientState.symptoms.indexOf(sym);
+  if (idx > -1) {
+    patientState.symptoms.splice(idx, 1);
+  } else {
+    patientState.symptoms.push(sym);
+  }
+  updateDiagnostics();
+}
+
+function toggleActive(act) {
+  if (!patientState.actives) patientState.actives = [];
+  const idx = patientState.actives.indexOf(act);
+  if (idx > -1) {
+    patientState.actives.splice(idx, 1);
+  } else {
+    patientState.actives.push(act);
+  }
+  updateDiagnostics();
+}
+
+function toggleRedFlag(rf) {
+  if (!patientState.red_flags) patientState.red_flags = [];
+  const key = rf.replace('-', '_');
+  const idx = patientState.red_flags.indexOf(key);
+  if (idx > -1) {
+    patientState.red_flags.splice(idx, 1);
+  } else {
+    patientState.red_flags.push(key);
+  }
+  updateDiagnostics();
+}
+
+function resetAllState() {
+  patientState = {
+    age: 'adult',
+    sex: 'female',
+    pregnancy: 'none',
+    sunscreen: 'regular',
+    acne_iga: 2,
+    phenotypes: ['papules', 'pustules', 'comedones'],
+    scarring_type: 'none',
+    fitzpatrick: 3,
+    barrier: 'normal',
+    symptoms: [],
+    inflammation: 'mild',
+    itch_nrs: 2,
+    pigment: 'none',
+    uv: 'moderate',
+    actives: ['adapalene'],
+    red_flags: []
+  };
+  syncFormInputsFromState();
+  updateDiagnostics();
+}
+
+function loadSampleCase(caseId) {
+  if (caseId === 'sample1') {
+    patientState = {
+      age: 'young_adult',
+      sex: 'female',
+      pregnancy: 'none',
+      sunscreen: 'regular',
+      acne_iga: 1,
+      phenotypes: ['comedones', 'papules'],
+      scarring_type: 'none',
+      fitzpatrick: 3,
+      barrier: 'normal',
+      symptoms: [],
+      inflammation: 'none',
+      itch_nrs: 0,
+      pigment: 'none',
+      uv: 'low',
+      actives: ['adapalene'],
+      red_flags: []
+    };
+  } else if (caseId === 'sample2') {
+    patientState = {
+      age: 'adult',
+      sex: 'female',
+      pregnancy: 'none',
+      sunscreen: 'reapply',
+      acne_iga: 3,
+      phenotypes: ['papules', 'pustules'],
+      scarring_type: 'boxcar',
+      fitzpatrick: 4,
+      barrier: 'moderate',
+      symptoms: ['stinging', 'flaking'],
+      inflammation: 'moderate',
+      itch_nrs: 4,
+      pigment: 'pih',
+      uv: 'moderate',
+      actives: ['adapalene', 'bpo'],
+      red_flags: []
+    };
+  } else if (caseId === 'sample3') {
+    patientState = {
+      age: 'adult',
+      sex: 'male',
+      pregnancy: 'none',
+      sunscreen: 'none',
+      acne_iga: 4,
+      phenotypes: ['nodules', 'pustules'],
+      scarring_type: 'icepick',
+      fitzpatrick: 3,
+      barrier: 'severe',
+      symptoms: ['stinging', 'flaking', 'redness', 'tightness'],
+      inflammation: 'severe',
+      itch_nrs: 6,
+      pigment: 'pie',
+      uv: 'high',
+      actives: ['tretinoin', 'bha'],
+      red_flags: ['severe_cysts']
+    };
+  } else if (caseId === 'sample4') {
+    patientState = {
+      age: 'adult',
+      sex: 'female',
+      pregnancy: 'pregnant',
+      sunscreen: 'regular',
+      acne_iga: 2,
+      phenotypes: ['papules', 'comedones'],
+      scarring_type: 'none',
+      fitzpatrick: 3,
+      barrier: 'mild',
+      symptoms: ['redness'],
+      inflammation: 'mild',
+      itch_nrs: 2,
+      pigment: 'melasma',
+      uv: 'moderate',
+      actives: ['azelaic'],
+      red_flags: []
+    };
+  }
+
+  syncFormInputsFromState();
+  updateDiagnostics();
+}
+
+function toggleModal(modalId) {
+  const el = document.getElementById(modalId);
+  if (el) {
+    el.classList.toggle('hidden');
+  }
+}
+
+function openProductDetail(prodId) {
+  openProductModal(prodId);
+}
+
+function openRedFlagModal() {
+  document.getElementById('modal-red-flags')?.classList.remove('hidden');
+}
+
+function openRuleInspectorModal() {
+  document.getElementById('modal-rule-inspector')?.classList.remove('hidden');
+}
+
+function openScaleExpansionModal(scaleKey) {
+  open3DStructureModal(scaleKey || 'stratum_corneum');
+}
+
+function copyExportText() {
+  copyExportReport();
+}
+
+function downloadExportJSON() {
+  const reportData = {
+    date: new Date().toISOString(),
+    patientState: patientState,
+    diagnostics: {
+      acne: assessAcne(patientState.acne_iga, patientState.phenotypes, patientState.scarring_type),
+      barrier: assessBarrier(patientState.barrier, patientState.symptoms),
+      risk: evaluateClinicalRiskProfile(patientState),
+      regimen: generateClinicalRegimen(patientState)
+    }
+  };
+  const blob = new Blob([JSON.stringify(reportData, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `DERMA_X_Patient_Record_${new Date().toISOString().slice(0,10)}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Init 3D Engine
   current3DEngine = new Skin3DEngine('skin-3d-canvas');
   
+  // Render Product Grid with all 100 products
+  renderProductGrid(PRODUCTS_DB);
+  
   // Initial sync & calculations
-  syncFormInputsFromState();
   updateDiagnostics();
 });
 
-
 </script>
+
 
 </div>
 </body>
